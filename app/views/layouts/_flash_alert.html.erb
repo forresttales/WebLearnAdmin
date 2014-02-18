@@ -1,0 +1,6 @@
+			
+	<div style="background-color: white; height: 18px;">
+		<% flash.each do |key, value| %>
+			<%= content_tag(:div, value, class: "flash-alert-#{key}") %>
+		<% end %>
+	</div>

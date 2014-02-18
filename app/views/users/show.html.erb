@@ -1,0 +1,29 @@
+<% provide(:title, 'Show') %>
+
+	<header>
+		<div style="height: 200px;background-color: white;">
+			<div style="height: 70px"></div>
+			<div style="text-align: center">
+				<h1 align="center">Signed in user's default page</h1>
+				<h3>- no account yet created</h3>
+			</div>			
+		</div>      		
+	</header>
+
+
+	<div class="container" style="padding: 0px 0px 0px 0px; background-color: yellow; height: 400px">
+		<div style="height: 70px;"></div>
+		
+		<div style="text-align: center">
+			<h3 style="font-style: italic; color: green;"><%= @user.username %></h3>
+			<h3>Would you like to create an acccount?</h3>
+		</div>
+		
+		<div style="text-align: center">
+    		<%= render 'layouts/menu_accounts_signed_in' %>
+		</div>
+		
+		
+	</div>
+			
+	<div class="container" style="padding: 0px 0px 0px 0px; background-color: green; height: 200px"></div>

@@ -1,0 +1,229 @@
+<% provide(:title, 'Events Registration List') %>
+
+	<style>
+	
+		#signin-page {
+			height: 1300px;
+		}
+	
+		#signin-page #signin-page-inner {
+		    width: 90%;
+		    margin: 0 auto;
+		}	
+
+		div .table-signin {
+			display: table;
+			background-color: #E3DDCF;
+			width: 1000px;
+			border-radius: 0px;
+			
+			/*border:2px solid #254520;*/
+						
+			/*box-shadow: 1px 1px 3px #888888;*/			
+			
+			padding-top: 40px;
+			padding-bottom: 40px;
+			padding-left: 10px;
+			padding-right: 10px;			
+		}
+
+		.table-signin p {
+			font-family: msyh; 
+			font-size: 16px;
+			color: #005187;"
+		}
+		
+	</style>
+
+
+	<div id="signin-page">
+		
+		<header>
+	
+			<%= render 'share/backtotop' %>
+
+			<div style="height: 70px;"></div>
+			
+		</header>
+		
+		
+		<div id="signin-page-inner">
+			
+			<div class="table-signin">
+				
+				<div class="row">
+					
+					<div class="cell-100percent" tabindex="1">
+
+						<%= form_tag admin_reg_events_path, :method => 'get', :id => "admin_reg_events_search" do %>
+						  	
+						  	<span>
+
+						    	 <!-- text_field_tag :search, params[:search]  -->
+						    	
+						    	<%= text_field_tag :search %>
+						    	
+						   	</span>
+						   	<span style="">Search by: </span>
+					
+						   	<span>
+							
+					   		<%= select_tag("search_by", options_for_select(
+					   				[['ID', '1'], 
+					   				['First Name','2'],
+					   				['Last Name','3'],
+					   				['Affil Type','4'],
+					   				['Affiliation','5']])) %>
+							
+						    </span>
+							<span>
+						    	<%= submit_tag "Search", :id => nil %>
+						  	</span>
+
+							<!-- <div style="display: inline; width: 200px;"></div> -->								
+								
+							<!-- <span style="width: 200px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> -->
+															
+							<span>Workshop: </span><span id="city"></span>
+
+						    <!-- 
+						    <option value="1">Columbia, SC</option>
+						    <option value="2">Houston, TX</option>
+						    <option value="3">Albuquerque, NM</option>
+						    <option value="4">Fresno, CA (Central)</option>						    
+						    <option value="5">Chicago, IL</option>
+						    <option value="6">San Bernadino, CA</option>						    
+						    <option value="7">Richmond, VA</option>
+						    <option value="8">Minneapolis, MN</option> 
+						    <option value="9">Detroit, MI</option>
+						    <option value="10">Las Vegas, NV</option>
+						    <option value="11">San Jose, CA</option>						    
+						    <option value="12">Newark, NJ</option>
+						    <option value="13">Tucson/Santa Fe, AZ</option>
+						    <option value="14">Tampa, FL</option>
+						    -->							
+
+						   	<span>
+							
+					   		 <%= select_tag("workshop", options_for_select(
+					   				[['All', '16'], 
+					   				['Columbia, SC','1'],
+					   				['Houston, TX','2'],
+					   				['Albuquerque, NM','3'],
+					   				['Fresno, CA (Central)','4'],
+					   				['Chicago, IL','5'],
+					   				['San Bernadino, CA','6'],
+					   				['Richmond, VA','7'],
+					   				['Minneapolis, MN','8'],
+					   				['Detroit, MI','9'],
+					   				['Las Vegas, NV','10'],
+					   				['San Jose, CA','11'],
+					   				['Newark, NJ','12'],
+					   				['Tucson/Santa Fe, AZ','13'],
+					   				['Tampa, FL','14'],
+					   				['National GATHERING','15']])) %>
+					   				
+					   									   				
+					   				<!-- ['Workshop 13','13']]), :onchange => 'select_workshop()')  -->					   				
+							
+						    </span>
+
+					
+							<div id="admin_reg_events">
+								<%= render 'admin_reg_events/list' %>
+							</div>
+						  
+						<% end %>
+						
+												
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>	
+		
+	</div>					
+
+	<script>
+
+		$(document).on('click','#admin_reg_events th a, #admin_reg_events .pagination a',function(){
+		    $.getScript(this.href);
+		    return false;
+		});
+
+		//$("#archives_search input").keyup(function() {
+		$("#admin_reg_events_search").submit(function() {	
+			
+			// $("#search").val("name_first LIKE 'jf' AND city_workshop_10=true");
+			
+			// alert($("#admin_reg_events_search").serialize());
+			
+		    $.get($("#admin_reg_events_search").attr("action"), $("#admin_reg_events_search").serialize(), null, "script");
+		    return false;
+		});
+
+		// function select_workshop() {
+// 
+			// var s = $("#search_by").val();
+// 
+			// switch (s)
+			// {
+				// case '1':
+					// $("#search").val('Charleston/Columbia, SC');
+					// $("#city").html('Charleston/Columbia, SC');
+// 					
+				 	// break;
+				// case '2':
+					// $("#search").val('Houston, TX');
+				 	// break;
+				// case '3':
+					// $("#search").val('Albuquerque, NM');
+				 	// break;
+				// case '4':
+					// $("#search").val('Chicago, IL');
+				 	// break;
+				// case '5':
+					// $("#search").val('Fresno, CA (Central)');
+				 	// break;
+				// case '6':
+					// $("#search").val('Columbus, OH');
+				 	// break;
+				// case '7':
+					// $("#search").val('San Bernadino, CA');
+				 	// break;
+				// case '8':
+					// $("#search").val('Richmond, VA');
+				 	// break;
+				// case '9':
+					// $("#search").val('Milwaukee, MI');
+				 	// break;
+				// case '10':
+					// $("#search").val('Las Vegas');
+				 	// break;
+				// case '11':
+					// $("#search").val('Newark, NJ');
+				 	// break;
+				// case '12':
+					// $("#search").val('Tucson/Santa Fe, AZ');
+				 	// break;
+				// case '13':
+					// $("#search").val('Tampa, FL');
+				 	// break;
+				// case '14':
+					// $("#search").val('');				
+					// break;
+				// default:
+					// //
+			// }
+		// }
+
+		// $(window).load( function() {
+		// //$(document).ready(function(){
+		// });
+	
+	</script>
+					
+
+

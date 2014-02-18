@@ -1,0 +1,71 @@
+
+<!-- 
+#  id             :integer          not null, primary key
+#  slug           :string(255)      not null
+#  sluggable_id   :integer          not null
+#  sluggable_type :string(50)
+#  scope          :string(255)
+#  created_at     :datetime
+#  updated_at     :datetime 
+-->
+
+	<% if @friendlyidslugs.any? %>
+
+	<%= hidden_field_tag :direction, params[:direction] %>
+	<%= hidden_field_tag :sort, params[:sort] %>
+
+    <table id="admin_friendlyidslug_list" style="width: 1000px;" title="FriendlyIdSlug" >    	    	
+	    <tr align="left">
+		    <th field="id" width = "15"><h4><%= sortable "id", "id" %></h4></th>
+		    <th field="slug" width = "15"><h4><%= sortable "slug", "slug" %></h4></th>
+		    <th field="sluggable_id" width = "15"><h4><%= sortable "sluggable_id", "sluggable_id" %></h4></th>
+		    <th field="sluggable_type" width = "15"><h4><%= sortable "sluggable_type", "sluggable_type" %></h4></th>
+		    <th field="scope" width = "15"><h4><%= sortable "scope", "scope" %></h4></th>
+		    <th field="created_at" width = "15"><h4><%= sortable "created_at", "Created" %></h4></th>
+		    <th field="updated_at" width = "15"><h4><%= sortable "updated_at", "Updated" %></h4></th>		    
+		</tr>
+		<% @friendlyidslugs.each do |friendlyidslug| %>
+	    <tr align="left">
+		    <td width = "15"><h5><%= friendlyidslug.id %></h5></td>
+		    <td width = "15"><h5><%= friendlyidslug.slug %></h5></td>
+		    <td width = "15"><h5><%= friendlyidslug.sluggable_id %></h5></td>
+		    <td width = "15"><h5><%= friendlyidslug.sluggable_type %></h5></td>
+		    <td width = "15"><h5><%= friendlyidslug.scope %></h5></td>
+		    <td width = "15"><h5><%= friendlyidslug.created_at.to_formatted_s(:db) %></h5></td>
+		    <td width = "15"><h5><%= friendlyidslug.updated_at %></h5></td>		    
+		    <td width = "15"><h5>
+		    <%= link_to('View', {:action => 'show', :id => friendlyidslug.id}) %>		    		    	
+			</h5></td>
+		    <td width = "15"><h5>
+		   	<% delete_msg = "Delete ID: " + friendlyidslug.id.to_s + " ?" %>
+			<%= button_to( "Delete", {:action => 'destroy', :id => friendlyidslug.id }, :method => :delete, :confirm => delete_msg ) %>			 
+			</h5></td>
+		</tr>
+		<% end %>	    	
+	</table>
+	<%= will_paginate @friendlyidslugs %>
+
+	<% else %>
+	<div class="row" style="color: red;">
+		<h3>No record for Slugs</h3>
+	</div>
+	<div class="row-end">&nbsp;</div>			
+
+	<% end %>
+				
+<div class="row" style="height: 20px;"></div>
+<div class="row-end">&nbsp;</div>				
+
+
+<script>
+	
+	$(document).ready(function () {
+	  $('*[data-confirm]').click(function(){
+	    return confirm($(this).attr('data-confirm'));
+	  });
+	});
+		
+</script>
+
+
+

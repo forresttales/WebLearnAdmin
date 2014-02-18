@@ -1,0 +1,92 @@
+
+	<style>
+		
+		a {
+			color: #C4740C;
+			font-size: 14px;
+			font-family: KlavikaMedium;					
+		}
+		
+	</style>
+
+
+		<header>					
+
+			<%= render 'share/backtotop' %>
+
+			<div style="height: 100px;"></div>
+			
+		</header>		
+
+		<section>
+			
+			<div class="kontainer">
+				
+				<div class="kontainer-space-1"></div>
+				
+					<div id="mainkolumn" class="withsidebar">
+						<div id="k-articlecontent">
+		    				
+		            		<!-- <div class="k-channel-article jump idea">
+		            			<div><span>IDEA</span></div>
+		            		</div> -->
+
+
+
+							<h1><%= @admin_user_profile.username %></h1>
+		            				            		
+							<div style="height: 20px;"></div>
+		                    	
+		                    <div id="render"></div>		
+
+							<div style="height: 20px;"></div>
+							
+							<%= link_to 'Settings', admin_user_profiles_show_path %>
+
+							<div style="height: 15px;"></div>
+							
+							<%= link_to 'Photos', admin_user_images_index_path %>
+								
+						</div>
+	
+						<br clear="all">
+
+						<div style="height: 500px;"></div>
+						
+					</div>
+	
+					<div id="k-sidebar">
+						<div id="k-sidebar_inner">
+							
+							<!-- <div id="render_ad"></div> -->
+														
+						</div>
+					</div>
+
+					<br clear="all">
+			
+					
+			</div>
+			
+		</section>
+
+
+<script>
+  
+	$(window).load( function() {
+
+			var cnt = 1;
+			var cells = "";
+			
+			// alert(gon.image_name);
+								
+			cells += "</td><td style='width: 10px;'></td><td><img src='../photos/" + gon.image_name + "' alt='image'>";
+			
+			var tbl = "<table><tr>" + cells + "</tr></table>";
+			
+			$( "#render" ).html( tbl);
+		
+	});
+  
+</script>		
+		

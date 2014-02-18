@@ -1,0 +1,54 @@
+<% provide(:title, 'Create Publisher Account') %>
+
+	<header>
+		<div style="height: 200px;background-color: white;">
+			<div style="height: 70px"></div>
+			<h1 align="center">Create Publisher Account</h1>			
+		</div>      		
+	</header>
+
+	<div class="table-yellow">
+		<div style="padding-top: 80px"></div>
+		
+	<%= form_for(@publisher) do |f| %>
+	<!-- = render 'shared/error_messages', object: f.object -->			
+
+<!-- 
+  name                       :string(100)
+  address                    :string(100)
+  city                       :string(100)
+  state                      :string(50)
+  country                    :string(100)
+  zip                        :integer
+  phone                      :string(100)
+  url                        :string(100)
+  description                :text
+  company_contact_name_first :string(100)
+  company_contact_name_last  :string(100)
+  company_contact_phone      :string(100)
+  company_contact_email      :string(100)  
+  -->
+		
+
+		<div class="row">
+			<div class="cell-left-signin">
+				<%= f.label(:name, 'Name of Publisher') %>
+			</div>
+			<div class="cell-right-signin">
+				<%= f.text_field(:name,  :class => "input-form", :autofocus => true) %>
+			</div>      	
+		</div>      		
+
+	</div>
+	
+	<div class="table-yellow">
+		<div style="height: 30px;"></div>			
+		<div class="row">
+			<div class="cell-submit-signin">		
+				<%= f.submit "Submit" %>
+			</div>
+		</div>
+		<div style="height: 140px;"></div>	
+	</div>
+
+		<% end %>

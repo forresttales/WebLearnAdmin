@@ -1,0 +1,155 @@
+<% provide(:title, 'Events') %>
+
+
+	<style>
+		
+		.form-display-separator {
+			height: 10px;
+		}
+		
+		.txtarea {
+			border: none;
+			background-color: #fff;
+			resize: none;	
+			height: 70px;
+		}
+		
+	</style>
+
+	<header>
+		<%= render 'share/backtotop' %>
+		
+		<div style=""></div>
+	</header>
+
+	<div class="container">
+		<div class="table-profile">
+			<div class="row-profile">
+				
+				<div class="col-left">
+					 <%= render 'reg_event_itins/dir_events_left' %>
+				</div>
+				
+				<div class="col-midd">
+
+					<div style="height: 100px;"></div>
+					
+					<div>
+						<span class="normal pad-left-20">
+							Event
+						</span>
+					</div>
+
+					<div class="line-space-20"></div>
+
+			
+					<div class="line-space-20"></div>
+			
+					 	<table>
+					 		<tr>
+					 			<td class="form-display-col1">
+					 				<span class="small pad-left-20">ID:</span>
+					 			</td>
+					 			<td class="form-display-col2">
+					 				<span class="small pad-left-20"><%= @reg_event_itin.id %></span>
+					 			</td>
+					 		</tr>
+					 		<tr><td class="form-display-separator"></td><td></td></tr>					 		
+					 		<tr>
+					 			<td class="form-display-col1">
+					 				<span class="small pad-left-20">Created:</span>
+					 			</td>
+					 			<td class="form-display-col2">
+					 				<span class="small pad-left-20"><%= @reg_event_itin.created_at.to_s(:long) %></span>
+					 			</td>
+					 		</tr>
+					 		<tr><td class="form-display-separator"></td><td></td></tr>
+					 		<tr>
+					 			<td class="form-display-col1">
+					 				<span class="small pad-left-20">Updated:</span>
+					 			</td>
+					 			<td class="form-display-col2">
+					 				<span class="small pad-left-20"><%= @reg_event_itin.updated_at.to_s(:long) %></span>
+					 			</td>
+					 		</tr>
+					 		<tr><td class="form-display-separator"></td><td></td></tr>
+					 		<tr>
+					 			<td class="form-display-col1">
+					 				<span class="small pad-left-20">City and State:</span>
+					 			</td>
+					 			<td class="form-display-col2">
+					 				<span class="small pad-left-20"><%= @reg_event_itin.city_state %></span>
+					 			</td>
+					 		</tr>
+					 		<tr><td class="form-display-separator"></td><td></td></tr>					 		
+					 		<tr>
+					 			<td class="form-display-col1">
+					 				<span class="small pad-left-20">Event Date:</span>
+					 			</td>
+					 			<td class="form-display-col2">
+					 				<!-- <span class="small pad-left-20"> @reg_event_itin.date_event.to_s(:long) </span> -->
+					 			</td>
+					 		</tr>
+					 		<tr><td class="form-display-separator"></td><td></td></tr>
+					 		<tr>
+					 			<td class="form-display-col1">
+					 				<span class="small pad-left-20">Display Date:</span>
+					 			</td>
+					 			<td class="form-display-col2">
+					 				<span class="small pad-left-20"><%= @reg_event_itin.date_event_text %></span>
+					 			</td>
+					 		</tr>
+					 		<tr><td class="form-display-separator"></td><td></td></tr>					 		
+					 		<tr><td class="form-display-separator"></td><td></td></tr>					 		
+					 		<tr>
+					 			<td class="form-display-col1" style="vertical-align: top; padding-top: 0px;">
+					 				<span class="small pad-left-20">Address:</span>
+					 			</td>
+					 			<td class="form-display-col2">
+					 				<textarea id="txtarea1" class="small pad-left-20 txtarea" disabled="disabled"><%= @reg_event_itin.address %></textarea>
+					 			</td>
+					 		</tr>
+					 		<tr><td class="form-display-separator"></td><td></td></tr>
+					 		<tr><td class="form-display-separator"></td><td></td></tr>
+					 		<tr>
+					 			<td class="form-display-col1">
+					 				<span class="small pad-left-20">Display Order:</span>
+					 			</td>
+					 			<td class="form-display-col2">
+					 				<span class="small pad-left-20"><%= @reg_event_itin.order_display %></span>
+					 			</td>
+					 		</tr>
+					 	</table>
+
+						<div class="line-space-20"></div>
+
+						<span class="pad-left-20">&laquo;<%= link_to 'Edit', {:action => 'edit', :id => @reg_event_itin.id }, :class => 'links' %>&raquo;</span>
+
+						<!-- <div class="pad-left-20">
+							<span class="normal">
+								button_to "Edit", {:action => 'edit', :id => @reg_event_itin.id } 
+							</span>
+						</div> -->
+						
+					</div>
+				</div>
+				
+				<div class="col-right">
+					 <!-- render 'share/dir_publishers_right' --> 
+				</div>												
+			</div>
+		</div>
+	</div>
+
+
+	<!-- <script>
+		
+		//$(window).load( function() {
+		$(document).ready(function(){
+
+			//var rows = $("#txtarea1").attr("rows");
+			//alert(rows);
+
+		});
+		
+	</script> -->

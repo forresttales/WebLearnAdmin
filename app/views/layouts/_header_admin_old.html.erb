@@ -1,0 +1,33 @@
+
+	<div style="padding:10px 6px 12px 6px;border:2px solid #00BF1D;font-size:18px;font-weight:bold;">
+		
+		<% if !session[:username] %>
+		
+		<a href="/signin" class="easyui-linkbutton" data-options="plain:true" style="float: right;">Sign In</a>
+		<% else %>
+		<a href="/signout" class="easyui-linkbutton" data-options="plain:true" style="float: right;">Sign Out</a>
+		<p style="padding: 0px 30px 0px 0px; color: green;float: right;"><%= session[:username] %></p>		
+		<% end %>
+		
+		<a href="#" class="easyui-menubutton" data-options="menu:'#mm4'" style="color: red;float: right;padding-right: 30px">User Lists</a>
+
+	</div>
+
+	<div id="mm4" style="width:50px;">
+		<div><%= link_to 'Contacts', admin_contacts_list_path %></div>
+		<div><%= link_to 'Users', admin_users_list_path %></div>
+		<div><%= link_to 'Schools', admin_institutes_list_path %></div>
+		<div><%= link_to 'Publishers', admin_publishers_list_path %></div>
+		<div><%= link_to 'Teachers', admin_teachers_list_path %></div>
+		<div><%= link_to 'Students', admin_students_list_path %></div>
+	</div>
+
+
+      	<%#= link_to 'Users', admin_users_list_path %>
+        <%#= link_to 'Contacts', admin_contacts_list_path %>
+        <%#= link_to 'Institutes', admin_institutes_list_path %>
+        <%#= link_to 'Publishers', admin_publishers_list_path %>
+        
+        <%#= link_to("Logout  ", :controller => 'admin_users', :action => 'logout' ) %>
+
+

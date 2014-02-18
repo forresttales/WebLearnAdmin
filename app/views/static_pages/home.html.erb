@@ -1,0 +1,32 @@
+<% if signed_in? %>
+
+		
+<% if false %>
+
+  	<div style="height: 300px;">
+
+		<div><span>Users Home</span></div>
+
+	</div>
+		
+<% end %>  
+  
+  
+<% else %>
+  
+  	<div style="height: 300px;">
+  
+    	<h1>Sign In</h1>
+
+
+     	<!-- link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary"  -->
+     
+		<div style="height: 50px;">         
+    	<%= link_to "Sign up now!", signup_path %>
+    	</div>
+    	
+	</div>
+		      
+<% end %> 
+
+

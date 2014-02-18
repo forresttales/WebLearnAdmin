@@ -1,0 +1,94 @@
+<% provide(:title, 'Event Itinery') %>
+
+
+	<link href="/assets/custom_table.css" rel="stylesheet">
+
+
+	<div id="tbl-page">
+		
+		<header>
+			
+	    	<div id="pos" style="display: none;"></div>
+
+			<%= render 'share/backtotop' %>
+
+			<div style="height: 100px;"></div>
+			
+		</header>
+		
+		
+		<div id="tbl-page-inner">
+			
+			<span class="pad-left-20">&laquo;<%= link_to 'Add Event', '/reg_event_itins/new', :class => 'links' %>&raquo;</span>
+			
+			<div class="line-space-20"></div>
+			
+			<table width="1000px" style="float: right;">
+				<tr>
+					<td width="100px"></td>										
+					<td width="200px" style="text-align: right;">
+					</td>
+					<td width="1px"></td>					
+					<td style="width: 100px; text-align: right;">
+				    	<div>
+					    	<h5>
+							   	<% delete_all_msg = "Delete all records?" %>
+								 <!-- button_to "Delete All Records", {:action => 'dbdelete'}, :method => :post, :confirm => delete_all_msg, :class => 'reset-db-btn' --> 
+								<%= button_to "Delete All Records", 'reg_event_itins/dbdelete', :confirm => delete_all_msg, :class => 'reset-db-btn' %>
+
+							</h5>
+						</div>
+					</td>
+					<td style="width: 100px; text-align: right;">
+				    	<div>
+					    	<h5>
+							   	<% reset_db_msg = "Reset database index?" %>
+								<%= button_to "Database Reset Index", {:action => 'dbclear'}, :method => :post, :confirm => reset_db_msg, :class => 'reset-db-btn' %>
+							</h5>
+						</div>
+					</td>
+				</tr>		
+			</table>	
+			<div style="clear: both;">
+			
+			<div class="tbl-container">
+				
+				<div class="row">
+					
+					<div class="cell-100percent" tabindex="1">
+
+						<%= form_tag reg_event_itins_path, :method => 'get' do %>
+						  	
+							<div id="reg_event_itins">
+								<%= render 'reg_event_itins/list' %>
+							</div>
+						  
+						<% end %>
+						
+												
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>	
+		
+	</div>					
+
+	<script>
+
+		$(document).on('click','#reg_event_itins th a, #reg_event_itins .pagination a',function(){
+		    $.getScript(this.href);
+		    return false;
+		});
+
+		// $("#reg_event_itins_search").submit(function() {	
+		    // $.get($("#reg_event_itins_search").attr("action"), $("#reg_event_itins_search").serialize(), null, "script");
+		    // return false;
+		// });
+	
+	</script>
+					
+
+

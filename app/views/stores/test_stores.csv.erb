@@ -1,0 +1,196 @@
+
+    <!-- <style>
+    	
+    	.main {
+    		font-family:Arial, Helvetica, sans-serif;
+    		font-size: 20px;
+    		color: black;
+    		min-height: 700px;
+    	}
+    	
+    	.links {
+    		font-family:Arial, Helvetica, sans-serif;
+    		font-size: 13px;
+    		color: brown;    		
+    	}
+    	
+    	h1 {
+    		font-size: 22px;
+    	}
+    	h2 {
+    		font-size: 18px;
+    	}
+    	h4 {
+    		font-size: 14px;
+    	}    	
+    	h5 {
+    		font-size: 13px;
+    	}    	    	
+    	p {
+    		font-size: 12px;
+    	}
+    	
+		.input-upload {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 16px;
+			width: 600px;
+			height: 24px;
+			border-style:solid;
+			background-color: #fff;
+			border-color: #000;
+			border-width: 1px;
+			padding-left: 6px;
+			color: #888;
+		}
+    	
+    	.submit-upload {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 16px;
+    		height: 24px;
+    	}
+    	
+    </style> -->
+
+
+	<!-- <div class="main">
+	
+		<div>	 -->			
+	
+			
+
+<!-- 
+#  id               :integer          not null, primary key
+#  created_at       :datetime
+#  updated_at       :datetime
+#  name_first       :string(50)
+#  name_last        :string(50)
+#  name_title       :string(50)
+#  institute        :string(100)
+#  department       :string(100)
+#  address_1        :string(100)
+#  address_2        :string(100)
+#  city             :string(50)
+#  state 			:string(50)
+#  zip              :string(50)
+#  country          :string(100)
+#  phone            :string(50)
+#  fax              :string(50)
+#  phone_direct     :string(50)
+#  phone_mobile     :string(50)
+#  email    		:string(100)
+#  website    		:string(100)  
+-->
+
+		<% if @stores.any? %>
+			
+			<%= hidden_field_tag :direction, params[:direction] %>
+			<%= hidden_field_tag :sort, params[:sort] %>	
+			
+			
+			<table id="admin_list" style="width: 1200px;" title="Events" >    	    	
+				
+			  <tr align="left">
+			    <th field="id" width="50"><h4><%= sortable "id", "id" %></th>
+			    <!-- <th field="created_at" width = "20">created_at</th>
+			    <th field="updated_at" width = "20">updated_at</th> -->    
+			    <th field="name_first" width="50px"><h4>name_first</h4></th>
+			    <th field="name_last" width="50px"><h4>name_last</h4></th>
+			    <th field="name_title" width="50px"><h4>name_title</h4></th>
+			    <th field="institute" width="100px"><h4>institute</h4></th>
+			    <th field="department" width="100px"><h4>department</h4></th>
+			    
+			    <!-- <th field="address_1" width="20px"><h4>address_1</h4></th>
+			    <th field="address_2" width="20px"><h4>address_2</h4></th> -->			    
+			    
+			    <th field="city" width="50px"><h4>city</h4></th>
+			    <th field="state" width="50px"><h4>state</h4></th>
+			    
+			    <!-- <th field="zip" width="20px"><h4>zip</h4></th> -->			    
+			    
+			    <th field="country" width="50px"><h4>country</h4></th>
+			    
+			    <!-- <th field="phone" width="20px"><h4>phone</h4></th>
+			    <th field="fax" width="20px"><h4>fax</h4></th>
+			    <th field="phone_direct" width="20px"><h4>phone_direct</h4></th>
+			    <th field="phone_mobile" width="20px"><h4>phone_mobile</h4></th> -->			    
+			    
+			    <th field="email" width="100px"><h4>email</h4></th>
+			    
+			    
+			    <!-- <th field="website" width="20px"><h4>website</h4></th> -->			    
+			        
+			  </tr>
+			<% @stores.each do |store| %>
+			  <tr align="left">
+			    <td width = "50px"><h5><%= store.id %></h5></td>
+			    <!-- <td> store.created_at.strftime("%B %e, %Y") </td>
+			    <td> store.updated_at.strftime("%B %e, %Y") </td> -->    
+			    
+			    <td width="50px"><h5><%= store.name_first %></h5></td>
+			    <td width="50px"><h5><%= store.name_last %></h5></td>
+			    <td width="50px"><h5><%= store.name_title %></h5></td>
+			    <td width="100px"><h5><%= store.institute %></h5></td>
+			    <td width="100px"><h5><%= store.department %></h5></td>
+			    
+			    <!-- <td width="20px"><h5> store.address_1 </h5></td>
+			    <td width="20px"><h5> store.address_2 </h5></td> -->			    
+			    
+			    <td width="50px"><h5><%= store.city %></h5></td>
+			    <td width="50px"><h5><%= store.state %></h5></td>
+			    
+			    <!-- <td width="20px"><h5> store.zip </h5></td> -->			    
+			    
+			    <td width="50px"><h5><%= store.country %></h5></td>
+			    
+			    <!-- <td width="20px"><h5> store.phone </h5></td>
+			    <td width="20px"><h5> store.fax </h5></td>
+			    <td width="20px"><h5> store.phone_direct </h5></td>
+			    <td width="20px"><h5> store.phone_mobile </h5></td> -->
+			    			    
+			    <td width="100px"><h5><%= store.email %></h5></td>
+			    
+			    <!-- <td width="20px"><h5> store.website </h5></td>     -->
+			    			    
+			    <td width = "20"><h5>
+			    <%= link_to('View', {:action => 'show', :id => store.id}) %>		    
+				</h5></td>
+			    <td width = "20"><h5>
+			   	<% delete_msg = "Delete ID: " + store.id.to_s + " ?" %>
+				 <!-- button_to "Delete", {:action => 'destroy', :id => reg_event.id }, :method => :delete, :confirm => delete_msg 			 -->
+				 
+				<%= button_to "Delete", {:action => 'destroy', :id => store.id}, :method => :delete, :confirm => delete_msg %>			
+				</h5></td>
+  
+			  </tr>
+			<% end %>
+			
+			<!-- number_to_currency(product.price) -->
+			
+			</table>			
+						
+			 <%= will_paginate @stores  %>						
+						
+						
+						
+		<% else %>
+					
+			<h3>No record for Stores</h3>
+			
+		<% end %>
+
+			
+			
+		<!-- </div>
+		
+	</div> -->
+
+	<script>
+		
+		$(document).ready(function () {
+			$('*[data-confirm]').click(function(){
+		    	return confirm($(this).attr('data-confirm'));
+		  	});
+		});
+			
+	</script>
+

@@ -1,0 +1,152 @@
+<% @title = "Events Edit" %>
+
+	<script src="/assets/jquery.validate.js"></script>
+	<!-- <script type="text/javascript" src="/assets/entrepeneurs_jquery-1.js"></script> -->	
+ 	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+	<script src="/assets/jquery-ui.js"></script>
+	<!-- <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script> -->
+	
+	
+	<script type="text/javascript">
+		$(function(){
+			$('#datepicker').datepicker({
+				//inline: true,
+				//nextText: '&rarr;',
+				//prevText: '&larr;',
+				//changeMonth: true,
+				//showOtherMonths: true,
+				dateFormat: 'MM dd, ' +  'yy',
+				//dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+				//showOn: "button",
+				//buttonImage: "img/calendar-blue.png",
+				//buttonImageOnly: true,
+			});
+		});
+	</script>	
+	
+	<style>
+		
+		.date-long {
+			
+		}
+		
+	</style>
+	<header>
+		<%= render 'share/backtotop' %>
+	</header>
+
+	<div class="container">
+		<div class="table-profile">
+			<div class="row-profile">
+				
+				<div class="col-left">
+					 <%= render 'reg_event_itins/dir_events_left' %>
+				</div>
+				
+				<div class="col-midd">
+
+					<div style="height: 100px;"></div>					
+
+					<div>
+						<span class="normal pad-left-20">
+							Event Id: <%= @reg_event_itin.id %>
+						</span>
+					</div>
+
+					<div class="line-space-20"></div>
+					<div class="line-space-20"></div>
+
+					<div class="table-form" style="width: 600px;">
+						<div class="row">
+							<div class="cell-100percent" tabindex="1">
+								
+								<!-- = render 'shared/error_messages', object: f.object -->			
+								<%= form_for(:reg_event_itin, :html => { :id => 'reg_event'}, :url => {:action => 'update', :id => @reg_event_itin.id}) do |f| %>
+								
+								<div class="input-form-spacer"></div>
+		
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:city_state, 'City and State', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :city_state, :class => 'input-form', :tabindex => '2', :autofocus => true %>	
+									</div>
+									<div class="cell-error" id="state_city_state"><p id="error_city_state"></p></div>      					   							 								      	
+								</div>
+
+								<div class="input-form-spacer"></div>
+		
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:date_event, 'Event Date', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :date_event, :class => 'input-form', :id => 'datepicker', :tabindex => '3', :autofocus => false, :disabled => true %>	
+									</div>
+									<div class="cell-error" id="state_date_event"><p id="error_date_event"></p></div>      					   							 								      	
+								</div>
+
+								<div class="input-form-spacer"></div>
+		
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:date_event_text, 'Displayed Event Date', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :date_event_text, :class => 'input-form', :tabindex => '7', :autofocus => false %>	
+									</div>
+									<div class="cell-error" id="state_date_event_text"><p id="error_date_event_text"></p></div>      					   							 								      	
+								</div>
+
+								<div class="input-form-spacer"></div>
+		
+								<div class="row">
+									<div class="cell-left-form"  style="vertical-align: top; padding-top: 6px;">										
+										<%= f.label(:address, 'Address', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_area :address, :class => 'input-form-word-description-1', :tabindex => '4', :autofocus => false %>	
+									</div>
+									<div class="cell-error" id="state_address"><p id="error_address"></p></div>      					   							 								      	
+								</div>
+		
+								<div class="input-form-spacer"></div>
+		
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:order_display, 'Display Order', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :order_display, :class => 'input-form', :tabindex => '5', :autofocus => false %>	
+									</div>
+									<div class="cell-error" id="state_order_display"><p id="error_order_display"></p></div>      					   							 								      	
+								</div>
+		
+								<div class="input-form-spacer"></div>
+								<div class="input-form-spacer"></div>
+		
+								<div class="row">
+									<div style="width: 600px; text-align: center;">
+									<%= f.submit 'Submit', class: 'form-btn', :tabindex => '5' %>
+									</div>      					   							 	
+								</div>      		
+
+													
+								<% end %>
+								
+							</div>
+							
+						</div>
+						
+					</div>
+			
+				</div>
+				
+				<div class="col-right">
+					 <!-- render 'share/dir_publishers_right' --> 
+				</div>												
+			</div>
+		</div>
+	</div>
+

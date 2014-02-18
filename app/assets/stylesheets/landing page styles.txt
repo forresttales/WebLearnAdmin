@@ -1,0 +1,125 @@
+Learning Counsel Landing Page styles
+
+for the boxes bar that is going all the way across the browser, the image is only of the first three boxes and then just repeat-x
+
+Note: the page should have the same header and footer that the other pages have.
+
+fonts: "Quattrocento Sans", "Quattrocento"
+
+h - Quattrocento Sans
+p - Quattrocento
+
+h1 - size - 35px
+	 colors - gray: 128 128 128, green: 65 183 55
+	
+h2 - size - 30px
+	 color- dark green: 52 99 58	
+	 
+p - 
+	color: #333; /* text color */
+	font-family: "Quattrocento";
+	font-size: 13px;
+	 
+highlights within p - 
+	color: #41b737
+	font-style: bold
+	
+final call to action: 
+	color: #34633a
+	size: 18px
+	font-style: bold
+	
+Subscribe box - 
+	width: 255px;
+	height: 289px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px; /* border radius */
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box; /* prevents bg color from leaking outside the border */
+	background-color: #eaeaea; /* layer fill content */
+	-moz-box-shadow: 0 0 10px rgba(3,4,4,.35); /* drop shadow */
+	-webkit-box-shadow: 0 0 10px rgba(3,4,4,.35); /* drop shadow */
+	box-shadow: 0 0 10px rgba(3,4,4,.35); /* drop shadow */
+
+Subscribe box label - 
+	width: 255px;
+	height: 50px;
+	background-color: #414141; /* layer fill content */
+
+subscribe box label text - 
+	color: #ebeff1; /* text color */
+	font-family: "Quattrocento Sans", sans-serif;
+	font-size: 15px;
+
+
+fields label - 
+	color: #808080; /* text color */
+	font-family: "Quattrocento Sans", sans-serif;
+	font-size: 15px;
+
+fields style - 
+	width: 235px;
+	height: 40px;
+	border: 1px solid #a9b7b7; /* stroke */
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px; /* border radius */
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box; /* prevents bg color from leaking outside the border */
+	background-color: #fff; /* layer fill content */
+
+subscribe btn - 
+	color: #34633a; /* text color */
+	font-family: "Quattrocento Sans", sans-serif;
+	font-size: 13px;
+	width: 115px;
+	height: 38px;
+	border: 1px solid #999; /* stroke */
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px; /* border radius */
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box; /* prevents bg color from leaking outside the border */
+	background-color: #0f0; /* layer fill content */
+
+
+btn: hover
+	background-color: #00db00; /* layer fill content */
+	
+btn: active
+	background-color: #00bf00; /* layer fill content */
+	-moz-box-shadow: inset 1px 2px 0 rgba(3,4,4,.4); /* inner shadow */
+	-webkit-box-shadow: inset 1px 2px 0 rgba(3,4,4,.4); /* inner shadow */
+	box-shadow: inset 1px 2px 0 rgba(3,4,4,.4); /* inner shadow */
+
+
+
+Download Services Overview btn:
+	width: 232px;
+	height: 27px;
+	border: 1px solid #999; /* stroke */
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px; /* border radius */
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box; /* prevents bg color from leaking outside the border */
+	background-color: #999; /* layer fill content */
+
+label
+	color: #f2f2f2; /* text color */
+	font-family: "Quattrocento Sans", sans-serif;
+	font-size: 13px;
+
+btn: hover
+	background-color: #6a6a6a
+
+btn: active
+	background-color: #535353; /* layer fill content */
+	-moz-box-shadow: inset 1px 2px 0 rgba(3,4,4,.4); /* inner shadow */
+	-webkit-box-shadow: inset 1px 2px 0 rgba(3,4,4,.4); /* inner shadow */
+	box-shadow: inset 1px 2px 0 rgba(3,4,4,.4); /* inner shadow */

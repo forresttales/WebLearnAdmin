@@ -1,0 +1,293 @@
+<% provide(:title, 'New Event') %>
+
+	<script src="/assets/jquery.validate.js"></script>
+	<!-- <script type="text/javascript" src="/assets/entrepeneurs_jquery-1.js"></script> -->	
+ 	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+	<script src="/assets/jquery-ui.js"></script>
+	<!-- <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script> -->
+
+
+	<script type="text/javascript">
+		$(function(){
+			$('#datepicker').datepicker({
+				//inline: true,
+				//nextText: '&rarr;',
+				//prevText: '&larr;',
+				//changeMonth: true,
+				//showOtherMonths: true,
+				dateFormat: 'MM dd, ' +  'yy',
+				//dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+				//showOn: "button",
+				//buttonImage: "img/calendar-blue.png",
+				//buttonImageOnly: true,
+			});
+		});
+	</script>	
+	
+
+	<header>
+		<%= render 'share/backtotop' %>
+	</header>
+
+	<div class="container">
+		<div class="table-profile">
+			<div class="row-profile">
+				
+				<div class="col-left">
+					 <%= render 'reg_event_itins/dir_events_left' %>
+				</div>
+				
+				<div class="col-midd">
+
+					<div style="height: 100px;"></div>
+
+					<div style="text-align: left;">
+						<span class="normal pad-left-20">Add Event</span>
+					</div>
+
+					<div class="line-space-20"></div>
+
+					<div class="table-form" style="width: 600px;">
+						<div class="row">
+							<div class="cell-100percent" tabindex="1">
+								
+						    	<%= form_for @reg_event_itin, :html => {:id => 'form_reg_event_itin_new' } do |f| %>	
+								<!-- = render 'shared/error_messages', object: f.object -->			
+		
+								<div class="input-form-spacer"></div>
+		
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:city_state, 'City and State', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :city_state, :class => 'input-form', :tabindex => '2', :autofocus => true %>	
+									</div>
+									<div class="cell-error" id="state_city_state"><p id="error_city_state"></p></div>      					   							 								      	
+								</div>
+
+								<div class="input-form-spacer"></div>
+		
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:date_event, 'Event Date', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :date_event, :class => 'input-form', :id => 'datepicker', :tabindex => '7', :autofocus => false, :disabled => true %>	
+									</div>
+									<div class="cell-error" id="state_date_event"><p id="error_date_event"></p></div>      					   							 								      	
+								</div>
+
+								<div class="input-form-spacer"></div>
+		
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:date_event_text, 'Displayed Event Date', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :date_event_text, :class => 'input-form', :tabindex => '3', :autofocus => false %>	
+									</div>
+									<div class="cell-error" id="state_date_event_text"><p id="error_date_event_text"></p></div>      					   							 								      	
+								</div>
+
+								<div class="input-form-spacer"></div>
+		
+								<div class="row">
+									<div class="cell-left-form"  style="vertical-align: top; padding-top: 6px;">										
+										<%= f.label(:address, 'Address', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_area :address, :class => 'input-form-word-description-1', :tabindex => '4', :autofocus => false %>	
+									</div>
+									<div class="cell-error" id="state_address"><p id="error_address"></p></div>      					   							 								      	
+								</div>
+
+								<div class="input-form-spacer"></div>
+		
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:order_display, 'Display Order', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :order_display, :class => 'input-form', :tabindex => '5', :autofocus => false %>	
+									</div>
+									<div class="cell-error" id="state_order_display"><p id="error_order_display"></p></div>      					   							 								      	
+								</div>
+		
+								<div class="input-form-spacer"></div>
+								<div class="input-form-spacer"></div>
+		
+								<div class="row">
+									<div style="width: 600px; text-align: center;">
+									<%= f.submit 'Submit', class: 'form-btn', :tabindex => '6' %>
+									</div>      					   							 	
+								</div>      		
+													
+								<% end %>
+								
+							</div>
+							
+						</div>
+						
+					</div>
+			
+				</div>
+				
+				<div class="col-right">
+					 <!-- render 'share/dir_publishers_right' --> 
+				</div>												
+
+			</div>
+		</div>
+	</div>
+
+
+					
+	<script>
+
+
+		function formValidate() {
+						
+			$("#form_admin_new").validate({
+			
+				submitHandler: function(form) {
+					form.submit();
+				},
+			
+				debug: true,
+				onkeyup: false,
+				focusCleanup: true,
+				// invalidClass: "error",
+				// validClass: "success",
+				
+				rules: {
+					'admin_user[name_first]': {
+						required: true,
+						minlength: 1,						
+						maxlength: 30						
+					},
+					'admin_user[name_first]': {
+						required: true,
+						minlength: 1,
+						maxlength: 30												
+					},
+					'admin_user[email]': {
+						required: true,
+						maxlength: 100,
+						email: true
+					},															
+					'admin_user[username]': {
+						required: true,
+						minlength: 1,
+						maxlength: 30
+					},
+					'admin_user[password]': {
+						required: true,
+						minlength: 4,
+						maxlength: 50
+					},
+					'admin_user[password_confirmation]': {
+						equalTo: "#admin_user_password"
+					}
+				},
+				invalidHandler: function(event, validator) {
+					var errors = validator.numberOfInvalids();
+					if (errors) {
+						var message = errors == 1
+						? 'You missed 1 field'
+						: 'You missed ' + errors + ' fields';
+						$("div.errors p").html(message);
+						$("div.errors").show();
+					} else {
+						$("div.errors").hide();
+					}
+				},				
+				messages: {
+					'admin_user[name_first]': {
+						required: "*",
+						maxlength: "First name exceeds 30 characters"							
+					},
+					'admin_user[name_last]': {
+						required: "*",
+						maxlength: "Last name exceeds 30 characters"							
+					},
+					'admin_user[username]': {
+						required: "*",
+						minlength: "Username at least 2 characters",
+						maxlength: "Username exceeds 15 characters"
+					},
+					'admin_user[password]': {
+						required: "*",
+						minlength: "Password at least 4 characters long",
+						maxlength: "Password exceeds 20 characters"
+					},
+					'admin_user[password_confirmation]': {
+						equalTo: "Passwords must match"
+					},
+					'admin_user[email]': {
+						required: "*",
+						maxlength: "Email address exceeds 40 characters",
+						email: "Please enter a valid email address"
+					}										
+				},
+				errorContainer: $("div .error_label"),				
+				errorPlacement: function(error, element) {
+					error.insertAfter('#error_' + element.attr('id'));
+					$('#' + element.attr('id')).removeClass('required').removeClass('success').addClass('error');
+					//$('#label_' + element.attr('id')).removeClass('required-label').addClass('error-label');
+				},
+				// invalid: function(element) {
+					// $('#' + element.attr('id')).removeClass('required').removeClass('success').addClass('error');
+					// $('#label_' + element.attr('id')).removeClass('required-label').addClass('error-label');					
+				// },
+				// highlight: function(element) {
+					// $('#' + element.attr('id')).removeClass('required').removeClass('success').addClass('error');
+					// //$('#label_' + element.attr('id')).removeClass('required-label').addClass('error-label');
+				// },
+				// unhighlight: function(element) {
+					// //$('#' + element.attr('id')).removeClass('required').removeClass('success').addClass('error');
+					// //$('#label_' + element.attr('id')).removeClass('required-label').addClass('error-label');
+				// },
+				error: function(label) {
+					$('#' + label.attr('for')).removeClass('required').removeClass('success').addClass('error');
+					$('#label_' + label.attr('for')).removeClass('required-label').addClass('error-label');
+				},
+				success: function(label) {
+					$('#' + label.attr('for')).removeClass('required').removeClass('error').addClass('success');
+					$('#label_' + label.attr('for')).removeClass('error-label').addClass('required-label');
+					
+					$('#state_' + label.attr('for')).css ({			
+						background: 'url("/assets/submit_form_tick.png") no-repeat 0px 5px'
+					});
+ 
+					$('#error_' + label.attr('for')).html("");
+				},				
+				focus: function(element) {
+				 	$('#' + element.attr('id')).removeClass('required').removeClass('error').removeClass('success').addClass('focus');
+				}
+			});
+			
+			$.validator.setDefaults({
+				
+				submitHandler: function() {
+					form.submit();
+				}
+				//$('#user_username');
+				
+				// submitHandler: function() { alert("submitted!"); }
+				// debug: true,
+				// onkeyup: false,
+				// focusCleanup: true,
+				// errorClass: "invalid",
+				// validClass: "success"
+			});
+		}
+
+		$(window).load( function() {
+		//$(document).ready(function(){
+
+			// formValidate();
+
+		});
+	
+	</script>

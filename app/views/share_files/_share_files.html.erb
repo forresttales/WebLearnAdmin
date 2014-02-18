@@ -1,0 +1,158 @@
+
+
+    <style>
+    	
+    	.main {
+    		font-family:Arial, Helvetica, sans-serif;
+    		font-size: 20px;
+    		color: black;
+    		min-height: 700px;
+    	}
+    	
+    	.links {
+    		font-family:Arial, Helvetica, sans-serif;
+    		font-size: 13px;
+    		color: brown;    		
+    	}
+    	
+    	h1 {
+    		font-size: 22px;
+    	}
+    	h2 {
+    		font-size: 18px;
+    	}
+    	h4 {
+    		font-size: 14px;
+    	}    	
+    	h5 {
+    		font-size: 13px;
+    	}    	    	
+    	p {
+    		font-size: 12px;
+    	}
+    	
+    </style>
+
+
+	<div class="main">
+	
+		<div>	
+
+			<div style="height: 20px;"></div>
+			
+			<h1>Downloads</h1>
+
+			<div style="height: 50px;"></div>
+
+			<!-- link_to “view”, {:action => “download”,:id=>doc.id} -->
+
+			<!-- = link_to "test", {:action => "show"}, :class => "links"  -->
+		
+		
+		
+	<% if @share_files.any? %>
+					
+    <table id="share_file" style="width: 1000px; height: auto;" title="ShareFiles" >    	    	
+	    <tr align="left">
+		    <th field="id" width = "20px"><h4>ID</h4></th>
+		    <th field="created_at" width = "20px"><h4>Date</h4></th>			    		    			    
+		    <th field="name_originator" width = "20px"><h4>Originator</h4></th>
+		    <th field="name_file" width = "200px"><h4>File</h4></th>		    
+		</tr>
+		<% @share_files.each do |share_file| %>
+	    <tr align="left">
+		    <td width = "20px"><h5><%= share_file.id %></h5></td>
+		    <td width = "20px"><h5><%= share_file.name_originator %></h5></td>
+		    <td width = "20px"><h5><%= share_file.created_at.to_formatted_s(:db) %></h5></td>		    
+		    <td width = "200px"><h5><%= share_file.name_file %></h5></td>		    
+		    
+		    <td width = "20px"><h5>
+
+		    <%= link_to "Download", {:action => "show", :file => share_file.name_file}, :class => "links" %>
+     
+			</h5></td>
+
+		    <!-- <td width = "20"><h5>
+			 button_to "Delete", {:action => 'destroy', :id => reg_letter.id }, :method => :delete, data: { confirm: "Delete this record?" } 
+			</h5></td> -->
+								     			    
+		</tr>
+		<% end %>	    	
+	</table>
+	<%= will_paginate @admin_reg_letters %>
+
+	<% else %>
+	<div class="row" style="color: red;">
+		<h3>No record for Letters</h3>
+	</div>
+	<div class="row-end">&nbsp;</div>			
+
+	<% end %>
+		
+		
+		
+
+
+
+		
+		
+		</div>
+		
+	</div>
+	
+	
+<script>
+
+	// $(document).ready(function() {
+// 		
+		// // $(function() {
+			// // $( "#dialog" ).dialog();
+		// // });
+// 		
+// 		
+        // $('.down').click(function() {
+                // var link = $(this).attr('href');
+                // $('.dialogBox').show().click(function(){
+                      // window.location.href = link; //or window.open
+                      // $(this).unbind('click');
+                // });
+               // return false;
+        // });
+// 
+		// //document.cookie = settings.cookieName + "=true; path=" + settings.cookiePath;
+// 		
+// 		
+        // $(document).on("click", "a.download", function () {
+        	
+			// window.location = "http://localhost:1988/DownLoad.aspx?Did=" + pid;        	
+
+			// window.location = "http://localhost:3000/";        	
+
+			// window.location = "../share/test.htm";        	
+
+        	
+            // $.fileDownload($(this).prop('href'), {
+                // preparingMessageHtml: "please wait...",
+                // failMessageHtml: "There was a problem"
+            // });
+            // return false; //this is critical to stop the click event which will trigger a normal file download!
+        // });
+// 
+//         
+	// });
+
+
+
+    // $(function () {
+// 
+        // $(document).on("click", "a.fileDownloadSimpleRichExperience", function () {
+            // $.fileDownload($(this).prop('href'), {
+                // preparingMessageHtml: "We are preparing your report, please wait...",
+                // failMessageHtml: "There was a problem generating your report, please try again."
+            // });
+            // return false; //this is critical to stop the click event which will trigger a normal file download!
+        // });
+// 
+    // })
+
+</script>

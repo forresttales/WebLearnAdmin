@@ -1,0 +1,79 @@
+<% provide(:title, 'Create Teacher Account') %>
+	
+	
+	<header>
+		<div style="height: 200px;background-color: white;">
+			<div style="height: 70px"></div>
+			<h1 align="center">Create Teacher Account</h1>			
+		</div>      		
+	</header>
+
+	<div class="table-yellow">
+		<div style="padding-top: 80px"></div>
+
+
+	<%= form_for(@teacher) do |f| %>
+	<!-- = render 'shared/error_messages', object: f.object -->			
+
+		<div class="row">
+			<div class="cell-left-signin">
+				<%= f.label(:name_first, "First Name") %>
+			</div>
+			<div class="cell-right-signin">
+				<%= f.text_field(:name_first, :class => "input-form", :autofocus => true) %>
+			</div>      	
+		</div>      		
+		
+		<div class="row">
+			<div class="cell-left-signin">
+				<%= f.label(:name_last, "Last Name") %>
+			</div>
+			<div class="cell-right-signin">
+				<%= f.text_field(:name_last, :class => "input-form") %>
+			</div>      	
+		</div>
+		
+		<div class="row">
+			<div class="cell-left-signin">
+				<%= f.label(:phone, "Phone") %>
+			</div>
+			<div class="cell-right-signin">
+				<%= f.text_field(:phone, :class => "input-form") %>
+			</div>      	
+		</div>      		
+
+	</div>
+	
+	<div class="table-yellow">
+		<div style="height: 30px;"></div>			
+		<div class="row">
+			<div class="cell-submit-signin">		
+				<%= f.submit "Create Account" %>
+			</div>
+		</div>
+		<div style="height: 140px;"></div>	
+	</div>
+
+		<% end %>
+	
+
+<!-- 
+  name                       :string(100)
+  address                    :string(100)
+  city                       :string(100)
+  state                      :string(50)
+  country                    :string(100)
+  zip                        :integer
+  main_phone                 :string(100)
+  main_contact_email         :string(100)
+  public_private             :string(10)
+  number_students            :integer
+  number_computing_devices   :integer
+  post_rfp_link              :string(100)
+  company_contact_name_first :string(100)
+  company_contact_name_last  :string(100)
+  name_title                 :string(50)
+  company_contact_phone      :string(50)
+  company_contact_email      :string(100)
+  allow_add_products         :boolean -->
+

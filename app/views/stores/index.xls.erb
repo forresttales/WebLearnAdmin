@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <!-- <Cell><Data ss:Type="String">id</Data></Cell> -->              	
+        <Cell><Data ss:Type="String">name_type</Data></Cell>
+        <Cell><Data ss:Type="String">salutation</Data></Cell>
+        <Cell><Data ss:Type="String">name_first</Data></Cell>
+        <Cell><Data ss:Type="String">name_last</Data></Cell>
+        <Cell><Data ss:Type="String">name_title</Data></Cell>
+        <Cell><Data ss:Type="String">institute</Data></Cell>
+        <Cell><Data ss:Type="String">department</Data></Cell>
+        <Cell><Data ss:Type="String">address_1</Data></Cell>
+        <Cell><Data ss:Type="String">address_2</Data></Cell>
+        <Cell><Data ss:Type="String">city</Data></Cell>
+        <Cell><Data ss:Type="String">state</Data></Cell>
+        <Cell><Data ss:Type="String">zip</Data></Cell>
+        <Cell><Data ss:Type="String">country</Data></Cell>
+        <Cell><Data ss:Type="String">phone</Data></Cell>
+        <Cell><Data ss:Type="String">fax</Data></Cell>
+        <Cell><Data ss:Type="String">phone_direct</Data></Cell>
+        <Cell><Data ss:Type="String">phone_mobile</Data></Cell>
+        <Cell><Data ss:Type="String">email</Data></Cell>
+        <Cell><Data ss:Type="String">website</Data></Cell>
+        
+      </Row>
+    <% @stores.each do |store| %>
+      <Row>
+	    <!-- <Cell><Data ss:Type=""> store.id </Data></Cell>
+	    <td> store.created_at.strftime("%B %e, %Y") </td>
+	    <td> store.updated_at.strftime("%B %e, %Y") </td> -->    
+	    <Cell><Data ss:Type="name_type"><%= store.name_type %></Data></Cell>
+	    <Cell><Data ss:Type="salutation"><%= store.salutation %></Data></Cell>
+	    <Cell><Data ss:Type="name_first"><%= store.name_first %></Data></Cell>
+	    <Cell><Data ss:Type="name_last"><%= store.name_last %></Data></Cell>
+	    <Cell><Data ss:Type="name_title"><%= store.name_title %></Data></Cell>
+	    <Cell><Data ss:Type="institute"><%= store.institute %></Data></Cell>
+	    <Cell><Data ss:Type="department"><%= store.department %></Data></Cell>
+	    <Cell><Data ss:Type="address_1"><%= store.address_1 %></Data></Cell>
+	    <Cell><Data ss:Type="address_2"><%= store.address_2 %></Data></Cell>			    
+	    <Cell><Data ss:Type="city"><%= store.city %></Data></Cell>
+	    <Cell><Data ss:Type="state"><%= store.state %></Data></Cell>
+	    <Cell><Data ss:Type="zip"><%= store.zip %></Data></Cell>			    
+	    <Cell><Data ss:Type="country"><%= store.country %></Data></Cell>
+	    <Cell><Data ss:Type="phone"><%= store.phone %></Data></Cell>
+	    <Cell><Data ss:Type="fax"><%= store.fax %></Data></Cell>
+	    <Cell><Data ss:Type="phone_direct"><%= store.phone_direct %></Data></Cell>
+	    <Cell><Data ss:Type="phone_mobile"><%= store.phone_mobile %></Data></Cell>
+	    <Cell><Data ss:Type="email"><%= store.email %></Data></Cell>
+	    <Cell><Data ss:Type="website"><%= store.website %></Data></Cell>
+
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
+

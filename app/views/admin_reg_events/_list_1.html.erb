@@ -1,0 +1,136 @@
+
+    <style>
+    	
+    	.main {
+    		font-family:Arial, Helvetica, sans-serif;
+    		font-size: 20px;
+    		color: black;
+    		min-height: 700px;
+    	}
+    	
+    	.links {
+    		font-family:Arial, Helvetica, sans-serif;
+    		font-size: 13px;
+    		color: brown;    		
+    	}
+    	
+    	h1 {
+    		font-size: 22px;
+    	}
+    	h2 {
+    		font-size: 18px;
+    	}
+    	h4 {
+    		font-size: 14px;
+    	}    	
+    	h5 {
+    		font-size: 13px;
+    	}    	    	
+    	p {
+    		font-size: 12px;
+    	}
+    	
+    </style>
+
+<!-- 
+# Table name: reg_events
+#	
+#  id               :integer          not null, primary key
+#  name_first       :string(50)
+#  name_last        :string(50)
+#  name_title       :string(50)
+#  type_affiliation :string(50)
+#  name_affiliation :string(100)
+#  email            :string(255)      default(""), not null
+#  city_workshop    :string(50)
+#  created_at       :datetime
+#  updated_at       :datetime
+#  address          :string(50)
+#  city             :string(50)
+#  state            :string(50)
+#  zip              :string(50)
+#  phone            :string(50) 
+-->
+
+	<% if @admin_reg_events.any? %>
+	
+	<%= hidden_field_tag :direction, params[:direction] %>
+	<%= hidden_field_tag :sort, params[:sort] %>	
+					
+    <table id="admin_list" style="width: 1000px;" title="Events" >    	    	
+	    <tr align="left">
+		    <th field="id" width = "20"><h4><%= sortable "id", "ID" %></h4></th>
+		    <th field="created_at" width = "20"><h4>Date</h4></th>			    		    	
+		    <th field="name_first" width = "10"><h4><%= sortable "name_first", "First Name" %></h4></th>
+		    <th field="name_last" width = "10"><h4><%= sortable "name_last", "Last Name" %></h4></th>
+		    <th field="name_title" width = "10"><h4><%= sortable "name_title", "Title" %></h4></th>
+		    <th field="type_affiliation" width = "10"><h4><%= sortable "type_affiliation", "Affiliation Type" %></h4></th>
+		    <th field="name_affiliation" width = "10"><h4><%= sortable "name_affiliation", "Affiliation" %></h4></th>
+		</tr>
+		<% @admin_reg_events.each do |reg_event| %>
+	    <tr align="left">
+		    <td width = "20"><h5><%= reg_event.id %></h5></td>
+		    <td width = "20"><h5><%= reg_event.created_at.to_formatted_s(:db) %></h5></td>
+		    <td width = "10"><h5><%= reg_event.name_first %></h5></td>
+		    <td width = "10"><h5><%= reg_event.name_last %></h5></td>
+		    <td width = "10"><h5><%= reg_event.name_title %></h5></td>
+		    <td width = "10"><h5><%= reg_event.type_affiliation %></h5></td>
+		    <td width = "10"><h5><%= reg_event.name_affiliation %></h5></td>
+		    
+		    <td width = "20"><h5>
+		    <%= link_to('View', {:action => 'show', :id => reg_event.id}) %>		    
+			</h5></td>
+		    <td width = "20"><h5>
+		   	<% delete_msg = "Delete ID: " + reg_event.id.to_s + " ?" %>
+			 <!-- button_to "Delete", {:action => 'destroy', :id => reg_event.id }, :method => :delete, :confirm => delete_msg 			 -->
+			 
+			<%= button_to "Delete", {:action => 'destroy', :id => reg_event.id}, :method => :delete, :confirm => delete_msg %>			
+
+
+			</h5></td>
+			
+								     			    
+		</tr>
+		<% end %>	    	
+	</table>
+	<%= will_paginate @admin_reg_events %>
+
+	<% else %>
+	<div class="row" style="color: red;">
+		<h3>No record for Events</h3>
+	</div>
+	<div class="row-end">&nbsp;</div>			
+
+	<% end %>
+				
+<div class="row" style="height: 20px;"></div>
+
+<script>
+	
+	$(document).ready(function () {
+		
+		$('*[data-confirm]').click(function(){
+	    	return confirm($(this).attr('data-confirm'));
+	  	});
+	  
+		// $('select').dropdown({
+			// 'changed': function(data) {
+				// alert('dropdown changed');
+// 				
+	   			// //selectStatus2();	
+	   		// }
+		// });	    
+	  
+	});
+
+		
+</script>
+
+
+
+
+
+
+
+
+

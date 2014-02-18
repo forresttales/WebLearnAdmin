@@ -1,0 +1,327 @@
+<% provide(:title, 'Tablets') %>
+
+		<!-- <link rel="stylesheet" href="/assets/jquery-ui.css"> -->		
+		<!-- <script src="/assets/jquery-ui.js"></script> -->
+
+		<div style="width: 1200px; margin-right: auto; margin-left: auto; background: #fff; min-height: 850px;">						
+		
+			<div style="height: 70px;"></div>
+		
+			<div id="tabs" class="tabs" style="width: 1224px;">
+				<ul>
+					<!-- <li><a href="#tabs-A" id="tabsA">Tablets</a></li> -->				
+					<li><a href="#tabs-0" id="tabs0" class="tab tab-yellow">Tablet 0</a></li>				
+					<li><a href="#tabs-1" id="tabs1" class="tab tab-blue">Tablet 1</a></li>
+					<li><a href="#tabs-2" id="tabs2" class="tab tab-blue">Tablet 2</a></li>
+					<li><a href="#tabs-3" id="tabs3" class="tab tab-blue">Tablet 3</a></li>
+					<li><a href="#tabs-4" id="tabs4" class="tab tab-blue">Tablet 4</a></li>
+				</ul>
+
+				<!-- <div id="tabs-A">
+					<div style="height: 800px;">Admin Tablets</div>	
+				</div>			 -->
+				
+				<!-- <div id="tabs-0">
+					<div id="render0">render0</div>	
+				</div>			
+				
+				<div id="tabs-1">
+					<div id="render1">render1</div>	
+				</div>
+				<div id="tabs-2">
+					<div id="render2"></div>	
+				</div>
+				<div id="tabs-3">
+					<div id="render3"></div>	
+				</div>
+				<div id="tabs-4">
+					<div id="render4"></div>	
+				</div> -->				
+				
+			</div>			
+		
+			<!-- <div id="tabs" class="tabs">
+			  <ul>
+			    <li>
+			    	<a href="/tablets" class="tab tab-blue">Tablets</a>
+			    </li>
+			    <li>
+			    	<a href="/tab1lets" class="tab tab-blue">Tablet 1</a>
+			    </li>
+			    <li>
+			    	<a href="/tab2lets" class="tab tab-blue">Tablet 2</a>
+			    </li>
+			    <li id="tab3" >
+			    	<a href="/tab3lets" class="tab tab-blue" onclick="make_active(3);">Tablet 3</a>
+			    </li>
+			    <li id="tab4">
+			    	<a href="/tab4lets" class="tab tab-blue" onclick="make_active(4);">Tablet 4</a>
+			    </li>
+			    <li id="tab5">
+			    	<a href="/tab1lets" class="tab tab-yellow" onclick="make_active(5);">Tablet 1</a>
+			    </li>
+			    <li id="tab6">
+			    	<a href="/tab2lets" class="tab tab-yellow" onclick="make_active(6);">Tablet 2</a>
+			    </li>
+			  </ul>
+			</div> -->
+			
+			<div id="render0"></div>
+
+			<%= hidden_field_tag :pos1, params[:pos1] %>
+						
+		</div>
+
+
+		<script>
+		
+			function make_active(index_tab) {		
+				switch (index_tab)
+				{
+				  case 0:
+				  		$("#tab0").addClass("active");
+				  		$("#tab1").removeClass("active");
+				  		$("#tab2").removeClass("active");
+				  		$("#tab3").removeClass("active");
+				  		$("#tab4").removeClass("active");
+				  		$("#tab5").removeClass("active");
+				  		$("#tab6").removeClass("active");			  	
+				  		
+				  		//$.get("/tablets", null, null, "script");
+			
+				  	break;
+				  case 1:
+				  		$("#tab0").removeClass("active");
+				  		$("#tab1").addClass("active");
+				  		$("#tab2").removeClass("active");
+				  		$("#tab3").removeClass("active");
+				  		$("#tab4").removeClass("active");
+				  		$("#tab5").removeClass("active");
+				  		$("#tab6").removeClass("active");			  
+				  		
+				  		//$.get("/tab1lets", null, null, "script");		
+				  	break;
+				  case 2:
+				  		$("#tab1").removeClass("active");
+				  		$("#tab2").addClass("active");
+				  		$("#tab3").removeClass("active");
+				  		$("#tab4").removeClass("active");
+				  		$("#tab5").removeClass("active");
+				  		$("#tab6").removeClass("active");			  					  
+				  	break;
+				  case 3:
+				  		$("#tab1").removeClass("active");
+				  		$("#tab2").removeClass("active");
+				  		$("#tab3").addClass("active");
+				  		$("#tab4").removeClass("active");
+				  		$("#tab5").removeClass("active");
+				  		$("#tab6").removeClass("active");			  		
+				  case 4:
+				  		$("#tab1").removeClass("active");
+				  		$("#tab2").removeClass("active");
+				  		$("#tab3").removeClass("active");
+				  		$("#tab4").addClass("active");
+				  		$("#tab5").removeClass("active");
+				  		$("#tab6").removeClass("active");			  		
+				  case 5:
+				  		$("#tab1").removeClass("active");
+				  		$("#tab2").removeClass("active");
+				  		$("#tab3").removeClass("active");
+				  		$("#tab4").removeClass("active");
+				  		$("#tab5").addClass("active");
+				  		$("#tab6").removeClass("active");			  		
+				  case 6:
+				  		$("#tab1").removeClass("active");
+				  		$("#tab2").removeClass("active");
+				  		$("#tab3").removeClass("active");
+				  		$("#tab4").removeClass("active");
+				  		$("#tab5").removeClass("active");
+				  		//$("#tab6").addClass("active");			  		
+				  	break;
+		
+				  default:
+				  //
+				}
+			}
+		
+				
+			// $('#tabsA').on('click', function() {
+				// alert('tabs1');
+			   	// // //$.get("/tablets", null, null, "script");
+			// });
+	
+			$('#tabs0').on('click', function() {
+				//alert('tabs0');
+			   $.get("/tablets", null, null, "script");
+			});
+
+			$('#tabs1').on('click', function() {
+				//alert('tabs1');
+			   	$.get("/tab1lets", null, null, "script");
+			});
+	
+			$('#tabs2').on('click', function() {
+				//alert('tabs3');
+			   $.get("/tab2lets", null, null, "script");
+			});
+	
+			$('#tabs3').on('click', function() {
+				//alert('tabs1');
+			   	$.get("/tab3lets", null, null, "script");
+			});
+	
+			$('#tabs4').on('click', function() {
+				//alert('tabs4');
+			   	$.get("/tab4lets", null, null, "script");
+			});
+			
+			// $(document).on('click','#tabs0', function(){
+			// $(document).on('click','#tabs ul li a',function(){				
+				// //alert(this.href);
+				// // http://localhost:3000/tab1lets/index?direction=desc&sort=id
+// 				
+				// //$.get("/tab2lets", null, null, "script");
+			    // $.getScript(this.href);
+			    // //$.getScript();
+// 			    
+			    // return false;
+			// });
+			
+			
+			$(function() {
+			//$(window).load( function() {
+				
+				//alert('document ready');
+				
+				// $('#tabs0').on('click', function() {
+					// alert('tabs1');
+				   // //$.get("/tablets", null, null, "script");
+				// });
+				
+				
+				// $( "#tabs" ).tabs({
+// 					
+					// //alert('tabs');
+// 					
+					// ajaxOptions: { cache: true },
+					// cache: true,
+					// beforeLoad: function( event, ui ) {
+						// ui.ajaxSettings(function() {
+						// });
+						// ui.jqXHR.error(function() {
+							// ui.panel.html(
+							// "Couldn't load this tab. We'll try to fix this as soon as possible. " +
+							// "If this wouldn't be a demo." );
+						// });
+					// }
+				// });
+// 				
+				// // $( "#tabs" ).tabs( "enable", 2 );
+				// // $( "#tabs" ).tabs( "load", 2 );
+// 	
+				$('#tabs0').click();
+				// $('#tabs1').click();
+				// $('#tabs2').click();
+				// $('#tabs3').click();
+				// $('#tabs4').click();
+				// $( "#tabs" ).tabs({ active: 0 });
+			});			
+	
+	
+			// $(window).load( function() {
+			// $(document).ready(function(){
+	
+			   	// $.get("/tablets0", null, null, "script");
+			   	// $.get("/tablets1", null, null, "script");
+			   	// $.get("/tablets2", null, null, "script");
+			   	// $.get("/tablets3", null, null, "script");
+			   	// $.get("/tablets4", null, null, "script");
+	
+			// });
+			
+			
+	
+			// $("#tabs").tabs({ ajaxOptions: { cache: true }, cache: true });
+	
+			// $( "#tabs" ).tabs({
+				// cache:true,
+				// spinner: 'Loading...'
+			// });
+	
+	
+	
+		// $(document).on('click','#tab1lets th a, #tab1lets .pagination a',function(){
+			// alert(this.href);
+			// // http://localhost:3000/tab1lets/index?direction=desc&sort=id
+		    // $.getScript(this.href);
+		    // return false;
+		// });
+	
+	
+	
+			// $('#tabs2').on('click', function() {
+	// 				
+				// alert('tabs2');
+	// 				
+			   	// $.get("/tab1lets", null, null, "script");
+	// 		
+			// });
+	
+	
+				
+		</script>
+
+
+			<!-- <div id="tabs">
+				<ul>
+					<li><a href="#tabs-A" id="tabsA">Tablets</a></li>				
+					<li><a href="#tabs-0" id="tabs0">Tablet 0</a></li>				
+					<li><a href="#tabs-1" id="tabs1">Tablet 1</a></li>
+					<li><a href="#tabs-2" id="tabs2">Tablet 2</a></li>
+					<li><a href="#tabs-3" id="tabs3">Tablet 3</a></li>
+					<li><a href="#tabs-4" id="tabs4">Tablet 4</a></li>
+				</ul>
+
+				<div id="tabs-A">
+					<div style="height: 800px;">Admin Tablets</div>	
+				</div>			
+				<div id="tabs-0">
+					<div id="render0"></div>	
+				</div>			
+				<div id="tabs-1">
+					<div id="render1"></div>	
+				</div>
+				<div id="tabs-2">
+					<div id="render2"></div>	
+				</div>
+				<div id="tabs-3">
+					<div id="render3"></div>	
+				</div>
+				<div id="tabs-4">
+					<div id="render4"></div>	
+				</div>
+			</div>	 -->			
+					
+	
+				    <!-- <li id="tab0">
+			    	<a href="/tablets" class="tab tab-blue" onclick="make_active(0);">Tablets</a>
+			    </li>
+			    <li id="tab1">
+			    	<a href="/tab1lets" class="tab tab-blue" onclick="make_active(1);">Tablet 1</a>
+			    </li>
+			    <li id="tab2" >
+			    	<a href="/tab2lets" class="tab tab-blue" onclick="make_active(2);">Tablet 2</a>
+			    </li>
+			    <li id="tab3" >
+			    	<a href="/tab3lets" class="tab tab-blue" onclick="make_active(3);">Tablet 3</a>
+			    </li>
+			    <li id="tab4">
+			    	<a href="/tab4lets" class="tab tab-blue" onclick="make_active(4);">Tablet 4</a>
+			    </li>
+			    <li id="tab5">
+			    	<a href="/tab1lets" class="tab tab-yellow" onclick="make_active(5);">Tablet 1</a>
+			    </li>
+			    <li id="tab6">
+			    	<a href="/tab2lets" class="tab tab-yellow" onclick="make_active(6);">Tablet 2</a>
+			    </li> -->			    
+

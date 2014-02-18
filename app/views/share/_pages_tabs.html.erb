@@ -1,0 +1,84 @@
+
+<div class="tabs">
+  <ul>
+    <li id="tab0">
+    	<a href="/tablets" class="tab tab-blue" onclick="make_active(1);">Tablets</a>
+    </li>
+    <li id="tab1">
+    	<a href="/tab1lets" class="tab tab-blue" onclick="make_active(1);">Tablet 1</a>
+    </li>
+    <li id="tab2" >
+    	<a href="/tab2lets" class="tab tab-blue" onclick="make_active(2);">Tablet 2</a>
+    </li>
+    <li id="tab3" >
+    	<a href="/tab3lets" class="tab tab-blue" onclick="make_active(3);">Tablet 3</a>
+    </li>
+    <li id="tab4">
+    	<a href="/tab4lets" class="tab tab-blue" onclick="make_active(4);">Tablet 4</a>
+    </li>
+    <li id="tab5">
+    	<a href="/tab1lets" class="tab tab-yellow" onclick="make_active(5);">Tablet 1</a>
+    </li>
+    <li id="tab6">
+    	<a href="/tab2lets" class="tab tab-yellow" onclick="make_active(6);">Tablet 2</a>
+    </li>
+  </ul>
+</div>
+
+<script>
+	
+	function make_active(index_tab) {		
+		switch (index_tab)
+		{
+		  case 1:
+		  		$("#tab1").addClass("active");
+		  		$("#tab2").removeClass("active");
+		  		$("#tab3").removeClass("active");
+		  		$("#tab4").removeClass("active");
+		  		$("#tab5").removeClass("active");
+		  		$("#tab6").removeClass("active");			  		
+		  	break;
+		  case 2:
+		  		$("#tab1").removeClass("active");
+		  		$("#tab2").addClass("active");
+		  		$("#tab3").removeClass("active");
+		  		$("#tab4").removeClass("active");
+		  		$("#tab5").removeClass("active");
+		  		$("#tab6").removeClass("active");			  					  
+		  	break;
+		  case 3:
+		  		$("#tab1").removeClass("active");
+		  		$("#tab2").removeClass("active");
+		  		$("#tab3").addClass("active");
+		  		$("#tab4").removeClass("active");
+		  		$("#tab5").removeClass("active");
+		  		$("#tab6").removeClass("active");			  		
+		  case 4:
+		  		$("#tab1").removeClass("active");
+		  		$("#tab2").removeClass("active");
+		  		$("#tab3").removeClass("active");
+		  		$("#tab4").addClass("active");
+		  		$("#tab5").removeClass("active");
+		  		$("#tab6").removeClass("active");			  		
+		  case 5:
+		  		$("#tab1").removeClass("active");
+		  		$("#tab2").removeClass("active");
+		  		$("#tab3").removeClass("active");
+		  		$("#tab4").removeClass("active");
+		  		$("#tab5").addClass("active");
+		  		$("#tab6").removeClass("active");			  		
+		  case 6:
+		  		$("#tab1").removeClass("active");
+		  		$("#tab2").removeClass("active");
+		  		$("#tab3").removeClass("active");
+		  		$("#tab4").removeClass("active");
+		  		$("#tab5").removeClass("active");
+		  		//$("#tab6").addClass("active");			  		
+		  	break;
+
+		  default:
+		  //
+		}
+	}
+	
+</script>

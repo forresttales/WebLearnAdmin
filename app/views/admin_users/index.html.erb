@@ -1,0 +1,291 @@
+<% provide(:title, 'Admin Users') %>
+
+					
+	<style>
+	
+		#signin-page {
+			height: 1300px;
+		}
+	
+		#signin-page #signin-page-inner {
+		    width: 100%;
+		    margin: 0 auto;
+		}	
+
+		div .table-signin {
+			display: table;
+			background-color: #E3DDCF;
+			width: 1000px;
+			border-radius: 0px;
+			
+			/*border:2px solid #254520;*/
+						
+			/*box-shadow: 1px 1px 3px #888888;*/			
+			
+			padding-top: 40px;
+			padding-bottom: 40px;
+			padding-left: 10px;
+			padding-right: 10px;			
+		}
+
+		.table-signin p {
+			font-family: msyh; 
+			font-size: 16px;
+			color: #005187;"
+		}
+		
+		
+		
+		#import.signin-btn {
+		  	width: 70px;
+		  	height: 20px;			
+		}    	   
+    	    	
+		.signin-btn {
+		  	display: inline-block;
+		  	text-decoration: none; 
+		  	background: linear-gradient(#000, #000);
+		  	text-shadow: 1px 1px 1px #0E86B2; 
+		  	border-radius: 4px;
+		}
+	
+		.signin-btn:focus {
+		  background: #CCC; 
+		  color: #5F7A2A;
+		  box-shadow: inset 0 1px 0 rgba(200,200,200,0.2);
+		}
+		
+		.signin-btn:hover { 
+		  box-shadow: inset 0 1px 1px rgba(255,255,255,0.2), 
+		  inset 0 1.5em 1em rgba(255,255,255,0.3);
+		}
+		
+		.signin-btn:active { 
+		  box-shadow: inset 0 1px 1px rgba(255,255,255,0.2), 
+		  inset 0 1.5em 1em rgba(0,0,0,0.3); 
+		}
+		
+	</style>
+
+    <style>
+    	
+    	.main {
+    		font-family:Arial, Helvetica, sans-serif;
+    		font-size: 20px;
+    		color: black;
+    		height: 500px;
+    	}
+    	
+    	.links {
+    		font-family:Arial, Helvetica, sans-serif;
+    		font-size: 13px;
+    		color: brown;    		
+    	}
+    	
+    	h1 {
+    		font-size: 22px;
+    	}
+    	h2 {
+    		font-size: 18px;
+    	}
+    	h4 {
+    		font-size: 16px;
+    		font-weight: 600;
+    	}    	
+    	h5 {
+    		font-size: 12px;
+    	}    	    	
+    	p {
+    		font-size: 12px;
+    	}
+    	
+    	.bar {
+    		font-size: 16px;
+    		font-weight: 400;
+    	}
+    	
+		.input-upload {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 16px;
+			width: 600px;
+			height: 24px;
+			border-style:solid;
+			background-color: #fff;
+			border-color: #000;
+			border-width: 1px;
+			padding-left: 6px;
+			color: #888;
+		}
+    	
+    	.submit-upload {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 16px;
+    		height: 24px;
+    	}
+    	
+    	#admin-users {
+    		width: 1200px; 
+    	}
+    	table#admin-users th {
+    		padding-left: 0px;
+    	}    	    	
+    	table#admin-users tr {
+    		height: 20px;
+    	}    	
+    	table#admin-users td {
+    		vertical-align: bottom;    		
+    		padding-top: 0px;
+    		padding-bottom: 4px;       		    		    		
+    	}
+		/*table#admin-users tr:nth-child(even) {
+			background: #CCC			
+		}
+		table#admin-users tr:nth-child(odd) {
+			background: #FFF
+		}    	*/
+		
+		    	
+    	.gray {
+			background: #CCC			    		
+    	}
+    	.white {
+			background: #fff    		
+    	}
+    	.hover-col {
+    		background-color: rgba(0, 0, 0, 0.1);
+    	}
+    	
+		.hover-row {
+			background-color: #FAC0C1;
+		}
+		/*.hover-col {
+			background-color: #FCD7D7 !important;
+		}*/
+		.row-select {
+			color: #fff;			
+			background-color: brown;
+		}
+		.btn-color-select {
+			color: #fff;	
+		}
+		.btn-color {
+		  	color: #A31C1C;			
+		}
+		    	
+		.delete-btn {
+		  	display: inline-block;
+		  	text-decoration: none; 
+		  	width: 50px;
+		  	height: 20px;
+		  	background: inherit;
+		  	border-width: 0px;
+		}
+		.delete-btn:focus {
+		}
+		.delete-btn:hover { 
+		  	text-decoration: underline; 
+		}
+		.delete-btn:active { 
+		  	text-decoration: underline; 
+		}
+
+		.header-shift {
+			padding-left: 0px;
+		}    	    	
+
+		.reset-db-btn {
+		  	width: 200px;
+		  	height: 20px;
+		}
+    	    	
+    	    	
+    	    	
+    	    	
+    </style>
+
+	<style>
+		
+		.scrollbox-both {
+	 		height:520px;
+	 		width:1200px;
+	 		overflow:scroll;
+	 		border:1px solid #651375;		
+		}
+				
+	</style>
+
+
+
+
+	<div id="signin-page">
+		
+		<header>
+	
+	    	<div id="pos" style="display: none;"></div>
+
+			<%= render 'share/backtotop' %>
+
+			<div style="height: 100px;"></div>
+			
+		</header>
+		
+		<div id="signin-page-inner">
+			
+			<table width="1000px" style="float: right;">
+				<tr>
+					<td>
+						<%= link_to 'New', admin_users_new_path %>
+					</td>
+					<td style="width: 100px; text-align: right;">
+				    	<div>
+					    	<h5>
+							   	<% delete_all_msg = "Delete all records?" %>
+								<%= button_to "Delete All Records", {:action => 'dbdelete'}, :method => :post, :confirm => delete_all_msg, :class => 'reset-db-btn' %>
+							</h5>
+						</div>
+					</td>
+					<td style="width: 100px; text-align: right;">
+				    	<div>
+					    	<h5>
+							   	<% reset_db_msg = "Reset database index?" %>
+								<%= button_to "Database Reset Index", {:action => 'dbclear'}, :method => :post, :confirm => reset_db_msg, :class => 'reset-db-btn' %>
+							</h5>
+						</div>
+					</td>
+				</tr>		
+			</table>	
+			<div style="clear: both;">
+			
+			<div class="table-signin">
+				
+				<div class="row">
+					
+					<div class="cell-100percent" tabindex="1">
+
+
+						  						
+							<div id="admin_users">
+								
+								<%= render 'admin_users/index'%>
+
+							</div>
+												
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>	
+		
+	</div>					
+
+	<script>
+
+		$(document).on('click','#admin_users th a, #admin_users .pagination a',function(){
+		    $.getScript(this.href);
+		    return false;
+		});
+	
+	</script>
+					

@@ -1,0 +1,732 @@
+<% provide(:title, 'New Article') %>
+
+	<script src="/assets/jquery.validate.js"></script>
+ 	
+	<!-- <script src="http://code.jquery.com/jquery-1.9.1.js"></script> -->	
+	
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	
+			
+	<script>
+		$(function() {
+		$( "#datepicker" ).datepicker();
+		});
+	</script>
+
+
+	<style>
+	
+		#signin-page {
+			height: 800px;
+		}
+	
+		#signin-page #signin-page-inner {
+		    width: 50%;
+		    margin: 0 auto;
+		}	
+
+		div .table-signin {
+			display: table;
+			background-color: #DEDB3C;
+			width: 600px;
+			border-radius: 20px;
+			border:2px solid #254520;
+			box-shadow: 1px 1px 10px #888888;
+			padding-top: 40px;
+			padding-bottom: 40px;
+			padding-left: 60px;
+		}
+	
+		.input-signin {
+			font-family: Arial, Helvetica, sans-serif;
+			color: #404040;
+			font-size: 16px;
+			width: 300px;
+			height: 24px;
+			border-style:solid;
+			border-radius: 4px;
+			background-color: #fff;
+			border-color: #000;
+			border-width: 1px;
+			padding-left: 6px;
+		}
+	
+		.input-signin:focus {
+			border-color: #3949C4;
+			color: #000;
+			-webkit-box-shadow: 0 0 10px #3949C4;
+			-moz-box-shadow: 0 0 10px #3949C4;
+			box-shadow: 0 0 10px #3949C4;
+		}
+			
+		.input-label-signin {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 16px;
+			width: 220px;
+			height: 18px;
+		}
+			
+		.input-signin-spacer {
+			height: 16px;
+		}
+			
+		div .cell-right-signin-admin {
+			display: table-cell;
+			width: 50%;
+			text-align: left;
+			align: top;		
+		}
+	
+		div .cell-left-signin-admin {
+			display: table-cell;
+			width: 20%;	
+			align: top;
+			text-align: right;		
+			padding-right: 20px;
+			padding-top: 6px;
+			vertical-align: top;
+		}
+		
+		div .cell-submit-signin-admin {
+			display: table-cell;
+			width: 50%;
+			text-align: left;
+			align: top;		
+			padding-left: 0px;
+		}
+		
+		.signin-btn {
+		  
+		  	display: inline-block;
+		  	text-decoration: none; 
+		  	width: 308px;
+		  	height: 30px;
+		  	background: linear-gradient(#000, #000);
+		  	text-shadow: 1px 1px 1px #0E86B2; 
+		  	border-radius: 6px;
+		}
+	
+		.signin-btn:focus {
+		  background: #CCC; 
+		  color: #5F7A2A;
+		  box-shadow: inset 0 1px 0 rgba(200,200,200,0.2);
+		}
+		
+		.signin-btn:hover { 
+		  box-shadow: inset 0 1px 1px rgba(255,255,255,0.2), 
+		  inset 0 1.5em 1em rgba(255,255,255,0.3);
+		}
+		
+		.signin-btn:active { 
+		  box-shadow: inset 0 1px 1px rgba(255,255,255,0.2), 
+		  inset 0 1.5em 1em rgba(0,0,0,0.3); 
+		}
+		
+		
+		
+		div .error_label {
+		    display: none;
+			font-family: msyh;
+			font-size: 12px;
+			color: #851717;		    
+		}
+	
+		div .errors {
+			font-family: msyh;
+			font-size: 11px;
+			color: #851717;		    			
+		}
+	
+		.success {
+			color: #000D6E;
+			background-color: #fff;
+			
+			/*background: url("/assets/submit_form_tick.png") no-repeat 278px 5px;*/		
+	
+			/*background: url("/assets/submit_form_empty.png") no-repeat 278px 1px;		*/					
+		}		
+
+		.error {
+			color: #FC7777;
+			border-color: #851717; 								
+			
+			/*background: url("/assets/submit_form_empty.png") no-repeat 278px 1px;*/					
+		}
+	
+		.required {
+			color: #000;
+			background-color: #fff;
+			/*background: url("/assets/submit_form_asterisk_orange.png") no-repeat 278px 7px;		*/
+		}
+		
+		.focus {
+			color: #000;
+			border-color: #005C9E;						
+			background: url("/assets/submit_form_empty.png") no-repeat 278px 7px;								
+		}
+		
+		.unrequired {
+			background: url("/assets/submit_form_empty.png") no-repeat 278px 1px;		
+		}
+		
+		.error-label {
+			/*color: #851717;*/		
+			color: #FC7777;
+		}
+	
+		.required-label {
+			color: #000;		
+		}
+		
+		
+		div .cell-error-archive {
+			display: inline-block;
+			width: 20px;
+			height: 18px;
+			vertical-align: bottom;
+			text-align: left;
+			margin-left: 4px;
+		}
+		
+		.table-signin p {
+			font-family: msyh; 
+			font-size: 16px;
+			color: #005187;"
+		}
+		
+		.keywords {
+			height: 90px;
+		}		
+		
+	</style>
+
+	<link href="../widgets/datetimepicker/css/datepicker.css" rel="stylesheet" type="text/css"/>	
+	
+	
+		
+	<!-- <link href="../widgets/datetimepicker/css/normalize.css" rel="stylesheet" type="text/css"/>		 -->		
+	<!-- <script type="text/javascript" src="../scripts/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="../scripts/jquery-ui-1.8.18.custom.min.js"></script>	 -->
+	
+	
+		
+	<script type="text/javascript">
+		$(function(){
+			$('#datepicker').datepicker({
+				inline: true,
+				//nextText: '&rarr;',
+				//prevText: '&larr;',
+				showOtherMonths: true,
+				//dateFormat: 'dd MM yy',
+				dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+				//showOn: "button",
+				//buttonImage: "img/calendar-blue.png",
+				//buttonImageOnly: true,
+			});
+		});
+	</script>
+	
+	<div id="signin-page">
+		
+		<header>
+	
+			<%= render 'share/backtotop' %>
+			
+			<div style="height: 40px;"></div>
+	
+		</header>
+		
+		
+		<div id="signin-page-inner">
+			
+			<div class="table-signin" tabindex="1">
+				<div class="row">
+					
+					<div class="cell-100percent">
+						
+			  			<%= form_for @archive, :html => {:id => "form_archive_new"} do |f| %> 
+
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:article_id, 'Article ID', :class => 'input-signin-label', :id => 'label_archive_article_id') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :article_id, :class => 'input-signin required', :tabindex => '2', :autofocus => true %>	
+							</div>      
+							<div class="cell-error-archive input-status" id="state_archive_article_id"><p id="error_archive_article_id"></p></div>      					   
+						</div>
+
+						<div class="input-signin-spacer"></div>
+
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:name_url, 'URL', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :name_url, :class => 'input-signin required', :tabindex => '3' %>	
+							</div>
+							<div class="cell-error-archive" id="state_archive_name_ur"><p id="error_archive_name_ur"></p></div>      					   
+						</div>
+
+						<div class="input-signin-spacer"></div>
+
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:name_file, 'File Name', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :name_file, :class => 'input-signin required', :tabindex => '4' %>	
+							</div>
+							<div class="cell-error-archive" id="state_archive_name_file"><p id="error_archive_name_file"></p></div>      					   
+						</div>
+
+						<div class="input-signin-spacer"></div>
+					
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:name_author, 'Author', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :name_author, :class => 'input-signin required', :tabindex => '5' %>	
+							</div>
+							<div class="cell-error-archive" id="state_archive_name_author"><p id="error_archive_name_author"></p></div>      					   
+						</div>
+						
+						<div class="input-signin-spacer"></div>
+						      		
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:name_admin, 'Admin', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :name_admin, :class => 'input-signin required', :tabindex => '6' %>	
+							</div>
+							<div class="cell-error-archive" id="state_archive_name_admin"><p id="error_archive_name_admin"></p></div>      					   
+						</div>
+												
+						<div class="input-signin-spacer"></div>
+
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:article_type, 'Genre', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :article_type, :class => 'input-signin required', :tabindex => '7' %>	
+							</div>
+							<div class="cell-error-archive" id="state_archive_article_type"><p id="error_archive_article_type"></p></div>      					   							      	
+						</div>
+
+						<div class="input-signin-spacer"></div>
+
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:date_article, 'Article Date', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :date_article, :class => 'input-signin required', :id => 'datepicker', :tabindex => '8' %>	
+							</div>      	
+							<div class="cell-error-archive" id="state_archive_date_article"><p id="error_archive_date_article"></p></div>      					   
+						</div>
+
+						<div class="input-signin-spacer"></div>
+
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:linktitle, 'Link Title', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :linktitle, :class => 'input-signin required', :tabindex => '9' %>	
+							</div>
+							<div class="cell-error-archive" id="state_archive_linktitle"><p id="error_archive_linktitle"></p></div>      					   							      	
+						</div>
+
+						<div class="input-signin-spacer"></div>
+
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:linkimg, 'Link Image', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :linkimg, :class => 'input-signin required', :tabindex => '10' %>	
+							</div>
+							<div class="cell-error-archive" id="state_archive_linkimg"><p id="error_archive_linkimg"></p></div>      					   							      	
+						</div>
+
+						<div class="input-signin-spacer"></div>
+
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:linkimg_url, 'Link Image Folder', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :linkimg_url, :class => 'input-signin required', :tabindex => '11' %>	
+							</div>
+							<div class="cell-error-archive" id="state_archive_linkimg_url"><p id="error_archive_linkimg_url"></p></div>      					   							      	
+						</div>
+
+						<div class="input-signin-spacer"></div>
+
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:description, 'Description', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :description, :class => 'input-signin required', :tabindex => '11' %>	
+							</div>
+							<div class="cell-error-archive" id="state_archive_description"><p id="error_archive_description"></p></div>      					   							      	
+						</div>
+
+						<div class="input-signin-spacer"></div>
+
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:key_words, 'Key Words', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_area :key_words, :class => 'input-signin required keywords', :tabindex => '12' %>	
+							</div>
+							<div class="cell-error-archive" id="state_archive_key_words"><p id="error_archive_key_words"></p></div>      					   
+						</div>
+
+						<div class="input-signin-spacer"></div>
+
+						<div class="row">
+							<div class="cell-left-signin-admin">
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.submit 'Submit', class: 'signin-btn', :tabindex => '13' %>
+							</div>
+							<div class="cell-error-archive"><p></p></div>      					   							      	
+						</div>      		
+											
+						<% end %>
+						
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>	
+		
+	</div>					
+
+	<script>
+	
+		//validatorCalled = false;
+		//var val = null;
+
+		function formValidate() {
+						
+			$("#form_archive_new").validate({
+			
+				submitHandler: function(form) {
+					form.submit();
+				},
+			
+				debug: true,
+				onkeyup: false,
+				focusCleanup: true,
+				// invalidClass: "error",
+				// validClass: "success",
+				
+				rules: {
+					'archive[article_id]': {
+						required: true,
+						minlength: 1,						
+						maxlength: 30						
+					},
+					'archive[name_url]': {
+						required: true,
+						minlength: 1,						
+						maxlength: 100						
+					},
+					'archive[name_file]': {
+						required: true,
+						minlength: 1,						
+						maxlength: 50						
+					},
+					'archive[name_author]': {
+						required: false,
+						minlength: 1,						
+						maxlength: 50						
+					},
+					'archive[name_admin]': {
+						required: false,
+						minlength: 1,						
+						maxlength: 50												
+					},
+					'archive[article_type]': {
+						required: true,
+						minlength: 1,						
+						maxlength: 50												
+					},
+					'archive[date_article]': {
+						required: false
+						minlength: 1,						
+						maxlength: 50																		
+					},
+					'archive[key_words]': {
+						required: false,
+						maxlength: 1000
+					},
+					'archive[linktitle]': {
+						required: false,
+						minlength: 1,						
+						maxlength: 50						
+					},
+					'archive[linkimg]': {
+						required: false,
+						minlength: 1,						
+						maxlength: 50						
+					},
+					'archive[linkimg_url]': {
+						required: false,
+						minlength: 1,						
+						maxlength: 50																		
+					},
+					'archive[description]': {
+						required: false,
+						minlength: 1,						
+						maxlength: 50																		
+					}										
+				},
+				invalidHandler: function(event, validator) {
+					//validatorCalled = true;
+					//val = validator;					
+					var errors = validator.numberOfInvalids();
+					if (errors) {
+						var message = errors == 1
+						? 'You missed 1 field'
+						: 'You missed ' + errors + ' fields';
+						$("div.errors p").html(message);
+						$("div.errors").show();
+					} else {
+						$("div.errors").hide();
+					}
+				},
+				messages: {
+					'archive[article_id]': {
+						required: "*",
+						maxlength: "Exceeds 30 characters"							
+					},
+					'archive[name_url]': {
+						required: "*",
+						maxlength: "Exceeds 100 characters"							
+					},
+					'archive[name_file]': {
+						required: "*",
+						maxlength: "Exceeds 50 characters"							
+					},
+					'archive[name_author]': {
+						required: "*",
+						maxlength: "Exceeds 50 characters"							
+					},
+					'archive[name_admin]': {
+						required: "*",
+						maxlength: "Exceeds 50 characters"							
+					},
+					'archive[date_article]': {
+						required: "*"
+					},
+					'archive[article_type]': {
+						required: "*",
+						maxlength: "Exceeds 50 characters"							
+					},
+					'archive[key_words]': {
+						required: "*",
+						maxlength: "Exceeds 1000 characters"							
+					},
+					'archive[linktitle]': {
+						required: "*",
+						maxlength: "Exceeds 100 characters"							
+					},
+					'archive[linkimg]': {
+						required: "*",
+						maxlength: "Exceeds 50 characters"							
+					},
+					'archive[linkimg_url]': {
+						required: "*",
+						maxlength: "Exceeds 50 characters"							
+					},
+					'archive[linkdescription]': {
+						required: "*",
+						maxlength: "Exceeds 200 characters"							
+					},
+										
+				},
+				errorContainer: $("div .error_label"),				
+				errorPlacement: function(error, element) {
+					error.insertAfter('#error_' + element.attr('id'));
+					$('#' + element.attr('id')).removeClass('required').removeClass('success').addClass('error');
+					//$('#label_' + element.attr('id')).removeClass('required-label').addClass('error-label');
+				},
+				// invalid: function(element) {
+					// $('#' + element.attr('id')).removeClass('required').removeClass('success').addClass('error');
+					// $('#label_' + element.attr('id')).removeClass('required-label').addClass('error-label');					
+				// },
+				// highlight: function(element) {
+					// $('#' + element.attr('id')).removeClass('required').removeClass('success').addClass('error');
+					// //$('#label_' + element.attr('id')).removeClass('required-label').addClass('error-label');
+				// },
+				// unhighlight: function(element) {
+					// //$('#' + element.attr('id')).removeClass('required').removeClass('success').addClass('error');
+					// //$('#label_' + element.attr('id')).removeClass('required-label').addClass('error-label');
+				// },
+				
+				error: function(label) {
+					$('#' + label.attr('for')).removeClass('required').removeClass('success').addClass('error');
+					$('#label_' + label.attr('for')).removeClass('required-label').addClass('error-label');
+					
+				},
+				success: function(label) {
+					
+					$('#' + label.attr('for')).removeClass('required').removeClass('error').addClass('success');
+					$('#label_' + label.attr('for')).removeClass('error-label').addClass('required-label');
+					
+					$('#state_' + label.attr('for')).css ({			
+						background: 'url("/assets/submit_form_tick.png") no-repeat 0px 5px'
+					});
+ 
+					$('#error_' + label.attr('for')).html("");
+				},				
+				focus: function(element) {
+				 	$('#' + element.attr('id')).removeClass('required').removeClass('error').removeClass('success').addClass('focus');
+				 	
+				 	//$('#' + element.attr('id')).removeClass('required').removeClass('success').addClass('focus');
+				}
+				
+				// error: function(label) {
+					// $('#' + label.attr('for')).removeClass('required').removeClass('success').addClass('error');
+					// $('#label_' + label.attr('for')).removeClass('required-label').addClass('error-label');
+				// },
+				// success: function(label) {
+					// $('#' + label.attr('for')).removeClass('required').removeClass('error').addClass('success');
+					// $('#label_' + label.attr('for')).removeClass('error-label').addClass('required-label');
+				// },				
+				// focus: function(element) {
+				 	// $('#' + element.attr('id')).removeClass('required').removeClass('error').removeClass('success').addClass('focus');
+				// }
+			});
+		}
+
+		// function updateErrorCount () {
+// 
+			// if ((val !== undefined) && (val !== null)) {
+// 
+				// var errors = val.numberOfInvalids();
+// 				
+				// if (errors) {
+					// var message = errors == 1
+					// ? '1 required field missed'
+					// : errors + ' required fields missed';
+					// $("div.errors p").html(message);
+					// $("div.errors").show();
+				// } else {
+					// $("div.errors").hide();
+				// }
+// 				
+				// val.reset();
+			// }					
+		// }
+// 		
+		// function errorMessageUpdate( element ) {
+// 			
+			// updateErrorCount();
+// 
+			// if ($('#' + element).hasClass('error')) {
+				// if ($('#' + element).val().length > 0) {
+					// $('#' + element).removeClass('required').removeClass('success').addClass('error');
+					// $('#label_' + element).removeClass('required-label').addClass('error-label');
+				// }
+				// else {
+					// $('#' + element).removeClass('success').removeClass('error').addClass('required');
+					// $('#label_' + element).removeClass('success-label').removeClass('error-label').addClass('required-label');				
+// 					
+					// $('#' + element).css ({			
+						// 'border-color' : '#851717'
+					// });
+// 					
+					// $('#state_' + element).css ({			
+						// background: 'url("/assets/submit_form_empty.png") no-repeat 0px 1px'
+					// });					
+				// }
+			// }
+			// else {			
+				// if ($('#' + element).val().length > 0) {
+					// $('#' + element).removeClass('required').removeClass('error').addClass('success');
+					// $('#label_' + element).removeClass('error-label').addClass('required-label');
+// 					
+					// $('#' + element).css ({			
+						// 'border-color' : '#005C9E'
+					// });					
+				// }
+				// else {
+					// $('#' + element).removeClass('success').removeClass('error').addClass('required');
+					// $('#label_' + element).removeClass('success-label').removeClass('error-label').addClass('required-label');		
+// 					
+					// $('#state_' + element).css ({			
+						// background: 'url("/assets/submit_form_empty.png") no-repeat 0px 1px'
+					// });
+// 									
+				// }
+			// }
+		// }
+		
+// #  id           :integer          not null, primary key
+// #  article_id   :integer
+// #  name_url     :string(100)
+// #  name_file    :string(50)
+// #  name_author  :string(50)
+// #  name_admin   :string(50)
+// #  key_words    :text
+// #  date_article :date
+// #  created_at   :datetime
+// #  updated_at   :datetime
+// #  article_type :string(20)
+
+		
+
+		// $("#archive_article_id").on("blur", function () {
+			// errorMessageUpdate('archive_article_id');
+		// });
+// 
+		// $("#archive_name_url").on("blur", function () {
+			// errorMessageUpdate('archive_name_url');
+		// });
+// 
+		// $("#archive_name_file").on("blur", function () {
+			// errorMessageUpdate('archive_name_file');
+		// });
+// 
+		// $("#archive_name_author").on("blur", function () {
+			// errorMessageUpdate('archive_name_author');
+		// });
+// 
+		// $("#archive_name_admin").on("blur", function () {
+			// errorMessageUpdate('archive_name_admin');
+		// });
+// 
+		// $("#archive_key_words").on("blur", function () {
+			// errorMessageUpdate('archive_key_words');
+		// });
+// 
+		// $("#archive_date_article").on("blur", function () {
+			// errorMessageUpdate('archive_date_article');
+		// });
+// 
+		// $("#archive_article_type").on("blur", function () {
+			// errorMessageUpdate('archive_article_type');
+		// });
+
+
+		//$(document).ready(function(){
+		$(window).load( function() {
+			
+			formValidate();
+			
+		});
+	
+	</script>
+	
+	
