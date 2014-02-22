@@ -1,0 +1,188 @@
+					
+
+	<style>
+	
+		.reset-db-btn-long {
+		  	width: 300px;
+		  	height: 26px;
+		}
+		.import-btn {
+		  	width: 100px;
+		  	height: 18px;
+		}
+			
+	</style>
+
+	<div id="page">
+
+		<div style="height: 30px;"></div>
+
+		 <!-- tabs  -->
+		 		 		
+		<header>
+	
+	    	<div id="pos" style="display: none;"></div>
+
+			<%= render 'share/backtotop' %>
+
+			<div style="height: 70px;"></div>
+			
+		</header>
+		
+		<div id="page-inner">
+			
+      
+      		<div id="loading"> </div>
+			
+			<table width="1000px">	
+				<tr>
+					<td style="width: 400px">
+						<form>
+						    <input type="file">
+						</form>
+						<script>
+							$(":file").change(function(){
+								$( "#file_name" ).val( $(":file").val() );
+							});
+						</script>		
+					</td>
+					<td>
+						<%= form_tag import_mtab2lets_path, :method => 'post', :id => "import_mtab2lets", :remote => true do %>
+								<%= hidden_field_tag :file_name, params[:file_name] %>	
+						    	<%= submit_tag "Import CSV", :class => 'import-btn' %>
+						    	 <!-- submit_tag "download", :onclick => 'load_import(); return false;'  -->
+						<% end %>			
+					</td>
+				</tr>
+			</table>
+			<div style="height: 20px;"></div>
+			<table>
+				<tr>
+					<td style="width: 400px">
+						<form>
+						    <input type="file">
+						</form>
+						<script>
+							$(":file").change(function(){
+								$( "#file_name_excel" ).val( $(":file").val() );
+							});
+						</script>		
+					</td>					
+					<td>
+						<%= form_tag import_mtab2lets_path( :format => :js ), :remote => true, multipart: true do %>							
+						  	<%= hidden_field_tag :file_name_excel, params[:file_name_exel] %>
+						  	<%= submit_tag "Import Excel XLSX" %>
+						<% end %>
+					</td>
+				</tr>
+			</table>
+			<div style="height: 20px;"></div>
+			<table width="1222px">
+				<tr>
+					<td width="300px">
+						<p>
+						   <%= link_to("Download: (Semi-colon ';' delimited)", { :action => 'export', :id => '100', :format => 'csv' }, :id => 'export_csv', :class => 'links') %>
+						</p>	
+					</td>
+					<td width="150px"></td>					
+					<td style="text-align: right;">
+				    	<div>
+					    	<h5>
+							   	<% delete_all_msg = "Delete all records and reset index in MTablet 2?" %>
+								 <!-- button_to "Delete All Records and Reset Index", {:action => 'dbdelete'}, :method => :post, data: { confirm: delete_all_msg }, :class => 'reset-db-btn-long'  -->
+								
+								<%= button_to "Delete All Records and Reset Index", dbdelete_mtab2lets_path( :format => :js ), data: { confirm: delete_all_msg }, :class => 'reset-db-btn-long', :id => 'dbdelete', :remote => true %>
+								
+							</h5>
+						</div>
+					</td>
+			</table>
+
+									
+			<div class="table-page">
+								
+				<div class="row">
+					
+					<div class="cell-100percent" tabindex="1">
+
+
+						<%= form_tag mtab2lets_path, :method => 'get', :id => "tablets_search" do %>
+						  	
+						  	<span>
+
+						    	 <!-- text_field_tag :search, params[:search]  -->
+						    	
+						    	<%= text_field_tag :search %>
+						    	
+						   	</span>
+						   	<span class="bar">Search by: </span>
+					
+						   	<span>
+							
+					   		<%= select_tag("search_by", options_for_select(
+					   				[['ID', '1'],
+					   				['Col 1','2'],
+					   				['Col 2','3'],
+					   				['Col 3','4'],
+					   				['Col 4','5'],
+					   				['Col 5','6'],
+					   				['Col 6','7'],
+					   				['Col 7','8'],
+					   				['Col 8','9'],
+					   				['Col 9','10'],
+					   				['Col 10','11'],
+					   				['Col 11','12'],
+					   				['Col 12','13'],
+					   				['Col 13','14'],
+					   				['Col 14','15'],
+					   				['Col 15','16'],
+					   				['Col 16','17'],
+					   				['Col 17','18'],
+					   				['Col 18','19'],
+					   				['Col 19','20'],
+					   				['Col 20','21'],
+					   				['Col 21','22'],
+					   				['Col 22','23'],
+					   				['Col 23','24'],
+					   				['Col 24','25'],					   				
+					   				['Col 25','26']])) %>
+							
+						    </span>
+
+							<span>
+						    	<%= submit_tag "Search", :id => nil %>
+						  	</span>
+						  						
+							<div id="tablets">
+								
+								<%= render 'mtab2lets/upload_files'%>
+
+							</div>
+						  
+						<% end %>
+												
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>	
+		
+	</div>					
+
+	<script>
+
+		$(document).on('click','#tablets th a, #tablets .pagination a',function(){
+		    $.getScript(this.href);
+		    return false;
+		});
+
+		$("#tablets_search").submit(function() {	
+			//alert('tablets_search');
+		    $.get($("#tablets_search").attr("action"), $("#tablets_search").serialize(), null, "script");
+		    return false;
+		});
+	
+	</script>
+					

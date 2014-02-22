@@ -332,6 +332,364 @@ Weblearn::Application.routes.draw do
 
 
 
+  #*********************************************************************
+  # mtables
+  
+  get "mtablets/index"
+  get "mtablets/show"
+  match '/mtablets/new', to: 'mtablets#new', via: 'get'
+  match "/mtablets/:id/edit" => "mtablets#edit", via: 'post'
+  match "/mtablets/:id" => "mtablets#update", via: 'get'
+  match '/mtablets/upload', to: 'mtablets#upload', via: 'post'
+  
+  resources :mtablets do
+    collection { post :import }
+  end
+
+  resources :mtablets do
+    member do
+      get 'export'
+    end
+  end
+
+  resources :mtablets do
+    collection { post :exec_sql }
+  end
+
+  resources :mtablets do
+    collection do
+      post :dbclear
+    end
+  end
+
+  resources :mtablets do
+    collection do
+      post :dbdelete
+    end
+  end
+
+  resources :mtablets
+
+
+
+
+
+  get "mtab1lets/index"
+  get "mtab1lets/update_show"
+  match "/mtab1lets/show/:id" => "mtab1lets#show", via: 'get'
+  match '/mtab1lets/new', to: 'mtab1lets#new', via: 'get'
+  match "/mtab1lets/:id/edit" => "mtab1lets#edit", via: 'post'
+  match '/mtab1lets/upload', to: 'mtab1lets#upload', via: 'post'
+  
+  resources :mtab1lets do
+    collection { post :import }
+  end
+
+  resources :mtab1lets do
+    member do
+      get 'export'
+    end
+  end
+
+  resources :mtab1lets do
+    collection { post :exec_sql }
+  end
+
+  resources :mtab1lets do
+    collection do
+      post :dbclear
+    end
+  end
+
+  resources :mtab1lets do
+    collection do
+      post :dbdelete
+    end
+  end
+
+  match "/mtab1lets/:id" => "mtab1lets#update", via: 'post'
+
+  resources :mtab1lets
+
+
+
+
+
+
+  get "mtab2lets/index"
+  get "mtab2lets/show"
+  match '/mtab2lets/new', to: 'mtab2lets#new', via: 'get'
+  match "/mtab2lets/:id/edit" => "mtab2lets#edit", via: 'post'
+  match "/mtab2lets/:id" => "mtab2lets#update", via: 'get'
+  match '/mtab2lets/upload', to: 'mtab2lets#upload', via: 'post'
+  
+  resources :mtab2lets do
+    collection { post :import }
+  end
+
+  resources :mtab2lets do
+    member do
+      get 'export'
+    end
+  end
+
+  resources :mtab2lets do
+    collection { post :exec_sql }
+  end
+
+  resources :mtab2lets do
+    collection do
+      post :dbclear
+    end
+  end
+
+  resources :mtab2lets do
+    collection do
+      post :dbdelete
+    end
+  end
+
+  resources :mtab2lets
+
+
+
+
+
+  get "mtab3lets/index"
+  get "mtab3lets/show"
+  match '/mtab3lets/new', to: 'mtab3lets#new', via: 'get'
+  match "/mtab3lets/:id/edit" => "mtab3lets#edit", via: 'post'
+  match "/mtab3lets/:id" => "mtab3lets#update", via: 'get'
+  match '/mtab3lets/upload', to: 'mtab3lets#upload', via: 'post'
+  
+  resources :mtab3lets do
+    collection { post :import }
+  end
+
+  resources :mtab3lets do
+    member do
+      get 'export'
+    end
+  end
+
+  resources :mtab3lets do
+    collection { post :exec_sql }
+  end
+
+  resources :mtab3lets do
+    collection do
+      post :dbclear
+    end
+  end
+
+  resources :mtab3lets do
+    collection do
+      post :dbdelete
+    end
+  end
+
+  resources :mtab3lets
+
+
+
+
+
+
+  get "mtab4lets/index"
+  get "mtab4lets/show"
+  match '/mtab4lets/new', to: 'mtab4lets#new', via: 'get'
+  match "/mtab4lets/:id/edit" => "mtab4lets#edit", via: 'post'
+  match "/mtab4lets/:id" => "mtab4lets#update", via: 'get'
+  match '/mtab4lets/upload', to: 'mtab4lets#upload', via: 'post'
+  
+  resources :mtab4lets do
+    collection { post :import }
+  end
+
+  resources :mtab4lets do
+    member do
+      get 'export'
+    end
+  end
+
+  resources :mtab4lets do
+    collection { post :exec_sql }
+  end
+
+  resources :mtab4lets do
+    collection do
+      post :dbclear
+    end
+  end
+
+  resources :mtab4lets do
+    collection do
+      post :dbdelete
+    end
+  end
+
+  resources :mtab4lets
+
+
+
+
+
+  get "mtab5lets/index"
+  get "mtab5lets/show"
+  match '/mtab5lets/new', to: 'mtab5lets#new', via: 'get'
+  match "/mtab5lets/:id/edit" => "mtab5lets#edit", via: 'post'
+  match "/mtab5lets/:id" => "mtab5lets#update", via: 'get'
+  match '/mtab5lets/upload', to: 'mtab5lets#upload', via: 'post'
+  
+  resources :mtab5lets do
+    collection { post :import }
+  end
+
+  resources :mtab5lets do
+    member do
+      get 'export'
+    end
+  end
+
+  resources :mtab5lets do
+    collection { post :exec_sql }
+  end
+
+  resources :mtab5lets do
+    collection do
+      post :dbclear
+    end
+  end
+
+  resources :mtab5lets do
+    collection do
+      post :dbdelete
+    end
+  end
+
+  resources :mtab5lets
+
+
+
+
+
+
+  get "mtab6lets/index"
+  get "mtab6lets/show"
+  match '/mtab6lets/new', to: 'mtab6lets#new', via: 'get'
+  match "/mtab6lets/:id/edit" => "mtab6lets#edit", via: 'post'
+  match "/mtab6lets/:id" => "mtab6lets#update", via: 'get'
+  match '/mtab6lets/upload', to: 'mtab6lets#upload', via: 'post'
+  
+  resources :mtab6lets do
+    collection { post :import }
+  end
+
+  resources :mtab6lets do
+    member do
+      get 'export'
+    end
+  end
+
+  resources :mtab6lets do
+    collection { post :exec_sql }
+  end
+
+  resources :mtab6lets do
+    collection do
+      post :dbclear
+    end
+  end
+
+  resources :mtab6lets do
+    collection do
+      post :dbdelete
+    end
+  end
+
+  resources :mtab6lets
+
+
+
+
+
+
+  get "mtab7lets/index"
+  get "mtab7lets/show"
+  match '/mtab7lets/new', to: 'mtab7lets#new', via: 'get'
+  match "/mtab7lets/:id/edit" => "mtab7lets#edit", via: 'post'
+  match "/mtab7lets/:id" => "mtab7lets#update", via: 'get'
+  match '/mtab7lets/upload', to: 'mtab7lets#upload', via: 'post'
+  
+  resources :mtab7lets do
+    collection { post :import }
+  end
+
+  resources :mtab7lets do
+    member do
+      get 'export'
+    end
+  end
+
+  resources :mtab7lets do
+    collection { post :exec_sql }
+  end
+
+  resources :mtab7lets do
+    collection do
+      post :dbclear
+    end
+  end
+
+  resources :mtab7lets do
+    collection do
+      post :dbdelete
+    end
+  end
+
+  resources :mtab7lets
+
+
+
+
+
+
+  get "mtab8lets/index"
+  get "mtab8lets/show"
+  match '/mtab8lets/new', to: 'mtab8lets#new', via: 'get'
+  match "/mtab8lets/:id/edit" => "mtab8lets#edit", via: 'post'
+  match "/mtab8lets/:id" => "mtab8lets#update", via: 'get'
+  match '/mtab8lets/upload', to: 'mtab8lets#upload', via: 'post'
+  
+  resources :mtab8lets do
+    collection { post :import }
+  end
+
+  resources :mtab8lets do
+    member do
+      get 'export'
+    end
+  end
+
+  resources :mtab8lets do
+    collection { post :exec_sql }
+  end
+
+  resources :mtab8lets do
+    collection do
+      post :dbclear
+    end
+  end
+
+  resources :mtab8lets do
+    collection do
+      post :dbdelete
+    end
+  end
+
+  resources :mtab8lets
+
+
 
 
 
@@ -435,9 +793,11 @@ Weblearn::Application.routes.draw do
 
 
   get "admin_contacts/index"
-
   resources :admin_contacts
 
+
+  get "admin_seminars/index"
+  resources :admin_seminars
 
 
 

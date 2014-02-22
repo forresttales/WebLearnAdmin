@@ -1,0 +1,115 @@
+<% @title = "MTab1lets Record" %>
+
+	<style>
+		
+		.form-display-col1 {
+			width: 200px;
+		}
+		.form-display-col2 {
+			width: 400px;
+		}
+		.form-display-separator {
+			height: 10px;
+		}
+		
+	</style>
+
+	<header>
+		<%= render 'share/backtotop' %>
+	</header>
+
+	<div class="container">
+		<div class="table-profile">
+			<div class="row-profile">
+
+				<div class="col-left">
+				</div>
+				
+				<div class="col-midd">
+
+					<div class="line-space-20"></div>
+					<div class="line-space-20"></div>
+					<div class="line-space-20"></div>
+			
+					 
+	                  <!-- 
+	                  -->					 		
+				 
+				 	<table>
+				 		<tr>
+				 			<td>
+				 				<span class="small pad-left-20">ID:</span>
+				 			</td>
+				 			<td>
+				 				<span class="small pad-left-20"><%= @mtab1let.id %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>				 		
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Created:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab1let.created_at.to_s(:long) %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 1:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab1let.col_1 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 2:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab1let.col_2 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 3:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab1let.col_3 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 4:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab1let.col_4 %></span>
+				 			</td>
+				 		</tr>
+
+				 	</table>
+					<div class="line-space-20"></div>
+					<div class="pad-left-20">
+						<span class="normal">
+							<%= button_to "Edit", {:action => 'edit', :id => @mtab1let.id } %>
+						</span>
+					</div>
+						
+				</div>
+				
+				<div class="col-right">
+				</div>			
+													
+			</div>
+		</div>
+	</div>
+
+	<script>
+	  
+		// $(window).load( function() {
+		// });
+	  
+	</script>		

@@ -1,0 +1,212 @@
+<% provide(:title, 'Mail Tablets') %>
+
+		<!-- <link rel="stylesheet" href="/assets/jquery-ui.css"> -->		
+		<!-- <script src="/assets/jquery-ui.js"></script> -->
+
+		<div style="width: 1200px; margin-right: auto; margin-left: auto; background: #fff; min-height: 850px;">						
+		
+			<div style="height: 70px;"></div>
+		
+			<div id="mtabs" class="mtabs" style="width: 1224px;">
+				<ul>
+					<!-- <li><a href="#tabs-A" id="tabsA">Tablets</a></li> -->				
+					<li><a href="#tabs-0" id="tabs0" class="mtab mtab-yellow">MTablet 0</a></li>				
+					<li><a href="#tabs-1" id="tabs1" class="mtab mtab-blue">MTablet 1</a></li>
+					<li><a href="#tabs-2" id="tabs2" class="mtab mtab-blue">MTablet 2</a></li>
+					<li><a href="#tabs-3" id="tabs3" class="mtab mtab-blue">MTablet 3</a></li>
+					<li><a href="#tabs-4" id="tabs4" class="mtab mtab-blue">MTablet 4</a></li>
+					<li><a href="#tabs-5" id="tabs5" class="mtab mtab-blue">MTablet 5</a></li>
+					<li><a href="#tabs-6" id="tabs6" class="mtab mtab-blue">MTablet 6</a></li>
+					<li><a href="#tabs-7" id="tabs7" class="mtab mtab-blue">MTablet 7</a></li>
+					<li><a href="#tabs-8" id="tabs8" class="mtab mtab-blue">MTablet 8</a></li>
+				</ul>
+			</div>			
+		
+			<div id="render0"></div>
+
+			<%= hidden_field_tag :pos1, params[:pos1] %>
+						
+		</div>
+
+		<style>
+			
+   			.m-active {
+   				background-color: #fff;
+   			}
+		    .mtabs ul li .active-white {
+		      background-color: #fff;
+		    }
+			
+		</style>
+
+		<script>
+		
+			function make_active(index_tab) {		
+				switch (index_tab)
+				{
+				  //#E3E356 Yellow
+				  //#89BEFA Blue					
+				  case 0:
+						$("#tabs0").css({'background-color' : '#ffffff'}); // E3E356
+						$("#tabs1").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs2").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs3").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs4").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs5").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs6").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs7").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs8").css({'background-color' : '#89BEFA'}); // 89BEFA
+				  	break;
+				  case 1:
+						$("#tabs0").css({'background-color' : '#E3E356'}); // E3E356
+						$("#tabs1").css({'background-color' : '#ffffff'}); // 89BEFA
+						$("#tabs2").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs3").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs4").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs5").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs6").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs7").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs8").css({'background-color' : '#89BEFA'}); // 89BEFA
+				  	break;
+				  case 2:
+						$("#tabs0").css({'background-color' : '#E3E356'}); // E3E356
+						$("#tabs1").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs2").css({'background-color' : '#ffffff'}); // 89BEFA
+						$("#tabs3").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs4").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs5").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs6").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs7").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs8").css({'background-color' : '#89BEFA'}); // 89BEFA
+				  					  					  
+				  	break;
+				  case 3:
+						$("#tabs0").css({'background-color' : '#E3E356'}); // E3E356
+						$("#tabs1").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs2").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs3").css({'background-color' : '#ffffff'}); // 89BEFA
+						$("#tabs4").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs5").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs6").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs7").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs8").css({'background-color' : '#89BEFA'}); // 89BEFA
+
+				  case 4:
+						$("#tabs0").css({'background-color' : '#E3E356'}); // E3E356
+						$("#tabs1").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs2").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs3").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs4").css({'background-color' : '#ffffff'}); // 89BEFA
+						$("#tabs5").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs6").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs7").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs8").css({'background-color' : '#89BEFA'}); // 89BEFA
+
+				  case 5:
+						$("#tabs0").css({'background-color' : '#E3E356'}); // E3E356
+						$("#tabs1").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs2").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs3").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs4").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs5").css({'background-color' : '#ffffff'}); // 89BEFA
+						$("#tabs6").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs7").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs8").css({'background-color' : '#89BEFA'}); // 89BEFA
+
+				  case 6:
+						$("#tabs0").css({'background-color' : '#E3E356'}); // E3E356
+						$("#tabs1").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs2").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs3").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs4").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs5").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs6").css({'background-color' : '#ffffff'}); // 89BEFA
+						$("#tabs7").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs8").css({'background-color' : '#89BEFA'}); // 89BEFA
+
+				  	break;
+
+				  case 7:
+						$("#tabs0").css({'background-color' : '#E3E356'}); // E3E356
+						$("#tabs1").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs2").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs3").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs4").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs5").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs6").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs7").css({'background-color' : '#ffffff'}); // 89BEFA
+						$("#tabs8").css({'background-color' : '#89BEFA'}); // 89BEFA
+
+				  	break;
+
+				  case 8:
+						$("#tabs0").css({'background-color' : '#E3E356'}); // E3E356
+						$("#tabs1").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs2").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs3").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs4").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs5").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs6").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs7").css({'background-color' : '#89BEFA'}); // 89BEFA
+						$("#tabs8").css({'background-color' : '#ffffff'}); // 89BEFA
+
+				  	break;
+		
+				  default:
+				  //
+				}
+			}
+		
+				
+			$('#tabs0').on('click', function() {
+				make_active(0);
+			   	$.get("/mtablets", null, null, "script");
+			});
+
+			$('#tabs1').on('click', function() {
+				make_active(1);
+			   	$.get("/mtab1lets", null, null, "script");
+			});
+	
+			$('#tabs2').on('click', function() {
+				make_active(2);
+			   $.get("/mtab2lets", null, null, "script");
+			});
+	
+			$('#tabs3').on('click', function() {
+				make_active(3);
+			   	$.get("/mtab3lets", null, null, "script");
+			});
+	
+			$('#tabs4').on('click', function() {
+				make_active(4);
+			   	$.get("/mtab4lets", null, null, "script");
+			});
+			
+			$('#tabs5').on('click', function() {
+				make_active(5);
+			   	$.get("/mtab5lets", null, null, "script");
+			});
+
+			$('#tabs6').on('click', function() {
+				make_active(6);
+			   	$.get("/mtab6lets", null, null, "script");
+			});
+
+			$('#tabs7').on('click', function() {
+				make_active(7);
+			   	$.get("/mtab7lets", null, null, "script");
+			});
+
+			$('#tabs8').on('click', function() {
+				make_active(8);
+			   	$.get("/mtab8lets", null, null, "script");
+			});
+			
+			$(function() {
+				$('#tabs0').click();
+			});			
+	
+	
+		</script>
+

@@ -1,0 +1,201 @@
+
+	<style>
+	
+		.reset-db-btn-long {
+		  	width: 300px;
+		  	height: 26px;
+		}
+			
+	</style>
+
+	<div id="page">
+
+		<div style="height: 30px;"></div>
+
+		<header>
+	
+	    	<div id="pos" style="display: none;"></div>
+
+			<%= render 'share/backtotop' %>
+
+			<div style="height: 20px;"></div>
+						
+		</header>
+		
+		<div id="page-inner">
+			
+      		<div id="loading"> </div>
+			
+			<table width="1000px">	
+				<tr>
+					<td style="width: 700px">
+
+						<a href="#" class="links" onclick="sql1();" >Delete from Tab 1 all records in Tab 2 based on First and Last Names</a>
+
+						<div style="height:10px;"></div>
+
+						<% sqlquery1 = "SELECT * FROM tab2lets CROSS JOIN tab1lets" %>
+						<% sqlquery2 = "SELECT DISTINCT * FROM tab2lets, tab1lets" %>
+						<% sqlquery3 = "SELECT * FROM tab2lets LEFT OUTER JOIN tab1lets ON tab1lets.col_3 = tab2lets.col_3" %>
+						<% sqlquery4 = "SELECT * FROM tab1lets LEFT OUTER JOIN tab2lets ON tab1lets.col_3 != tab2lets.col_3" %>
+						<% sqlquery5 = "SELECT DISTINCT id,col_1,col_2,col_3,col_4,col_5,col_6,col_7,col_8,col_9,col_10,col_11,col_12,col_13,col_14,col_15,col_16,col_17,col_18,col_19,col_20,col_21,col_22,col_23,col_24,col_25 FROM tab2lets" %>						
+						<% sqlquery6 = "SELECT * FROM (SELECT * FROM tab1lets)" %>
+						<% sqlquery7 = "SELECT * FROM tab1lets WHERE tab1lets.id = 3" %>
+						<% sqlquery8 = "SELECT * FROM tab1lets UNION SELECT * FROM tab2lets" %>
+						<% sqlquery9 = "SELECT * FROM tab1lets WHERE id NOT IN (SELECT id FROM tab2lets)" %>
+						<% sqlquery10 = "SELECT * FROM tab1lets WHERE col_3 NOT IN (SELECT col_3 FROM tab2lets)" %>
+						
+						<% sqlquery11 = "SELECT * FROM tab1lets WHERE NOT (col_3 IN (SELECT col_3 FROM tab2lets)) AND (col_4 IN (SELECT col_4 FROM tab2lets))" %>
+						<% sqlquery12 = "SELECT * FROM tab1lets WHERE (col_3 NOT IN (SELECT col_3 FROM tab2lets)) AND (col_4 NOT IN (SELECT col_4 FROM tab2lets))" %>
+						<% sqlquery13 = "SELECT * FROM tab1lets WHERE ((col_3 NOT IN (SELECT col_3 FROM tab2lets)) AND (col_4 NOT IN (SELECT col_4 FROM tab2lets))) OR NOT ((col_3 IN (SELECT col_3 FROM tab2lets)) AND (col_4 IN (SELECT col_4 FROM tab2lets)))" %>
+
+						<%= form_tag exec_sql_mtablets_path, :remote => true, :class => 'exec_sql' do %>
+						  	<%= text_area_tag 'sql', '', rows: 5, cols: 100, :id => 'id_sql1', :spellcheck => false %>						  	 
+						  	<%= submit_tag "Execute SQL", :class => 'exec-sql-btn' %>
+						<% end %>
+
+					</td>
+				</tr>
+			</table>
+			
+			<div style="height: 20px;"></div>
+						
+			<table width="1222px">
+				<tr>
+					<td width="300px">
+						<p>
+						   <%= link_to("Download: (Semi-colon ';' delimited)", { :action => 'export', :id => '100', :format => 'csv' }, :id => 'export_csv', :class => 'links') %>
+						</p>	
+					</td>
+					<td width="150px"></td>					
+					<td style="text-align: right;">
+				    	<div>
+					    	<h5>
+							   	<% delete_all_msg = "Delete all records and reset index in MTablet 0?" %>
+								<%= button_to "Delete All Records and Reset Index", {:action => 'dbdelete'}, :method => :post, data: { confirm: delete_all_msg }, :class => 'reset-db-btn-long' %>
+							</h5>
+						</div>
+					</td>
+				</tr>		
+			</table>	
+			<div style="clear: both;">
+			
+			
+			<div class="table-page">
+				
+				<div class="row">
+					
+					<div class="cell-100percent" tabindex="1">
+
+
+						<%= form_tag mtablets_path, :method => 'get', :id => "tablets_search" do %>
+
+						  	<span>
+
+						    	 <!-- text_field_tag :search, params[:search]  -->
+						    	
+						    	<%= text_field_tag :search %>
+						    	
+						   	</span>
+						   	<span class="bar">Search by: </span>
+					
+						   	<span>
+							
+					   		<%= select_tag("search_by", options_for_select(
+					   				[['ID', '1'],
+					   				['Col 1','2'],
+					   				['Col 2','3'],
+					   				['Col 3','4'],
+					   				['Col 4','5'],
+					   				['Col 5','6'],
+					   				['Col 6','7'],
+					   				['Col 7','8'],
+					   				['Col 8','9'],
+					   				['Col 9','10'],
+					   				['Col 10','11'],
+					   				['Col 11','12'],
+					   				['Col 12','13'],
+					   				['Col 13','14'],
+					   				['Col 14','15'],
+					   				['Col 15','16'],
+					   				['Col 16','17'],
+					   				['Col 17','18'],
+					   				['Col 18','19'],
+					   				['Col 19','20'],
+					   				['Col 20','21']])) %>
+							
+						    </span>
+
+							<span>
+						    	<%= submit_tag "Search", :id => nil %>
+						  	</span>
+						  						
+							<div id="tablets">
+								
+								<%= render 'mtablets/upload_files'%>
+
+							</div>
+			
+						<% end %>
+												
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>	
+		
+	</div>				
+	
+
+	<script>
+
+
+		function sql1 (){
+			$("#id_sql1").html("SELECT * FROM mtab1lets WHERE ((col_3 NOT IN (SELECT col_3 FROM mtab2lets)) AND (col_4 NOT IN (SELECT col_4 FROM mtab2lets))) OR NOT ((col_3 IN (SELECT col_3 FROM mtab2lets)) AND (col_4 IN (SELECT col_4 FROM mtab2lets)))");
+		}
+
+
+		jQuery(document).ready(function() {
+
+		  // alert('ready');
+		  jQuery(".exec_sql").submit(function() {
+		    // alert('Handler for .submit() called.');
+		  })
+		  .bind("ajax:complete", function() {
+		    alert('complete!');
+		  })
+		  .bind("ajax:beforeSend", function () {
+		    alert('loading!');
+		  })
+		  .bind("ajax:error", function (xhr, status, error) {
+		    alert('failure!');
+		  })
+		  .bind('ajax:success', function(event, data, status, xhr) {
+		    alert('success!');
+		  });
+		  		
+		});
+
+
+		$(document).on('click','#tablets th a, #tablets .pagination a',function(){
+		    $.getScript(this.href);
+		    return false;
+		});
+
+		function executeSQL() {
+			alert('executeSQL');
+		    $.post("/mtablets/exec_sql", null, null, "html");
+			
+			return false;
+		}
+
+		$("#tablets_search").submit(function() {	
+		    $.get($("#tablets_search").attr("action"), null, null, "script");
+		    return false;
+		});
+
+	
+	</script>
+					

@@ -1,0 +1,70 @@
+# == Schema Information
+#
+# Table name: mtab4lets
+#
+#  id         :integer          not null, primary key
+#  col_1      :string(300)
+#  col_2      :string(300)
+#  col_3      :string(300)
+#  col_4      :string(300)
+#  col_5      :string(300)
+#  col_6      :string(300)
+#  col_7      :string(300)
+#  col_8      :string(300)
+#  col_9      :string(300)
+#  col_10     :string(300)
+#  col_11     :string(300)
+#  col_12     :string(300)
+#  col_13     :string(300)
+#  col_14     :string(300)
+#  col_15     :string(300)
+#  col_16     :string(300)
+#  col_17     :string(300)
+#  col_18     :string(300)
+#  col_19     :string(300)
+#  col_20     :string(300)
+#  col_21     :string(300)
+#  col_22     :string(300)
+#  col_23     :string(300)
+#  col_24     :string(300)
+#  col_25     :string(300)
+#  col_26     :string(300)
+#  col_27     :string(300)
+#  col_28     :string(300)
+#  col_29     :string(300)
+#  col_30     :string(300)
+#  col_31     :string(300)
+#  col_32     :string(300)
+#  col_33     :string(300)
+#  col_34     :string(300)
+#  col_35     :string(300)
+#  col_36     :string(300)
+#  col_37     :string(300)
+#  col_38     :string(300)
+#  col_39     :string(300)
+#  col_40     :string(300)
+#  col_41     :boolean          default(FALSE)
+#  col_42     :boolean          default(FALSE)
+#  col_43     :boolean          default(FALSE)
+#  col_44     :boolean          default(FALSE)
+#  col_45     :boolean          default(FALSE)
+#  col_46     :boolean          default(FALSE)
+#  col_47     :boolean          default(FALSE)
+#  col_48     :boolean          default(FALSE)
+#  col_49     :boolean          default(FALSE)
+#  col_50     :boolean          default(FALSE)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: {}
+# column: value
+#
+two: {}
+#  column: value
