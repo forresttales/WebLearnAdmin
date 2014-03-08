@@ -7,4 +7,10 @@ module MtabletsHelper
     link_to title, params.merge(:sort => column, :direction => direction, :page => nil), {:class => css_class}
   end
 
+  def yesno(x)
+    x ? "Yes" : "No"
+    
+    return "na"
+  end
+
 end

@@ -8,7 +8,7 @@ class AdminContactsController < ApplicationController
   
   def index
 
-    @admin_contacts = Contact.order(sort_column + " " + sort_direction).paginate(:per_page => 50, :page => params[:page])
+    @admin_contacts = Contact.order(sort_column + " " + sort_direction).paginate(:per_page => 1000, :page => params[:page])
 
     #@admin_contacts = Contact.paginate(page: params[:page]).per_page(5)
     #@products = Product.order("name").page(params[:page]).per_page(10)

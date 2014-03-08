@@ -44,6 +44,7 @@ class ArchivesController < ApplicationController
   def new
     #@account_type = params[:id]
     @archive = Archive.new
+    
   end
   
   

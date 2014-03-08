@@ -3,6 +3,11 @@ class AdminUsersController < ApplicationController
   layout 'admin_users'
   
   helper_method :sort_column, :sort_direction
+
+  before_action :signed_in_user
+  
+  #before_action :signed_in_user,
+                #only: [:index, :edit, :update, :destroy, :following, :followers]
   
   #before_filter :confirm_logged_in  
   

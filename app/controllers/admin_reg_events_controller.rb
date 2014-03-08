@@ -20,7 +20,7 @@ class AdminRegEventsController < ApplicationController
     search_by_text = ''
 
     if params[:search_by].nil?
-      @admin_reg_events = RegEvent.order(sort_column + " " + sort_direction).paginate(:per_page => 50, :page => params[:page])
+      @admin_reg_events = RegEvent.order(sort_column + " " + sort_direction).paginate(:per_page => 500, :page => params[:page])
     else
       search_by = params[:search_by].to_s
       search = params[:search].to_s
@@ -43,7 +43,7 @@ class AdminRegEventsController < ApplicationController
       
   
       if (workshop == '16' and search.length == 0)
-        @admin_reg_events = RegEvent.order(sort_column + " " + sort_direction).paginate(:per_page => 50, :page => params[:page])
+        @admin_reg_events = RegEvent.order(sort_column + " " + sort_direction).paginate(:per_page => 500, :page => params[:page])
       else
             if (workshop == '16' and search.length > 0)
       
@@ -61,7 +61,7 @@ class AdminRegEventsController < ApplicationController
                 #
             end
       
-            @admin_reg_events = RegEvent.search_by_sql(s).order(sort_column + " " + sort_direction).paginate(:per_page => 50, :page => params[:page])
+            @admin_reg_events = RegEvent.search_by_sql(s).order(sort_column + " " + sort_direction).paginate(:per_page => 500, :page => params[:page])
       end
       
     end
@@ -100,16 +100,6 @@ class AdminRegEventsController < ApplicationController
     end
     
   end
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   def list

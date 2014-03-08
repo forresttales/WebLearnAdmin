@@ -285,31 +285,19 @@
 					</ul>					
 				</li>
 								
-
-<% if false %>								
-		<div><%= link_to 'Contacts', admin_contacts_list_path %></div>
-		<div><%= link_to 'Users', admin_users_list_path %></div>
-		<div><%= link_to 'Schools', admin_institutes_list_path %></div>
-		<div><%= link_to 'Publishers', admin_publishers_list_path %></div>
-		<div><%= link_to 'Teachers', admin_teachers_list_path %></div>
-		<div><%= link_to 'Students', admin_students_list_path %></div>
-<% end %>								
-								
-								
-								
 				<li><a href="#">Articles</a>
 					<ul>
-						<!-- <li>
-							<a href="archives/new">New Entry</a>
-						</li> -->						
 						<li>
 							<%= link_to 'New Article', archives_new_path %>
 						</li>
 						<li>
-							
-							  <!-- link_to 'Article List', archives_list_path  -->
-							  							 							
 							 <%= link_to 'Article List', archives_index_path %>							
+						</li>
+						<li>
+							<%= link_to 'New EventNews', '/eventnews/new' %>
+						</li>
+						<li>
+							 <%= link_to 'EventNews List', eventnews_index_path %>							
 						</li>
 						<li>
 							<%= link_to 'New Slug', friendly_id_slugs_new_path %>

@@ -26,8 +26,6 @@ Weblearn::Application.routes.draw do
   resources :institutes
   resources :publishers
   resources :static_pages
-  resources :archives
-  resources :friendly_id_slugs
   resources :share_files  
   resources :uploads
   
@@ -807,12 +805,24 @@ Weblearn::Application.routes.draw do
   match '/archives_list', to: 'archives#list', via: 'get'
   match "/archives/:id/edit" => "archives#edit", via: 'post'
   match "/archives/:id" => "archives#update", via: 'post'
+  resources :archives
+
+
+  match '/eventnews_index', to: 'eventnews#index', via: 'get'
+  match '/eventnews/new', to: 'eventnews#new', via: 'get'
+  match '/eventnews_list', to: 'eventnews#list', via: 'get'
+  match "/eventnews/:id/edit" => "eventnews#edit", via: 'post'
+  match "/eventnews/:id" => "eventnews#update", via: 'post'
+  resources :eventnews  
+
 
   match '/friendly_id_slugs_index', to: 'friendly_id_slugs#index', via: 'get'
   match '/friendly_id_slugs/new', to: 'friendly_id_slugs#new', via: 'get'
   match '/friendly_id_slugs_list', to: 'friendly_id_slugs#list', via: 'get'
   match "/friendly_id_slugs/:id/edit" => "friendly_id_slugs#edit", via: 'post'
   match "/friendly_id_slugs/:id" => "friendly_id_slugs#update", via: 'post'
+  resources :friendly_id_slugs
+
 
   match '/admin_landings_list', to: 'admin_landings#list', via: 'get'
   match '/admin_landings/new', to: 'admin_landings#new', via: 'get'
@@ -887,15 +897,20 @@ Weblearn::Application.routes.draw do
 
 
 
-  get "archives/index"
-  #get "archives/new"
-  get "archives/show"
-  get "archives/update"
-  get "archives/create"
+  # get "archives/index"
+  # #get "archives/new"
+  # get "archives/show"
+  # get "archives/update"
+  # get "archives/create"
   get "test/basic"
   get "static_pages/test"
   get "static_pages/fonts"
 
+  # get "eventnews/index"
+  # #get "archives/new"
+  # get "eventnews/show"
+  # get "eventnews/update"
+  # get "eventnews/create"
   
   
   

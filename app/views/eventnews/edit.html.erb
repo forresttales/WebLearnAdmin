@@ -1,0 +1,344 @@
+<% @title = "EventNews Edit" %>
+
+	<style>
+	
+		#signin-page {
+			/*height: 800px;*/			
+		}
+	
+		#signin-page #signin-page-inner {
+		    width: 50%;
+		    margin: 0 auto;
+		}	
+
+		div .table-signin {
+			display: table;
+			background-color: #DEDB3C;
+			width: 600px;
+			border-radius: 20px;
+			border:2px solid #254520;
+			box-shadow: 1px 1px 10px #888888;
+			padding-top: 40px;
+			padding-bottom: 40px;
+			padding-left: 60px;
+		}
+	
+		.input-signin {
+			font-family: Arial, Helvetica, sans-serif;
+			color: #000;			
+			font-size: 16px;
+			width: 300px;
+			height: 24px;
+			border-style:solid;
+			border-radius: 4px;
+			background-color: #fff;
+			border-color: #000;
+			border-width: 1px;
+			padding-left: 6px;
+		}
+	
+		.input-signin:focus {
+			border-color: #3949C4;
+			color: #000;
+			-webkit-box-shadow: 0 0 10px #3949C4;
+			-moz-box-shadow: 0 0 10px #3949C4;
+			box-shadow: 0 0 10px #3949C4;
+		}
+
+		.input-signin:disabled {
+			border-color: #523401;
+			color: #523401;
+			background-color:#CCCBC8;
+		}
+			
+		.input-label-signin {
+			font-family: Arial, Helvetica, sans-serif;
+			color: #000;
+			font-size: 16px;
+			width: 220px;
+			height: 18px;
+		}
+
+		.input-label-signin:disabled {
+			font-family: Arial, Helvetica, sans-serif;
+			color: #523401;
+		}
+			
+		.input-signin-spacer {
+			height: 16px;
+		}
+			
+		div .cell-right-signin-admin {
+			display: table-cell;
+			width: 50%;
+			text-align: left;
+			align: top;		
+		}
+	
+		div .cell-left-signin-admin {
+			display: table-cell;
+			width: 20%;	
+			align: top;
+			text-align: right;		
+			padding-right: 20px;
+		}
+		
+		div .cell-submit-signin-admin {
+			display: table-cell;
+			width: 50%;
+			text-align: left;
+			align: top;		
+			padding-left: 0px;
+		}
+		
+		.signin-btn {
+		  
+		  	display: inline-block;
+		  	text-decoration: none; 
+		  	width: 308px;
+		  	height: 30px;
+		  	background: linear-gradient(#000, #000);
+		  	text-shadow: 1px 1px 1px #0E86B2; 
+		  	border-radius: 6px;
+		}
+	
+		.signin-btn:focus {
+		  background: #CCC; 
+		  color: #5F7A2A;
+		  box-shadow: inset 0 1px 0 rgba(200,200,200,0.2);
+		}
+		
+		.signin-btn:hover { 
+		  box-shadow: inset 0 1px 1px rgba(255,255,255,0.2), 
+		  inset 0 1.5em 1em rgba(255,255,255,0.3);
+		}
+		
+		.signin-btn:active { 
+		  box-shadow: inset 0 1px 1px rgba(255,255,255,0.2), 
+		  inset 0 1.5em 1em rgba(0,0,0,0.3); 
+		}
+		
+	</style>
+
+
+	<div id="signin-page">
+		
+		<header>
+	
+			<%= render 'share/backtotop' %>
+			
+			<div style="height: 40px;"></div>
+			
+		</header>
+		
+		
+		<div id="signin-page-inner">
+			
+			<div class="table-signin">
+				<div class="row">
+					
+					<div class="cell-100percent">
+
+  						<%= form_for(:eventnew, :url => {:action => 'update', :id => @eventnew.id}) do |f| %>
+					
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:id, 'ID', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :id, :class => "input-signin", :disabled => true %>	
+							</div>      	
+						</div>
+						
+						<div class="input-signin-spacer"></div>
+
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:article_id, 'Article ID', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :article_id, :class => "input-signin", :autofocus => true %>	
+							</div>      	
+						</div>
+
+						<div class="input-signin-spacer"></div>
+
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:name_url, 'URL Folder', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :name_url, :class => "input-signin" %>	
+							</div>      	
+						</div>
+
+						<div class="input-signin-spacer"></div>
+
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:name_file, 'File', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :name_file, :class => "input-signin" %>	
+							</div>      	
+						</div>
+
+						<div class="input-signin-spacer"></div>
+
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:name_author, 'Author', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :name_author, :class => "input-signin" %>	
+							</div>      	
+						</div>
+
+						<div class="input-signin-spacer"></div>
+
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:name_admin, 'Admin', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :name_admin, :class => "input-signin" %>	
+							</div>      	
+						</div>
+
+						<div class="input-signin-spacer"></div>
+
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:key_words, 'Key Words', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_area :key_words, :class => "input-signin" %>	
+							</div>      	
+						</div>
+
+						<div class="input-signin-spacer"></div>
+
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:date_article, 'Article Date', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :date_article, :class => "input-signin" %>	
+							</div>      	
+						</div>
+
+						<div class="input-signin-spacer"></div>
+
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:created_at, 'Created', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :created_at, :class => "input-signin", :disabled => true %>	
+							</div>      	
+						</div>
+
+						<div class="input-signin-spacer"></div>
+
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:updated_at, 'Updated', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :updated_at, :class => "input-signin", :disabled => true %>	
+							</div>      	
+						</div>
+
+						<div class="input-signin-spacer"></div>
+
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:article_type, 'Genre', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :article_type, :class => "input-signin" %>	
+							</div>      	
+						</div>
+
+						<div class="input-signin-spacer"></div>
+
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:linktitle, 'Link Title', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :linktitle, :class => "input-signin" %>	
+							</div>      	
+						</div>
+
+						<div class="input-signin-spacer"></div>
+
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:linkimg, 'Link Image', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :linkimg, :class => "input-signin" %>	
+							</div>      	
+						</div>
+
+						<div class="input-signin-spacer"></div>
+
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:linkimg_url, 'Link Image Folder', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :linkimg_url, :class => "input-signin" %>	
+							</div>      	
+						</div>
+
+						<div class="input-signin-spacer"></div>
+
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:description, 'Description', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :description, :class => "input-signin" %>	
+							</div>      	
+						</div>
+
+						<div class="input-signin-spacer"></div>
+
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:slug, 'Slug', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :slug, :class => "input-signin" %>	
+							</div>      	
+						</div>
+
+						<div class="input-signin-spacer"></div>
+						      		
+						<div class="row">
+							<div class="cell-left-signin-admin">
+							</div>
+							<div class="cell-right-signin-admin">
+								<div style="height: 30px;"></div>
+								<%= f.submit "Update", class: 'signin-btn' %>
+							</div>      	
+						</div>      		
+											
+						<% end %>
+						
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>	
+		
+	</div>
+	
+	<div style="height: 100px;"></div>
+
+
+

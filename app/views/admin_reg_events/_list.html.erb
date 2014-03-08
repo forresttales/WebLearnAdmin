@@ -1,25 +1,5 @@
 
 
-<!-- 
-# Table name: reg_events
-#	
-#  id               :integer          not null, primary key
-#  name_first       :string(50)
-#  name_last        :string(50)
-#  name_title       :string(50)
-#  type_affiliation :string(50)
-#  name_affiliation :string(100)
-#  email            :string(255)      default(""), not null
-#  city_workshop    :string(50)
-#  created_at       :datetime
-#  updated_at       :datetime
-#  address          :string(50)
-#  city             :string(50)
-#  state            :string(50)
-#  zip              :string(50)
-#  phone            :string(50) 
--->
-
 	<div class="main">
 
 		<div id="scroll1" class="scrollbox-both" onscroll="scrollPos();">	
@@ -75,6 +55,15 @@
 			       <col class="member-table"></col>
 			       <col class="member-table"></col>
 			       <col class="member-table"></col>
+			      
+			       <col class="member-table"></col>
+			       <col class="member-table"></col>
+			       <col class="member-table"></col>
+			       <col class="member-table"></col>
+			       <col class="member-table"></col>
+			       <col class="member-table"></col>
+			       <col class="member-table"></col>
+			       <col class="member-table"></col>
 			       
 		       </colgroup>
 
@@ -84,14 +73,24 @@
 			    <th class="member-table" id="th_delete" field="delete" style="width: 50px;"><div class="header-shift"><h4></h4></div></th>
 			  	
 			    <th class="member-table" id="th_id" field="id" style="width: 50px"><div id="id" class="header-shift"><h4><%= sortable "id", "ID" %></div></th>
-			    <th class="member-table" id="th_created_at" field="id" style="width: 100px"><div id="created_at" class="header-shift"><h4><%= sortable "created_at", "Created" %></div></th>
+			    <th class="member-table" id="th_created_at" field="id" style="width: 200px"><div id="created_at" class="header-shift"><h4><%= sortable "created_at", "Created" %></div></th>
 			    <!-- <th field="created_at" width = "20">created_at</th>
 			    <th field="updated_at" width = "20">updated_at</th> -->    
-			    <th class="member-table" id="th_name_first" field="name_first" style="width: 100px"><div id="name_first" class="header-shift"><h4><%= sortable "name_first", "First Name" %></h4></div></th>
-			    <th class="member-table" id="th_name_last" field="name_last" style="width: 100px"><div id="name_last" class="header-shift"><h4><%= sortable "name_last", "Last Name" %></h4></div></th>
+			    <th class="member-table" id="th_name_first" field="name_first" style="width: 150px"><div id="name_first" class="header-shift"><h4><%= sortable "name_first", "First Name" %></h4></div></th>
+			    <th class="member-table" id="th_name_last" field="name_last" style="width: 150px"><div id="name_last" class="header-shift"><h4><%= sortable "name_last", "Last Name" %></h4></div></th>
 			    <th class="member-table" id="th_name_title" field="name_title" style="width: 300px"><div id="" class="header-shift"><h4><%= sortable "name_title", "Title" %></h4></div></th>
 			    <th class="member-table" id="th_type_affiliation" field="type_affiliation" style="width: 300px"><div id="" class="header-shift"><h4><%= sortable "type_affiliation", "Affiliation Type" %></h4></div></th>
 			    <th class="member-table" id="th_name_affiliation" field="name_affiliation" style="width: 300px"><div id="" class="header-shift"><h4><%= sortable "name_affiliation", "Affiliation" %></h4></div></th>
+
+			    <th class="member-table" id="th_address" field="address" style="width: 200px"><div id="address" class="header-shift"><h4><%= sortable "address", "Address" %></h4></div></th>
+			    <th class="member-table" id="th_city" field="city" style="width: 150px"><div id="city" class="header-shift"><h4><%= sortable "city", "City" %></h4></div></th>
+			    <th class="member-table" id="th_state" field="state" style="width: 100px"><div id="state" class="header-shift"><h4><%= sortable "state", "State" %></h4></div></th>
+			    <th class="member-table" id="th_zip" field="zip" style="width: 100px"><div id="zip" class="header-shift"><h4><%= sortable "zip", "Zip" %></h4></div></th>
+
+			    <th class="member-table" id="th_phone" field="phone" style="width: 200px"><div id="phone" class="header-shift"><h4><%= sortable "phone", "Phone" %></h4></div></th>
+			    <th class="member-table" id="th_email" field="email" style="width: 200px"><div id="email" class="header-shift"><h4><%= sortable "email", "Email" %></h4></div></th>
+			    <th class="member-table" id="th_email_cc_1" field="email_cc_1" style="width: 200px"><div id="email_cc_1" class="header-shift"><h4><%= sortable "email_cc_1", "Email cc 1" %></h4></div></th>
+			    <th class="member-table" id="th_email_cc_2" field="email_cc_2" style="width: 200px"><div id="email_cc_2" class="header-shift"><h4><%= sortable "email_cc_2", "Email cc 2" %></h4></div></th>
 
 			    <th class="member-table" id="th_city_workshop_1_text" field="city_workshop_1_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_1_text", "Workshop 1" %></h4></div></th>
 			    <th class="member-table" id="th_city_workshop_1_session_text" field="city_workshop_1_session_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_1_session_text", "Session 1" %></h4></div></th>
@@ -161,6 +160,15 @@
 			    <td><h5 class="member-table"><%= reg_event.name_title %></h5></td>
 			    <td><h5 class="member-table"><%= reg_event.type_affiliation %></h5></td>
 			    <td><h5 class="member-table"><%= reg_event.name_affiliation %></h5></td>
+			    
+			    <td><h5 class="member-table"><%= reg_event.address %></h5></td>
+			    <td><h5 class="member-table"><%= reg_event.city %></h5></td>
+			    <td><h5 class="member-table"><%= reg_event.state %></h5></td>
+			    <td><h5 class="member-table"><%= reg_event.zip %></h5></td>
+			    <td><h5 class="member-table"><%= reg_event.phone %></h5></td>
+			    <td><h5 class="member-table"><%= reg_event.email %></h5></td>
+			    <td><h5 class="member-table"><%= reg_event.email_cc_1 %></h5></td>
+			    <td><h5 class="member-table"><%= reg_event.email_cc_2 %></h5></td>
 
 			    <td><h5 class="member-table"><%= reg_event.city_workshop_1_text %></h5></td>
 			    <td><h5 class="member-table"><%= reg_event.city_workshop_1_session_text %></h5></td>
@@ -326,91 +334,116 @@
 				case 9:
 					header = "#th_affiliation"	  
 				  break;
+				  
 				case 10:
-					header = "#th_city_workshop_1_text"	  
+					header = "#th_address"	  
 				  break;
 				case 11:
-					header = "#th_city_workshop_1_session_text"	  
+					header = "#th_city"	  
 				  break;
 				case 12:
-					header = "#th_city_workshop_2_text"	  
+					header = "#th_state"	  
 				  break;
 				case 13:
-					header = "#th_city_workshop_2_session_text"	  
+					header = "#th_zip"	  
 				  break;
 				case 14:
-					header = "#th_city_workshop_3_text"	  
+					header = "#th_phone"	  
 				  break;
 				case 15:
-					header = "#th_city_workshop_3_session_text"	  
+					header = "#th_email"	  
 				  break;
 				case 16:
-					header = "#th_city_workshop_4_text"	  
+					header = "#th_email_cc_1"	  
 				  break;
 				case 17:
-					header = "#th_city_workshop_4_session_text"	  
+					header = "#th_email_cc_2"	  
 				  break;
 				case 18:
-					header = "#th_city_workshop_5_text"	  
+					header = "#th_city_workshop_1_text"	  
 				  break;
 				case 19:
-					header = "#th_city_workshop_5_session_text"	  
+					header = "#th_city_workshop_1_session_text"	  
 				  break;
 				case 20:
-					header = "#th_city_workshop_6_text"	  
+					header = "#th_city_workshop_2_text"	  
 				  break;
 				case 21:
-					header = "#th_city_workshop_6_session_text"	  
+					header = "#th_city_workshop_2_session_text"	  
 				  break;
 				case 22:
-					header = "#th_city_workshop_7_text"	  
+					header = "#th_city_workshop_3_text"	  
 				  break;
 				case 23:
-					header = "#th_city_workshop_7_session_text"	  
+					header = "#th_city_workshop_3_session_text"	  
 				  break;
 				case 24:
-					header = "#th_city_workshop_8_text"	  
+					header = "#th_city_workshop_4_text"	  
 				  break;
 				case 25:
-					header = "#th_city_workshop_8_session_text"	  
+					header = "#th_city_workshop_4_session_text"	  
 				  break;
 				case 26:
-					header = "#th_city_workshop_9_text"	  
+					header = "#th_city_workshop_5_text"	  
 				  break;
 				case 27:
-					header = "#th_city_workshop_9_session_text"	  
+					header = "#th_city_workshop_5_session_text"	  
 				  break;
 				case 28:
-					header = "#th_city_workshop_10_text"	  
+					header = "#th_city_workshop_6_text"	  
 				  break;
 				case 29:
-					header = "#th_city_workshop_10_session_text"	  
+					header = "#th_city_workshop_6_session_text"	  
 				  break;
 				case 30:
-					header = "#th_city_workshop_11_text"	  
+					header = "#th_city_workshop_7_text"	  
 				  break;
 				case 31:
-					header = "#th_city_workshop_11_session_text"	  
+					header = "#th_city_workshop_7_session_text"	  
 				  break;
 				case 32:
-					header = "#th_city_workshop_12_text"	  
+					header = "#th_city_workshop_8_text"	  
 				  break;
 				case 33:
-					header = "#th_city_workshop_12_session_text"	  
+					header = "#th_city_workshop_8_session_text"	  
 				  break;
 				case 34:
-					header = "#th_city_workshop_13_text"	  
+					header = "#th_city_workshop_9_text"	  
 				  break;
 				case 35:
-					header = "#th_city_workshop_13_session_text"	  
+					header = "#th_city_workshop_9_session_text"	  
 				  break;
 				case 36:
-					header = "#th_city_workshop_14_text"	  
+					header = "#th_city_workshop_10_text"	  
 				  break;
 				case 37:
-					header = "#th_city_workshop_14_session_text"	  
+					header = "#th_city_workshop_10_session_text"	  
 				  break;
 				case 38:
+					header = "#th_city_workshop_11_text"	  
+				  break;
+				case 39:
+					header = "#th_city_workshop_11_session_text"	  
+				  break;
+				case 40:
+					header = "#th_city_workshop_12_text"	  
+				  break;
+				case 41:
+					header = "#th_city_workshop_12_session_text"	  
+				  break;
+				case 42:
+					header = "#th_city_workshop_13_text"	  
+				  break;
+				case 43:
+					header = "#th_city_workshop_13_session_text"	  
+				  break;
+				case 44:
+					header = "#th_city_workshop_14_text"	  
+				  break;
+				case 45:
+					header = "#th_city_workshop_14_session_text"	  
+				  break;
+				case 46:
 					header = "#th_city_workshop_15_text"	  
 				  break;
 

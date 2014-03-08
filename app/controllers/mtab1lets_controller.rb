@@ -6,7 +6,7 @@ class Mtab1letsController < ApplicationController
 
   layout 'mtablet'
   
-  helper_method :sort_column, :sort_direction
+  helper_method :sort_column, :sort_direction, :yesno
   
   
   @@mtab1lets = nil
@@ -15,31 +15,13 @@ class Mtab1letsController < ApplicationController
   
   def index
     
-    # if params[:id_export] == '1'
-#       
-        # @mtab1lets = Mtab1let.where(:id => '70')
-#           
-        # respond_to do |format|
-#           
-          # # if format == format.csv
-            # # @mtab1lets = Mtab1let.where(:id => '70')
-          # # end
-#           
-          # format.html
-          # # format.csv
-          # format.js
-        # end
-    # end    
-    
-    # @mtab1lets = null
-    
     s = 's'
     search_by = ''
     search = ''
     search_by_text = ''
     
-    
     if params[:search_by].nil? and params[:export].nil? and @@delete == false
+
       @mtab1lets = Mtab1let.order(sort_column + " " + sort_direction).paginate(:per_page => 200, :page => params[:page])
       @@mtab1lets = @mtab1lets
       
@@ -47,67 +29,115 @@ class Mtab1letsController < ApplicationController
       
       export = params[:export]
       @mtab1lets = Mtab1let.where(params[:export]).paginate(:per_page => 200, :page => params[:page])
-      #@mtab1lets = Mtab1let.where(:id => export.id)
+
     elsif !params[:search_by].nil? and @@delete == false
 
-      # @mtab1lets = Mtab1let.where(:id => '99')
-      
       search_by = params[:search_by].to_s
       search = params[:search].to_s
       
       case search_by
-      when "1"
+      when "0"
         search_by_text = 'id'
-      when "2"
+      when "1"
         search_by_text = 'col_1'
-      when "3"
+      when "2"
         search_by_text = 'col_2'
-      when "4"
+      when "3"
         search_by_text = 'col_3'
-      when "5"
+      when "4"
         search_by_text = 'col_4'
-      when "6"
+      when "5"
         search_by_text = 'col_5'
-      when "7"
+      when "6"
         search_by_text = 'col_6'
-      when "8"
+      when "7"
         search_by_text = 'col_7'
-      when "9"
+      when "8"
         search_by_text = 'col_8'
-      when "10"
+      when "9"
         search_by_text = 'col_9'
-      when "11"
+      when "10"
         search_by_text = 'col_10'
-      when "12"
+      when "11"
         search_by_text = 'col_11'
-      when "13"
+      when "12"
         search_by_text = 'col_12'
-      when "14"
+      when "13"
         search_by_text = 'col_13'
-      when "15"
+      when "14"
         search_by_text = 'col_14'
-      when "16"
+      when "15"
         search_by_text = 'col_15'
-      when "17"
+      when "16"
         search_by_text = 'col_16'
-      when "18"
+      when "17"
         search_by_text = 'col_17'
-      when "19"
+      when "18"
         search_by_text = 'col_18'
-      when "20"
+      when "19"
         search_by_text = 'col_19'
-      when "21"
+      when "20"
         search_by_text = 'col_20'
-      when "22"
+      when "21"
         search_by_text = 'col_21'
-      when "23"
+      when "22"
         search_by_text = 'col_22'
-      when "24"
+      when "23"
         search_by_text = 'col_23'
-      when "25"
+      when "24"
         search_by_text = 'col_24'
-      when "26"
+      when "25"
         search_by_text = 'col_25'
+      when "26"
+        search_by_text = 'col_26'
+      when "27"
+        search_by_text = 'col_27'
+      when "28"
+        search_by_text = 'col_28'
+      when "29"
+        search_by_text = 'col_29'
+      when "30"
+        search_by_text = 'col_30'
+      when "31"
+        search_by_text = 'col_31'
+      when "32"
+        search_by_text = 'col_32'
+      when "33"
+        search_by_text = 'col_33'
+      when "34"
+        search_by_text = 'col_34'
+      when "35"
+        search_by_text = 'col_35'
+      when "36"
+        search_by_text = 'col_36'
+      when "37"
+        search_by_text = 'col_37'
+      when "38"
+        search_by_text = 'col_38'
+      when "39"
+        search_by_text = 'col_39'
+      when "40"
+        search_by_text = 'col_40'
+      when "41"
+        search_by_text = 'col_41'
+      when "42"
+        search_by_text = 'col_42'
+      when "43"
+        search_by_text = 'col_43'
+      when "44"
+        search_by_text = 'col_44'
+      when "45"
+        search_by_text = 'col_45'
+      when "46"
+        search_by_text = 'col_46'
+      when "47"
+        search_by_text = 'col_47'
+      when "48"
+        search_by_text = 'col_48'
+      when "49"
+        search_by_text = 'col_49'
+      when "50"
+        search_by_text = 'col_50'
       else
         #
       end
@@ -151,37 +181,19 @@ class Mtab1letsController < ApplicationController
       Mtab1let.dbclear
       
       redirect_to action: "index"
-      
-      # redirect_to(:action => 'index')
-      
-      # respond_to do |format|
-        # format.js
-        # format.html
-      # end
-
-      # redirect_to action: "index"
-      # render text: 'dbdelete'
   end
   
   def dbclear
       Mtab1let.dbclear
       redirect_to action: "index"
-      # render text: 'dbclear'
   end
   
   def export
-    
-    # render text: 'export'
-    
-    # @mtab1lets = Mtab1let.where(params[:export])
-
     @mtab1lets = @@mtab1lets
- 
   
     respond_to do |format|
       format.html
       format.csv
-       #format.js
     end
     
   end
@@ -247,13 +259,9 @@ class Mtab1letsController < ApplicationController
  
     ActiveRecord::Base.establish_connection
  
-    # send_file "#{Rails.root}/public/downloads/test.htm"    
-
     file_dir = 'public/mtab1let/' + file_name
 
     CSV.foreach(Rails.root.join(file_dir), {headers: :first_row}) do |row|
-
-    # CSV.foreach(file_dir, {headers: :first_row}) do |row|
       
       sql_keys = []
       sql_vals = []
@@ -275,11 +283,6 @@ class Mtab1letsController < ApplicationController
       res = ActiveRecord::Base.connection.execute(sql)
     end
     
-    # respond_to do |format|
-      # format.js
-      # format.html
-    # end
-    
     redirect_to action: "index"
     
   end
@@ -287,7 +290,6 @@ class Mtab1letsController < ApplicationController
 
   def show
     @mtab1let = Mtab1let.find(params[:id])
-    #@mtab1let = Mtab1let.find(1)
     
     respond_to do |format|
       format.js
@@ -318,17 +320,12 @@ class Mtab1letsController < ApplicationController
       #render("new")
     end
 
-    # respond_to do |format|
-      # format.js
-      # format.html
-    # end
-
   end
 
   
   def edit
+
     @mtab1let = Mtab1let.find_by_id(params[:id])    
-    #@mtab1let = Mtab1let.find_by_id(1)    
 
     respond_to do |format|
       format.js
@@ -349,8 +346,6 @@ class Mtab1letsController < ApplicationController
         format.html
       end
 
-      # redirect_to(:action => 'show', :id => mtab1let.id)
-
     else
       render text: 'update failed'
     end    
@@ -366,6 +361,7 @@ class Mtab1letsController < ApplicationController
   def destroy
      
     @mtab1let = Mtab1let.find(params[:id])
+
     if @mtab1let.delete
       # @@delete = true
       @mtab1lets = Mtab1let.order(sort_column + " " + sort_direction).paginate(:per_page => 200, :page => params[:page])      
@@ -376,6 +372,20 @@ class Mtab1letsController < ApplicationController
      
   end
   
+
+  def export
+    
+    # @mtablets = Mtablet.where(params[:export])
+
+    @mtab1lets = @@mtab1lets
+  
+    respond_to do |format|
+      format.html
+      format.csv
+       #format.js
+    end
+    
+  end
 
   
   
@@ -448,5 +458,8 @@ class Mtab1letsController < ApplicationController
       %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
     end
 
+    def yesno(x)
+      x == 1 ? "Yes" : "No"
+    end
 
 end

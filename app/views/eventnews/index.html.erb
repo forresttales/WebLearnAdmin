@@ -1,0 +1,172 @@
+<% provide(:title, 'EventNews List') %>
+
+	<style>
+	
+		#signin-page {
+			min-height: 900px;
+		}
+	
+		#signin-page #signin-page-inner {
+		    width: 90%;
+		    margin: 0 auto;
+		}	
+
+		div .table-signin {
+			display: table;
+			background-color: #E3DDCF;
+			width: 1200px;
+			border-radius: 0px;
+			
+			/*border:2px solid #254520;*/
+						
+			/*box-shadow: 1px 1px 3px #888888;*/			
+			
+			padding-top: 40px;
+			padding-bottom: 40px;
+			padding-left: 10px;
+			padding-right: 10px;			
+		}
+
+		.table-signin p {
+			font-family: msyh; 
+			font-size: 16px;
+			color: #005187;"
+		}
+		
+	</style>
+
+	<link rel="stylesheet" type="text/css" href="../styles/dropdown.css"/>
+
+    <style>
+    	
+    	.main {
+    		font-family:Arial, Helvetica, sans-serif;
+    		font-size: 20px;
+    		color: black;
+    		min-height: 700px;
+    	}
+    	
+    	.links {
+    		font-family:Arial, Helvetica, sans-serif;
+    		font-size: 13px;
+    		color: brown;    		
+    	}
+    	
+    	h1 {
+    		font-size: 22px;
+    	}
+    	h2 {
+    		font-size: 18px;
+    	}
+    	h4 {
+    		font-size: 14px;
+    	}    	
+    	h5 {
+    		font-size: 13px;
+    	}    	    	
+    	p {
+    		font-size: 12px;
+    	}
+    	span {
+    		font-family:Arial, Helvetica, sans-serif;
+    		font-size: 12px;
+    		color: brown;    		    		
+    	}
+    	
+    </style>
+
+<!--
+# Table name: eventnews
+#
+#  id           :integer          not null, primary key
+#  article_id   :integer
+#  name_url     :string(100)
+#  name_file    :string(50)
+#  name_author  :string(50)
+#  name_admin   :string(50)
+#  key_words    :text
+#  date_article :date
+#  created_at   :datetime
+#  updated_at   :datetime
+#  article_type :string(20)
+#  description  :string(100)	 
+-->
+
+
+	<div id="signin-page">
+		
+		<header>
+	
+			<%= render 'share/backtotop' %>
+
+			<div style="height: 70px;"></div>
+			
+		</header>
+		
+		
+		<div id="signin-page-inner">
+			
+			<div class="table-signin">
+				<div class="row">
+					
+					<div class="cell-100percent" tabindex="1">
+						
+						
+						<%= form_tag eventnews_path, :method => 'get', :id => "eventnews_search" do %>
+						  	
+						  	<span>
+						    	 <!-- text_field_tag :search, params[:search]  -->
+						    	
+						    	<%= text_field_tag :search %>
+						    	
+						    	
+						   	</span>
+						   	<span style="">Search by: </span>
+					
+						   	<span>
+					
+					   		<%= select_tag("search_by", options_for_select([['ID', '1'],
+					                 ['Article ID', '2'],['File','3']], '3'))  %>	   		
+										
+						    </span>
+							<span>
+						    	<%= submit_tag "Search", :name_file => nil %>
+						  	</span>
+					
+							<div id="eventnews">
+								<%= render 'eventnews/list' %>
+							</div>
+						  
+						<% end %>
+
+												
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>	
+		
+	</div>					
+					
+	<script>
+
+		$(document).on('click','#eventnews th a, #eventnews .pagination a',function(){
+		    $.getScript(this.href);
+		    return false;
+		});
+
+		//$("#eventnews_search input").keyup(function() {
+		$("#eventnews_search").submit(function() {
+		    $.get($("#eventnews_search").attr("action"), $("#eventnews_search").serialize(), null, "script");
+		    return false;
+		});
+
+
+		// $(window).load( function() {
+		// //$(document).ready(function(){
+		// });
+	
+	</script>
+
