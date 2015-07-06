@@ -1,0 +1,318 @@
+
+
+	<div class="main">
+
+		<div id="scroll1" class="scrollbox-both" onscroll="scrollPos();">	
+
+			<% if @admin_reg_event_conferences.any? %>
+		
+			<%= hidden_field_tag :direction, params[:direction] %>
+			<%= hidden_field_tag :sort, params[:sort] %>	
+			<%= hidden_field_tag :pos, params[:pos] %>	
+				
+			<h5>Record Count: <%= @admin_reg_event_conferences.count %></h5>
+					
+			<table id="admin-events" title="Register Events" >    	  
+				  	
+		       <colgroup>
+			       <col class="member-table"></col>
+			       <col class="member-table"></col>
+			       <col class="member-table"></col>
+			       <col class="member-table"></col>
+			       <col class="member-table"></col>
+			       <col class="member-table"></col>
+			       <col class="member-table"></col>
+			       <col class="member-table"></col>
+			       <col class="member-table"></col>
+			       <col class="member-table"></col>
+			       <col class="member-table"></col>
+			       <col class="member-table"></col>
+			       <col class="member-table"></col>
+			       <col class="member-table"></col>
+			       <col class="member-table"></col>
+			       <col class="member-table"></col>
+			       <col class="member-table"></col>
+			       <col class="member-table"></col>
+			       <col class="member-table"></col>
+		       </colgroup>
+
+
+			  <tr align="left">
+			    <th class="member-table" id="th_view" field="view" style="width: 50px; padding-left: 10px;"><div class="header-shift"><h4></h4></div></th>
+			    <th class="member-table" id="th_delete" field="delete" style="width: 50px;"><div class="header-shift"><h4></h4></div></th>
+			    <th class="member-table" id="th_id" field="id" style="width: 50px"><div id="id" class="header-shift"><h4><%= sortable "id", "ID" %></div></th>
+			    <th class="member-table" id="th_created_at" field="id" style="width: 150px"><div id="created_at" class="header-shift"><h4><%= sortable "created_at", "Created" %></div></th>
+
+				<th class="member-table" id="th_name_title" field="name_title" style="width: 100px"><div id="name_title" class="header-shift"><h4><%= sortable "name_title", "Surname Title" %></h4></div></th>
+			    <th class="member-table" id="th_name_first" field="name_first" style="width: 150px"><div id="name_first" class="header-shift"><h4><%= sortable "name_first", "First Name" %></h4></div></th>
+			    <th class="member-table" id="th_name_last" field="name_last" style="width: 150px"><div id="name_last" class="header-shift"><h4><%= sortable "name_last", "Last Name" %></h4></div></th>
+			    <th class="member-table" id="th_position_title" field="position_title" style="width: 300px"><div id="position_title" class="header-shift"><h4><%= sortable "position_title", "Position Title" %></h4></div></th>
+			    <th class="member-table" id="th_type_affiliation" field="type_affiliation" style="width: 300px"><div id="type_affiliation" class="header-shift"><h4><%= sortable "type_affiliation", "Affiliation Type" %></h4></div></th>
+			    <th class="member-table" id="th_name_affiliation" field="name_affiliation" style="width: 300px"><div id="name_affiliation" class="header-shift"><h4><%= sortable "name_affiliation", "Affiliation" %></h4></div></th>
+			    <th class="member-table" id="th_address" field="address" style="width: 200px"><div id="address" class="header-shift"><h4><%= sortable "address", "Address" %></h4></div></th>
+			    <th class="member-table" id="th_city" field="city" style="width: 150px"><div id="city" class="header-shift"><h4><%= sortable "city", "City" %></h4></div></th>
+			    <th class="member-table" id="th_state" field="state" style="width: 100px"><div id="state" class="header-shift"><h4><%= sortable "state", "State" %></h4></div></th>
+			    <th class="member-table" id="th_zip" field="zip" style="width: 100px"><div id="zip" class="header-shift"><h4><%= sortable "zip", "Zip" %></h4></div></th>
+			    <th class="member-table" id="th_phone" field="phone" style="width: 200px"><div id="phone" class="header-shift"><h4><%= sortable "phone", "Phone" %></h4></div></th>
+			    <th class="member-table" id="th_phone_mobile" field="phone_mobile" style="width: 200px"><div id="phone_mobile" class="header-shift"><h4><%= sortable "phone_mobile", "Mobile Phone" %></h4></div></th>
+			    <th class="member-table" id="th_email" field="email" style="width: 200px"><div id="email" class="header-shift"><h4><%= sortable "email", "Email" %></h4></div></th>
+			    <th class="member-table" id="th_topic" field="topic" style="width: 200px"><div id="topic" class="header-shift"><h4><%= sortable "topic", "Topic" %></h4></div></th>
+			    <th class="member-table" id="th_description" field="description" style="width: 200px"><div id="description" class="header-shift"><h4><%= sortable "description", "Description" %></h4></div></th>
+
+			  </tr>
+			<% @admin_reg_event_conferences.each do |reg_event_conference| %>
+			  <tr align="left" class="tr-events">
+			  	
+			    <!-- <td style="padding-left: 10px;"><h5><#%= link_to('View', {:action => 'show', :id => reg_event_conference.id, :class => 'member-table'}) %#></h5></td> -->
+			    <td style="padding-left: 10px;"><h5><%= link_to('View', {:action => 'show', :id => reg_event_conference.id }) %></h5></td>
+
+			    <td>
+			    	<% if current_user.admin %>
+			    	<div style="position: relative; bottom: -2px">
+				    	<h5>
+						   	<% delete_msg = "Delete ID: " + reg_event_conference.id.to_s + " ?" %>
+							<%= button_to "Delete", { :action => 'destroy', :id => reg_event_conference.id}, :method => :delete, :data => { confirm: delete_msg }, :class => 'delete-btn' %>
+							<!-- <#%= button_to "Delete", {:controller => 'admin_reg_event_conferences', :action => 'destroy', :id => reg_event_conference.id}, :method => :delete, :data => { confirm: delete_msg }, :class => 'delete-btn' %#> -->
+							<!-- <#%= button_to "Delete", destroy_record_admin_reg_event_conferences_path( :id => reg_event_conference.id ), :method => :post, :data => { confirm: delete_msg }, :class => 'delete-btn' %#> -->
+							<!-- <#%= button_to "Delete", { :action => 'destroy_record', :id => reg_event_conference.id }, :method => :post, :data => { confirm: delete_msg }, :class => 'delete-btn' %#> -->
+						</h5>
+					</div>
+					<% end %>
+				</td>
+			  	
+			    <td><h5 class="member-table"><%= reg_event_conference.id %></h5></td>
+			    <!-- <td> reg_event_conference.created_at.strftime("%B %e, %Y") </td>
+			    <td> reg_event_conference.updated_at.strftime("%B %e, %Y") </td> -->    
+			    <td><h5 class="member-table"><%= reg_event_conference.created_at.to_formatted_s(:db) %></h5></td>
+			    
+			    <td><h5 class="member-table"><%= reg_event_conference.name_title %></h5></td>
+			    <td><h5 class="member-table"><%= reg_event_conference.name_first %></h5></td>
+			    <td><h5 class="member-table"><%= reg_event_conference.name_last %></h5></td>
+			    <td><h5 class="member-table"><%= reg_event_conference.position_title %></h5></td>
+			    <td><h5 class="member-table"><%= reg_event_conference.type_affiliation %></h5></td>
+			    <td><h5 class="member-table"><%= reg_event_conference.name_affiliation %></h5></td>			    
+			    <td><h5 class="member-table"><%= reg_event_conference.address %></h5></td>
+			    <td><h5 class="member-table"><%= reg_event_conference.city %></h5></td>
+			    <td><h5 class="member-table"><%= reg_event_conference.state %></h5></td>
+			    <td><h5 class="member-table"><%= reg_event_conference.zip %></h5></td>
+			    <td><h5 class="member-table"><%= reg_event_conference.phone %></h5></td>
+			    <td><h5 class="member-table"><%= reg_event_conference.phone_mobile %></h5></td>
+			    <td><h5 class="member-table"><%= reg_event_conference.email %></h5></td>
+			    <td><h5 class="member-table"><%= reg_event_conference.topic %></h5></td>
+			    <td><h5 class="member-table"><%= reg_event_conference.description %></h5></td>
+			    			      
+			  </tr>
+			<% end %>
+
+			<!-- number_to_currency(product.price) -->
+			
+			</table>			
+					
+			<%= will_paginate @admin_reg_event_conferences %>
+		
+			<% else %>
+			<div class="row" style="color: red;">
+				<h3>No record for Conference Events</h3>
+			</div>
+			<div class="row-end">&nbsp;</div>			
+		
+			<% end %>
+						
+			<div class="row" style="height: 20px;"></div>
+
+		</div>
+
+	</div>
+	
+	
+<script>
+	
+		
+		// $('*[data-confirm]').click(function(){
+	    	// return confirm($(this).attr('data-confirm'));
+		// });
+
+
+        function scrollPos() {
+            // var div = document.getElementById("scroll1").scrollLeft;
+            // document.getElementById("pos").innerHTML = div;
+            $("#pos").html($("#scroll1").scrollLeft());
+        }
+		
+		function moveScroll() {
+			// alert('moveScroll');
+			$("#scroll1").scrollLeft($("#pos").html());
+		}
+				
+				
+		$(function() {
+		
+    		var $cols = $('colgroup');
+
+			$("table#admin-events tr:nth-child(even)").addClass('gray');
+			$("table#admin-events tr:nth-child(odd)").addClass('white');
+
+		    // id								3
+		    // created_at						4
+		    // name_first						5
+		    // name_last						6
+		    // name_title						7
+		    // type_affiliation					8
+		    // name_affiliation					9
+
+			var cell;
+			var cellIndex;
+			var row;
+			var rowIndex;
+			var header;
+			var cellTh;
+			var cellIndexTh;
+			
+			$("table#admin-events th").mouseover ( function () {
+
+				cellTh = $(this).closest('th');
+				cellIndexTh = cellTh[0].cellIndex;
+				cellIndexTh += 1;
+				
+				$("table#admin-events td:nth-child(" + cellIndexTh + ")").addClass('hover-col');
+				$(this).addClass('hover-col');
+				
+			}).mouseout ( function() {
+				
+				$("table#admin-events td:nth-child(" + cellIndexTh + ")").removeClass('hover-col');				
+				$(this).removeClass('hover-col');
+				
+			});
+			
+			$("table#admin-events td").mouseover ( function () {
+				
+				cell = $(this).closest('td');
+				cellIndex = cell[0].cellIndex;
+				cellIndex += 1;
+				row = cell.closest('tr');
+				rowIndex = row[0].rowIndex;
+				
+				switch(cellIndex)
+				{
+				case 1:
+					header = "th_view"	  
+				  break;
+				case 2:
+					header = "th_delete"	  
+				  break;
+				case 3:
+					header = "#th_id"	  
+				  break;
+				case 4:
+					header = "#th_created_at"	  
+				  break;
+				case 5:
+					header = "#th_name_title"	  
+				  break;
+				case 6:
+					header = "#th_name_first"	  
+				  break;
+				case 7:
+					header = "#th_name_last"	  
+				  break;
+				case 8:
+					header = "#th_position_title"	  
+				  break;
+				case 9:
+					header = "#th_type_affiliation"	  
+				  break;
+				case 10:
+					header = "#th_affiliation"	  
+				  break;
+				case 11:
+					header = "#th_address"	  
+				  break;
+				case 12:
+					header = "#th_city"	  
+				  break;
+				case 13:
+					header = "#th_state"	  
+				  break;
+				case 14:
+					header = "#th_zip"	  
+				  break;
+				case 15:
+					header = "#th_phone"	  
+				  break;
+				case 16:
+					header = "#th_phone_mobile"	  
+				  break;
+				case 17:
+					header = "#th_email"	  
+				  break;
+				case 18:
+					header = "#th_topic"	  
+				  break;
+				case 19:
+					header = "#th_description"	  
+				  break;
+
+				default:
+					//
+				}				
+
+				$(header).addClass('hover-col');
+		
+				if (rowIndex % 2 === 0) {
+					$("table#admin-events td:nth-child(" + cellIndex + ")").addClass('hover-col');
+					row.removeClass('gray').addClass('hover-row');					
+				}
+				else {
+					$("table#admin-events td:nth-child(" + cellIndex + ")").addClass('hover-col');
+					row.removeClass('white').addClass('hover-row');										
+				}		
+			}).mouseout( function(){
+
+				$(header).removeClass('hover-col');
+				
+				if (rowIndex % 2 === 0) {
+					$("table#admin-events td:nth-child(" + cellIndex + ")").removeClass('hover-col');
+					row.removeClass('hover-row').addClass('gray');					
+				}
+				else {
+					$("table#admin-events td:nth-child(" + cellIndex + ")").removeClass('hover-col');
+					row.removeClass('hover-row').addClass('gray');					
+				}		
+			});
+			
+			var rowSelect = -1;			
+			
+			$("table#admin-events td").on('click', function () {
+	
+				cell = $(this).closest('td');
+				btn_delete = $(this).closest('form');
+				row = cell.closest('tr');
+				rowIndex = row[0].rowIndex;
+
+				if (rowSelect !== -1) {
+					$("table#admin-events tr").removeClass('row-select');
+				}
+				
+				rowSelect = rowIndex;
+				row.addClass('row-select');
+				btn_delete.removeClass('btn-color').addClass('btn-color-select');
+			});
+	
+	
+			
+			$(document).on('click', function(event) {
+				// alert(event.target);
+				elem = event.target.className;
+				if ((elem === 'hover-col') || (elem === 'delete-btn') || (elem === 'member-table')) {
+					//
+				}
+				else {
+					$("table#admin-events tr").removeClass('row-select');					
+				}
+			});
+		});
+		
+</script>
+
+
+

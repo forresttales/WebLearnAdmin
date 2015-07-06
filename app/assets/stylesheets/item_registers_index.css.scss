@@ -1,0 +1,185 @@
+
+    .item-registers-index {
+      width: 100%;
+      margin: 0 auto;
+    } 
+    .item-registers-index .table-1 {
+      display: table;
+      background-color: #E3DDCF;
+      width: 1200px;
+      border-radius: 0px;
+      padding-top: 40px;
+      padding-bottom: 40px;
+      padding-left: 10px;
+      padding-right: 10px;      
+    }
+    .item-registers-index .table-2 {
+      display: table;
+      width: 1200px;
+      border-radius: 0px;
+    }
+    .item-registers-index.table-2 p {
+      font-family: 'Quattrocento', Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      color: #005187;
+    }
+    .item-registers-index .main-1 {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 20px;
+      color: black;
+      height: 550px;
+    }
+    .item-registers-index .links {
+      font-family:Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      color: brown;       
+    }
+    .item-registers-index h1 {
+      font-size: 22px;
+    }
+    .item-registers-index h2 {
+      font-size: 18px;
+    }
+    .item-registers-index h4 {
+      font-size: 12px;
+    }     
+    .item-registers-index h5 {
+      font-size: 12px;
+    }           
+    .item-registers-index p {
+      font-size: 12px;
+    }
+    .item-registers-index .bar {
+      font-size: 16px;
+      font-weight: 400;
+    }
+    .item-registers-index .input-upload {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      width: 600px;
+      height: 24px;
+      border-style:solid;
+      background-color: #fff;
+      border-color: #000;
+      border-width: 1px;
+      padding-left: 6px;
+      color: #888;
+    }
+    .item-registers-index .submit-upload {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      height: 24px;
+    }
+    .item-registers-index table.item-registers {
+      table-layout: fixed;
+      width: 1100px;
+    }
+    .item-registers-index table.item-registers th {
+      padding-left: 0px;
+    }           
+    .item-registers-index table.item-registers tr {
+      height: 20px;
+    }     
+    .item-registers-index table.item-registers td {
+      vertical-align: bottom;       
+      padding-top: 0px;
+      padding-bottom: 4px;                          
+    }
+    .item-registers-index .gray {
+      background: #CCC;              
+    }
+    .item-registers-index .white {
+      background: #fff;        
+    }
+    .item-registers-index .hover-col {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+    .item-registers-index .hover-row {
+      background-color: #FAC0C1;
+    }
+    .item-registers-index .row-select {
+      color: #fff;      
+      background-color: brown;
+    }
+    .item-registers-index .btn-color-select {
+      color: #fff;  
+    }
+    .item-registers-index .btn-color {
+      color: #A31C1C;     
+    }
+    .item-registers-index .delete-btn {
+      display: inline-block;
+      text-decoration: none; 
+      width: 50px;
+      height: 20px;
+      background: inherit;
+      border-width: 0px;
+    }
+    .item-registers-index .delete-btn:focus {
+    }
+    .item-registers-index .delete-btn:hover { 
+      text-decoration: underline; 
+    }
+    .item-registers-index .delete-btn:active { 
+      text-decoration: underline; 
+    }
+    .item-registers-index .header-shift {
+      padding-left: 0px;
+    }           
+    .item-registers-index .reset-db-btn {
+      width: 200px;
+      height: 20px;
+    }
+    .item-registers-index .page-loading {
+      background: asset-url('loader_2_w150_h150.gif') no-repeat center center;
+      height: 150px; 
+      width: 150px;
+      position: fixed;
+      left: 50%;
+      margin-left: -75px; 
+      top: 40%; 
+      z-index: 1000;
+    }       
+    .item-registers-index .ajax-loading {
+      background: asset-url('icon_loading.gif') no-repeat center center;
+      height: 50px; 
+      width: 50px;
+      position: fixed; 
+      left: 50%;
+      margin-left: -25px;
+      top: 40%; 
+      z-index: 1000;
+    }       
+    .item-registers-index .scrollbox-both {
+      height: 520px;
+      width: 1200px;
+      overflow: scroll;
+      border:1px solid #651375;   
+    }
+    .item-registers-index .scrollbox-both-2 {
+      height: 20px;
+      width: 1200px;
+      padding-left: 0px;
+      background-color: #fff;
+      overflow: hidden;
+      border:1px solid #651375;   
+    }
+    .item-registers-index .hidden {
+      display: none !important;
+      visibility: hidden !important;     
+    }
+    .item-registers-index .visibility-hidden {
+      visibility: hidden;
+    }
+    .item-registers-index #item_registers_header th .current {
+      padding-right: 12px;
+      background-repeat: no-repeat;
+      background-position: right center;
+    }
+    .item-registers-index #item_registers_header th .asc {
+      background-image: asset-url('up_arrow.gif');
+    }
+    .item-registers-index #item_registers_header th .desc {
+      background-image: asset-url('down_arrow.gif');
+    }       
+    

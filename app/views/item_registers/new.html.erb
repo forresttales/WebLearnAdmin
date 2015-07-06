@@ -1,0 +1,142 @@
+<% @title = "Item Register Edit" %>
+
+	<style>
+	
+		.item-registers-new {
+			width: 1000px;
+			margin: 0 auto;
+		}
+		.item-registers-new .table {
+			display: table;
+			background-color: #B2C7CF;
+			width: 1000px;
+			border-radius: 20px;
+			border:2px solid #254520;
+			box-shadow: 1px 1px 10px #888888;
+			padding-top: 40px;
+			padding-bottom: 40px;
+			padding-left: 60px;
+		}
+		.item-registers-new .input {
+			font-family: Arial, Helvetica, sans-serif;
+			color: #000;			
+			font-size: 16px;
+			width: 580px;
+			height: 24px;
+			border-style:solid;
+			border-radius: 4px;
+			background-color: #fff;
+			border-color: #000;
+			border-width: 1px;
+			padding-left: 6px;
+		}
+		.item-registers-new .input:focus {
+			border-color: #3949C4;
+			color: #000;
+			-webkit-box-shadow: 0 0 10px #3949C4;
+			-moz-box-shadow: 0 0 10px #3949C4;
+			box-shadow: 0 0 10px #3949C4;
+		}
+		.item-registers-new .input:disabled {
+			border-color: #523401;
+			color: #523401;
+			background-color:#CCCBC8;
+		}
+		.item-registers-new .input-label {
+			font-family: Arial, Helvetica, sans-serif;
+			color: #000;
+			font-size: 16px;
+			width: 280px;
+			height: 18px;
+		}
+		.item-registers-new .input-label:disabled {
+			font-family: Arial, Helvetica, sans-serif;
+			color: #523401;
+		}
+		.item-registers-new .spacer {
+			height: 16px;
+		}
+		.item-registers-new .cell-right {
+			display: table-cell;
+			width: 700px;
+			text-align: left;
+			align: top;		
+		}
+		.item-registers-new .cell-left {
+			display: table-cell;
+			width: 300px;	
+			align: top;
+			text-align: right;		
+			padding-right: 20px;
+		}
+		/*.item-registers-new .cell-submit {
+			display: table-cell;
+			width: 400px;
+			text-align: left;
+			align: top;		
+			padding-left: 0px;
+		}*/
+		.item-registers-new .btn-submit {
+		  	display: inline-block;
+		  	text-decoration: none; 
+		  	width: 308px;
+		  	height: 30px;
+		  	background: linear-gradient(#000, #000);
+		  	text-shadow: 1px 1px 1px #0E86B2; 
+		  	border-radius: 6px;
+		}
+		.item-registers-new .btn-submit:focus {
+		  	background: #CCC; 
+		  	color: #5F7A2A;
+		  	box-shadow: inset 0 1px 0 rgba(200,200,200,0.2);
+		}
+		.item-registers-new .btn-submit:hover { 
+		  	box-shadow: inset 0 1px 1px rgba(255,255,255,0.2), 
+		  	inset 0 1.5em 1em rgba(255,255,255,0.3);
+		}
+		.item-registers-new .btn-submit:active { 
+		  	box-shadow: inset 0 1px 1px rgba(255,255,255,0.2), 
+		  	inset 0 1.5em 1em rgba(0,0,0,0.3); 
+		}
+		.item-registers-new .title {
+			width: 300px;
+			margin: 0 auto;
+			text-align: center;
+		}
+		.item-registers-new .title span {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 18px;
+			color: #000;
+		}
+		.item-registers-new .container-1 {
+			width: 300px;
+			margin: 0 auto;
+		}
+		
+	</style>
+
+	<%= render 'share/backtotop' %>
+
+	<div style="height: 50px;"></div>
+	<div class="item-registers-new">
+		<div class="table">
+			<div class="row">
+				<div class="cell-100percent">
+					<div class="title"><span>Create a new item with id = <%= @item_register_next_new_id %> ?</span></div>
+				</div>
+			</div>
+			<div class="row"><div style="height: 20px;"></div></div>
+			<div class="row">
+				<div class="cell-100percent">
+					<div class="container-1">
+						<%= form_tag( :controller => 'item_registers', :action => 'create', :method => 'post') do %>				
+							<%= submit_tag "Create", class: 'btn-submit' %>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div style="height: 100px;"></div>
+

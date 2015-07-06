@@ -1,0 +1,184 @@
+
+    .admin-users-index {
+      width: 100%;
+      margin: 0 auto;
+    } 
+    .admin-users-index .table-1 {
+      display: table;
+      background-color: #E3DDCF;
+      width: 1200px;
+      border-radius: 0px;
+      padding-top: 40px;
+      padding-bottom: 40px;
+      padding-left: 10px;
+      padding-right: 10px;      
+    }
+    .admin-users-index .table-2 {
+      display: table;
+      width: 1200px;
+      border-radius: 0px;
+    }
+    .admin-users-index .table-2 p {
+      font-family: 'Quattrocento', Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      color: #005187;
+    }
+    .admin-users-index .main-1 {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 20px;
+      color: black;
+      height: 300px;
+    }
+    .admin-users-index .links {
+      font-family:Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      color: brown;       
+    }
+    .admin-users-index h1 {
+      font-size: 22px;
+    }
+    .admin-users-index h2 {
+      font-size: 18px;
+    }
+    .admin-users-index h4 {
+      font-size: 12px;
+    }     
+    .admin-users-index h5 {
+      font-size: 12px;
+    }           
+    .admin-users-index p {
+      font-size: 12px;
+    }
+    .admin-users-index .bar {
+      font-size: 16px;
+      font-weight: 400;
+    }
+    .admin-users-index .input-upload {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      width: 600px;
+      height: 24px;
+      border-style:solid;
+      background-color: #fff;
+      border-color: #000;
+      border-width: 1px;
+      padding-left: 6px;
+      color: #888;
+    }
+    .admin-users-index .submit-upload {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      height: 24px;
+    }
+    .admin-users-index table.admin-users {
+      table-layout: fixed;
+      width: 1850px;
+    }
+    .admin-users-index table.admin-users th {
+      padding-left: 0px;
+    }           
+    .admin-users-index table.admin-users tr {
+      height: 20px;
+    }     
+    .admin-users-index table.admin-users td {
+      vertical-align: bottom;       
+      padding-top: 0px;
+      padding-bottom: 4px;                          
+    }
+    .admin-users-index .gray {
+      background: #CCC;              
+    }
+    .admin-users-index .white {
+      background: #fff;        
+    }
+    .admin-users-index .hover-col {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+    .admin-users-index .hover-row {
+      background-color: #FAC0C1;
+    }
+    .admin-users-index .row-select {
+      color: #fff;      
+      background-color: brown;
+    }
+    .admin-users-index .btn-color-select {
+      color: #fff;  
+    }
+    .admin-users-index .btn-color {
+      color: #A31C1C;     
+    }
+    .admin-users-index .delete-btn {
+      display: inline-block;
+      text-decoration: none; 
+      width: 50px;
+      height: 20px;
+      background: inherit;
+      border-width: 0px;
+    }
+    .admin-users-index .delete-btn:focus {
+    }
+    .admin-users-index .delete-btn:hover { 
+      text-decoration: underline; 
+    }
+    .admin-users-index .delete-btn:active { 
+      text-decoration: underline; 
+    }
+    .admin-users-index .header-shift {
+      padding-left: 0px;
+    }           
+    .admin-users-index .reset-db-btn {
+      width: 200px;
+      height: 20px;
+    }
+    .admin-users-index .page-loading {
+      background: asset-url('loader_2_w150_h150.gif') no-repeat center center;
+      height: 150px; 
+      width: 150px;
+      position: fixed;
+      left: 50%;
+      margin-left: -75px; 
+      top: 40%; 
+      z-index: 1000;
+    }       
+    .admin-users-index .ajax-loading {
+      background: asset-url('icon_loading.gif') no-repeat center center;
+      height: 50px; 
+      width: 50px;
+      position: fixed; 
+      left: 50%;
+      margin-left: -25px;
+      top: 40%; 
+      z-index: 1000;
+    }       
+    .admin-users-index .scrollbox-both {
+      height: 270px;
+      width: 1200px;
+      overflow: scroll;
+      border:1px solid #651375;   
+    }
+    .admin-users-index .scrollbox-both-2 {
+      height: 20px;
+      width: 1200px;
+      padding-left: 0px;
+      background-color: #fff;
+      overflow: hidden;
+      border:1px solid #651375;   
+    }
+    .admin-users-index .hidden {
+      display: none !important;
+      visibility: hidden !important;     
+    }
+    .admin-users-index .visibility-hidden {
+      visibility: hidden;
+    }
+    .admin-users-index #admin_users_header th .current {
+      padding-right: 12px;
+      background-repeat: no-repeat;
+      background-position: right center;
+    }
+    .admin-users-index #admin_users_header th .asc {
+      background-image: asset-url('up_arrow.gif');
+    }
+    .admin-users-index #admin_users_header th .desc {
+      background-image: asset-url('down_arrow.gif');
+    }       

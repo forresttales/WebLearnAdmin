@@ -1,163 +1,194 @@
 <% provide(:title, 'Sign In') %>
 
-	<style>
-	
-		#signin-page {
-			height: 800px;
-		}
-	
-		#signin-page #signin-page-inner {
-		    width: 50%;
-		    margin: 0 auto;
-		}	
 
-		div .table-signin {
-			display: table;
-			background-color: #DEDB3C;
-			width: 600px;
-			border-radius: 20px;
-			border:2px solid #254520;
-			box-shadow: 1px 1px 10px #888888;
-			padding-top: 40px;
-			padding-bottom: 40px;
-			padding-left: 60px;
-		}
-	
-		.input-signin {
-			font-family: Arial, Helvetica, sans-serif;
-			color: #404040;			
-			font-size: 16px;
-			width: 300px;
-			height: 24px;
-			border-style:solid;
-			border-radius: 4px;
-			background-color: #fff;
-			border-color: #000;
-			border-width: 1px;
-			padding-left: 6px;
-		}
-	
-		.input-signin:focus {
-			border-color: #3949C4;
-			color: #000;
-			-webkit-box-shadow: 0 0 10px #3949C4;
-			-moz-box-shadow: 0 0 10px #3949C4;
-			box-shadow: 0 0 10px #3949C4;
-		}
-			
-		.input-label-signin {
-			font-family: Arial, Helvetica, sans-serif;
-			font-size: 16px;
-			width: 220px;
-			height: 18px;
-		}
-			
-		.input-signin-spacer {
-			height: 16px;
-		}
-			
-		div .cell-right-signin-admin {
-			display: table-cell;
-			width: 50%;
-			text-align: left;
-			align: top;		
-		}
-	
-		div .cell-left-signin-admin {
-			display: table-cell;
-			width: 20%;	
-			align: top;
-			text-align: right;		
-			padding-right: 20px;
-		}
-		
-		div .cell-submit-signin-admin {
-			display: table-cell;
-			width: 50%;
-			text-align: left;
-			align: top;		
-			padding-left: 0px;
-		}
-		
-		.signin-btn {
-		  
-		  	display: inline-block;
-		  	text-decoration: none; 
-		  	width: 308px;
-		  	height: 30px;
-		  	background: linear-gradient(#000, #000);
-		  	text-shadow: 1px 1px 1px #0E86B2; 
-		  	border-radius: 6px;
-		}
-	
-		.signin-btn:focus {
-		  background: #CCC; 
-		  color: #5F7A2A;
-		  box-shadow: inset 0 1px 0 rgba(200,200,200,0.2);
-		}
-		
-		.signin-btn:hover { 
-		  box-shadow: inset 0 1px 1px rgba(255,255,255,0.2), 
-		  inset 0 1.5em 1em rgba(255,255,255,0.3);
-		}
-		
-		.signin-btn:active { 
-		  box-shadow: inset 0 1px 1px rgba(255,255,255,0.2), 
-		  inset 0 1.5em 1em rgba(0,0,0,0.3); 
-		}
-		
-	</style>
+	<div style="height: 200px;"></div>
+	<div class="sessions-new">
+		<div class="signin-page">
+			<div class="signin-page-inner">
 
-
-	<div id="signin-page">
-		
-		<header>
-	
-			<div style="height: 200px;"></div>
-			
-		</header>
-		
-		
-		<div id="signin-page-inner">
-			
-			<div class="table-signin">
-				<div class="row">
-					
-					<div class="cell-100percent">
-						
-				    	<%= form_for(:session, url: sessions_path) do |f| %>	
-						<!-- = render 'shared/error_messages', object: f.object -->			
-					
-						<div class="row">
-							<div class="cell-left-signin-admin">
-								<%= f.label(:username, 'Username', class: 'input-signin-label') %>							
-							</div>
-							<div class="cell-right-signin-admin">
-								<%= f.text_field :username, :class => "input-signin", :autofocus => true %>	
-							</div>      	
+				<div class="table-signin">
+					<%= form_for(:session, url: sessions_path) do |f| %>	
+					<div class="row">
+						<div class="cell-left-signin-admin">
+							<%= f.label(:email, 'Email', class: 'input-signin-label') %>							
 						</div>
-						
-						<div class="input-signin-spacer"></div>
-						      		
-						<div class="row">
-							<div class="cell-left-signin-admin">
-								<%= f.label(:password, 'Password', class: 'input-signin-label') %>					
-							</div>
-							<div class="cell-right-signin-admin">
-								<%= f.password_field :password, class: 'input-signin' %>
-								<div style="height: 30px;"></div>
-								<%= f.submit "Sign In", class: 'signin-btn' %>
-							</div>      	
-						</div>      		
-											
-						<% end %>
-						
+						<div class="cell-right-signin-admin">
+							<%= f.text_field :email, :class => "input-signin", :autofocus => true %>	
+						</div>      	
 					</div>
-					
+					<div class="row"><div class="cell-left-signin-admin" style="height: 20px;"></div><div class="cell-right-signin-admin"></div></div>
+					<div class="row">								
+						<div class="cell-left-signin-admin">
+							<%= f.label(:password, 'Password', class: 'input-signin-label') %>					
+						</div>
+						<div class="cell-right-signin-admin">
+							<%= f.password_field :password, class: 'input-signin' %>
+						</div>      	
+					</div>
+					<div class="row"><div class="cell-left-signin-admin" style="height: 20px;"></div><div class="cell-right-signin-admin"></div></div>								
+					<div class="row">
+						<div class="cell-left-signin-admin">
+						</div>
+						<div class="cell-right-signin-admin">
+							<%= f.submit "Sign In", class: 'signin-btn' %>
+						</div>      	
+					</div>
+
+					<% end %>
+
+					<div class="row"><div class="cell-left-signin-admin" style="height: 20px;"></div><div class="cell-right-signin-admin"></div></div>
+					<div class="row">								
+						<div class="cell-left-signin-admin">
+							<div id="pwd_reset" class="pwd-reset">
+								<span>Forgot password?</span>
+							</div>
+						</div>
+						<div class="cell-right-signin-admin">
+						</div>      							
+					</div>						
+				</div>
+
+				<div class="pwd-reset-container-outer">
+					<div class="pwd-reset-container-inner">
+						<div id="confirm_pwd_reset_1" class="confirm-pwd-reset display-none">
+							<span><em>Reset Password instructions sent to: </em></span>
+							<span id="confirm_pwd_reset_1_email"></span>
+							<!-- <div class="pwd-reset-container-spacer"></div> -->
+						</div>
+						<div id="confirm_pwd_reset_2" class="confirm-pwd-reset display-none">
+							<span><em>* Send password reset instructions failed</em><br>
+								You may try again or send us a message:<br><a href="#">Contact Us: Subject- Password Reset</a>
+							</span>
+							<br>
+						</div>
+						<!-- <div id="confirm_pwd_reset_3" class="confirm-pwd-reset display-none">
+							<span><em>* No record for this email address: </em></span>
+							<span id="confirm_pwd_reset_3_email"></span>
+						</div> -->
+						<div id="pwd_reset_container_spacer" class="pwd-reset-container-spacer display-none"></div>
+					</div>									
+				</div>
+			   	<div id="form_new_pwd_reset" class="form-new-pwd-reset-outer" style="height: 116px;">
+			   		<div style="height: 5px;"></div>
+			   		<div class="form-new-pwd-reset-inner">
+			   			<div id="form_new_pwd_reset_a">
+					   		<div class="table" style="width: 660px;">
+					   			<div class="row">
+					   				<div style="display: table-cell; width: 660px; height: 26px;">
+					   					<div style="display: inline-block; width: 620px; height: 22px; text-align: right; padding-top: 4px;">
+											<div id="confirm_pwd_reset_3" class="confirm-pwd-reset display-none" style="height: 22px; padding: 0px;">
+												<span><em>* No record for this email address: </em></span>
+												<span id="confirm_pwd_reset_3_email"></span>
+											</div>
+					   					</div>
+					   					<div id="close_form_new_pwd_reset" class="form-edit-close-pos-rel tip" style="display: inline-block; vertical-align: top; height: 20px;">
+					   						<!-- <img src="/assets/x_close_w20_h20.png" alt="X" height="20px"> -->
+					   						<%= image_tag("x_close_w20_h20.png", alt: "X", height: "25px") %>
+					   					</div>
+						                <div class="tip-content">
+						                    <div class="tooltiptext">Close</div>
+						                </div>																								
+					   					<!-- <div style="clear: both;"></div> -->
+					   				</div>
+			   					</div>
+							</div>				   				
+					   		<div class="table" style="width: 660px;">
+								<div class="row">
+									<div style="display: table-cell; width: 64px;">
+								</div>
+								<div class="row">
+									<div class="cell-500" style="height: 50px;">
+										<!-- <div style="height: 10px"></div> -->
+										<%= render 'admin_users/new_pwd_reset' %>
+									</div>
+								</div>							
+							</div>				   				
+						</div>
+					</div>
 				</div>
 				
-			</div>
-			
-		</div>	
-		
+				
+				
+				
+			</div>	
+		</div>
 	</div>
+
+
+	
+	<script>
+	
+		function openNewPwdReset() {
+			$("#form_new_pwd_reset").slideDown(400, function(){ $("#form_new_pwd_reset_a").fadeIn( 1000, function() { $("#user_new_pwd_reset_email").focus() } ) });
+		}
+		function closeNewPwdReset() {
+			$("#form_new_pwd_reset_a").fadeOut(700, function(){ 
+				$("#form_new_pwd_reset").slideUp(400); 
+			});
+		}
+
+		$(window).load( function() {
+
+    		$("#submit_new_pwd_reset").keypress(function(e){
+      			if(e.keyCode==13)
+      			$("#submit_new_pwd_reset").click();
+    		});							
+			$("#close_form_new_pwd_reset").click(function(){
+		    	$("#form_new_pwd_reset_a").fadeOut(700, function(){ $("#form_new_pwd_reset").slideUp(400) });
+		    	$("#user_new_pwd_reset_email").val("");
+		    	$("#confirm_pwd_reset_3").addClass("display-none");
+		  	});
+		  	$("#open_form_new_pwd_reset").click(function(){
+		    	$("#form_new_pwd_reset").slideDown(400, function(){ $("#form_new_pwd_reset_a").fadeIn( 2000 ) });
+		  	});	
+						
+			$("#pwd_reset").on('click', function(){			
+				openNewPwdReset();
+		  	});    		
+						
+			$("#submit_new_pwd_reset").on('click', function() {
+				var input_admin_user_new_pwd_reset_email = $("#admin_user_new_pwd_reset_email").val();
+				var obj_list = '{"email":"' + input_admin_user_new_pwd_reset_email + 
+							   '"}';      
+			  	var obj = '{ "admin_user": [' +  obj_list + '] }';                  
+			  	$.ajax({
+			    	type: 'POST',
+			    	data : obj,
+			    	url: '/password_resets/create_reset',			    	
+			    	dataType: "json",
+			    	contentType: "application/json",
+			    	processData: false,
+			    	beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+	            	statusCode: {
+	            	},
+	            	success: function(data) {
+	            		if( data.confirm_msg_1_b) {
+	            			$("#confirm_pwd_reset_2").addClass("display-none");
+	            			$("#confirm_pwd_reset_3").addClass("display-none");
+	            			$("#confirm_pwd_reset_1").removeClass("display-none");
+	            			$("#confirm_pwd_reset_1_email").html(data.email);
+	            			closeNewPwdReset();	            			
+	            		}
+	            		if( data.confirm_msg_2_b) {
+	            			$("#confirm_pwd_reset_1").addClass("display-none");
+	            			$("#confirm_pwd_reset_3").addClass("display-none");
+	            			$("#confirm_pwd_reset_2").removeClass("display-none");
+	            			closeNewPwdReset();
+	            		}
+	            		if( data.confirm_msg_3_b) {
+	            			$("#confirm_pwd_reset_1").addClass("display-none");
+	            			$("#confirm_pwd_reset_2").addClass("display-none");	            			
+	            			$("#confirm_pwd_reset_3").removeClass("display-none");
+	            			$("#confirm_pwd_reset_3_email").html(data.email);
+	            		}
+	            	},
+	            	error: function(xhr){  alert("error: " + xhr.statusText); }        
+			  	});
+		  		return false;
+			});
+
+
+		});
+		
+		
+	</script>

@@ -1,82 +1,124 @@
-					
 
 	<style>
-	
-		.reset-db-btn-long {
-		  	width: 300px;
-		  	height: 26px;
+		
+		#file {
+			display: none;
 		}
-		.import-btn {
-		  	width: 100px;
-		  	height: 18px;
+		.file-input {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 12px;
+			background-color: #ccc;						
+			width: 390px;
+			height: 15px;
+			color: #CC1013;
+			padding-top: 6px;
+			padding-left: 10px; 
 		}
-			
+		.file-input:hover {
+			cursor:pointer;
+		}
+				
 	</style>
+
 
 	<div id="page">
 
 		<div style="height: 30px;"></div>
 
-		 <!-- tabs  -->
-		 		 		
 		<header>
 	
 	    	<div id="pos" style="display: none;"></div>
 
 			<%= render 'share/backtotop' %>
 
-			<div style="height: 70px;"></div>
-			
+			<div style="height: 20px;"></div>
+						
 		</header>
 		
 		<div id="page-inner">
 			
-      
       		<div id="loading"> </div>
-			
+									
 			<table width="1000px">	
 				<tr>
 					<td style="width: 400px">
-						<form>
+						<!-- <form>
 						    <input type="file">
 						</form>
 						<script>
 							$(":file").change(function(){
 								$( "#file_name" ).val( $(":file").val() );
 							});
+						</script> -->
+						
+						<div id="file_csv" class="file-input">Choose CSV file</div>
+						<input type="file" name="file_csv" id="file_csv_input" />
+						<script>
+							var wrapper_csv = $('<div/>').css({height:0,width:0,'overflow':'hidden'});
+							var fileInput_csv = $("#file_csv_input").wrap(wrapper_csv);
+							fileInput_csv.change(function(){
+							    $this = $(this);
+							    $('#file_csv').text($this.val());
+							    $("#file_name").val($this.val());
+							    // $("#file_type").val($("#import_delimiter").val());
+							    // alert($("#import_delimiter").val());							    
+							})
+							$('#file_csv').on('click', function(){
+							    fileInput_csv.click();
+							}).show();
 						</script>		
+
 					</td>
 					<td>
-						<%= form_tag import_mtab1lets_path, :method => 'post', :id => "import_mtab1lets", :remote => true do %>
-								<%= hidden_field_tag :file_name, params[:file_name] %>	
-						    	<%= submit_tag "Import CSV", :class => 'import-btn' %>
-						    	 <!-- submit_tag "download", :onclick => 'load_import(); return false;'  -->
+						<%= form_tag import_mtab1lets_path, :method => 'post', :id => "import_mtab1lets" do %>
+							<%= hidden_field_tag :file_name, params[:file_name] %>	
+							<%= hidden_field_tag :file_type, params[:file_type] %>	
+					    	<%= submit_tag "Import CSV", :class => 'exec-sql-btn' %>
 						<% end %>			
+					</td>
+					<td width="20px"></td>
+					<td>
+				   		<%= select_tag("import_delimiter", options_for_select(
+				   				[['-Select Delimiter-','0'],
+				   				['comma ,','1'],
+				   				['semicolon ;','2']]), :class => 'search-by-tab-btn', :html => {:id => 'import_delimiter'}) %>
 					</td>
 				</tr>
 			</table>
+			
+<% if false %>			
 			<div style="height: 20px;"></div>
 			<table>
 				<tr>
 					<td style="width: 400px">
-						<form>
-						    <input type="file">
-						</form>
+						
+						<div id="file_xls" class="file-input">Choose Excel file</div>
+						<input type="file" name="file_xls" id="file_xls_input" />
 						<script>
-							$(":file").change(function(){
-								$( "#file_name_excel" ).val( $(":file").val() );
-							});
+							var wrapper_xls = $('<div/>').css({height:0,width:0,'overflow':'hidden'});
+							var fileInput_xls = $("#file_xls_input").wrap(wrapper);
+							fileInput_xls.change(function(){
+							    $this = $(this);
+							    $('#file_xls').text($this.val());
+							    $("#file_name_excel").val($this.val());
+							})
+							$('#file_xls').click(function(){
+							    fileInput_xls.click();
+							}).show();
 						</script>		
 					</td>					
 					<td>
-						<%= form_tag import_mtab1lets_path( :format => :js ), :remote => true, multipart: true do %>							
+						 <%= form_tag import_mtab1lets_path( :format => :js), :id => "form_xls", :remote => true, multipart: true do %>							
 						  	<%= hidden_field_tag :file_name_excel, params[:file_name_exel] %>
-						  	<%= submit_tag "Import Excel XLSX" %>
+						  	<%= submit_tag "Import Excel XLSX", class: 'exec-sql-btn' %>
 						<% end %>
 					</td>
 				</tr>
 			</table>
+<% end %>
+
 			<div style="height: 20px;"></div>
+			
 			<table width="1222px">
 				<tr>
 					<td width="300px">
@@ -89,122 +131,112 @@
 				    	<div>
 					    	<h5>
 							   	<% delete_all_msg = "Delete all records and reset index in MTablet 1?" %>
-								  <!-- button_to "Delete All Records and Reset Index", {:action => 'dbdelete'}, :method => :post, data: { confirm: delete_all_msg }, :class => 'reset-db-btn-long'  -->
-								
-								 <%= button_to "Delete All Records and Reset Index", dbdelete_mtab1lets_path( :format => :js ), data: { confirm: delete_all_msg }, :class => 'reset-db-btn-long', :id => 'dbdelete', :remote => true %>
-								
+								<%= button_to "Delete All Records and Reset Index", {:action => 'dbdelete'}, :method => :post, data: { confirm: delete_all_msg }, :class => 'reset-db-btn-long', :remote => true %>
 							</h5>
 						</div>
 					</td>
-			</table>
-									
+				</tr>		
+			</table>	
+			<div style="clear: both;"></div>
+			
 			<div class="table-page">
-								
-				<div class="row">
-					
-					<div class="cell-100percent" tabindex="1">
-
-
-						<%= form_tag mtab1lets_path, :method => 'get', :id => "tablets_search" do %>
-						  	
-						  	<span>
-						    	 <!-- text_field_tag :search, params[:search]  -->
-						    	<%= text_field_tag :search %>
-						   	</span>
-						   	<span class="bar">Search by: </span>
-					
-						   	<span>
-							
-					   		<%= select_tag("search_by", options_for_select(
-					   				[['ID','0'],
-					   				['Col 1','1'],
-					   				['Col 2','2'],
-					   				['Col 3','3'],
-					   				['Col 4','4'],
-					   				['Col 5','5'],
-					   				['Col 6','6'],
-					   				['Col 7','7'],
-					   				['Col 8','8'],
-					   				['Col 9','9'],
-					   				['Col 10','10'],
-					   				['Col 11','11'],
-					   				['Col 12','12'],
-					   				['Col 13','13'],
-					   				['Col 14','14'],
-					   				['Col 15','15'],
-					   				['Col 16','16'],
-					   				['Col 17','17'],
-					   				['Col 18','18'],
-					   				['Col 19','19'],
-					   				['Col 20','20'],
-					   				['Col 21','21'],
-					   				['Col 22','22'],
-					   				['Col 23','23'],
-					   				['Col 24','24'],					   				
-					   				['Col 25','25'],					   				
-					   				['Col 26','26'],					   				
-					   				['Col 27','27'],					   				
-					   				['Col 28','28'],					   				
-					   				['Col 29','29'],					   				
-					   				['Col 30','30'],					   				
-					   				['Col 31','31'],					   				
-					   				['Col 32','32'],					   				
-					   				['Col 33','33'],					   				
-					   				['Col 34','34'],					   				
-					   				['Col 35','35'],					   				
-					   				['Col 36','36'],					   				
-					   				['Col 37','37'],					   				
-					   				['Col 38','38'],					   				
-					   				['Col 39','39'],					   				
-					   				['Col 40','40'],					   				
-					   				['Col 41','41'],					   				
-					   				['Col 42','42'],					   				
-					   				['Col 43','43'],					   				
-					   				['Col 44','44'],					   				
-					   				['Col 45','45'],					   				
-					   				['Col 46','46'],					   				
-					   				['Col 47','47'],					   				
-					   				['Col 48','48'],					   				
-					   				['Col 49','49'],					   				
-					   				['Col 50','50']])) %>
-							
-						    </span>
-
-							<span>
-						    	<%= submit_tag "Search", :id => nil %>
-						  	</span>
-						  	<span><div style="display: inline-block; width: 200px;"></div></span>
-							<span>
-								<%= link_to('Add New Record', { :action => 'new', :form => :js }, :class => 'links', :remote => true ) %>
-							</span>						  						
-							<div id="tablets">
-								<%= render 'mtab1lets/upload_files'%>
-							</div>
-						  
-						<% end %>
-												
-					</div>
-					
-				</div>
-				
+			<table class="table-layout-fixed">
+				<tr>
+					<td width="800px">
+					</td>
+					<td style="100px;">				
+					</td>
+					<td style="200px; padding-right: 10px; text-align: right;">				
+						<span style="font-size: 13px;">Record Count: <%= @mtab1lets.count %></span>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 100%;">
+						<div id="tablets">
+							 <%= render 'mtab1lets/list' %>
+						</div>
+					</td>
+				</tr>
+			</table>
 			</div>
 			
 		</div>	
 		
-	</div>					
+	</div>				
+	
 
 	<script>
 
-		$(document).on('click','#tablets th a, #tablets .pagination a',function(){
-		    $.getScript(this.href);
-		    return false;
-		});
+		$(document).ready(function () {							
+		// $(window).load( function() {
+			
+			$("#tablets th a, #tablets .pagination a").on("click", function() {
+				// $.getScript(this.href);
+				$.get("/mtab1lets/list", null, null, "script");
+				
+				return false;
+			});
 
-		$("#tablets_search").submit(function() {	
-			//alert('tablets_search');
-		    $.get($("#tablets_search").attr("action"), $("#tablets_search").serialize(), null, "script");
-		    return false;
-		});
-	
+			
+		    // $("#tablets").find("th a, .pagination a").livequery(function () {
+		        // $(this).attr("data-remote", true);
+				// $.get("/mtab1lets/list", null, null, "script");
+				// return false;		        
+		    // });
+
+			
+			$("#import_mtab1lets").submit(function() {
+						
+				if ($("#file_csv").html().toString() === "Choose CSV file") {
+					alert('Select a file');
+					return false;
+				}
+				else {
+					if ($("#import_delimiter").val().toString() === '0') {
+						alert('You must first select a file type');
+						return false;						
+					}
+					else {
+				    	$("#file_name").val($this.val());
+				    	$("#file_type").val($("#import_delimiter").val());
+		
+						$.post( "/mtab1lets/import", $("#import_mtab1lets").serialize(), null, 'script', function() {
+						})
+						.done(function() {
+							$("#tablets th a, #tablets .pagination a").on("click", function() {
+								 $.get("/mtab1lets/list", null, null, "script");
+								return false;
+							});
+						})
+						.fail(function() {
+							alert( "ajax load error" );
+						});
+				
+						return false;
+					}
+				}
+			});
+		});		
+
+		
 	</script>
 					
+					
+					
+						<!-- var jqxhr = $.post( "/mtab1lets/import", $("#import_mtab1lets").serialize(), null, 'script', function() {
+							// alert( "success" );
+						})
+						.done(function() {
+							// alert( "second success" );
+						})
+						.fail(function() {
+							alert( "ajax load error" );
+						})
+						.always(function() {
+							// alert( "finished" );
+						});
+						// Perform other work here ...
+						// Set another completion function for the request above
+						jqxhr.always(function() {
+							// alert( "second finished" );
+						});		 -->					

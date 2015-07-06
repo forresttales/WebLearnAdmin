@@ -1,5 +1,114 @@
 <% provide(:title, 'Admin Users') %>
 
+
+		<%= render 'share/backtotop' %>
+		
+		<div id="admin_users_list" class="admin-users-index">
+			
+			<div id="ajax_loading" class="ajax-loading hidden"></div>
+			<div id="page_loading" class="page-loading"></div>		
+		    <div id="pos" class="hidden"></div>
+			<!-- <#%= hidden_field_tag :pos %#> -->
+			<%= hidden_field_tag :direction, params[:direction] %>
+			<%= hidden_field_tag :sort, params[:sort] %>	
+			<%= hidden_field_tag :pos, params[:pos] %>	
+			
+			<div style="height: 100px;"></div>		
+
+			<div class="table-1">
+				<div class="row">
+					<div class="cell-100percent">
+						<div class="table-2">
+							<div class="row">
+								<div class="cell-600">
+									<%= link_to 'New', admin_users_new_path %>
+								</div>
+								<div class="cell-200">
+									<p>
+									</p>	
+								</div>
+								<div class="cell-200" style="text-align: right;">
+									<span>
+										<% if @admin_users.any? %>
+										<h5>Record Count: <%= @admin_users.count %></h5>
+										<% end %>								
+									</span>
+								</div>					
+							</div>
+						</div>
+						<div style="height: 4px;"></div>				
+						<div class="table-2">
+							<div class="row">
+								<div class="cell-100percent" tabindex="1">
+									<div id="render_admin_users"></div>
+								</div>
+							</div>				
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</div>					
+	
+	<script>
+
+        function scrollPos() {
+            $("#pos").html($("#scroll1").scrollLeft());
+            $("#scroll2").scrollLeft($("#pos").html());
+        }
+		function moveScroll() {
+			$(document).find("#scroll1").scrollLeft($("#pos").html());
+			$(document).find("#scroll2").scrollLeft($("#pos").html());
+		}
+
+		$(document).on('click','#admin_users th a, #admin_users .pagination a',function(){
+		    $.getScript(this.href);
+		    return false;
+		});
+
+		$("#admin_users_search").submit(function() {	
+		    $.get($("#admin_users_search").attr("action"), $("#admin_users_search").serialize(), null, "script");
+		    return false;
+		});
+
+		// function getURLParameter(url, name) {
+		    // return (RegExp(name + '=' + '(.+?)(&|$)').exec(url)||[,null])[1];
+		// }
+
+		$(window).load( function() {
+		//$(document).ready(function(){
+
+			$("#page_loading").addClass("hidden");
+
+			$(document).on('click', '#admin_users_header a', function() {
+				$("#ajax_loading").removeClass("hidden");
+				$.getScript($(this).attr("href"));
+				return false;
+			});
+			$(document).on('click', '.pagination a', function() {
+				$("#ajax_loading").removeClass("hidden");
+				$.getScript($(this).attr("href"));
+				return false;
+			});
+
+			$("#render_admin_users").html("<%= j render('admin_users/list') %>");
+
+		});		
+	
+	</script>
+					
+
+
+
+
+
+
+
+
+
+<% if false %>
+<% provide(:title, 'Admin Users') %>
+
 					
 	<style>
 	
@@ -124,7 +233,7 @@
     	}
     	
     	#admin-users {
-    		width: 1200px; 
+    		width: 1600px; 
     	}
     	table#admin-users th {
     		padding-left: 0px;
@@ -238,10 +347,12 @@
 					</td>
 					<td style="width: 100px; text-align: right;">
 				    	<div>
+				    		<% if false %>
 					    	<h5>
 							   	<% delete_all_msg = "Delete all records?" %>
 								<%= button_to "Delete All Records", {:action => 'dbdelete'}, :method => :post, :confirm => delete_all_msg, :class => 'reset-db-btn' %>
 							</h5>
+							<% end %>
 						</div>
 					</td>
 					<td style="width: 100px; text-align: right;">
@@ -288,4 +399,4 @@
 		});
 	
 	</script>
-					
+<% end %>					

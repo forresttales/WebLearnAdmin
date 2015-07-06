@@ -1,0 +1,106 @@
+
+    .archives-show .table {
+      display: table;
+    }
+    .archives-show .row {
+      display: table-row;
+    }
+    .archives-show .col-200 {
+      display: table-cell; 
+      width: 200px;
+    }
+    .archives-show .col-1000-borders {
+      display: table-cell; 
+      background-color: #F8F8F8;
+      width: 1000px;
+      min-height: 100%;     
+      border-left: 2px #DCE3DF solid;
+      border-right: 2px #DCE3DF solid;
+    }
+    .archives-show .col-1000 {
+      display: table-cell; 
+      width: 1000px;     
+    }
+    .archives-show .col-gen {
+      display: table-cell;    
+    }
+    .archives-show .links {
+      font-family:Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      color: #9F6720;       
+    }
+    .archives-show .links:hover {
+      color: #9F6720;       
+    }
+    .archives-show .normal {
+      font-family:Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      color: #666666;             
+    }       
+    .archives-show .normal-red {
+      font-family:Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      color: red;             
+    }       
+    .archives-show .small {
+      font-family:Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      color: #666666;             
+    }       
+    .archives-show .line-space-20 {
+      height: 20px;
+    }
+    .archives-show .line-space-70 {
+      height: 70px;
+    }
+    .archives-show .line-space-80 {
+      height: 80px;
+    }
+    .archives-show .line-space-90 {
+      height: 90px;
+    }
+    .archives-show .line-space-100 {
+      height: 100px;
+    }
+    .archives-show .pad-left-20 {
+      padding-left: 20px;
+    }
+    .archives-show .pad-left {
+      padding-left: 20px;
+    }
+    .archives-show .pad-right {
+      padding-right: 20px;
+    }
+    .archives-show .container {
+      width: 1200px;
+    }
+    .archives-show p {
+      font-family: Arial, Helvetica, sans-serif; 
+      font-size: 16px;
+      color: #005187;
+    }
+    .archives-show .span-1 {
+      font-family: Arial, Helvetica, sans-serif; 
+      font-size: 16px;
+      color: #005187;     
+    }
+    .archives-show .span-2 {
+      font-family: Arial, Helvetica, sans-serif; 
+      font-size: 16px;
+      color: red;     
+    }
+    .archives-show .span-3 {
+      font-family: Arial, Helvetica, sans-serif; 
+      font-size: 16px;
+      color: #333;
+    }
+    .archives-show .line-separator {
+      width: 100%;
+      height: 8px;
+    }
+    .archives-show .row-odd {
+      background-color: #F8F8F8;
+    }
+    .archives-show .row-even {
+      background-color: #F0F0F0;
+    }

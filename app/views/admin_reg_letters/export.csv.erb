@@ -1,0 +1,4 @@
+id;created_at;name_title;name_affiliation;email 
+<% @admin_reg_letters.each do |admin_reg_letter| %>
+<%= admin_reg_letter.id %>;<%= admin_reg_letter.created_at.to_formatted_s(:db) %>;<%= admin_reg_letter.name_title %>;<%= admin_reg_letter.name_affiliation %>;<%= admin_reg_letter.email %>
+<% end %>

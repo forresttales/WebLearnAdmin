@@ -1,0 +1,54 @@
+
+						<div style="height: 100px;"></div>
+						
+						<span><%= link_to('&laquo;'.html_safe + ' Previous', {:action => 'show', :id => @admin_user_previous.id }) if !@admin_user_previous.nil? %></span>
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						<span><%= link_to('Next '.html_safe + '&raquo;'.html_safe, {:action => 'show', :id => @admin_user_next.id }) if !@admin_user_next.nil? %></span>
+						<br>
+						<br>						
+
+						<!-- <#%= link_to "Next", post_path(@post.next) if !@post.next.nil? %#> -->
+						<!-- <#%= link_to "Next", "admin_reg_events/show", :id => @admin_reg_event_next.id if !@admin_reg_event_next.nil? %#> -->
+
+						
+						<!-- 
+						# Table name: reg_events
+						#	
+						#  id               :integer          not null, primary key
+						#  name_first       :string(50)
+						#  name_last        :string(50)
+						#  name_title       :string(50)
+						#  type_affiliation :string(50)
+						#  name_affiliation :string(100)
+						#  email            :string(255)      default(""), not null
+						#  city_workshop    :string(50)
+						#  created_at       :datetime
+						#  updated_at       :datetime
+						#  address          :string(50)
+						#  city             :string(50)
+						#  state            :string(50)
+						#  zip              :string(50)
+						#  phone            :string(50) 
+						-->
+
+						<p>ID: <%= @admin_user.id %></p>
+						<br />
+						<p>Created: <%= @admin_user.created_at %></p>
+						<br />
+						<p>Updated: <%= @admin_user.updated_at %></p>
+						<br />
+						<br />
+						<p>First Name: <%= @admin_user.name_first %></p>
+						<br />
+						<p>Last Name: <%= @admin_user.name_last %></p>
+						<br />						
+						<p>Username: <%= @admin_user.username %></p>
+						<br />
+						<p>Email: <%= @admin_user.email %></p>
+						<br />
+						<br />
+						<p>Admin: <%= @admin_user.admin %></p>
+						<br />
+						<p>Super Admin: <%= @admin_user.super_admin %></p>
+					
+						<div style="height: 800px;"></div>

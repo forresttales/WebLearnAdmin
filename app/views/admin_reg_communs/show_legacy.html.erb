@@ -1,0 +1,289 @@
+<% @title = "News Letter Registration Record" %>
+
+	<style>
+	
+		#signin-page {
+			height: 100%;
+			min-height: 900px;
+		}
+	
+		#signin-page #signin-page-inner {
+		    width: 80%;
+		    margin: 0 auto;
+		}	
+
+		div .table-signin {
+			display: table;
+			background-color: #DEDB3C;
+			width: 880px;
+			border-radius: 20px;
+			border:2px solid #254520;
+			box-shadow: 1px 1px 10px #888888;
+			padding-top: 40px;
+			padding-bottom: 40px;
+			padding-left: 60px;
+		}
+	
+		.table-signin p {
+			font-family: msyh; 
+			font-size: 16px;
+			color: #005187;"
+		}
+		
+	</style>
+
+
+	<div id="signin-page">
+		
+		<header>
+	
+			<%= render 'share/backtotop' %>
+
+			<div style="height: 40px;"></div>
+			
+		</header>
+		
+		
+		<div id="signin-page-inner">
+			
+			<div class="table-signin">
+				<div class="row">
+					
+					<div class="cell-100percent" tabindex="1">
+
+						<!-- 
+						# Table name: reg_communs
+						#
+						#  id                        :integer          not null, primary key
+						#  name_first                :string(50)
+						#  name_last                 :string(50)
+						#  name_title                :string(50)
+						#  name_affiliation          :string(100)
+						#  address                   :string(100)
+						#  city                      :string(50)
+						#  state                     :string(50)
+						#  zip                       :string(10)
+						#  phone                     :string(50)
+						#  email                     :string(255)      default(""), not null
+						-->
+
+						<h1>Community Registration Record:</h1>
+						<br />
+						<p>ID: <%= @admin_reg_commun.id %></p>
+						<br />
+						<p>name_first: <%= @admin_reg_commun.name_first %></p>
+						<br />
+						<p>name_last: <%= @admin_reg_commun.name_last %></p>
+						<br />
+						<p>name_title: <%= @admin_reg_commun.name_title %></p>
+						<br />
+						<p>name_affiliation: <%= @admin_reg_commun.name_affiliation %></p>
+						<br />
+						<p>city: <%= @admin_reg_commun.city %></p>
+						<br />
+						<p>state: <%= @admin_reg_commun.state %></p>
+						<br />
+						<p>email: <%= @admin_reg_commun.email %></p>
+						<br />
+						<p>phone: <%= @admin_reg_commun.phone %></p>
+						<br />
+						
+						<!--
+						#  institution_size          :string(50)
+						#  characterize_decision     :string(50)
+						#  characterize_area         :text
+						#  survey_preferences        :text
+						#  created_at                :datetime
+						#  updated_at                :datetime
+						#  level_other               :string(100)
+						#  public_private            :string(50)
+						#  employee_number           :string(100)
+						#  characterize_area_other   :string(200)
+						-->
+						
+						<p>institution_size: <%= @admin_reg_commun.institution_size %></p>
+						<br />
+						<p>characterize_decision: <%= @admin_reg_commun.characterize_decision %></p>
+						<br />
+						<p>characterize_area: <%= @admin_reg_commun.characterize_area %></p>
+						<br />
+						<p>survey_preferences: <%= @admin_reg_commun.survey_preferences %></p>
+						<br />
+						<p>created_at: <%= @admin_reg_commun.created_at %></p>
+						<br />
+						<p>updated_at: <%= @admin_reg_commun.updated_at %></p>
+						<br />
+						<p>level_other: <%= @admin_reg_commun.level_other %></p>
+						<br />
+						<p>public_private: <%= @admin_reg_commun.public_private %></p>
+						<br />
+						<p>employee_number: <%= @admin_reg_commun.employee_number %></p>
+						<br />
+						<p>characterize_area_other: <%= @admin_reg_commun.characterize_area_other %></p>
+						<br />
+						
+						<!--
+						#  level_1                   :boolean          default(FALSE)
+						#  level_2                   :boolean          default(FALSE)
+						#  level_3                   :boolean          default(FALSE)
+						#  level_4                   :boolean          default(FALSE)
+						#  level_5                   :boolean          default(FALSE)
+						#  level_6                   :boolean          default(FALSE)
+						#  level_7                   :boolean          default(FALSE)
+						#  level_1_text              :string(200)
+						#  level_2_text              :string(200)
+						#  level_3_text              :string(200)
+						#  level_4_text              :string(200)
+						#  level_5_text              :string(200)
+						#  level_6_text              :string(200)
+						#  level_7_text              :string(200)
+						-->
+						
+						<p>level_1: <%= @admin_reg_commun.level_1 %></p>
+						<br />
+						<p>level_2: <%= @admin_reg_commun.level_2 %></p>
+						<br />
+						<p>level_3: <%= @admin_reg_commun.level_3 %></p>
+						<br />
+						<p>level_4: <%= @admin_reg_commun.level_4 %></p>
+						<br />
+						<p>level_5: <%= @admin_reg_commun.level_5 %></p>
+						<br />
+						<p>level_6: <%= @admin_reg_commun.level_6 %></p>
+						<br />
+						<p>level_7: <%= @admin_reg_commun.level_7 %></p>
+						<br />
+						<p>level_1_text: <%= @admin_reg_commun.level_1_text %></p>
+						<br />
+						<p>level_2_text: <%= @admin_reg_commun.level_2_text %></p>
+						<br />
+						<p>level_3_text: <%= @admin_reg_commun.level_3_text %></p>
+						<br />
+						<p>level_4_text: <%= @admin_reg_commun.level_4_text %></p>
+						<br />
+						<p>level_5_text: <%= @admin_reg_commun.level_5_text %></p>
+						<br />
+						<p>level_6_text: <%= @admin_reg_commun.level_6_text %></p>
+						<br />
+						<p>level_7_text: <%= @admin_reg_commun.level_7_text %></p>
+						<br />
+
+
+
+						<!--
+						#  characterize_area_1       :boolean          default(FALSE)
+						#  characterize_area_2       :boolean          default(FALSE)
+						#  characterize_area_3       :boolean          default(FALSE)
+						#  characterize_area_4       :boolean          default(FALSE)
+						#  characterize_area_5       :boolean          default(FALSE)
+						#  characterize_area_6       :boolean          default(FALSE)
+						#  characterize_area_7       :boolean          default(FALSE)
+						#  characterize_area_8       :boolean          default(FALSE)
+						#  characterize_area_9       :boolean          default(FALSE)
+						#  characterize_area_10      :boolean          default(FALSE)
+						#  characterize_area_1_text  :string(200)
+						#  characterize_area_2_text  :string(200)
+						#  characterize_area_3_text  :string(200)
+						#  characterize_area_4_text  :string(200)
+						#  characterize_area_5_text  :string(200)
+						#  characterize_area_6_text  :string(200)
+						#  characterize_area_7_text  :string(200)
+						#  characterize_area_8_text  :string(200)
+						#  characterize_area_9_text  :string(200)
+						#  characterize_area_10_text :string(200)
+						-->
+
+						<p>characterize_area_1: <%= @admin_reg_commun.characterize_area_1 %></p>
+						<br />
+						<p>characterize_area_2: <%= @admin_reg_commun.characterize_area_2 %></p>
+						<br />
+						<p>characterize_area_3: <%= @admin_reg_commun.characterize_area_3 %></p>
+						<br />
+						<p>characterize_area_4: <%= @admin_reg_commun.characterize_area_4 %></p>
+						<br />
+						<p>characterize_area_5: <%= @admin_reg_commun.characterize_area_5 %></p>
+						<br />
+						<p>characterize_area_6: <%= @admin_reg_commun.characterize_area_6 %></p>
+						<br />
+						<p>characterize_area_7: <%= @admin_reg_commun.characterize_area_7 %></p>
+						<br />
+						<p>characterize_area_8: <%= @admin_reg_commun.characterize_area_8 %></p>
+						<br />
+						<p>characterize_area_9: <%= @admin_reg_commun.characterize_area_9 %></p>
+						<br />
+						<p>characterize_area_10: <%= @admin_reg_commun.characterize_area_10 %></p>
+						<br />
+						<p>characterize_area_1_text: <%= @admin_reg_commun.characterize_area_1_text %></p>
+						<br />
+						<p>characterize_area_2_text: <%= @admin_reg_commun.characterize_area_2_text %></p>
+						<br />
+						<p>characterize_area_3_text: <%= @admin_reg_commun.characterize_area_3_text %></p>
+						<br />
+						<p>characterize_area_4_text: <%= @admin_reg_commun.characterize_area_4_text %></p>
+						<br />
+						<p>characterize_area_5_text: <%= @admin_reg_commun.characterize_area_5_text %></p>
+						<br />
+						<p>characterize_area_6_text: <%= @admin_reg_commun.characterize_area_6_text %></p>
+						<br />
+						<p>characterize_area_7_text: <%= @admin_reg_commun.characterize_area_7_text %></p>
+						<br />
+						<p>characterize_area_8_text: <%= @admin_reg_commun.characterize_area_8_text %></p>
+						<br />
+						<p>characterize_area_9_text: <%= @admin_reg_commun.characterize_area_9_text %></p>
+						<br />
+						<p>characterize_area_10_text: <%= @admin_reg_commun.characterize_area_10_text %></p>
+						<br />
+						
+						<!--
+						#  survey_preferences_1      :boolean          default(FALSE)
+						#  survey_preferences_2      :boolean          default(FALSE)
+						#  survey_preferences_3      :boolean          default(FALSE)
+						#  survey_preferences_4      :boolean          default(FALSE)
+						#  survey_preferences_5      :boolean          default(FALSE)
+						#  survey_preferences_1_text :string(200)
+						#  survey_preferences_2_text :string(200)
+						#  survey_preferences_3_text :string(200)
+						#  survey_preferences_4_text :string(200)
+						#  survey_preferences_5_text :string(200) 
+						-->
+						
+						<p>survey_preferences_1: <%= @admin_reg_commun.survey_preferences_1 %></p>
+						<br />
+						<p>survey_preferences_2: <%= @admin_reg_commun.survey_preferences_2 %></p>
+						<br />
+						<p>survey_preferences_3: <%= @admin_reg_commun.survey_preferences_3 %></p>
+						<br />
+						<p>survey_preferences_4: <%= @admin_reg_commun.survey_preferences_4 %></p>
+						<br />
+						<p>survey_preferences_5: <%= @admin_reg_commun.survey_preferences_5 %></p>
+						<br />
+						<p>survey_preferences_1_text: <%= @admin_reg_commun.survey_preferences_1_text %></p>
+						<br />
+						<p>survey_preferences_2_text: <%= @admin_reg_commun.survey_preferences_2_text %></p>
+						<br />
+						<p>survey_preferences_3_text: <%= @admin_reg_commun.survey_preferences_3_text %></p>
+						<br />
+						<p>survey_preferences_4_text: <%= @admin_reg_commun.survey_preferences_4_text %></p>
+						<br />
+						<p>survey_preferences_5_text: <%= @admin_reg_commun.survey_preferences_5_text %></p>
+												
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>	
+		
+	</div>					
+				
+	<div style="height: 40px;"></div>
+					
+	<script>
+
+		$(window).load( function() {
+		//$(document).ready(function(){
+
+		});
+	
+	</script>

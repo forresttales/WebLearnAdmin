@@ -1,3 +1,8 @@
 // alert('ajax works in reg_events');
-$("#admin_reg_events").html("<%= escape_javascript(render("admin_reg_events/list")) %>");
-moveScroll();
+<% if !@admin_reg_events.nil? %>
+	$("#render_admin_reg_events").html("<%= j render("admin_reg_events/list") %>");
+	moveScroll();
+	// $("#ajax_loading").addClass("hidden");
+<% else %>
+	alert("admin_reg_events returned nil");
+<% end %>

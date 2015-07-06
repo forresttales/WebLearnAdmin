@@ -1,269 +1,156 @@
 
+	<div id="admin_reg_events_list" class="main-1">
+		
+	<script>
+	    $(document).on("load", "#admin_reg_events_list", function() {
+		$("#ajax_loading").addClass("hidden");
+		});
+	</script>		
 
-	<div class="main">
-
-		<div id="scroll1" class="scrollbox-both" onscroll="scrollPos();">	
-
+		<div id="scroll2" class="scrollbox-both-2">	
 			<% if @admin_reg_events.any? %>
-		
-			<%= hidden_field_tag :direction, params[:direction] %>
-			<%= hidden_field_tag :sort, params[:sort] %>	
-			<%= hidden_field_tag :pos, params[:pos] %>	
-				
-			<h5>Record Count: <%= @admin_reg_events.count %></h5>
-					
-			<table id="admin-events" title="Register Events" >    	  
-				  	
-		       <colgroup>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			      
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       <col class="member-table"></col>
-			       
-		       </colgroup>
-
-
-			  <tr align="left">
-			    <th class="member-table" id="th_view" field="view" style="width: 50px"><div class="header-shift"><h4></h4></div></th>
-			    <th class="member-table" id="th_delete" field="delete" style="width: 50px;"><div class="header-shift"><h4></h4></div></th>
-			  	
-			    <th class="member-table" id="th_id" field="id" style="width: 50px"><div id="id" class="header-shift"><h4><%= sortable "id", "ID" %></div></th>
-			    <th class="member-table" id="th_created_at" field="id" style="width: 200px"><div id="created_at" class="header-shift"><h4><%= sortable "created_at", "Created" %></div></th>
-			    <!-- <th field="created_at" width = "20">created_at</th>
-			    <th field="updated_at" width = "20">updated_at</th> -->    
-			    <th class="member-table" id="th_name_first" field="name_first" style="width: 150px"><div id="name_first" class="header-shift"><h4><%= sortable "name_first", "First Name" %></h4></div></th>
-			    <th class="member-table" id="th_name_last" field="name_last" style="width: 150px"><div id="name_last" class="header-shift"><h4><%= sortable "name_last", "Last Name" %></h4></div></th>
-			    <th class="member-table" id="th_name_title" field="name_title" style="width: 300px"><div id="" class="header-shift"><h4><%= sortable "name_title", "Title" %></h4></div></th>
-			    <th class="member-table" id="th_type_affiliation" field="type_affiliation" style="width: 300px"><div id="" class="header-shift"><h4><%= sortable "type_affiliation", "Affiliation Type" %></h4></div></th>
-			    <th class="member-table" id="th_name_affiliation" field="name_affiliation" style="width: 300px"><div id="" class="header-shift"><h4><%= sortable "name_affiliation", "Affiliation" %></h4></div></th>
-
-			    <th class="member-table" id="th_address" field="address" style="width: 200px"><div id="address" class="header-shift"><h4><%= sortable "address", "Address" %></h4></div></th>
-			    <th class="member-table" id="th_city" field="city" style="width: 150px"><div id="city" class="header-shift"><h4><%= sortable "city", "City" %></h4></div></th>
-			    <th class="member-table" id="th_state" field="state" style="width: 100px"><div id="state" class="header-shift"><h4><%= sortable "state", "State" %></h4></div></th>
-			    <th class="member-table" id="th_zip" field="zip" style="width: 100px"><div id="zip" class="header-shift"><h4><%= sortable "zip", "Zip" %></h4></div></th>
-
-			    <th class="member-table" id="th_phone" field="phone" style="width: 200px"><div id="phone" class="header-shift"><h4><%= sortable "phone", "Phone" %></h4></div></th>
-			    <th class="member-table" id="th_email" field="email" style="width: 200px"><div id="email" class="header-shift"><h4><%= sortable "email", "Email" %></h4></div></th>
-			    <th class="member-table" id="th_email_cc_1" field="email_cc_1" style="width: 200px"><div id="email_cc_1" class="header-shift"><h4><%= sortable "email_cc_1", "Email cc 1" %></h4></div></th>
-			    <th class="member-table" id="th_email_cc_2" field="email_cc_2" style="width: 200px"><div id="email_cc_2" class="header-shift"><h4><%= sortable "email_cc_2", "Email cc 2" %></h4></div></th>
-
-			    <th class="member-table" id="th_city_workshop_1_text" field="city_workshop_1_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_1_text", "Workshop 1" %></h4></div></th>
-			    <th class="member-table" id="th_city_workshop_1_session_text" field="city_workshop_1_session_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_1_session_text", "Session 1" %></h4></div></th>
-
-			    <th class="member-table" id="th_city_workshop_2_text" field="city_workshop_2_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_2_text", "Workshop 2" %></h4></div></th>
-			    <th class="member-table" id="th_city_workshop_2_session_text" field="city_workshop_2_session_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_2_session_text", "Session 2" %></h4></div></th>
-
-			    <th class="member-table" id="th_city_workshop_3_text" field="city_workshop_3_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_3_text", "Workshop 3" %></h4></div></th>
-			    <th class="member-table" id="th_city_workshop_3_session_text" field="city_workshop_3_session_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_3_session_text", "Session 3" %></h4></div></th>
-
-			    <th class="member-table" id="th_city_workshop_4_text" field="city_workshop_4_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_4_text", "Workshop 4" %></h4></div></th>
-			    <th class="member-table" id="th_city_workshop_4_session_text" field="city_workshop_4_session_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_4_session_text", "Session 4" %></h4></div></th>
-
-			    <th class="member-table" id="th_city_workshop_5_text" field="city_workshop_5_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_5_text", "Workshop 5" %></h4></div></th>
-			    <th class="member-table" id="th_city_workshop_5_session_text" field="city_workshop_5_session_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_5_session_text", "Session 5" %></h4></div></th>
-
-			    <th class="member-table" id="th_city_workshop_6_text" field="city_workshop_6_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_6_text", "Workshop 6" %></h4></div></th>
-			    <th class="member-table" id="th_city_workshop_6_session_text" field="city_workshop_6_session_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_6_session_text", "Session 6" %></h4></div></th>
-
-			    <th class="member-table" id="th_city_workshop_7_text" field="city_workshop_7_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_7_text", "Workshop 7" %></h4></div></th>
-			    <th class="member-table" id="th_city_workshop_7_session_text" field="city_workshop_7_session_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_7_session_text", "Session 7" %></h4></div></th>
-
-			    <th class="member-table" id="th_city_workshop_8_text" field="city_workshop_8_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_8_text", "Workshop 8" %></h4></div></th>
-			    <th class="member-table" id="th_city_workshop_8_session_text" field="city_workshop_8_session_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_8_session_text", "Session 8" %></h4></div></th>
-
-			    <th class="member-table" id="th_city_workshop_9_text" field="city_workshop_9_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_9_text", "Workshop 9" %></h4></div></th>
-			    <th class="member-table" id="th_city_workshop_9_session_text" field="city_workshop_9_session_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_9_session_text", "Session 9" %></h4></div></th>
-
-			    <th class="member-table" id="th_city_workshop_10_text" field="city_workshop_10_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_10_text", "Workshop 10" %></h4></div></th>
-			    <th class="member-table" id="th_city_workshop_10_session_text" field="city_workshop_10_session_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_10_session_text", "Session 10" %></h4></div></th>
-
-			    <th class="member-table" id="th_city_workshop_11_text" field="city_workshop_11_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_11_text", "Workshop 11" %></h4></div></th>
-			    <th class="member-table" id="th_city_workshop_11_session_text" field="city_workshop_11_session_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_11_session_text", "Session 11" %></h4></div></th>
-
-			    <th class="member-table" id="th_city_workshop_12_text" field="city_workshop_12_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_12_text", "Workshop 12" %></h4></div></th>
-			    <th class="member-table" id="th_city_workshop_12_session_text" field="city_workshop_12_session_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_12_session_text", "Session 12" %></h4></div></th>
-
-			    <th class="member-table" id="th_city_workshop_13_text" field="city_workshop_13_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_13_text", "Workshop 13" %></h4></div></th>
-			    <th class="member-table" id="th_city_workshop_13_session_text" field="city_workshop_13_session_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_13_session_text", "Session 13" %></h4></div></th>
-
-			    <th class="member-table" id="th_city_workshop_14_text" field="city_workshop_14_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_14_text", "Workshop 14" %></h4></div></th>
-			    <th class="member-table" id="th_city_workshop_14_session_text" field="city_workshop_14_session_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_14_session_text", "Session 14" %></h4></div></th>
-
-			    <th class="member-table" id="th_city_workshop_15_text" field="city_workshop_15_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_15_text", "Workshop 15" %></h4></div></th>
-
-			  </tr>
-			<% @admin_reg_events.each do |reg_event| %>
-			  <tr align="left" class="tr-events">
-			  	
-			    <td><h5><%= link_to('View', {:action => 'show', :id => reg_event.id, :class => 'member-table'}) %></h5></td>
-
-			    <td>
-			    	<div style="position: relative; bottom: -2px">
-				    	<h5>
-						   	<% delete_msg = "Delete ID: " + reg_event.id.to_s + " ?" %>
-							<%= button_to "Delete", {:action => 'destroy', :id => reg_event.id}, :method => :delete, :confirm => delete_msg, :class => 'delete-btn' %>
-						</h5>
-					</div>
-				</td>
-			  	
-			    <td><h5 class="member-table"><%= reg_event.id %></h5></td>
-			    <!-- <td> reg_event.created_at.strftime("%B %e, %Y") </td>
-			    <td> reg_event.updated_at.strftime("%B %e, %Y") </td> -->    
-			    <td><h5 class="member-table"><%= reg_event.created_at.to_formatted_s(:db) %></h5></td>
-			    <td><h5 class="member-table"><%= reg_event.name_first %></h5></td>
-			    <td><h5 class="member-table"><%= reg_event.name_last %></h5></td>
-			    <td><h5 class="member-table"><%= reg_event.name_title %></h5></td>
-			    <td><h5 class="member-table"><%= reg_event.type_affiliation %></h5></td>
-			    <td><h5 class="member-table"><%= reg_event.name_affiliation %></h5></td>
-			    
-			    <td><h5 class="member-table"><%= reg_event.address %></h5></td>
-			    <td><h5 class="member-table"><%= reg_event.city %></h5></td>
-			    <td><h5 class="member-table"><%= reg_event.state %></h5></td>
-			    <td><h5 class="member-table"><%= reg_event.zip %></h5></td>
-			    <td><h5 class="member-table"><%= reg_event.phone %></h5></td>
-			    <td><h5 class="member-table"><%= reg_event.email %></h5></td>
-			    <td><h5 class="member-table"><%= reg_event.email_cc_1 %></h5></td>
-			    <td><h5 class="member-table"><%= reg_event.email_cc_2 %></h5></td>
-
-			    <td><h5 class="member-table"><%= reg_event.city_workshop_1_text %></h5></td>
-			    <td><h5 class="member-table"><%= reg_event.city_workshop_1_session_text %></h5></td>
-
-			    <td><h5 class="member-table"><%= reg_event.city_workshop_2_text %></h5></td>
-			    <td><h5 class="member-table"><%= reg_event.city_workshop_2_session_text %></h5></td>
-
-			    <td><h5 class="member-table"><%= reg_event.city_workshop_3_text %></h5></td>
-			    <td><h5 class="member-table"><%= reg_event.city_workshop_3_session_text %></h5></td>
-
-			    <td><h5 class="member-table"><%= reg_event.city_workshop_4_text %></h5></td>
-			    <td><h5 class="member-table"><%= reg_event.city_workshop_4_session_text %></h5></td>
-
-			    <td><h5 class="member-table"><%= reg_event.city_workshop_5_text %></h5></td>
-			    <td><h5 class="member-table"><%= reg_event.city_workshop_5_session_text %></h5></td>
-
-			    <td><h5 class="member-table"><%= reg_event.city_workshop_6_text %></h5></td>
-			    <td><h5 class="member-table"><%= reg_event.city_workshop_6_session_text %></h5></td>
-
-			    <td><h5 class="member-table"><%= reg_event.city_workshop_7_text %></h5></td>
-			    <td><h5 class="member-table"><%= reg_event.city_workshop_7_session_text %></h5></td>
-
-			    <td><h5 class="member-table"><%= reg_event.city_workshop_8_text %></h5></td>
-			    <td><h5 class="member-table"><%= reg_event.city_workshop_8_session_text %></h5></td>
-
-			    <td><h5 class="member-table"><%= reg_event.city_workshop_9_text %></h5></td>
-			    <td><h5 class="member-table"><%= reg_event.city_workshop_9_session_text %></h5></td>
-
-			    <td><h5 class="member-table"><%= reg_event.city_workshop_10_text %></h5></td>
-			    <td><h5 class="member-table"><%= reg_event.city_workshop_10_session_text %></h5></td>
-
-			    <td><h5 class="member-table"><%= reg_event.city_workshop_11_text %></h5></td>
-			    <td><h5 class="member-table"><%= reg_event.city_workshop_11_session_text %></h5></td>
-
-			    <td><h5 class="member-table"><%= reg_event.city_workshop_12_text %></h5></td>
-			    <td><h5 class="member-table"><%= reg_event.city_workshop_12_session_text %></h5></td>
-
-			    <td><h5 class="member-table"><%= reg_event.city_workshop_13_text %></h5></td>
-			    <td><h5 class="member-table"><%= reg_event.city_workshop_13_session_text %></h5></td>
-
-			    <td><h5 class="member-table"><%= reg_event.city_workshop_14_text %></h5></td>
-			    <td><h5 class="member-table"><%= reg_event.city_workshop_14_session_text %></h5></td>
-
-			    <td><h5 class="member-table"><%= reg_event.city_workshop_15_text %></h5></td>
-			    			      
-			  </tr>
+				<table id="admin_events_header" class="admin-events" title="Register Events" >    	  
+				  <tr align="left">
+				    <th class="member-table" id="th_view" field="view" style="width: 50px; padding-left: 10px;"><div class="header-shift"><h4>View</h4></div></th>
+				    <th class="member-table" id="th_delete" field="delete" style="width: 50px;"><div class="header-shift" style="padding-left: 6px;"><h4>Delete</h4></div></th>
+				    <th class="member-table" id="th_id" field="id" style="width: 50px"><div id="id" class="header-shift"><h4><%= sortable "id", "ID" %></div></th>
+				    <th class="member-table" id="th_created_at" field="id" style="width: 150px"><div id="created_at" class="header-shift"><h4><%= sortable "created_at", "Created" %></div></th>
+					<th class="member-table" id="th_name_title_sir" field="name_title_sir" style="width: 100px"><div id="name_title_sir" class="header-shift"><h4><%= sortable "name_title_sir", "Surname Title" %></h4></div></th>
+				    <th class="member-table" id="th_name_first" field="name_first" style="width: 150px"><div id="name_first" class="header-shift"><h4><%= sortable "name_first", "First Name" %></h4></div></th>
+				    <th class="member-table" id="th_name_last" field="name_last" style="width: 150px"><div id="name_last" class="header-shift"><h4><%= sortable "name_last", "Last Name" %></h4></div></th>
+				    <th class="member-table" id="th_name_title" field="name_title" style="width: 300px"><div id="name_title" class="header-shift"><h4><%= sortable "name_title", "Position Title" %></h4></div></th>
+				    <th class="member-table" id="th_type_affiliation" field="type_affiliation" style="width: 300px"><div id="type_affiliation" class="header-shift"><h4><%= sortable "type_affiliation", "Affiliation Type" %></h4></div></th>
+				    <th class="member-table" id="th_name_affiliation" field="name_affiliation" style="width: 300px"><div id="name_affiliation" class="header-shift"><h4><%= sortable "name_affiliation", "Affiliation" %></h4></div></th>
+				    <th class="member-table" id="th_address" field="address" style="width: 300px"><div id="address" class="header-shift"><h4><%= sortable "address", "Address" %></h4></div></th>
+				    <th class="member-table" id="th_city" field="city" style="width: 200px"><div id="city" class="header-shift"><h4><%= sortable "city", "City" %></h4></div></th>
+				    <th class="member-table" id="th_state" field="state" style="width: 100px"><div id="state" class="header-shift"><h4><%= sortable "state", "State" %></h4></div></th>
+				    <th class="member-table" id="th_zip" field="zip" style="width: 100px"><div id="zip" class="header-shift"><h4><%= sortable "zip", "Zip" %></h4></div></th>
+				    <th class="member-table" id="th_phone" field="phone" style="width: 200px"><div id="phone" class="header-shift"><h4><%= sortable "phone", "Phone" %></h4></div></th>
+				    <th class="member-table" id="th_phone_mobile" field="phone_mobile" style="width: 200px"><div id="phone_mobile" class="header-shift"><h4><%= sortable "phone_mobile", "Mobile Phone" %></h4></div></th>
+				    <th class="member-table" id="th_email" field="email" style="width: 300px"><div id="email" class="header-shift"><h4><%= sortable "email", "Email" %></h4></div></th>
+				    <th class="member-table" id="th_email_cc_1" field="email_cc_1" style="width: 300px"><div id="email_cc_1" class="header-shift"><h4><%= sortable "email_cc_1", "Email cc 1" %></h4></div></th>
+				    <th class="member-table" id="th_email_cc_2" field="email_cc_2" style="width: 300px"><div id="email_cc_2" class="header-shift"><h4><%= sortable "email_cc_2", "Email cc 2" %></h4></div></th>
+				    <th class="member-table" id="th_city_workshop_1_text" field="city_workshop_1_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_1_text", "Workshop 1" %></h4></div></th>
+				    <th class="member-table" id="th_city_workshop_2_text" field="city_workshop_2_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_2_text", "Workshop 2" %></h4></div></th>
+				    <th class="member-table" id="th_city_workshop_3_text" field="city_workshop_3_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_3_text", "Workshop 3" %></h4></div></th>
+				    <th class="member-table" id="th_city_workshop_4_text" field="city_workshop_4_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_4_text", "Workshop 4" %></h4></div></th>
+				    <th class="member-table" id="th_city_workshop_5_text" field="city_workshop_5_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_5_text", "Workshop 5" %></h4></div></th>
+				    <th class="member-table" id="th_city_workshop_6_text" field="city_workshop_6_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_6_text", "Workshop 6" %></h4></div></th>
+				    <th class="member-table" id="th_city_workshop_7_text" field="city_workshop_7_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_7_text", "Workshop 7" %></h4></div></th>
+				    <th class="member-table" id="th_city_workshop_8_text" field="city_workshop_8_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_8_text", "Workshop 8" %></h4></div></th>
+				    <th class="member-table" id="th_city_workshop_9_text" field="city_workshop_9_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_9_text", "Workshop 9" %></h4></div></th>
+				    <th class="member-table" id="th_city_workshop_10_text" field="city_workshop_10_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_10_text", "Workshop 10" %></h4></div></th>
+				    <th class="member-table" id="th_city_workshop_11_text" field="city_workshop_11_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_11_text", "Workshop 11" %></h4></div></th>
+				    <th class="member-table" id="th_city_workshop_12_text" field="city_workshop_12_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_12_text", "Workshop 12" %></h4></div></th>
+				    <th class="member-table" id="th_city_workshop_13_text" field="city_workshop_13_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_13_text", "Workshop 13" %></h4></div></th>
+				    <th class="member-table" id="th_city_workshop_14_text" field="city_workshop_14_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_14_text", "Workshop 14" %></h4></div></th>
+				    <th class="member-table" id="th_city_workshop_15_text" field="city_workshop_15_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_15_text", "Workshop 15" %></h4></div></th>
+				    <th class="member-table" id="th_city_workshop_16_text" field="city_workshop_16_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_16_text", "Workshop 16" %></h4></div></th>
+				    <th class="member-table" id="th_city_workshop_17_text" field="city_workshop_17_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_17_text", "Workshop 17" %></h4></div></th>
+				    <th class="member-table" id="th_city_workshop_18_text" field="city_workshop_18_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_18_text", "Workshop 18" %></h4></div></th>
+				    <th class="member-table" id="th_city_workshop_19_text" field="city_workshop_19_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_19_text", "Workshop 19" %></h4></div></th>
+				    <th class="member-table" id="th_city_workshop_20_text" field="city_workshop_20_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_20_text", "Workshop 20" %></h4></div></th>
+				    <th class="member-table" id="th_city_workshop_21_text" field="city_workshop_21_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_21_text", "Workshop 21" %></h4></div></th>
+				    <th class="member-table" id="th_city_workshop_22_text" field="city_workshop_22_text" style="width: 200px"><div id="" class="header-shift"><h4><%= sortable "city_workshop_22_text", "Workshop 22" %></h4></div></th>
+				  </tr>
+				</table>
 			<% end %>
-
-			<!-- number_to_currency(product.price) -->
-			
-			</table>			
-					
-			<%= will_paginate @admin_reg_events %>
-		
-			<% else %>
-			<div class="row" style="color: red;">
-				<h3>No record for Events</h3>
-			</div>
-			<div class="row-end">&nbsp;</div>			
-		
-			<% end %>
-						
-			<div class="row" style="height: 20px;"></div>
-
 		</div>
-
+		<div id="scroll1" class="scrollbox-both" onscroll="scrollPos();">	
+			<% if @admin_reg_events.any? %>
+				<table id="admin_events" class="admin-events" title="Register Events" >    	  
+					<% @admin_reg_events.each do |reg_event| %>
+					  <tr align="left" class="tr-events">
+					    <td style="width: 50px; padding-left: 10px;"><h5><%= link_to('View', {:action => 'show', :id => reg_event.id }) %></h5></td>
+					    <td style="width: 50px;">
+					    	<% if current_user.admin %>
+					    	<div style="position: relative; bottom: -2px">
+						    	<h5>
+								   	<% delete_msg = "Delete ID: " + reg_event.id.to_s + " ?" %>
+									<%= button_to "Delete", {:action => 'destroy', :id => reg_event.id}, :method => :delete, :data => { confirm: delete_msg }, :class => 'delete-btn' %>
+								</h5>
+							</div>
+							<%  end %>
+						</td>
+					    <td style="width: 50px"><h5 class="member-table"><%= reg_event.id %></h5></td>
+					    <!-- <td> reg_event.created_at.strftime("%B %e, %Y") </td>
+					    <td> reg_event.updated_at.strftime("%B %e, %Y") </td> -->    
+					    <td style="width: 150px"><h5 class="member-table"><%= reg_event.created_at.to_formatted_s(:db) %></h5></td>
+					    <td style="width: 100px"><h5 class="member-table"><%= reg_event.name_title_sir %></h5></td>
+					    <td style="width: 150px"><h5 class="member-table"><%= reg_event.name_first %></h5></td>
+					    <td style="width: 150px"><h5 class="member-table"><%= reg_event.name_last %></h5></td>
+					    <td style="width: 300px"><h5 class="member-table"><%= reg_event.name_title %></h5></td>
+					    <td style="width: 300px"><h5 class="member-table"><%= reg_event.type_affiliation %></h5></td>
+					    <td style="width: 300px"><h5 class="member-table"><%= reg_event.name_affiliation %></h5></td>			    
+					    <td style="width: 300px"><h5 class="member-table"><%= reg_event.address %></h5></td>
+					    <td style="width: 200px"><h5 class="member-table"><%= reg_event.city %></h5></td>
+					    <td style="width: 100px"><h5 class="member-table"><%= reg_event.state %></h5></td>
+					    <td style="width: 100px"><h5 class="member-table"><%= reg_event.zip %></h5></td>
+					    <td style="width: 200px"><h5 class="member-table"><%= reg_event.phone %></h5></td>
+					    <td style="width: 200px"><h5 class="member-table"><%= reg_event.phone_mobile %></h5></td>
+					    <td style="width: 300px"><h5 class="member-table"><%= reg_event.email %></h5></td>
+					    <td style="width: 300px"><h5 class="member-table"><%= reg_event.email_cc_1 %></h5></td>
+					    <td style="width: 300px"><h5 class="member-table"><%= reg_event.email_cc_2 %></h5></td>
+					    <td style="width: 200px"><h5 class="member-table"><%= reg_event.city_workshop_1_text %></h5></td>
+					    <td style="width: 200px"><h5 class="member-table"><%= reg_event.city_workshop_2_text %></h5></td>
+					    <td style="width: 200px"><h5 class="member-table"><%= reg_event.city_workshop_3_text %></h5></td>
+					    <td style="width: 200px"><h5 class="member-table"><%= reg_event.city_workshop_4_text %></h5></td>
+					    <td style="width: 200px"><h5 class="member-table"><%= reg_event.city_workshop_5_text %></h5></td>
+					    <td style="width: 200px"><h5 class="member-table"><%= reg_event.city_workshop_6_text %></h5></td>
+					    <td style="width: 200px"><h5 class="member-table"><%= reg_event.city_workshop_7_text %></h5></td>
+					    <td style="width: 200px"><h5 class="member-table"><%= reg_event.city_workshop_8_text %></h5></td>
+					    <td style="width: 200px"><h5 class="member-table"><%= reg_event.city_workshop_9_text %></h5></td>
+					    <td style="width: 200px"><h5 class="member-table"><%= reg_event.city_workshop_10_text %></h5></td>
+					    <td style="width: 200px"><h5 class="member-table"><%= reg_event.city_workshop_11_text %></h5></td>
+					    <td style="width: 200px"><h5 class="member-table"><%= reg_event.city_workshop_12_text %></h5></td>
+					    <td style="width: 200px"><h5 class="member-table"><%= reg_event.city_workshop_13_text %></h5></td>
+					    <td style="width: 200px"><h5 class="member-table"><%= reg_event.city_workshop_14_text %></h5></td>
+					    <td style="width: 200px"><h5 class="member-table"><%= reg_event.city_workshop_15_text %></h5></td>
+					    <td style="width: 200px"><h5 class="member-table"><%= reg_event.city_workshop_16_text %></h5></td>
+					    <td style="width: 200px"><h5 class="member-table"><%= reg_event.city_workshop_17_text %></h5></td>
+					    <td style="width: 200px"><h5 class="member-table"><%= reg_event.city_workshop_18_text %></h5></td>
+					    <td style="width: 200px"><h5 class="member-table"><%= reg_event.city_workshop_19_text %></h5></td>
+					    <td style="width: 200px"><h5 class="member-table"><%= reg_event.city_workshop_20_text %></h5></td>
+					    <td style="width: 200px"><h5 class="member-table"><%= reg_event.city_workshop_21_text %></h5></td>
+					    <td style="width: 200px"><h5 class="member-table"><%= reg_event.city_workshop_22_text %></h5></td>
+					  </tr>
+					<% end %>
+					<!-- number_to_currency(product.price) -->
+				</table>			
+				<!-- <#%= will_paginate @admin_reg_events %#> -->
+			<% else %>
+				<div class="row" style="color: red;">
+					<h3>No record for Events</h3>
+				</div>
+				<div class="row-end">&nbsp;</div>			
+			<% end %>
+			<div class="row" style="height: 20px;"></div>
+		</div>
+		<div style="height: 10px;"></div>
+		<div>
+			<%= will_paginate @admin_reg_events %>	
+		</div>
 	</div>
+
+
+	<script>
 	
-	
-<script>
-	
-		
 		// $('*[data-confirm]').click(function(){
 	    	// return confirm($(this).attr('data-confirm'));
 		// });
 
-
-        function scrollPos() {
-            // var div = document.getElementById("scroll1").scrollLeft;
-            // document.getElementById("pos").innerHTML = div;
-            $("#pos").html($("#scroll1").scrollLeft());
-        }
+		// $(function() {
+		// $(window).load( function() {
+		$(document).ready(function(){
 		
-		function moveScroll() {
-			// alert('moveScroll');
-			$("#scroll1").scrollLeft($("#pos").html());
-		}
-				
-				
-		$(function() {
+			moveScroll();
+		
+			$("#ajax_loading").addClass("hidden");
 		
     		var $cols = $('colgroup');
 
-			$("table#admin-events tr:nth-child(even)").addClass('gray');
-			$("table#admin-events tr:nth-child(odd)").addClass('white');
+			$("table#admin_events tr:nth-child(even)").addClass('gray');
+			$("table#admin_events tr:nth-child(odd)").addClass('white');
 
 		    // id								3
 		    // created_at						4
@@ -281,23 +168,19 @@
 			var cellTh;
 			var cellIndexTh;
 			
-			$("table#admin-events th").mouseover ( function () {
-
+			$("table#admin_events_header th").mouseover ( function () {
 				cellTh = $(this).closest('th');
 				cellIndexTh = cellTh[0].cellIndex;
 				cellIndexTh += 1;
-				
-				$("table#admin-events td:nth-child(" + cellIndexTh + ")").addClass('hover-col');
+				$("table#admin_events td:nth-child(" + cellIndexTh + ")").addClass('hover-col');
 				$(this).addClass('hover-col');
 				
 			}).mouseout ( function() {
-				
-				$("table#admin-events td:nth-child(" + cellIndexTh + ")").removeClass('hover-col');				
+				$("table#admin_events td:nth-child(" + cellIndexTh + ")").removeClass('hover-col');				
 				$(this).removeClass('hover-col');
-				
 			});
 			
-			$("table#admin-events td").mouseover ( function () {
+			$("table#admin_events td").mouseover ( function () {
 				
 				cell = $(this).closest('td');
 				cellIndex = cell[0].cellIndex;
@@ -320,131 +203,115 @@
 					header = "#th_created_at"	  
 				  break;
 				case 5:
-					header = "#th_name_first"	  
+					header = "#th_name_title_sir"	  
 				  break;
 				case 6:
-					header = "#th_name_last"	  
+					header = "#th_name_first"	  
 				  break;
 				case 7:
-					header = "#th_name_title"	  
+					header = "#th_name_last"	  
 				  break;
 				case 8:
-					header = "#th_type_affiliation"	  
+					header = "#th_name_title"	  
 				  break;
 				case 9:
+					header = "#th_type_affiliation"	  
+				  break;
+				case 10:
 					header = "#th_affiliation"	  
 				  break;
-				  
-				case 10:
+				case 11:
 					header = "#th_address"	  
 				  break;
-				case 11:
+				case 12:
 					header = "#th_city"	  
 				  break;
-				case 12:
+				case 13:
 					header = "#th_state"	  
 				  break;
-				case 13:
+				case 14:
 					header = "#th_zip"	  
 				  break;
-				case 14:
+				case 15:
 					header = "#th_phone"	  
 				  break;
-				case 15:
-					header = "#th_email"	  
-				  break;
 				case 16:
-					header = "#th_email_cc_1"	  
+					header = "#th_phone_mobile"	  
 				  break;
 				case 17:
-					header = "#th_email_cc_2"	  
+					header = "#th_email"	  
 				  break;
 				case 18:
-					header = "#th_city_workshop_1_text"	  
+					header = "#th_email_cc_1"	  
 				  break;
 				case 19:
-					header = "#th_city_workshop_1_session_text"	  
+					header = "#th_email_cc_2"	  
 				  break;
 				case 20:
-					header = "#th_city_workshop_2_text"	  
+					header = "#th_city_workshop_1_text"	  
 				  break;
 				case 21:
-					header = "#th_city_workshop_2_session_text"	  
+					header = "#th_city_workshop_2_text"	  
 				  break;
 				case 22:
 					header = "#th_city_workshop_3_text"	  
 				  break;
 				case 23:
-					header = "#th_city_workshop_3_session_text"	  
-				  break;
-				case 24:
 					header = "#th_city_workshop_4_text"	  
 				  break;
-				case 25:
-					header = "#th_city_workshop_4_session_text"	  
-				  break;
-				case 26:
+				case 24:
 					header = "#th_city_workshop_5_text"	  
 				  break;
-				case 27:
-					header = "#th_city_workshop_5_session_text"	  
-				  break;
-				case 28:
+				case 25:
 					header = "#th_city_workshop_6_text"	  
 				  break;
-				case 29:
-					header = "#th_city_workshop_6_session_text"	  
-				  break;
-				case 30:
+				case 26:
 					header = "#th_city_workshop_7_text"	  
 				  break;
-				case 31:
-					header = "#th_city_workshop_7_session_text"	  
-				  break;
-				case 32:
+				case 27:
 					header = "#th_city_workshop_8_text"	  
 				  break;
-				case 33:
-					header = "#th_city_workshop_8_session_text"	  
-				  break;
-				case 34:
+				case 28:
 					header = "#th_city_workshop_9_text"	  
 				  break;
-				case 35:
-					header = "#th_city_workshop_9_session_text"	  
-				  break;
-				case 36:
+				case 29:
 					header = "#th_city_workshop_10_text"	  
 				  break;
-				case 37:
-					header = "#th_city_workshop_10_session_text"	  
-				  break;
-				case 38:
+				case 30:
 					header = "#th_city_workshop_11_text"	  
 				  break;
-				case 39:
-					header = "#th_city_workshop_11_session_text"	  
-				  break;
-				case 40:
+				case 31:
 					header = "#th_city_workshop_12_text"	  
 				  break;
-				case 41:
-					header = "#th_city_workshop_12_session_text"	  
-				  break;
-				case 42:
+				case 32:
 					header = "#th_city_workshop_13_text"	  
 				  break;
-				case 43:
-					header = "#th_city_workshop_13_session_text"	  
-				  break;
-				case 44:
+				case 33:
 					header = "#th_city_workshop_14_text"	  
 				  break;
-				case 45:
-					header = "#th_city_workshop_14_session_text"	  
-				  break;
-				case 46:
+				case 34:
 					header = "#th_city_workshop_15_text"	  
+				  break;
+				case 35:
+					header = "#th_city_workshop_16_text"	  
+				  break;
+				case 36:
+					header = "#th_city_workshop_17_text"	  
+				  break;
+				case 37:
+					header = "#th_city_workshop_18_text"	  
+				  break;
+				case 38:
+					header = "#th_city_workshop_19_text"	  
+				  break;
+				case 39:
+					header = "#th_city_workshop_20_text"	  
+				  break;
+				case 40:
+					header = "#th_city_workshop_21_text"	  
+				  break;
+				case 41:
+					header = "#th_city_workshop_22_text"	  
 				  break;
 
 				default:
@@ -452,49 +319,41 @@
 				}				
 
 				$(header).addClass('hover-col');
-		
 				if (rowIndex % 2 === 0) {
-					$("table#admin-events td:nth-child(" + cellIndex + ")").addClass('hover-col');
+					$("table#admin_events td:nth-child(" + cellIndex + ")").addClass('hover-col');
 					row.removeClass('gray').addClass('hover-row');					
 				}
 				else {
-					$("table#admin-events td:nth-child(" + cellIndex + ")").addClass('hover-col');
+					$("table#admin_events td:nth-child(" + cellIndex + ")").addClass('hover-col');
 					row.removeClass('white').addClass('hover-row');										
 				}		
 			}).mouseout( function(){
-
 				$(header).removeClass('hover-col');
-				
 				if (rowIndex % 2 === 0) {
-					$("table#admin-events td:nth-child(" + cellIndex + ")").removeClass('hover-col');
+					$("table#admin_events td:nth-child(" + cellIndex + ")").removeClass('hover-col');
 					row.removeClass('hover-row').addClass('gray');					
 				}
 				else {
-					$("table#admin-events td:nth-child(" + cellIndex + ")").removeClass('hover-col');
+					$("table#admin_events td:nth-child(" + cellIndex + ")").removeClass('hover-col');
 					row.removeClass('hover-row').addClass('gray');					
 				}		
 			});
 			
 			var rowSelect = -1;			
 			
-			$("table#admin-events td").on('click', function () {
-	
+			$("table#admin_events td").on('click', function () {
 				cell = $(this).closest('td');
 				btn_delete = $(this).closest('form');
 				row = cell.closest('tr');
 				rowIndex = row[0].rowIndex;
-
 				if (rowSelect !== -1) {
-					$("table#admin-events tr").removeClass('row-select');
+					$("table#admin_events tr").removeClass('row-select');
 				}
-				
 				rowSelect = rowIndex;
 				row.addClass('row-select');
 				btn_delete.removeClass('btn-color').addClass('btn-color-select');
 			});
 	
-	
-			
 			$(document).on('click', function(event) {
 				// alert(event.target);
 				elem = event.target.className;
@@ -502,12 +361,10 @@
 					//
 				}
 				else {
-					$("table#admin-events tr").removeClass('row-select');					
+					$("table#admin_events tr").removeClass('row-select');					
 				}
 			});
 		});
 		
-</script>
-
-
+	</script>
 

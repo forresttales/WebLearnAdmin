@@ -26,15 +26,32 @@
 			       </colgroup>
 
 				  <tr align="left">
+
+<!-- 
+100
+100
+50
+200
+200
+200
+200
+100
+100
+100 
+-->
 				  	
-				    <th class="member-table" id="th_view" field="view" style="width: 50px"><div class="header-shift"><h4></h4></div></th>
-				    <th class="member-table" id="th_delete" field="delete" style="width: 50px;"><div class="header-shift"><h4></h4></div></th>
+				    <th class="member-table" id="th_view" field="view" style="width: 100px"><div class="header-shift"><h4></h4></div></th>
+				    <th class="member-table" id="th_delete" field="delete" style="width: 100px;"><div class="header-shift"><h4></h4></div></th>
 				  	
-				    <th class="member-table" id="th_id" field="id" style="width: 50px"><div id="id" class="header-shift"><h4><%= sortable "id", "ID" %></div></th>
-				    <th class="member-table" id="th_created_at" field="created_at" style="width: 100px"><div id="id" class="header-shift"><h4><%= sortable "created_at", "Created" %></div></th>
-				    <th class="member-table" id="th_updated_at" field="updated_at" style="width: 100px"><div id="id" class="header-shift"><h4><%= sortable "updated_at", "Updated" %></div></th>
-				    <th class="member-table" id="th_username" field="username" style="width: 100px"><div id="username" class="header-shift"><h4><%= sortable "username", "Username" %></h4></div></th>
-				    <th class="member-table" id="th_email" field="email" style="width: 300px"><div id="" class="header-shift"><h4><%= sortable "email", "Email" %></h4></div></th>
+				    <th class="member-table" id="th_id" field="id" style="width: 50px"><div class="header-shift"><h4><%= sortable "id", "ID" %></div></th>
+				    <th class="member-table" id="th_created_at" field="created_at" style="width: 200px"><div class="header-shift"><h4><%= sortable "created_at", "Created" %></div></th>
+				    <th class="member-table" id="th_updated_at" field="updated_at" style="width: 200px"><div class="header-shift"><h4><%= sortable "updated_at", "Updated" %></div></th>
+				    <th class="member-table" id="th_name_first" field="name_first" style="width: 200px"><div class="header-shift"><h4><%= sortable "name_first", "First Name" %></h4></div></th>
+				    <th class="member-table" id="th_name_last" field="name_last" style="width: 200px"><div class="header-shift"><h4><%= sortable "name_last", "Last Name" %></h4></div></th>
+				    <th class="member-table" id="th_username" field="username" style="width: 200px"><div class="header-shift"><h4><%= sortable "username", "Username" %></h4></div></th>
+				    <th class="member-table" id="th_email" field="email" style="width: 250px"><div class="header-shift"><h4><%= sortable "email", "Email" %></h4></div></th>
+				    <th class="member-table" id="th_admin" field="admin" style="width: 100px"><div class="header-shift"><h4><%= sortable "admin", "Admin" %></h4></div></th>
+				    <th class="member-table" id="th_super_admin" field="super_admin" style="width: 200px"><div class="header-shift"><h4><%= sortable "super_admin", "Super Admin" %></h4></div></th>
 				  </tr>
 				<% @admin_users.each do |admin_user| %>
 				  <tr align="left" class="tr-events">
@@ -52,9 +69,13 @@
 				  	
 				    <td><h5 class="member-table"><%= admin_user.id %></h5></td>
 				    <td><h5 class="member-table"><%= admin_user.created_at.to_formatted_s(:db) %></h5></td>
-				    <td><h5 class="member-table"><%= admin_user.updated_at.strftime("%B %e, %Y") %></h5></td>    
+				    <td><h5 class="member-table"><%= admin_user.updated_at.strftime("%B %e, %Y") %></h5></td>
+				    <td><h5 class="member-table"><%= admin_user.name_first %></h5></td>
+				    <td><h5 class="member-table"><%= admin_user.name_last %></h5></td>    
 				    <td><h5 class="member-table"><%= admin_user.username %></h5></td>
 				    <td><h5 class="member-table"><%= admin_user.email %></h5></td>
+				    <td><h5 class="member-table"><%= admin_user.admin %></h5></td>
+				    <td><h5 class="member-table"><%= admin_user.super_admin %></h5></td>
 				    			      
 				  </tr>
 				<% end %>
@@ -195,10 +216,22 @@
 					header = "#th_id"	  
 				  break;
 				case 4:
-					header = "#th_username"	  
+					header = "#th_name_first"	  
 				  break;				  
 				case 5:
+					header = "#th_name_last"	  
+				  break;				  
+				case 6:
+					header = "#th_username"	  
+				  break;				  
+				case 7:
 					header = "#th_email"	  
+				  break;
+				case 8:
+					header = "#th_admin"	  
+				  break;
+				case 9:
+					header = "#th_super_admin"	  
 				  break;
 
 				default:

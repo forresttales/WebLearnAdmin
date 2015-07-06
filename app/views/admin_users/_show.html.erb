@@ -1,0 +1,104 @@
+
+						<!-- 
+						# Table name: admin_users
+						#
+						#  id              :integer          not null, primary key
+						#  email           :string(100)      default(""), not null
+						#  hashed_password :string(300)
+						#  created_at      :datetime
+						#  updated_at      :datetime
+						#  username        :string(30)
+						#  salt            :string(300)
+						#  name_first      :string(50)
+						#  name_last       :string(50)
+						#  password_digest :string(255)
+						#  remember_token  :string(255)
+						#  image_id        :integer
+						#  admin           :boolean          default(FALSE)
+						#  super_admin     :boolean          default(FALSE)
+						-->
+
+						<div class="table">
+							<div class="row line-separator row-even"><div class="cell-300"></div><div class="cell-700"></div></div>
+							<div class="row row-even">
+								<div class="cell-300 pad-left">
+									<span class="span-1">Created:</span>
+								</div>
+								<div class="cell-700 pad-right">
+									<span class="span-3"><%= @admin_user.created_at %></span>
+								</div>																
+							</div>
+							<div class="row line-separator row-even"><div class="cell-300"></div><div class="cell-700"></div></div>
+							<div class="row line-separator row-odd"><div class="cell-300"></div><div class="cell-700"></div></div>
+							<div class="row row-odd">
+								<div class="cell-300 pad-left">
+									<span class="span-1">Updated:</span>
+								</div>
+								<div class="cell-700 pad-right">
+									<span class="span-3"><%= @admin_user.updated_at %></span>
+								</div>																
+							</div>
+							<div class="row line-separator row-odd"><div class="cell-300"></div><div class="cell-700"></div></div>
+							<div class="row line-separator row-even"><div class="cell-300"></div><div class="cell-700"></div></div>
+							<div class="row row-even">
+								<div class="cell-300 pad-left">
+									<span class="span-1">First Name:</span>
+								</div>
+								<div class="cell-700 pad-right">
+									<span class="span-3"><%= @admin_user.name_first %></span>
+								</div>																
+							</div>
+							<div class="row line-separator row-even"><div class="cell-300"></div><div class="cell-700"></div></div>
+							<div class="row line-separator row-odd"><div class="cell-300"></div><div class="cell-700"></div></div>
+							<div class="row row-odd">
+								<div class="cell-300 pad-left">
+									<span class="span-1">Last Name:</span>
+								</div>
+								<div class="cell-700 pad-right">
+									<span class="span-3"><%= @admin_user.name_last %></span>
+								</div>																
+							</div>
+							<div class="row line-separator row-odd"><div class="cell-300"></div><div class="cell-700"></div></div>
+							<div class="row line-separator row-even"><div class="cell-300"></div><div class="cell-700"></div></div>
+							<div class="row row-even">
+								<div class="cell-300 pad-left">
+									<span class="span-1">Username:</span>
+								</div>
+								<div class="cell-700 pad-right">
+									<span class="span-3"><%= @admin_user.username %></span>
+								</div>																
+							</div>
+							<div class="row line-separator row-even"><div class="cell-300"></div><div class="cell-700"></div></div>
+							<div class="row line-separator row-odd"><div class="cell-300"></div><div class="cell-700"></div></div>
+							<div class="row row-odd">
+								<div class="cell-300 pad-left">
+									<span class="span-1">email:</span>
+								</div>
+								<div class="cell-700 pad-right">
+									<span class="span-3"><%= @admin_user.email %></span>
+								</div>																
+							</div>
+							<div class="row line-separator row-odd"><div class="cell-300"></div><div class="cell-700"></div></div>
+							<div class="row line-separator row-even"><div class="cell-300"></div><div class="cell-700"></div></div>
+							<div class="row row-even">
+								<div class="cell-300 pad-left">									
+									<span class="span-1">Admin:</span>
+								</div>
+								<div class="cell-700 pad-right">
+									<span class="span-3"><%= @admin_user.admin %></span>
+								</div>																
+							</div>
+							<div class="row line-separator row-even"><div class="cell-300"></div><div class="cell-700"></div></div>
+							<div class="row line-separator row-odd"><div class="cell-300"></div><div class="cell-700"></div></div>
+							<div class="row row-odd">
+								<div class="cell-300 pad-left">									
+									<span class="span-1">Super Admin:</span>
+								</div>
+								<div class="cell-700 pad-right">
+									<span class="span-3"><%= @admin_user.super_admin %></span>
+								</div>																
+							</div>
+							<div class="row line-separator row-odd"><div class="cell-300"></div><div class="cell-700"></div></div>
+						</div>
+						<div style="height: 10px;"></div>
+						

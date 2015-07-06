@@ -8,7 +8,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
-module Weblearn
+module Weblearnadmin
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -24,17 +24,25 @@ module Weblearn
     
     #config.assets.precompile += ['easyui.css','jquery.easyui.min.js','jquery-1.8.0.min.js']
 
+    Dir.glob("#{Rails.root}/app/assets/images/**/").each do |path|
+      config.assets.paths << path
+    end
+
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif *.svg *.ico *.eot *.ttf *woff)
+
+    config.assets.enabled = true
+    config.assets.precompile += ['jquery.validate.js']
 
 
-    config.assets.precompile += ['featured_slide.css', 'forms.css', 'gallery.css', 'homepage.css', 'layout.css', 'navi.css', 'portfolio.css', 'prettyPhoto.css', 'tables.css']
+    # config.assets.precompile += ['featured_slide.css', 'forms.css', 'gallery.css', 'homepage.css', 'layout.css', 'navi.css', 'portfolio.css', 'prettyPhoto.css', 'tables.css']
 
     #config.assets.precompile += ['3_column.css', 'featured_slide.css', 'forms.css', 'gallery.css', 'homepage.css', 'layout.css', 'navi.css', 'portfolio.css', 'prettyPhoto.css', 'tables.css']
  
-    config.assets.precompile += ['jquery.easing.1.3.js', 'jquery.galleryview.2.1.1.min.js', 'jquery.galleryview.setup.js', 'jquery.timers.1.2.js', 'jquery-1.4.1.min.js', 'jquery-prettyPhoto.js', 'jquery-ui-1.8.12.custom.min.js']
+    # config.assets.precompile += ['jquery.easing.1.3.js', 'jquery.galleryview.2.1.1.min.js', 'jquery.galleryview.setup.js', 'jquery.timers.1.2.js', 'jquery-1.4.1.min.js', 'jquery-prettyPhoto.js', 'jquery-ui-1.8.12.custom.min.js']
 
     #config.assets.precompile += ['custom.css']
     
-    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+    # config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
     
     
     #config.assets.paths += Dir["#{Rails.root}/vendor/asset-libs/*"].sort_by { |dir| -dir.size }

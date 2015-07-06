@@ -6,8 +6,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    #user = User.find_by(email: params[:session][:email].downcase)
-    admin_user = AdminUser.find_by(username: params[:session][:username])
+    admin_user = AdminUser.find_by(email: params[:session][:email].downcase)
+    # admin_user = AdminUser.find_by(username: params[:session][:username])
     
     # user.nil?
     
@@ -17,20 +17,22 @@ class SessionsController < ApplicationController
       #session[:username] = user.username
       
       # redirect_back_or '/'
-       
+      Rails.logger.info('loggin succeeded')
       redirect_to root_path
-      
+      # redirect_to '/'
     else
       #flash.now[:error] = 'Invalid email/password combination'
       render 'new'
+      Rails.logger.info('loggin failed')
     end
     
   end
 
   def destroy
     sign_out
-    #redirect_to root_url
-    redirect_to index_path    
+    # redirect_to root_url
+    # redirect_to index_path
+    redirect_to '/'    
   end
   
   

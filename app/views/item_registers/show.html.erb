@@ -1,0 +1,44 @@
+<% @title = "Item Register Record" %>
+
+
+	<%= render 'share/backtotop' %>
+
+	<div class="container item-registers-show">
+
+		<div class="table">
+			<div class="row">
+				<div class="col-200">
+					<div style="height: 100px;"></div>
+					<div><span class="span-1">Item Register Record</span></div>
+					<br />								
+					<br />								
+					<% if !@item_register_previous.nil? %>
+					<div><span class="span-1">Previous Id: <%= @item_register_previous.id %></span></div>
+					<% else %>
+					<div><span class="span-1">Previous Id: No Previous Record</span></div>
+					<% end %>
+					<div><span class="span-2">Id: <%= @item_register.id %></span></div>
+					<% if !@item_register_next.nil? %>
+					<div><span class="span-1">Next Id: <%= @item_register_next.id %></span></div>
+					<% else %>
+					<div><span class="span-1">Next Id: No Next Record</span></div>
+					<% end %>
+				</div>
+				<div class="col-1000-borders">
+					<% if current_user.admin %>
+						<div class="pad-left-20">
+							<%= button_to "Edit", {:action => 'edit', :id => @item_register.id } %>
+						</div>
+					<% end %> 
+					<div style="height: 10px;"></div>
+					<div class="pad-left-20">
+						<span><%= link_to('&laquo;'.html_safe + ' Previous', {:action => 'show', :id => @item_register_previous.id }) if !@item_register_previous.nil? %></span>
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						<span><%= link_to('Next '.html_safe + '&raquo;'.html_safe, {:action => 'show', :id => @item_register_next.id }) if !@item_register_next.nil? %></span>
+					</div>
+					<div style="height: 20px;"></div>
+					<%= render 'item_registers/show' %>
+				</div>
+			</div>
+		</div>
+	</div>

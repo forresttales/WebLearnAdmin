@@ -4,20 +4,33 @@ class AdminUsersController < ApplicationController
   
   helper_method :sort_column, :sort_direction
 
+
   before_action :signed_in_user
+  before_action :signed_in_user_super_admin, except: :home
   
-  #before_action :signed_in_user,
+  
+  # before_action :verify_user
                 #only: [:index, :edit, :update, :destroy, :following, :followers]
   
   #before_filter :confirm_logged_in  
   
+  # def verify_user
+    # if signed_in?
+    # else
+      # redirect_to '/'
+    # end
+  # end
+  
+  
   def index
 
-    @admin_users = AdminUser.order(sort_column + " " + sort_direction).paginate(page: params[:page]).per_page(5)
+    @admin_users = AdminUser.order(sort_column + " " + sort_direction).paginate(page: params[:page]).per_page(100)
     
   end
   
   def home
+    
+    # @current_user_admin = current_user.admin
     
   end
   
@@ -43,6 +56,10 @@ class AdminUsersController < ApplicationController
     
   def show
     @admin_user = AdminUser.find(params[:id])    
+    
+    @admin_user_next = @admin_user.next
+    @admin_user_previous = @admin_user.previous
+    
   end
     
   
@@ -53,36 +70,35 @@ class AdminUsersController < ApplicationController
     
     @admin_user = AdminUser.new(admin_user_params)
     if @admin_user.save
-        
         redirect_to action: "index"
-        
-        # sign_in @admin_user
-      
-        # case account_type= params[:account_type]
-        # when "School"
-          # redirect_to(:controller => 'institutes', :action => 'new')
-        # when "Teacher"
-          # redirect_to(:controller => 'teachers', :action => 'new')
-        # when "Student"
-          # redirect_to(:controller => 'students', :action => 'new')
-        # when "Publisher"
-          # redirect_to(:controller => 'publishers', :action => 'new')
-        # else
-          # # alert error redirect
-        # end
-        
     else
       render 'new'
     end
     
   end
   
+
+
   def edit
-    #render text: "in edit"
+    @admin_user = AdminUser.find_by_id(params[:id])    
   end
   
   def update
+    
+    # Rails.logger.info("in update admin_users")
+    @admin_user = AdminUser.find(params[:id])
+    if @admin_user.update_attributes(params[:admin_user])
+      redirect_to(:action => 'show', :saved_id => @admin_user.id)
+    else
+      render text: 'update failed'
+    end    
+    
   end
+
+
+
+
+
 
   def delete
     @admin_user = AdminUser.find(params[:id])
@@ -138,9 +154,9 @@ class AdminUsersController < ApplicationController
                                           :email, 
                                           :username, 
                                           :password, 
-                                          :password_confirmation, 
-                                          :created_at, 
-                                          :updated_at,
+                                          :password_confirmation,
+                                          :admin,
+                                          :super_admin
                                         )
                                         
     end

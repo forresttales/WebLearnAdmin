@@ -29,7 +29,7 @@
 			
 		</header>
 		
-		<div id="page-inner">
+		<div id="page-inner" style"height: 2000px;">
 			
       
       		<div id="loading"> </div>
@@ -47,7 +47,7 @@
 						</script>		
 					</td>
 					<td>
-						<%= form_tag import_mtab1lets_path, :method => 'post', :id => "import_mtab1lets", :remote => true do %>
+						<%= form_tag import_mtab8lets_path, :method => 'post', :id => "import_mtab8lets", :remote => true do %>
 								<%= hidden_field_tag :file_name, params[:file_name] %>	
 						    	<%= submit_tag "Import CSV", :class => 'import-btn' %>
 						    	 <!-- submit_tag "download", :onclick => 'load_import(); return false;'  -->
@@ -69,7 +69,7 @@
 						</script>		
 					</td>					
 					<td>
-						<%= form_tag import_mtab1lets_path( :format => :js ), :remote => true, multipart: true do %>							
+						<%= form_tag import_mtab8lets_path( :format => :js ), :remote => true, multipart: true do %>							
 						  	<%= hidden_field_tag :file_name_excel, params[:file_name_exel] %>
 						  	<%= submit_tag "Import Excel XLSX" %>
 						<% end %>
@@ -91,7 +91,7 @@
 							   	<% delete_all_msg = "Delete all records and reset index in MTablet 1?" %>
 								  <!-- button_to "Delete All Records and Reset Index", {:action => 'dbdelete'}, :method => :post, data: { confirm: delete_all_msg }, :class => 'reset-db-btn-long'  -->
 								
-								 <%= button_to "Delete All Records and Reset Index", dbdelete_mtab1lets_path( :format => :js ), data: { confirm: delete_all_msg }, :class => 'reset-db-btn-long', :id => 'dbdelete', :remote => true %>
+								 <%= button_to "Delete All Records and Reset Index", dbdelete_mtab8lets_path( :format => :js ), data: { confirm: delete_all_msg }, :class => 'reset-db-btn-long', :id => 'dbdelete', :remote => true %>
 								
 							</h5>
 						</div>
@@ -105,7 +105,7 @@
 					<div class="cell-100percent" tabindex="1">
 
 
-						<%= form_tag mtab1lets_path, :method => 'get', :id => "tablets_search" do %>
+						<%= form_tag mtab8lets_path, :method => 'get', :id => "tablets_search" do %>
 						  	
 						  	<span>
 						    	 <!-- text_field_tag :search, params[:search]  -->
@@ -178,7 +178,7 @@
 								<%= link_to('Add New Record', { :action => 'new', :form => :js }, :class => 'links', :remote => true ) %>
 							</span>						  						
 							<div id="tablets">
-								<%= render 'mtab1lets/upload_files'%>
+								<%= render 'mtab8lets/upload_files'%>
 							</div>
 						  
 						<% end %>
@@ -188,7 +188,10 @@
 				</div>
 				
 			</div>
-			
+			<div style="height: 30px;"></div>			
+			<div>
+				<img src="../repository/image-mtab8lets-optout-page.png" alt="image-mtab8lets-optout-page.png">
+			</div>
 		</div>	
 		
 	</div>					
@@ -208,3 +211,66 @@
 	
 	</script>
 					
+<!-- 
+col_40 Email
+col_41 National or State
+	  0	 National
+	  1  Alabama
+	  2  Alaska 
+	  3  Arizona
+	  4  Arkansas
+	  5  California
+	  6  Colorado 
+	  7  Connecticut
+	  8  Delaware 	
+	  9  DC
+	  10 Florida 	
+	  11 Georgia 	
+	  12 Hawaii 
+	  13 Idaho 	
+	  14 Illinois
+	  15 Indiana 
+	  16 Iowa 	
+	  17 Kansas 	
+	  18 Kentucky
+	  19 Louisiana 
+	  20 Maine 
+	  21 Maryland 
+	  22 Massachusetts
+	  23 Michigan 
+	  24 Minnesota
+	  25 Mississippi 
+	  26 Missouri 	
+	  27 Montana 	
+	  28 Nebraska 	
+	  29 Nevada 
+	  30 New Hampshire 
+	  31 New Jersey 	
+	  32 New Mexico 	
+	  33 New York 	
+	  34 North Carolina 
+	  35 North Dakota 	
+	  36 Ohio 	
+	  37 Oklahoma 
+	  38 Oregon 
+	  39 Pennsylvania
+	  40 Rhode Island
+	  41 South Carolina
+	  42 South Dakota 
+	  43 Tennessee 	
+	  44 Texas 	
+	  45 Utah 	
+	  46 Vermont 
+	  47 Virginia
+	  48 Washington
+	  49 West Virginia
+	  50 Wisconsin 
+	  51 Wyoming 	 
+
+col_42	NewsLetter
+col_43	Journal
+col_44	Educators: Events Announcements & Recaps
+col_45	Community
+col_46	Technology: Events Announcements & Recaps
+col_47	Industry News
+-->

@@ -1,0 +1,201 @@
+<% @title = "Item Register Edit" %>
+
+	<style>
+	
+		.item-registers-edit {
+			width: 1000px;
+			margin: 0 auto;
+		}
+		.item-registers-edit .table {
+			display: table;
+			background-color: #B2C7CF;
+			width: 1000px;
+			border-radius: 20px;
+			border:2px solid #254520;
+			box-shadow: 1px 1px 10px #888888;
+			padding-top: 40px;
+			padding-bottom: 40px;
+			padding-left: 60px;
+		}
+		.item-registers-edit .input {
+			font-family: Arial, Helvetica, sans-serif;
+			color: #000;			
+			font-size: 16px;
+			width: 580px;
+			height: 24px;
+			border-style:solid;
+			border-radius: 4px;
+			background-color: #fff;
+			border-color: #000;
+			border-width: 1px;
+			padding-left: 6px;
+		}
+		.item-registers-edit .input:focus {
+			border-color: #3949C4;
+			color: #000;
+			-webkit-box-shadow: 0 0 10px #3949C4;
+			-moz-box-shadow: 0 0 10px #3949C4;
+			box-shadow: 0 0 10px #3949C4;
+		}
+		.item-registers-edit .input:disabled {
+			border-color: #523401;
+			color: #523401;
+			background-color:#CCCBC8;
+		}
+		.item-registers-edit .input-label {
+			font-family: Arial, Helvetica, sans-serif;
+			color: #000;
+			font-size: 16px;
+			width: 280px;
+			height: 18px;
+		}
+		.item-registers-edit .input-label:disabled {
+			font-family: Arial, Helvetica, sans-serif;
+			color: #523401;
+		}
+		.item-registers-edit .spacer {
+			height: 16px;
+		}
+		.item-registers-edit .cell-right {
+			display: table-cell;
+			width: 700px;
+			text-align: left;
+			align: top;		
+		}
+		.item-registers-edit .cell-left {
+			display: table-cell;
+			width: 300px;	
+			align: top;
+			text-align: right;		
+			padding-right: 20px;
+		}
+		/*.item-registers-edit .cell-submit {
+			display: table-cell;
+			width: 400px;
+			text-align: left;
+			align: top;		
+			padding-left: 0px;
+		}*/
+		.item-registers-edit .btn-submit {
+		  	display: inline-block;
+		  	text-decoration: none; 
+		  	width: 308px;
+		  	height: 30px;
+		  	background: linear-gradient(#000, #000);
+		  	text-shadow: 1px 1px 1px #0E86B2; 
+		  	border-radius: 6px;
+		}
+		.item-registers-edit .btn-submit:focus {
+		  background: #CCC; 
+		  color: #5F7A2A;
+		  box-shadow: inset 0 1px 0 rgba(200,200,200,0.2);
+		}
+		.item-registers-edit .btn-submit:hover { 
+		  box-shadow: inset 0 1px 1px rgba(255,255,255,0.2), 
+		  inset 0 1.5em 1em rgba(255,255,255,0.3);
+		}
+		.item-registers-edit .btn-submit:active { 
+		  box-shadow: inset 0 1px 1px rgba(255,255,255,0.2), 
+		  inset 0 1.5em 1em rgba(0,0,0,0.3); 
+		}
+		
+	</style>
+
+	<%= render 'share/backtotop' %>
+
+	<div style="height: 50px;"></div>
+	<div class="item-registers-edit">
+		<div class="table">
+			<div class="row">
+				<div class="cell-100percent">
+
+					<%= form_for(:item_register, :url => {:action => 'update', :id => @item_register.id}) do |f| %>
+				
+					<div class="row">
+						<div class="cell-left">
+							<%= f.label(:id, 'ID', class: 'input-label') %>							
+						</div>
+						<div class="cell-right">
+							<%= f.text_field :id, :class => 'input', :disabled => true %>	
+						</div>      	
+					</div>
+					<!-- <div class="spacer"></div>
+					<div class="row">
+						<div class="cell-left">
+							<#%= f.label(:article_id, 'Article ID', class: 'input-label') %#>							
+						</div>
+						<div class="cell-right">
+							<#%= f.text_field :article_id, :class => 'input', :autofocus => true %#>	
+						</div>      	
+					</div> -->
+					<div class="spacer"></div>
+					<div class="row">
+						<div class="cell-left">
+							<%= f.label(:created_at, 'Created', class: 'input-label') %>							
+						</div>
+						<div class="cell-right">
+							<%= f.text_field :created_at, :class => 'input', :disabled => true %>	
+						</div>      	
+					</div>
+					<div class="spacer"></div>
+					<div class="row">
+						<div class="cell-left">
+							<%= f.label(:updated_at, 'Updated', class: 'input-label') %>							
+						</div>
+						<div class="cell-right">
+							<%= f.text_field :updated_at, :class => 'input', :disabled => true %>	
+						</div>      	
+					</div>
+
+					<div class="spacer"></div>
+					<div class="row">
+						<div class="cell-left">
+						</div>
+						<div class="cell-right">
+							<div>
+								<span>Assign an integer for Item Types:</span>
+							</div>
+							<div>
+								<span>1 - default (PDF)</span>
+							</div>
+						</div>      	
+					</div>
+
+					<div class="spacer"></div>
+					<div class="row">
+						<div class="cell-left">
+							<%= f.label(:item_type, 'Item Type', class: 'input-label') %>							
+						</div>
+						<div class="cell-right">
+							<%= f.text_field :item_type, :class => 'input', :placeholder => '1 for PDF' %>	
+						</div>      	
+					</div>
+					<div class="spacer"></div>
+					<div class="row">
+						<div class="cell-left">
+							<%= f.label(:item_description, 'Item Description', class: 'input-label') %>							
+						</div>
+						<div class="cell-right">
+							<%= f.text_field :item_description, :class => 'input', :placeholder => 'Description' %>	
+						</div>      	
+					</div>
+					<div class="spacer"></div>
+					<div class="spacer"></div>
+					<div class="row">
+						<div class="cell-left">
+						</div>
+						<div class="cell-right">
+							<div style="height: 30px;"></div>
+							<%= f.submit "Update", class: 'btn-submit' %>
+						</div>      	
+					</div>      		
+										
+					<% end %>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div style="height: 100px;"></div>
+

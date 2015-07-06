@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Weblearn::Application.config.secret_key_base = '0b076577de116f0f3b64dabd8e067e658c608ca2cae6d7d919a2b677643285a6b37be7bb5b1ca253a378dfb9f22b20df9c1bbf2c59e9791c091aacea55aaf1bf'
+Weblearnadmin::Application.config.secret_key_base = '0b076577de116f0f3b64dabd8e067e658c608ca2cae6d7d919a2b677643285a6b37be7bb5b1ca253a378dfb9f22b20df9c1bbf2c59e9791c091aacea55aaf1bf'

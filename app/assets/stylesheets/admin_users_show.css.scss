@@ -1,0 +1,106 @@
+
+    .admin-users-show .table {
+      display: table;
+    }
+    .admin-users-show .row {
+      display: table-row;
+    }
+    .admin-users-show .col-200 {
+      display: table-cell; 
+      width: 200px;
+    }
+    .admin-users-show .col-1000-borders {
+      display: table-cell; 
+      background-color: #F8F8F8;
+      width: 1000px;
+      min-height: 100%;     
+      border-left: 2px #DCE3DF solid;
+      border-right: 2px #DCE3DF solid;
+    }
+    .admin-users-show .col-1000 {
+      display: table-cell; 
+      width: 1000px;     
+    }
+    .admin-users-show .col-gen {
+      display: table-cell;    
+    }
+    .admin-users-show .links {
+      font-family:Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      color: #9F6720;       
+    }
+    .admin-users-show .links:hover {
+      color: #9F6720;       
+    }
+    .admin-users-show .normal {
+      font-family:Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      color: #666666;             
+    }       
+    .admin-users-show .normal-red {
+      font-family:Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      color: red;             
+    }       
+    .admin-users-show .small {
+      font-family:Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      color: #666666;             
+    }       
+    .admin-users-show .line-space-20 {
+      height: 20px;
+    }
+    .admin-users-show .line-space-70 {
+      height: 70px;
+    }
+    .admin-users-show .line-space-80 {
+      height: 80px;
+    }
+    .admin-users-show .line-space-90 {
+      height: 90px;
+    }
+    .admin-users-show .line-space-100 {
+      height: 100px;
+    }
+    .admin-users-show .pad-left-20 {
+      padding-left: 20px;
+    }
+    .admin-users-show .pad-left {
+      padding-left: 20px;
+    }
+    .admin-users-show .pad-right {
+      padding-right: 20px;
+    }
+    .admin-users-show .container {
+      width: 1200px;
+    }
+    .admin-users-show p {
+      font-family: Arial, Helvetica, sans-serif; 
+      font-size: 16px;
+      color: #005187;
+    }
+    .admin-users-show .span-1 {
+      font-family: Arial, Helvetica, sans-serif; 
+      font-size: 16px;
+      color: #005187;     
+    }
+    .admin-users-show .span-2 {
+      font-family: Arial, Helvetica, sans-serif; 
+      font-size: 16px;
+      color: red;     
+    }
+    .admin-users-show .span-3 {
+      font-family: Arial, Helvetica, sans-serif; 
+      font-size: 16px;
+      color: #333;
+    }
+    .admin-users-show .line-separator {
+      width: 100%;
+      height: 8px;
+    }
+    .admin-users-show .row-odd {
+      background-color: #F8F8F8;
+    }
+    .admin-users-show .row-even {
+      background-color: #F0F0F0;
+    }

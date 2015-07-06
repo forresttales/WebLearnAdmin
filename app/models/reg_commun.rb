@@ -74,8 +74,7 @@
 
 class RegCommun < ActiveRecord::Base
   
-  attr_accessible   :id,
-                    :name_first, 
+  attr_accessible   :name_first, 
                     :name_last, 
                     :name_title, 
                     :name_affiliation, 
@@ -102,8 +101,11 @@ class RegCommun < ActiveRecord::Base
                     :level_7_text,
                     :level_other,                                          
                     :institution_size,
+                    :institution_size_text,
                     :employee_number,
-                    :characterize_decision, 
+                    :employee_number_text,
+                    :characterize_decision,
+                    :characterize_decision_text, 
                     :characterize_area_1,
                     :characterize_area_2,
                     :characterize_area_3,
@@ -134,8 +136,17 @@ class RegCommun < ActiveRecord::Base
                     :survey_preferences_2_text,
                     :survey_preferences_3_text,
                     :survey_preferences_4_text,
-                    :survey_preferences_5_text,
-                    :created_at, 
-                    :updated_at
+                    :survey_preferences_5_text
+  
+
+  
+    def next
+        RegCommun.where("id > ?", self.id).first
+    end
+    
+    def previous
+        RegCommun.where("id < ?", self.id).last
+    end
+
   
 end

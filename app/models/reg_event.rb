@@ -3,20 +3,20 @@
 # Table name: reg_events
 #
 #  id                            :integer          not null, primary key
-#  name_first                    :string(50)
-#  name_last                     :string(50)
-#  name_title                    :string(50)
-#  type_affiliation              :string(50)
-#  name_affiliation              :string(100)
+#  name_first                    :string(100)
+#  name_last                     :string(100)
+#  name_title                    :string(200)
+#  type_affiliation              :string(200)
+#  name_affiliation              :string(200)
+#  address                       :string(200)
+#  city                          :string(100)
+#  state                         :string(50)
+#  zip                           :string(50)
+#  phone                         :string(50)
 #  email                         :string(255)      default(""), not null
 #  city_workshop                 :string(50)
 #  created_at                    :datetime
 #  updated_at                    :datetime
-#  address                       :string(50)
-#  city                          :string(50)
-#  state                         :string(50)
-#  zip                           :string(50)
-#  phone                         :string(50)
 #  email_cc_1                    :string(100)
 #  email_cc_2                    :string(100)
 #  city_workshop_1               :boolean          default(FALSE)
@@ -77,13 +77,35 @@
 #  city_workshop_12_session_text :string(50)
 #  city_workshop_13_session_text :string(50)
 #  city_workshop_14_session_text :string(50)
+#  phone_mobile                  :string(100)
+#  name_title_sir                :string(100)
+#  city_workshop_16              :boolean          default(FALSE)
+#  city_workshop_16_text         :string(100)
+#  city_workshop_17              :boolean          default(FALSE)
+#  city_workshop_17_text         :string(100)
+#  city_workshop_18              :boolean          default(FALSE)
+#  city_workshop_18_text         :string(100)
+#  city_workshop_19              :boolean          default(FALSE)
+#  city_workshop_19_text         :string(100)
+#  city_workshop_20              :boolean          default(FALSE)
+#  city_workshop_20_text         :string(100)
+#  city_workshop_21              :boolean          default(FALSE)
+#  city_workshop_21_text         :string(100)
+#  city_workshop_22              :boolean          default(FALSE)
+#  city_workshop_22_text         :string(100)
+#  city_workshop_23              :boolean          default(FALSE)
+#  city_workshop_23_text         :string(100)
+#  city_workshop_24              :boolean          default(FALSE)
+#  city_workshop_24_text         :string(100)
+#  city_workshop_25              :boolean          default(FALSE)
+#  city_workshop_25_text         :string(100)
 #
 
 class RegEvent < ActiveRecord::Base
   
-  attr_accessible :id, 
-                  :name_first, 
+  attr_accessible :name_first, 
                   :name_last, 
+                  :name_title_sir,
                   :name_title, 
                   :type_affiliation, 
                   :name_affiliation, 
@@ -92,6 +114,7 @@ class RegEvent < ActiveRecord::Base
                   :state, 
                   :zip, 
                   :phone, 
+                  :phone_mobile,
                   :email, 
                   :email_cc_1, 
                   :email_cc_2, 
@@ -110,7 +133,14 @@ class RegEvent < ActiveRecord::Base
                   :city_workshop_12,
                   :city_workshop_13,
                   :city_workshop_14,
-                  :city_workshop_15,                  
+                  :city_workshop_15,                                                      
+                  :city_workshop_16,                                                      
+                  :city_workshop_17,                                                      
+                  :city_workshop_18,                                                      
+                  :city_workshop_19,            
+                  :city_workshop_20,
+                  :city_workshop_21,
+                  :city_workshop_22,                                                            
                   :city_workshop_1_text,
                   :city_workshop_2_text,
                   :city_workshop_3_text,
@@ -124,12 +154,35 @@ class RegEvent < ActiveRecord::Base
                   :city_workshop_11_text,
                   :city_workshop_12_text,
                   :city_workshop_13_text,
-                  :city_workshop_14_text,                  
-                  :city_workshop_15_text,                  
-                  :created_at, 
-                  :updated_at
+                  :city_workshop_14_text,
+                  :city_workshop_15_text,       
+                  :city_workshop_16_text,       
+                  :city_workshop_17_text,       
+                  :city_workshop_18_text,       
+                  :city_workshop_19_text,
+                  :city_workshop_20_text,
+                  :city_workshop_21_text,
+                  :city_workshop_22_text
 
 
+  # scope :find_lazy, lambda {|id| where(:id => id)}
+  # scope :find_lazy, ->(id) { where(:id => id)}
+
+  # scope :previous, lambda { |p| {:conditions => ["id < ?", p.id], :limit => 1, :order => "id"} }
+  # scope :next, lambda { |p| {:conditions => ["id > ?", p.id], :limit => 1, :order => "id"} }
+
+  # scope :previous, ->(p) { where("id < ?", p.id), :limit => 1, :order => "id" }
+  # scope :next, ->(p) {:conditions => ["id > ?", p.id], :limit => 1, :order => "id"}
+
+  # @admin_reg_event_next = RegEvent.where("id > ?", @admin_reg_event.id).first
+
+  def next
+    RegEvent.where("id > ?", self.id).first
+  end
+  
+  def previous
+    RegEvent.where("id < ?", self.id).last
+  end
 
 
   def self.search_by_sql(s)

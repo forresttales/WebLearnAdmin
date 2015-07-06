@@ -6,10 +6,10 @@ module SessionsHelper
     admin_user.update_attribute(:remember_token, AdminUser.encrypt(remember_token))
     self.current_user = admin_user
     
-    session[:username] = admin_user.username
-    session[:admin_user_id] = admin_user.id
+    # session[:username] = admin_user.username
+    # session[:admin_user_id] = admin_user.id
     # session[:has_account] = user.has_account
-    session[:signed_in] = true
+    # session[:signed_in] = true
     
     #if user.admin
       # session[:admin] = true
@@ -44,12 +44,28 @@ module SessionsHelper
   end
 
   def signed_in_user
-    unless signed_in? and !session[:username].nil?
+    # unless signed_in? and !session[:username].nil?
+    unless signed_in?
       store_location
       # redirect_to signin_url, notice: "Please sign in"
       redirect_to signin_url
     end
   end
+
+
+  def signed_in_user_admin
+    unless current_user.admin
+      redirect_to '/'
+    end
+  end
+
+
+  def signed_in_user_super_admin
+    unless current_user.super_admin
+      redirect_to '/'
+    end
+  end
+
 
   def sign_out
     self.current_user = nil

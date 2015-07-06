@@ -215,7 +215,7 @@ class Tab1letsController < ApplicationController
  
     # send_file "#{Rails.root}/public/downloads/test.htm"    
 
-    file_dir = 'public/tab1let/' + file_name
+    file_dir = 'public/tab1let/' + file_name.to_s
 
     CSV.foreach(Rails.root.join(file_dir), {headers: :first_row}) do |row|
 

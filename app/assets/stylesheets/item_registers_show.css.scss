@@ -1,0 +1,106 @@
+
+    .item-registers-show .table {
+      display: table;
+    }
+    .item-registers-show .row {
+      display: table-row;
+    }
+    .item-registers-show .col-200 {
+      display: table-cell; 
+      width: 200px;
+    }
+    .item-registers-show .col-1000-borders {
+      display: table-cell; 
+      background-color: #F8F8F8;
+      width: 1000px;
+      min-height: 100%;     
+      border-left: 2px #DCE3DF solid;
+      border-right: 2px #DCE3DF solid;
+    }
+    .item-registers-show .col-1000 {
+      display: table-cell; 
+      width: 1000px;     
+    }
+    .item-registers-show .col-gen {
+      display: table-cell;    
+    }
+    .item-registers-show .links {
+      font-family:Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      color: #9F6720;       
+    }
+    .item-registers-show .links:hover {
+      color: #9F6720;       
+    }
+    .item-registers-show .normal {
+      font-family:Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      color: #666666;             
+    }       
+    .item-registers-show .normal-red {
+      font-family:Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      color: red;             
+    }       
+    .item-registers-show .small {
+      font-family:Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      color: #666666;             
+    }       
+    .item-registers-show .line-space-20 {
+      height: 20px;
+    }
+    .item-registers-show .line-space-70 {
+      height: 70px;
+    }
+    .item-registers-show .line-space-80 {
+      height: 80px;
+    }
+    .item-registers-show .line-space-90 {
+      height: 90px;
+    }
+    .item-registers-show .line-space-100 {
+      height: 100px;
+    }
+    .item-registers-show .pad-left-20 {
+      padding-left: 20px;
+    }
+    .item-registers-show .pad-left {
+      padding-left: 20px;
+    }
+    .item-registers-show .pad-right {
+      padding-right: 20px;
+    }
+    .item-registers-show .container {
+      width: 1200px;
+    }
+    .item-registers-show p {
+      font-family: Arial, Helvetica, sans-serif; 
+      font-size: 16px;
+      color: #005187;
+    }
+    .item-registers-show .span-1 {
+      font-family: Arial, Helvetica, sans-serif; 
+      font-size: 16px;
+      color: #005187;     
+    }
+    .item-registers-show .span-2 {
+      font-family: Arial, Helvetica, sans-serif; 
+      font-size: 16px;
+      color: red;     
+    }
+    .item-registers-show .span-3 {
+      font-family: Arial, Helvetica, sans-serif; 
+      font-size: 16px;
+      color: #333;
+    }
+    .item-registers-show .line-separator {
+      width: 100%;
+      height: 8px;
+    }
+    .item-registers-show .row-odd {
+      background-color: #F8F8F8;
+    }
+    .item-registers-show .row-even {
+      background-color: #F0F0F0;
+    }

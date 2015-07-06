@@ -1,0 +1,533 @@
+
+
+	<style>
+		
+		.form-display-col1 {
+			width: 200px;
+		}
+		.form-display-col2 {
+			width: 400px;
+		}
+		.form-display-separator {
+			height: 10px;
+		}
+		
+	</style>
+
+	<header>
+		<%= render 'share/backtotop' %>
+	</header>
+
+	<div class="container">
+		<div class="table-profile">
+			<div class="row-profile">
+
+				<div class="col-left">
+				</div>
+				
+				<div class="col-midd">
+
+					<div class="line-space-20"></div>
+					<div class="line-space-20"></div>
+					<div class="line-space-20"></div>
+				 
+				 	<table>
+				 		<tr>
+				 			<td>
+				 				<span class="small pad-left-20">ID:</span>
+				 			</td>
+				 			<td>
+				 				<span class="small pad-left-20"><%= @mtab7let.id %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>				 		
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Created:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.created_at.to_s(:long) %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>				 		
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Updated:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.updated_at.to_s(:long) %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 1:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_1 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 2:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_2 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 3:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_3 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 4:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_4 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 5:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_5 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 6:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_6 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 7:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_7 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 8:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_8 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 9:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_9 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 10:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_10 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 11:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_11 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 12:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_12 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 13:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_13 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 14:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_14 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 15:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_15 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 16:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_16 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 17:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_17 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 18:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_18 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 19:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_19 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 20:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_20 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 21:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_21 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 22:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_22 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 23:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_23 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 24:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_24 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 25:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_25 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 26:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_26 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 27:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_27 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 28:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_28 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 29:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_29 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 30:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_30 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 31:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_31 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 32:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_32 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 33:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_33 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 34:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_34 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 35:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_35 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 36:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_36 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 37:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_37 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 38:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_38 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 39:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_39 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 40:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_40 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 41:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_41 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 42:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_42 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 43:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_43 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 44:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_44 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 45:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_45 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 46:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_46 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 47:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_47 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 48:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_48 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 49:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_49 %></span>
+				 			</td>
+				 		</tr>
+				 		<tr><td class="form-display-separator"></td><td></td></tr>
+				 		<tr>
+				 			<td class="form-display-col1">
+				 				<span class="small pad-left-20">Col 50:</span>
+				 			</td>
+				 			<td class="form-display-col2">
+				 				<span class="small pad-left-20"><%= @mtab7let.col_50 %></span>
+				 			</td>
+				 		</tr>
+				 	</table>
+					<div class="line-space-20"></div>
+					<div class="pad-left-20">
+						<span class="normal">
+							 <%= button_to "Edit", {:action => 'edit', :id => @mtab7let.id, :form => :js }, :remote => true %>
+						</span>
+					</div>
+						
+				</div>
+				
+				<div class="col-right">
+				</div>			
+													
+			</div>
+		</div>
+	</div>
+
+	<!-- <script>
+	  
+		// $(window).load( function() {
+		// });
+	  
+	</script>		 -->

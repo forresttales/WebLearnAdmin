@@ -4,6 +4,7 @@ class ArchivesController < ApplicationController
   
   helper_method :sort_column, :sort_direction
   
+  
   def index
     
     #search_by = nil
@@ -11,7 +12,6 @@ class ArchivesController < ApplicationController
     # search_by = params[:search_by]
 # 
     # render text: 'search_by'
-
     
     if params[:search_by].nil?
       @archives = Archive.order(sort_column + " " + sort_direction).paginate(:per_page => 50, :page => params[:page])
@@ -31,6 +31,7 @@ class ArchivesController < ApplicationController
     
   end
 
+
   def list
 
     # @products = Product.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
@@ -41,51 +42,51 @@ class ArchivesController < ApplicationController
     
   end
 
+
   def new
     #@account_type = params[:id]
-    @archive = Archive.new
+    # @archive = Archive.new
+    @archive_next_new_id = Archive.maximum(:id).next
     
   end
   
   
-  
   def create
 
-    @archive = Archive.new(archive_params)
-    if @archive.save
-      #flash[:success] = "Record saved"
-      render 'index'
+    archive = Archive.new
+    if archive.save
+      redirect_to :controller => 'archives', :action => 'edit', :id => archive.id
+      # redirect_to '/archives/:id/edit'
     else
-      #flash.now[:notice] = "Record failed"
       render 'new'
     end
 
   end
 
+
   def show
     
     @archive = Archive.find(params[:id])
+    @archive_next = @archive.next
+    @archive_previous = @archive.previous
     
     # if request.path != archive_path(@info)
       # redirect_to @info, status: :moved_permanently
     # end    
-    
-    #@info = Archive.where(["article_id = ?", params[:id]]).first       
-    #render text: @info.name_file
-    #gon.info = @info
-    #render :file => "journal/pearson"
   end
 
+
   def edit
-    @archive = Archive.find_by_id(params[:id])    
+    @archive = Archive.find_by_id(params[:id])
+    @admin = current_user.name_first + ' ' + current_user.name_last     
   end
+
   
   def update
     
     @archive = Archive.find(params[:id])
     
     if @archive.update_attributes(params[:archive])
-      # redirect_to(:action => 'show', :saved_id => @archive.id)
       
       redirect_to(:action => 'show', :saved_id => @archive.id)
       
@@ -97,30 +98,19 @@ class ArchivesController < ApplicationController
 
   
   def delete
-    # @contact = Contact.find(params[:id])
+    # @archive = Archive.find(params[:id])
   end
 
   def destroy
     
     archive = Archive.find(params[:id])
-    archive.delete
-    redirect_to(archives_list_path)
-    
-    # contact = Contact.find(params[:id])
-    # contact.delete
-    # flash[:notice] = "Contact destroyed."
-  end
+    if archive.delete
+      redirect_to(archives_index_path)
+    else
+      render text: 'delete failed'
+    end 
 
-  # def sortable(column, title = nil)
-    # title ||= column.titleize
-    # css_class = column == sort_column ? "current #{sort_direction}" : nil
-    # direction = column == sort_column && sort_direction == "asc" ? "desc" : "asc"
-    # link_to title, params.merge(:sort => column, :direction => direction, :page => nil), {:class => css_class}
-  # end
-  
-  #  linkimg      :string(50)
-#  linkimg_url  :string(50)
-#  linktitle    :string(200)
+  end
 
   
   private
@@ -133,11 +123,11 @@ class ArchivesController < ApplicationController
   
   
     def sort_column
-      Archive.column_names.include?(params[:sort]) ? params[:sort] : "name_file"
+      Archive.column_names.include?(params[:sort]) ? params[:sort] : "id"
     end
     
     def sort_direction
-      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
     end
   
 end

@@ -1,0 +1,142 @@
+<% @title = "News Letter Registration Record" %>
+
+	<style>
+	
+		/*#signin-page {
+			height: 100%;
+			min-height: 900px;
+		}
+		#signin-page #signin-page-inner {
+		    width: 80%;
+		    margin: 0 auto;
+		}	
+		div .table-signin {
+			display: table;
+			background-color: #DEDB3C;
+			width: 880px;
+			border-radius: 20px;
+			border:2px solid #254520;
+			box-shadow: 1px 1px 10px #888888;
+			padding-top: 40px;
+			padding-bottom: 40px;
+			padding-left: 60px;
+		}*/
+
+		
+		.container {
+			width: 1200px;
+			/*margin: 0 auto;*/
+			/*position: relative;*/
+			/*top: -4px;*/
+		}
+		.box-profile-general {
+			background-color: #F8F8F8;
+		    /*border: 1px solid #41B737;*/
+		    border: 1px solid #1F7C82;
+		    border-radius: 0px 0px 0px 0px;
+		    box-shadow: 0 3px 3px #A9C7C9;
+		    display: table-cell;
+		    padding: 14px;
+			width:630px;
+			/*height: 200px;*/
+		}
+	
+		p {
+			font-family: Arial, Helvetica, sans-serif; 
+			font-size: 16px;
+			color: #005187;
+		}
+		.span-1 {
+			font-family: Arial, Helvetica, sans-serif; 
+			font-size: 16px;
+			color: #005187;			
+		}
+		.span-2 {
+			font-family: Arial, Helvetica, sans-serif; 
+			font-size: 16px;
+			color: red;			
+		}
+		
+	</style>
+
+
+
+	<%= render 'share/backtotop' %>
+
+	<div class="container">
+
+		<div class="table-profile">
+			<div class="row-profile">
+				<div class="col-left">
+					<div class="table-profile">
+						<div class="row-profile" style="height: 20px;">
+							<div class="col-gen"></div>
+						</div>
+						<div class="row-profile">
+							<div class="col-left">
+
+								<div style="height: 100px;"></div>
+
+								<div><span class="span-1">Events Conference Registration Record</span></div>
+								<br />								
+								<br />								
+								<% if !@admin_reg_event_conference_previous.nil? %>
+								<div><span class="span-1">Previous Id: <%= @admin_reg_event_conference_previous.id %></span></div>
+								<% else %>
+								<div><span class="span-1">Previous Id: No Previous Record</span></div>
+								<% end %>
+								<div><span class="span-2">Id: <%= @admin_reg_event_conference.id %></span></div>
+								<% if !@admin_reg_event_conference_next.nil? %>
+								<div><span class="span-1">Next Id: <%= @admin_reg_event_conference_next.id %></span></div>
+								<% else %>
+								<div><span class="span-1">Next Id: No Next Record</span></div>
+								<% end %>
+								<br />
+								<br />
+								<br />								
+								<div><span class="span-1">Created: <%= @admin_reg_event_conference.created_at %></span></div>
+								<br />
+								<div><span class="span-1">Updated: <%= @admin_reg_event_conference.updated_at %></span></div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-midd-700-borders">
+					<div class="table-profile">
+						<!-- <div class="row-profile" style="height: 20px;">
+							<div class="col-gen"></div>
+						</div> -->							
+						<div class="row-profile">
+							<div class="col-midd-700 pad-left-20">
+								<div class="box-profile-general">
+									<%= render 'admin_reg_event_conferences/show' %>
+								</div>
+							</div>
+						</div>
+					</div>					
+				</div>
+				<div class="col-right-300">
+					<div class="table-profile">
+						<div class="row-profile" style="height: 20px;">
+							<div class="col-gen"></div>
+						</div>							
+						<div class="row-profile">
+							<div class="col-right">
+								<% if current_user.admin %>
+								<%= button_to "Edit", {:action => 'edit', :id => @admin_reg_event_conference.id } %>
+								<% end %> 
+							</div>
+						</div>
+					</div>										
+				</div>								
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+

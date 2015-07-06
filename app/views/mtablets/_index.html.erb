@@ -1,12 +1,4 @@
 
-	<style>
-	
-		.reset-db-btn-long {
-		  	width: 300px;
-		  	height: 26px;
-		}
-			
-	</style>
 
 	<div id="page">
 
@@ -28,7 +20,7 @@
 			
 			<table width="1000px">	
 				<tr>
-					<td style="width: 700px">
+					<td style="width: 800px">
 
 						<a href="#" class="links" onclick="sql1();" >Delete from Tab 1 all records in Tab 2 based on First and Last Names</a>
 
@@ -50,11 +42,70 @@
 						<% sqlquery13 = "SELECT * FROM tab1lets WHERE ((col_3 NOT IN (SELECT col_3 FROM tab2lets)) AND (col_4 NOT IN (SELECT col_4 FROM tab2lets))) OR NOT ((col_3 IN (SELECT col_3 FROM tab2lets)) AND (col_4 IN (SELECT col_4 FROM tab2lets)))" %>
 
 						<%= form_tag exec_sql_mtablets_path, :remote => true, :class => 'exec_sql' do %>
-						  	<%= text_area_tag 'sql', '', rows: 5, cols: 100, :id => 'id_sql1', :spellcheck => false %>						  	 
+						  	<%= text_area_tag 'sql', '', :id => 'id_sql1', :class => 'sql-text-box', :spellcheck => false %>						  	 
 						  	<%= submit_tag "Execute SQL", :class => 'exec-sql-btn' %>
 						<% end %>
 
 					</td>
+					<td style="width: 200px; vertical-align: top; padding-top: 30px;">
+					   	<span>
+				   		<%= select_tag("select_state", options_for_select(
+				   				[['-Select by State-', '0'],
+				   				['Alabama AL','1'],
+				   				['Alaska AK','2'],
+				   				['Ariazona AZ','3'],
+				   				['Arkansas AR','4'],
+				   				['California CA','5'],
+				   				['Colorado CO','6'],
+				   				['Connecticut CT','7'],
+				   				['Delaware DE','8'],
+				   				['DC','9'],
+				   				['Florada FL','10'],
+				   				['Georgia GA','11'],
+				   				['Hawaii HI','12'],
+				   				['Idaho ID','13'],
+				   				['Illinois IL','14'],
+				   				['Indiana IN','15'],
+				   				['Iowa IA','16'],
+				   				['Kansas KS','17'],
+				   				['Kentucky KY','18'],
+				   				['Louisiana LA','19'],
+				   				['Maine ME','20'],
+				   				['Maryland MD','21'],
+				   				['Massachusetts MA','22'],
+				   				['Michigan MI','23'],
+				   				['Minnesota MN','24'],
+				   				['Mississippi MS','25'],
+				   				['Missouri MO','26'],
+				   				['Montana MT','27'],
+				   				['Nebraska NE','28'],
+				   				['Nevada NV','29'],
+				   				['New Hampshire NH','30'],
+				   				['New Jersey NJ','31'],
+				   				['New Mexico NM','32'],
+				   				['New York NY','33'],
+				   				['North Carolina NC','34'],
+				   				['North Dakota ND','35'],
+				   				['Ohio OH','36'],
+				   				['Oklahoma OK','37'],
+				   				['Oregon OR','38'],
+				   				['Pennsylvania PA','39'],
+				   				['Rhode Island RI','40'],
+				   				['South Carolina SC','41'],
+				   				['South Dakota SD','42'],
+				   				['Tennessee TN','43'],
+				   				['Texas TX','44'],
+				   				['Utah UT','45'],
+				   				['Vermont VT','46'],
+				   				['Virginia VA','47'],
+				   				['Washington WA','48'],
+				   				['West Virginia WV','49'],
+				   				['Wisconsin WI','50'],
+				   				['Wyoming WY','51']]), :class => 'search-by-state-btn', :id => 'select_state', :html => {:id => 'select_state'}) %>
+						
+					    </span>
+					</td>
+					
 				</tr>
 			</table>
 			
@@ -78,70 +129,118 @@
 					</td>
 				</tr>		
 			</table>	
-			<div style="clear: both;">
-			
+			<div style="clear: both;"></div>
 			
 			<div class="table-page">
-				
-				<div class="row">
-					
-					<div class="cell-100percent" tabindex="1">
-
-
+			<table class="table-layout-fixed">
+				<tr>
+					<td width="800px">
+						
 						<%= form_tag mtablets_path, :method => 'get', :id => "tablets_search" do %>
 
 						  	<span>
-
 						    	 <!-- text_field_tag :search, params[:search]  -->
-						    	
-						    	<%= text_field_tag :search %>
-						    	
+						    	<%= text_field_tag 'search', nil, class: 'search_text' %>
 						   	</span>
-						   	<span class="bar">Search by: </span>
+						   	<span class="bar">Search by Column: </span>
 					
 						   	<span>
 							
-					   		<%= select_tag("search_by", options_for_select(
-					   				[['ID', '1'],
-					   				['Col 1','2'],
-					   				['Col 2','3'],
-					   				['Col 3','4'],
-					   				['Col 4','5'],
-					   				['Col 5','6'],
-					   				['Col 6','7'],
-					   				['Col 7','8'],
-					   				['Col 8','9'],
-					   				['Col 9','10'],
-					   				['Col 10','11'],
-					   				['Col 11','12'],
-					   				['Col 12','13'],
-					   				['Col 13','14'],
-					   				['Col 14','15'],
-					   				['Col 15','16'],
-					   				['Col 16','17'],
-					   				['Col 17','18'],
-					   				['Col 18','19'],
-					   				['Col 19','20'],
-					   				['Col 20','21']])) %>
+					   		<%= select_tag("search_by_col", options_for_select(
+					   				[['All', '0'],
+					   				['Col 1','1'],
+					   				['Col 2','2'],
+					   				['Col 3','3'],
+					   				['Col 4','4'],
+					   				['Col 5','5'],
+					   				['Col 6','6'],
+					   				['Col 7','7'],
+					   				['Col 8','8'],
+					   				['Col 9','9'],
+					   				['Col 10','10'],
+					   				['Col 11','11'],
+					   				['Col 12','12'],
+					   				['Col 13','13'],
+					   				['Col 14','14'],
+					   				['Col 15','15'],
+					   				['Col 16','16'],
+					   				['Col 17','17'],
+					   				['Col 18','18'],
+					   				['Col 19','19'],
+					   				['Col 20','20'],
+					   				['Col 21','21'],
+					   				['Col 22','22'],
+					   				['Col 23','23'],
+					   				['Col 24','24'],					   				
+					   				['Col 25','25'],					   				
+					   				['Col 26','26'],					   				
+					   				['Col 27','27'],					   				
+					   				['Col 28','28'],					   				
+					   				['Col 29','29'],					   				
+					   				['Col 30','30'],					   				
+					   				['Col 31','31'],					   				
+					   				['Col 32','32'],					   				
+					   				['Col 33','33'],					   				
+					   				['Col 34','34'],					   				
+					   				['Col 35','35'],					   				
+					   				['Col 36','36'],					   				
+					   				['Col 37','37'],					   				
+					   				['Col 38','38'],					   				
+					   				['Col 39','39'],					   				
+					   				['Col 40','40'],					   				
+					   				['Col 41','41'],					   				
+					   				['Col 42','42'],					   				
+					   				['Col 43','43'],					   				
+					   				['Col 44','44'],					   				
+					   				['Col 45','45'],					   				
+					   				['Col 46','46'],					   				
+					   				['Col 47','47'],					   				
+					   				['Col 48','48'],					   				
+					   				['Col 49','49'],					   				
+					   				['Col 50','50'],					   				
+					   				['ID','51'],					   				
+					   				['Col ID','52']]), :class => 'search-by-col-btn', :html => {:id => 'search_by_col'}) %>
+							
+						    </span>
+
+						   	<span class="bar">Tab: </span>
+					
+						   	<span>
+							
+					   		<%= select_tag("search_by_tab", options_for_select(
+					   				[['-Tab-','0'],
+					   				['Tab 1','1'],
+					   				['Tab 2','2'],
+					   				['Tab 3','3'],
+					   				['Tab 4','4'],
+					   				['Tab 5','5'],
+					   				['Tab 6','6'],
+					   				['Tab 7','7'],
+					   				['Tab 8','8']]), :class => 'search-by-tab-btn', :html => {:id => 'search_by_tab'}) %>
 							
 						    </span>
 
 							<span>
-						    	<%= submit_tag "Search", :id => nil %>
+						    	<%= submit_tag "Search", :class => 'search-text-btn' %>
 						  	</span>
-						  						
-							<div id="tablets">
-								
-								<%= render 'mtablets/upload_files'%>
 
-							</div>
-			
 						<% end %>
-												
-					</div>
-					
-				</div>
-				
+							
+					</td>
+					<td style="100px;">				
+					</td>
+					<td style="200px; padding-right: 10px; text-align: right;">				
+						<span style="font-size: 13px;">Record Count: <%= @mtablets_count %></span>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 100%;">
+						<div id="tablets">
+							<%= render 'mtablets/list'%>
+						</div>
+					</td>
+				</tr>
+			</table>
 			</div>
 			
 		</div>	
@@ -151,6 +250,176 @@
 
 	<script>
 
+		$("#select_state").on('change', function(){
+			state = "";
+			switch($(this).val())
+			{
+			case "0":
+				state = "";
+			  break;
+			case "1":
+				state = "AL";
+			  break;
+			case "2":
+				state = "AK";
+			  break;
+			case "3":
+				state = "AZ";
+			  break;
+			case "4":
+				state = "AR";
+			  break;
+			case "5":
+				state = "CA";
+			  break;
+			case "6":
+				state = "CO";
+			  break;
+			case "7":
+				state = "CT";
+			  break;
+			case "8":
+				state = "DE";
+			  break;
+			case "9":
+				state = "DC";
+			  break;
+			case "10":
+				state = "FL";
+			  break;
+			case "11":
+				state = "GA";
+			  break;
+			case "12":
+				state = "HI";
+			  break;
+			case "13":
+				state = "ID";
+			  break;
+			case "14":
+				state = "14";
+			  break;
+			case "15":
+				state = "IN";
+			  break;
+			case "16":
+				state = "IA";
+			  break;
+			case "17":
+				state = "KS";
+			  break;
+			case "18":
+				state = "KY";
+			  break;
+			case "19":
+				state = "LA";
+			  break;
+			case "20":
+				state = "ME";
+			  break;
+			case "21":
+				state = "MD";
+			  break;
+			case "22":
+				state = "MA";
+			  break;
+			case "23":
+				state = "MI";
+			  break;
+			case "24":
+				state = "MN";
+			  break;
+			case "25":
+				state = "MS";
+			  break;
+			case "26":
+				state = "MO";
+			  break;
+			case "27":
+				state = "MT";
+			  break;
+			case "28":
+				state = "NE";
+			  break;
+			case "29":
+				state = "NV";
+			  break;
+			case "30":
+				state = "NJ";
+			  break;
+			case "31":
+				state = "NY";
+			  break;
+			case "32":
+				state = "NM";
+			  break;
+			case "33":
+				state = "NY";
+			  break;
+			case "34":
+				state = "NC";
+			  break;
+			case "35":
+				state = "ND";
+			  break;
+			case "36":
+				state = "OH";
+			  break;
+			case "37":
+				state = "OK";
+			  break;
+			case "38":
+				state = "OR";
+			  break;
+			case "39":
+				state = "PA";
+			  break;
+			case "40":
+				state = "RI";
+			  break;
+			case "41":
+				state = "SC";
+			  break;
+			case "42":
+				state = "SD";
+			  break;
+			case "43":
+				state = "TN";
+			  break;
+			case "44":
+				state = "TX";
+			  break;
+			case "45":
+				state = "UT";
+			  break;
+			case "46":
+				state = "VT";
+			  break;
+			case "47":
+				state = "VA";
+			  break;
+			case "48":
+				state = "WA";
+			  break;
+			case "49":
+				state = "WV";
+			  break;
+			case "50":
+				state = "WI";
+			  break;
+			case "51":
+				state = "WY";
+			  break;
+
+			default:
+				//
+			}				
+			
+			if (state != "") {
+				sql_state = "SELECT * FROM mtab7lets WHERE col_16 = '" + state +"'";
+				$("#id_sql1").html(sql_state);
+			}
+		});
 
 		function sql1 (){
 			$("#id_sql1").html("SELECT * FROM mtab1lets WHERE ((col_3 NOT IN (SELECT col_3 FROM mtab2lets)) AND (col_4 NOT IN (SELECT col_4 FROM mtab2lets))) OR NOT ((col_3 IN (SELECT col_3 FROM mtab2lets)) AND (col_4 IN (SELECT col_4 FROM mtab2lets)))");
@@ -161,7 +430,7 @@
 
 		  // alert('ready');
 		  jQuery(".exec_sql").submit(function() {
-		    // alert('Handler for .submit() called.');
+		    //alert('Handler for .submit() called.');
 		  })
 		  .bind("ajax:complete", function() {
 		    alert('complete!');
@@ -186,16 +455,293 @@
 
 		function executeSQL() {
 			alert('executeSQL');
-		    $.post("/mtablets/exec_sql", null, null, "html");
+		    // $.post("/mtablets/exec_sql", null, null, "html");
 			
 			return false;
 		}
 
 		$("#tablets_search").submit(function() {	
-		    $.get($("#tablets_search").attr("action"), null, null, "script");
+			
+			// alert($('#search_by_tab').val());
+			
+			var sql = "";
+			
+			var val_tab = $('#search_by_tab').val();
+			if (val_tab == 0) {
+				alert('Select a Tab');
+			}
+			else {
+				
+				var col = getColumn($('#search_by_col').val());
+				var tab = getTab($('#search_by_tab').val());
+				var ser = $('#search_by_tab').val();
+
+				alert(ser);
+				
+				// sql = "SELECT * FROM " + tab + " WHERE " + col + "=" + ser;
+				// $("#id_sql1").html(sql_state);
+
+			}
+			
 		    return false;
 		});
 
+		function getColumn(column) {
+			
+			switch(column)
+			{
+			case "0":
+				col = "";
+			  break;
+			case "1":
+				col = "col_1";
+			  break;
+			case "2":
+				col = "col_2";
+			  break;
+			case "3":
+				col = "col_3";
+			  break;
+			case "4":
+				col = "col_4";
+			  break;
+			case "5":
+				col = "col_5";
+			  break;
+			case "6":
+				col = "col_6";
+			  break;
+			case "7":
+				col = "col_7";
+			  break;
+			case "8":
+				col = "col_8";
+			  break;
+			case "9":
+				col = "col_9";
+			  break;
+			case "10":
+				col = "col_10";
+			  break;
+			case "11":
+				col = "col_11";
+			  break;
+			case "12":
+				col = "col_12";
+			  break;
+			case "13":
+				col = "col_13";
+			  break;
+			case "14":
+				col = "col_14";
+			  break;
+			case "15":
+				col = "col_15";
+			  break;
+			case "16":
+				col = "col_16";
+			  break;
+			case "17":
+				col = "col_17";
+			  break;
+			case "18":
+				col = "col_18";
+			  break;
+			case "19":
+				col = "col_19";
+			  break;
+			case "20":
+				col = "col_20";
+			  break;
+			case "21":
+				col = "col_21";
+			  break;
+			case "22":
+				col = "col_22";
+			  break;
+			case "23":
+				col = "col_23";
+			  break;
+			case "24":
+				col = "col_24";
+			  break;
+			case "25":
+				col = "col_25";
+			  break;
+			case "26":
+				col = "col_25";
+			  break;
+			case "27":
+				col = "col_27";
+			  break;
+			case "28":
+				col = "col_28";
+			  break;
+			case "29":
+				col = "col_29";
+			  break;
+			case "30":
+				col = "col_30";
+			  break;
+			case "31":
+				col = "col_31";
+			  break;
+			case "32":
+				col = "col_32";
+			  break;
+			case "33":
+				col = "col_33";
+			  break;
+			case "34":
+				col = "col_34";
+			  break;
+			case "35":
+				col = "col_35";
+			  break;
+			case "36":
+				col = "col_36";
+			  break;
+			case "37":
+				col = "col_37";
+			  break;
+			case "38":
+				col = "col_38";
+			  break;
+			case "39":
+				col = "col_39";
+			  break;
+			case "40":
+				col = "col_40";
+			  break;
+			case "41":
+				col = "col_41";
+			  break;
+			case "42":
+				col = "col_42";
+			  break;
+			case "43":
+				col = "col_43";
+			  break;
+			case "44":
+				col = "col_44";
+			  break;
+			case "45":
+				col = "col_45";
+			  break;
+			case "46":
+				col = "col_46";
+			  break;
+			case "47":
+				col = "col_47";
+			  break;
+			case "48":
+				col = "col_48";
+			  break;
+			case "49":
+				col = "col_49";
+			  break;
+			case "50":
+				col = "col_50";
+			  break;
+			default:
+				col = "id";
+			}				
+			
+			return col;
+		}
 	
+		function getTab(tablet) {
+			switch(tablet)
+			{
+			case "0":
+				tab = "";
+			  break;
+			case "1":
+				tab = "mtab1lets";
+			  break;
+			case "2":
+				tab = "mtab2lets";
+			  break;
+			case "3":
+				tab = "mtab3lets";
+			  break;
+			case "4":
+				tab = "mtab4lets";
+			  break;
+			case "5":
+				tab = "mtab5lets";
+			  break;
+			case "6":
+				tab = "mtab6lets";
+			  break;
+			case "7":
+				tab = "mtab7lets";
+			  break;
+			case "8":
+				tab = "mtab8lets";
+			  break;
+
+			default:
+				tab = "";
+			}				
+
+			return tab;			
+		}
+
+		
 	</script>
 					
+<!-- 
+	  0	 National
+	  1  Alabama
+	  2  Alaska 
+	  3  Arizona
+	  4  Arkansas
+	  5  California
+	  6  Colorado 
+	  7  Connecticut
+	  8  Delaware 	
+	  9  DC
+	  10 Florida 	
+	  11 Georgia 	
+	  12 Hawaii 
+	  13 Idaho 	
+	  14 Illinois
+	  15 Indiana 
+	  16 Iowa 	
+	  17 Kansas 	
+	  18 Kentucky
+	  19 Louisiana 
+	  20 Maine 
+	  21 Maryland 
+	  22 Massachusetts
+	  23 Michigan 
+	  24 Minnesota
+	  25 Mississippi 
+	  26 Missouri 	
+	  27 Montana 	
+	  28 Nebraska 	
+	  29 Nevada 
+	  30 New Hampshire 
+	  31 New Jersey 	
+	  32 New Mexico 	
+	  33 New York 	
+	  34 North Carolina 
+	  35 North Dakota 	
+	  36 Ohio 	
+	  37 Oklahoma 
+	  38 Oregon 
+	  39 Pennsylvania
+	  40 Rhode Island
+	  41 South Carolina
+	  42 South Dakota 
+	  43 Tennessee 	
+	  44 Texas 	
+	  45 Utah 	
+	  46 Vermont 
+	  47 Virginia
+	  48 Washington
+	  49 West Virginia
+	  50 Wisconsin 
+	  51 Wyoming 	 
+-->

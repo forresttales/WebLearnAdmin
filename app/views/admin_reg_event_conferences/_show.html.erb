@@ -1,0 +1,92 @@
+
+	<style>
+		
+		.txtarea {
+			border: 1px solid #aaa;
+			background-color: #fff;
+			resize: none;	
+			height: 200px;
+    		font-family:Arial, Helvetica, sans-serif;
+    		font-size: 14px;
+			color: #888;
+			line-height: 1.2em;		
+		}
+		
+	</style>
+
+						<div style="height: 100px;"></div>
+						
+						<span><%= link_to('&laquo;'.html_safe + ' Previous', {:action => 'show', :id => @admin_reg_event_conference_previous.id }) if !@admin_reg_event_conference_previous.nil? %></span>
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						<span><%= link_to('Next '.html_safe + '&raquo;'.html_safe, {:action => 'show', :id => @admin_reg_event_conference_next.id }) if !@admin_reg_event_conference_next.nil? %></span>
+						<br>
+						<br>						
+
+						<!-- <#%= link_to "Next", post_path(@post.next) if !@post.next.nil? %#> -->
+						<!-- <#%= link_to "Next", "admin_reg_event_conferences/show", :id => @admin_reg_event_conference_next.id if !@admin_reg_event_conference_next.nil? %#> -->
+
+						
+						<!-- 
+						# Table name: reg_event_conferences
+						#	
+						#  id               :integer          not null, primary key
+						#  name_first       :string(50)
+						#  name_last        :string(50)
+						#  name_title       :string(50)
+						#  type_affiliation :string(50)
+						#  name_affiliation :string(100)
+						#  email            :string(255)      default(""), not null
+						#  city_workshop    :string(50)
+						#  created_at       :datetime
+						#  updated_at       :datetime
+						#  address          :string(50)
+						#  city             :string(50)
+						#  state            :string(50)
+						#  zip              :string(50)
+						#  phone            :string(50) 
+						-->
+
+						<p>First Name: <%= @admin_reg_event_conference.name_first %></p>
+						<br />
+						<p>Last Name: <%= @admin_reg_event_conference.name_last %></p>
+						<br />
+						<p>Title: <%= @admin_reg_event_conference.name_title %></p>
+						<br />
+						<p>Position Title: <%= @admin_reg_event_conference.position_title %></p>
+						<br />
+						<p>Affiliation: <%= @admin_reg_event_conference.type_affiliation %></p>
+						<br />
+						<p>Affiliate Name: <%= @admin_reg_event_conference.name_affiliation %></p>
+						<br />
+						<p>Address 1: <%= @admin_reg_event_conference.address %></p>
+						<br />
+						<p>City: <%= @admin_reg_event_conference.city %></p>
+						<br />
+						<p>State: <%= @admin_reg_event_conference.state %></p>
+						<br />
+						<p>Zip: <%= @admin_reg_event_conference.zip %></p>
+						<br />
+						<p>Phone: <%= @admin_reg_event_conference.phone %></p>
+						<br />
+						<p>Mobile Phone: <%= @admin_reg_event_conference.phone_mobile %></p>
+						<br />
+						<p>Email: <%= @admin_reg_event_conference.email %></p>
+						<br />
+						<p>Topic: <%= @admin_reg_event_conference.topic %></p>
+						<br />
+						<!-- <tr>
+							<td style="vertical-align: top;">
+								<span>Message</span>
+							</td>
+							<td>
+								<textarea class="txtarea" cols="50" readonly="readonly"><#%= @admin_contact.message %#></textarea>
+							</td>
+						</tr> -->
+						<p>Description:</p>
+						<textarea class="txtarea" cols="50" readonly="readonly"><%= @admin_reg_event_conference.description %></textarea>
+					
+						<div style="height: 100px;"></div>
+						
+
+
+

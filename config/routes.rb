@@ -1,22 +1,42 @@
-Weblearn::Application.routes.draw do
+Weblearnadmin::Application.routes.draw do
    
 
-
-  # root :to => "admin_users#home"
+  root :to => "admin_users#home"
   
-  # match "/admin_users_home" => "admin_users#home", via: 'get'
+  # match "/" => "static_pages#index", via: 'get'
   
 
+  resources :password_resets do
+    collection do
+      post :create_reset
+    end
+  end
+  resources :password_resets
 
   # get "images/index"
 
   get "test/test_scroll"
 
+  match '/item_registers_index', to: 'item_registers#index', via: 'get'
+  match '/item_registers/new', to: 'item_registers#new', via: 'get'
+  match "/item_registers/:id/edit" => "item_registers#edit", via: 'post'
+  match "/item_registers/:id" => "item_registers#update", via: 'post'
+  get "item_registers/show"
+  get "item_registers/view"
+  resources :item_registers
+
+  match '/hit_counts_index', to: 'hit_counts#index', via: 'get'
+  resources :hit_counts
 
 
-
+  match '/admin_reg_communs_index', to: 'admin_reg_communs#index', via: 'get'
+  match '/admin_reg_communs/new', to: 'admin_reg_communs#new', via: 'get'
+  match "/admin_reg_communs/:id/edit" => "admin_reg_communs#edit", via: 'post'
+  match "/admin_reg_communs/:id" => "admin_reg_communs#update", via: 'post'
+  # match "/admin_reg_communs/:id/edit" => "admin_reg_communs#edit", via: 'post'
   resources :admin_reg_communs
-  resources :admin_reg_letters
+
+
   resources :admin_landings
   
   
@@ -333,11 +353,18 @@ Weblearn::Application.routes.draw do
   #*********************************************************************
   # mtables
   
+  # get "mtablets/index"
+  # get "mtablets/show"
+  # match '/mtablets/new', to: 'mtablets#new', via: 'get'
+  # match "/mtablets/:id/edit" => "mtablets#edit", via: 'post'
+  # match "/mtablets/:id" => "mtablets#update", via: 'get'
+  # match '/mtablets/upload', to: 'mtablets#upload', via: 'post'
+  
   get "mtablets/index"
-  get "mtablets/show"
+  get "mtablets/update_show"
+  match "/mtablets/show/:id" => "mtablets#show", via: 'get'
   match '/mtablets/new', to: 'mtablets#new', via: 'get'
   match "/mtablets/:id/edit" => "mtablets#edit", via: 'post'
-  match "/mtablets/:id" => "mtablets#update", via: 'get'
   match '/mtablets/upload', to: 'mtablets#upload', via: 'post'
   
   resources :mtablets do
@@ -366,15 +393,35 @@ Weblearn::Application.routes.draw do
     end
   end
 
+  match "/mtablets/:id" => "mtablets#update", via: 'post'
+
   resources :mtablets
 
 
 
-
+  # resources :mtab1lets do
+    # member do
+      # get 'list'
+    # end
+  # end
 
   get "mtab1lets/index"
-  get "mtab1lets/update_show"
+  # resources :mtab1lets do
+    # member do
+      # get 'list'
+    # end
+  # end
+
+  # resources :mtab1lets do
+    # collection { get :list }
+  # end
+  
+  # get "mtab1lets/update_show"
   match "/mtab1lets/show/:id" => "mtab1lets#show", via: 'get'
+  # get "mtab1lets/list"  
+  # match '/mtab1lets/list' => 'mtab1lets#list', :constraints => { :only_ajax => true }, via: 'get'  
+  match '/mtab1lets/list' => 'mtab1lets#list', via: 'get'  
+  
   match '/mtab1lets/new', to: 'mtab1lets#new', via: 'get'
   match "/mtab1lets/:id/edit" => "mtab1lets#edit", via: 'post'
   match '/mtab1lets/upload', to: 'mtab1lets#upload', via: 'post'
@@ -412,13 +459,11 @@ Weblearn::Application.routes.draw do
 
 
 
-
-
   get "mtab2lets/index"
-  get "mtab2lets/show"
+  get "mtab2lets/update_show"
+  match "/mtab2lets/show/:id" => "mtab2lets#show", via: 'get'
   match '/mtab2lets/new', to: 'mtab2lets#new', via: 'get'
   match "/mtab2lets/:id/edit" => "mtab2lets#edit", via: 'post'
-  match "/mtab2lets/:id" => "mtab2lets#update", via: 'get'
   match '/mtab2lets/upload', to: 'mtab2lets#upload', via: 'post'
   
   resources :mtab2lets do
@@ -447,17 +492,17 @@ Weblearn::Application.routes.draw do
     end
   end
 
+  match "/mtab2lets/:id" => "mtab2lets#update", via: 'post'
+
   resources :mtab2lets
 
 
 
-
-
   get "mtab3lets/index"
-  get "mtab3lets/show"
+  get "mtab3lets/update_show"
+  match "/mtab3lets/show/:id" => "mtab3lets#show", via: 'get'
   match '/mtab3lets/new', to: 'mtab3lets#new', via: 'get'
   match "/mtab3lets/:id/edit" => "mtab3lets#edit", via: 'post'
-  match "/mtab3lets/:id" => "mtab3lets#update", via: 'get'
   match '/mtab3lets/upload', to: 'mtab3lets#upload', via: 'post'
   
   resources :mtab3lets do
@@ -486,18 +531,18 @@ Weblearn::Application.routes.draw do
     end
   end
 
+  match "/mtab3lets/:id" => "mtab3lets#update", via: 'post'
+
   resources :mtab3lets
 
 
 
 
-
-
   get "mtab4lets/index"
-  get "mtab4lets/show"
+  get "mtab4lets/update_show"
+  match "/mtab4lets/show/:id" => "mtab4lets#show", via: 'get'
   match '/mtab4lets/new', to: 'mtab4lets#new', via: 'get'
   match "/mtab4lets/:id/edit" => "mtab4lets#edit", via: 'post'
-  match "/mtab4lets/:id" => "mtab4lets#update", via: 'get'
   match '/mtab4lets/upload', to: 'mtab4lets#upload', via: 'post'
   
   resources :mtab4lets do
@@ -526,17 +571,17 @@ Weblearn::Application.routes.draw do
     end
   end
 
+  match "/mtab4lets/:id" => "mtab4lets#update", via: 'post'
+
   resources :mtab4lets
 
 
 
-
-
   get "mtab5lets/index"
-  get "mtab5lets/show"
+  get "mtab5lets/update_show"
+  match "/mtab5lets/show/:id" => "mtab5lets#show", via: 'get'
   match '/mtab5lets/new', to: 'mtab5lets#new', via: 'get'
   match "/mtab5lets/:id/edit" => "mtab5lets#edit", via: 'post'
-  match "/mtab5lets/:id" => "mtab5lets#update", via: 'get'
   match '/mtab5lets/upload', to: 'mtab5lets#upload', via: 'post'
   
   resources :mtab5lets do
@@ -565,18 +610,17 @@ Weblearn::Application.routes.draw do
     end
   end
 
+  match "/mtab5lets/:id" => "mtab5lets#update", via: 'post'
+
   resources :mtab5lets
 
 
 
-
-
-
   get "mtab6lets/index"
-  get "mtab6lets/show"
+  get "mtab6lets/update_show"
+  match "/mtab6lets/show/:id" => "mtab6lets#show", via: 'get'
   match '/mtab6lets/new', to: 'mtab6lets#new', via: 'get'
   match "/mtab6lets/:id/edit" => "mtab6lets#edit", via: 'post'
-  match "/mtab6lets/:id" => "mtab6lets#update", via: 'get'
   match '/mtab6lets/upload', to: 'mtab6lets#upload', via: 'post'
   
   resources :mtab6lets do
@@ -605,18 +649,17 @@ Weblearn::Application.routes.draw do
     end
   end
 
+  match "/mtab6lets/:id" => "mtab6lets#update", via: 'post'
+
   resources :mtab6lets
 
 
 
-
-
-
   get "mtab7lets/index"
-  get "mtab7lets/show"
+  get "mtab7lets/update_show"
+  match "/mtab7lets/show/:id" => "mtab7lets#show", via: 'get'
   match '/mtab7lets/new', to: 'mtab7lets#new', via: 'get'
   match "/mtab7lets/:id/edit" => "mtab7lets#edit", via: 'post'
-  match "/mtab7lets/:id" => "mtab7lets#update", via: 'get'
   match '/mtab7lets/upload', to: 'mtab7lets#upload', via: 'post'
   
   resources :mtab7lets do
@@ -645,18 +688,17 @@ Weblearn::Application.routes.draw do
     end
   end
 
+  match "/mtab7lets/:id" => "mtab7lets#update", via: 'post'
+
   resources :mtab7lets
 
 
 
-
-
-
   get "mtab8lets/index"
-  get "mtab8lets/show"
+  get "mtab8lets/update_show"
+  match "/mtab8lets/show/:id" => "mtab8lets#show", via: 'get'
   match '/mtab8lets/new', to: 'mtab8lets#new', via: 'get'
   match "/mtab8lets/:id/edit" => "mtab8lets#edit", via: 'post'
-  match "/mtab8lets/:id" => "mtab8lets#update", via: 'get'
   match '/mtab8lets/upload', to: 'mtab8lets#upload', via: 'post'
   
   resources :mtab8lets do
@@ -685,10 +727,9 @@ Weblearn::Application.routes.draw do
     end
   end
 
+  match "/mtab8lets/:id" => "mtab8lets#update", via: 'post'
+
   resources :mtab8lets
-
-
-
 
 
 
@@ -749,11 +790,11 @@ Weblearn::Application.routes.draw do
 
   match '/admin_users_index', to: 'admin_users#index', via: 'get'  
   match '/admin_users_new', to: 'admin_users#new', via: 'get'  
+  # match "/admin_users/:id" => "admin_users#show", via: 'post'
+  match "/admin_users/:id/edit" => "admin_users#edit", via: 'post'
+  match "/admin_users/:id" => "admin_users#update", via: 'post'
 
   resources :admin_users
-
-
-  root to: 'admin_users#home'
 
 
 
@@ -763,27 +804,87 @@ Weblearn::Application.routes.draw do
   match '/admin_reg_events/new', to: 'admin_reg_events#new', via: 'get'
   match "/admin_reg_events/:id/edit" => "admin_reg_events#edit", via: 'post'
   match "/admin_reg_events/:id" => "admin_reg_events#update", via: 'post'
-  
   resources :admin_reg_events do
     member do
       get 'export'
     end
   end
-
   resources :admin_reg_events do
+    collection do
+      post :dbclear
+      post :dbdelete      
+    end
+  end
+  resources :admin_reg_events
+  get "admin_reg_events/show"
+  get "admin_reg_events/view"
+  get "admin_reg_events/get_message"
+
+
+
+
+
+  # get "admin_reg_event_conferences/index"
+  match '/admin_reg_event_conferences_index', to: 'admin_reg_event_conferences#index', via: 'get'
+  match '/admin_reg_event_conferences/new', to: 'admin_reg_event_conferences#new', via: 'get'
+  match "/admin_reg_event_conferences/:id/edit" => "admin_reg_event_conferences#edit", via: 'post'
+  match "/admin_reg_event_conferences/:id" => "admin_reg_event_conferences#update", via: 'post'
+  
+  resources :admin_reg_event_conferences do
+    member do
+      get 'export'
+    end
+  end
+
+  resources :admin_reg_event_conferences do
     collection do
       post :dbclear
     end
   end
 
-  resources :admin_reg_events do
+  resources :admin_reg_event_conferences do
+    collection do
+      post :dbdelete
+    end
+  end
+
+  # resources :admin_reg_event_conferences do
+    # collection do
+      # post :destroy_record
+    # end
+  # end
+  
+  resources :admin_reg_event_conferences
+
+  get "admin_reg_event_conferences/show"
+  get "admin_reg_event_conferences/view"
+  # get "admin_reg_event_conferences/get_message"
+
+
+  match '/admin_reg_letters_index', to: 'admin_reg_letters#index', via: 'get'
+  match '/admin_reg_letters/new', to: 'admin_reg_letters#new', via: 'get'
+  match "/admin_reg_letters/:id/edit" => "admin_reg_letters#edit", via: 'post'
+  match "/admin_reg_letters/:id" => "admin_reg_letters#update", via: 'post'
+  
+  resources :admin_reg_letters do
+    member do
+      get 'export'
+    end
+  end
+
+  resources :admin_reg_letters do
+    collection do
+      post :dbclear
+    end
+  end
+
+  resources :admin_reg_letters do
     collection do
       post :dbdelete
     end
   end
   
-  resources :admin_reg_events
-  
+  resources :admin_reg_letters
 
 
 
@@ -802,10 +903,12 @@ Weblearn::Application.routes.draw do
 
   match '/archives_index', to: 'archives#index', via: 'get'
   match '/archives/new', to: 'archives#new', via: 'get'
-  match '/archives_list', to: 'archives#list', via: 'get'
+  # match '/archives_list', to: 'archives#list', via: 'get'
   match "/archives/:id/edit" => "archives#edit", via: 'post'
   match "/archives/:id" => "archives#update", via: 'post'
   resources :archives
+  get "archives/show"
+  # get "archivess/view"
 
 
   match '/eventnews_index', to: 'eventnews#index', via: 'get'
@@ -857,12 +960,6 @@ Weblearn::Application.routes.draw do
 
   # get "admin_reg_letters/edit"
   get "admin_reg_letters/delete", via: :all
-  get "admin_reg_events/show"
-  get "admin_reg_events/view"
-
-  # match "/admin_reg_letters/:id/create" => "admin_reg_letters#show", via: 'get'
-
-  get "admin_reg_events/get_message"
 
 
   # get "admin_reg_letters/edit"
@@ -1038,7 +1135,7 @@ Weblearn::Application.routes.draw do
   match '/signin', to: 'sessions#new', via: 'get'
   match '/signout', to: 'sessions#destroy', via: 'delete'
 
-  match '/index', to: 'static_pages#index', via: 'get'
+  match '/', to: 'static_pages#index', via: 'get'
   match '/help', to: 'static_pages#help', via: 'get'
   match '/about', to: 'static_pages#about', via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'

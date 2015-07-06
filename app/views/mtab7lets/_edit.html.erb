@@ -1,0 +1,129 @@
+
+
+	<script src="/assets/jquery.validate.js"></script>
+	<script type="text/javascript" src="/assets/entrepeneurs_jquery-1.js"></script>
+
+	<header>
+		<%= render 'share/backtotop' %>
+	</header>
+
+	<div class="container">
+		<div class="table-profile">
+			<div class="row-profile">
+				
+				<div class="col-left">
+				</div>
+				
+				<div class="col-midd">
+
+					<div class="line-space-20"></div>
+
+					<div class="table-form" style="width: 600px;">
+						<div class="row">
+							<div class="cell-100percent" tabindex="1">
+								
+								 <!-- 
+								 :description
+								 :price 
+								 -->
+								 								
+								<!-- = render 'shared/error_messages', object: f.object -->			
+								 <!-- form_for(:mtab7let, :html => { :id => 'mtab1tablet'}, :url => {:action => 'update', :id => @mtab7let.id}, :remote => true) do |f|  -->
+
+								<%= form_for(:mtab7let, :url => {:action => 'update', :id => @mtab7let.id, :form => :js }, :remote => true ) do |f| %>
+								
+								<div class="input-form-spacer"></div>
+		
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_3, 'Col 3', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_3, :class => 'input-form', :tabindex => '2', :autofocus => true %>
+									</div>
+									<div class="cell-error" id="state_col_3"><p id="error_col_3"></p></div>      					   							 								      	
+								</div>
+
+								<div class="input-form-spacer"></div>
+		
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_4, 'Col 4', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_4, :class => 'input-form', :tabindex => '3', :autofocus => true %>
+									</div>
+									<div class="cell-error" id="state_col_4"><p id="error_col_4"></p></div>      					   							 								      	
+								</div>
+
+								<div class="input-form-spacer"></div>
+		
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_18, 'Col 18', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_18, :class => 'input-form', :tabindex => '4', :autofocus => true %>
+									</div>
+									<div class="cell-error" id="state_col_18"><p id="error_col_18"></p></div>      					   							 								      	
+								</div>
+		
+								<div class="input-form-spacer"></div>
+
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:type_content_index, 'Col 41', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										
+								   		<%= f.select(:col_41,
+								   				[['No', '0'],								   		
+								   				['Yes','1']],
+								   				{}, 
+								   				{ :class => 'form-select', :id => 'col_41', :tabindex => '5' } ) %>
+
+									</div>
+									<div class="cell-error" id="state_type_content_index"><p id="error_type_content_index"></p></div>      					   							 								      	
+								</div>
+								
+								<div class="input-form-spacer"></div>
+								<div class="input-form-spacer"></div>
+								<div class="input-form-spacer"></div>
+		
+								<div class="row">
+									<div style="width: 600px; text-align: center;">
+									<%= f.submit 'Submit', :id => 'form-submit-edit', :class => 'form-btn', :tabindex => '6' %>
+									</div>      					   							 	
+								</div>      		
+													
+								<% end %>
+								
+							</div>
+							
+						</div>
+						
+					</div>
+			
+				</div>
+				
+				<div class="col-right">
+				</div>												
+			</div>
+		</div>
+	</div>
+
+	<script>
+		
+		// $(document).ready(function () {				
+		// $(function() {
+		// $(window).load( function() {
+// 		
+			// $("#publisher-product").submit(function() {	
+// 				
+				// var hidden1 = "<" + "% f.hidden_field :type_content, :value => '" + $("#select_type_content").val() + "'%" + ">";
+				// $( "#render-select-type-content" ).html( hidden1 );				
+			    // return false;
+			// });
+		// });		
+		
+	</script>

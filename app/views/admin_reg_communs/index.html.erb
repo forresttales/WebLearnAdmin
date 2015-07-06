@@ -1,0 +1,317 @@
+<% provide(:title, 'Community Registration List') %>
+
+	<style>
+	
+		#signin-page {
+			min-height: 900px;
+		}
+		#signin-page #signin-page-inner {
+		    width: 100%;
+		    margin: 0 auto;
+		}	
+		div .table-signin {
+			display: table;
+			background-color: #E3DDCF;
+			width: 1000px;
+			border-radius: 0px;
+			padding-top: 40px;
+			padding-bottom: 40px;
+			padding-left: 10px;
+			padding-right: 10px;			
+		}
+		.table-signin p {
+			font-family: msyh; 
+			font-size: 16px;
+			color: #005187;"
+		}
+		#import.signin-btn {
+		  	width: 70px;
+		  	height: 20px;			
+		}    	   
+		.signin-btn {
+		  	display: inline-block;
+		  	text-decoration: none; 
+		  	background: linear-gradient(#000, #000);
+		  	text-shadow: 1px 1px 1px #0E86B2; 
+		  	border-radius: 4px;
+		}
+		.signin-btn:focus {
+		  background: #CCC; 
+		  color: #5F7A2A;
+		  box-shadow: inset 0 1px 0 rgba(200,200,200,0.2);
+		}
+		.signin-btn:hover { 
+		  box-shadow: inset 0 1px 1px rgba(255,255,255,0.2), 
+		  inset 0 1.5em 1em rgba(255,255,255,0.3);
+		}
+		.signin-btn:active { 
+		  box-shadow: inset 0 1px 1px rgba(255,255,255,0.2), 
+		  inset 0 1.5em 1em rgba(0,0,0,0.3); 
+		}
+		
+	</style>
+
+    <style>
+    	
+    	.main {
+    		font-family:Arial, Helvetica, sans-serif;
+    		font-size: 20px;
+    		color: black;
+    		height: 500px;
+    	}
+    	.links {
+    		font-family:Arial, Helvetica, sans-serif;
+    		font-size: 13px;
+    		color: brown;    		
+    	}
+    	h1 {
+    		font-size: 22px;
+    	}
+    	h2 {
+    		font-size: 18px;
+    	}
+    	h4 {
+    		font-size: 16px;
+    		font-weight: 600;
+    	}    	
+    	h5 {
+    		font-size: 12px;
+    	}    	    	
+    	p {
+    		font-size: 12px;
+    	}
+    	.bar {
+    		font-size: 16px;
+    		font-weight: 400;
+    	}
+		.input-upload {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 16px;
+			width: 600px;
+			height: 24px;
+			border-style:solid;
+			background-color: #fff;
+			border-color: #000;
+			border-width: 1px;
+			padding-left: 6px;
+			color: #888;
+		}
+    	.submit-upload {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 16px;
+    		height: 24px;
+    	}
+    	#admin-events {
+    		width: 2300px; 
+    	}
+    	table#admin-events th {
+    		padding-left: 0px;
+    	}    	    	
+    	table#admin-events tr {
+    		height: 20px;
+    	}    	
+    	table#admin-events td {
+    		vertical-align: bottom;    		
+    		padding-top: 0px;
+    		padding-bottom: 4px;       		    		    		
+    	}
+    	.gray {
+			background: #CCC			    		
+    	}
+    	.white {
+			background: #fff    		
+    	}
+    	.hover-col {
+    		background-color: rgba(0, 0, 0, 0.1);
+    	}
+		.hover-row {
+			background-color: #FAC0C1;
+		}
+		.row-select {
+			color: #fff;			
+			background-color: brown;
+		}
+		.btn-color-select {
+			color: #fff;	
+		}
+		.btn-color {
+		  	color: #A31C1C;			
+		}
+		.delete-btn {
+		  	display: inline-block;
+		  	text-decoration: none; 
+		  	width: 50px;
+		  	height: 20px;
+		  	background: inherit;
+		  	border-width: 0px;
+		}
+		.delete-btn:focus {
+		}
+		.delete-btn:hover { 
+		  	text-decoration: underline; 
+		  	cursor: pointer;
+		}
+		.delete-btn:active { 
+		  	text-decoration: underline; 
+		}
+		.header-shift {
+			padding-left: 0px;
+		}    	    	
+
+		.reset-db-btn {
+		  	width: 200px;
+		  	height: 20px;
+		}
+		#loading {
+			background:url("/assets/icon_loading.gif") no-repeat center center;
+			height: 100px; width: 100px;
+			position: fixed; left: 47%; top: 50%; z-index: 1000;
+			margin: -25px 0 0 -25px;
+			visibility: hidden;
+		}				
+    	    	
+    </style>
+
+	<style>
+		
+		.scrollbox-both {
+	 		height:520px;
+	 		width:1200px;
+	 		overflow:scroll;
+	 		border:1px solid #651375;		
+		}
+				
+	</style>
+
+
+	<div id="signin-page">
+		
+		<header>
+			
+	    	<div id="pos" style="display: none;"></div>
+
+			<%= render 'share/backtotop' %>
+
+			<div style="height: 100px;"></div>
+			
+		</header>
+		
+		
+		<div id="signin-page-inner">
+			
+			<div><span class="title-header">Community Registration</span></div>
+			<div class="table-signin">
+				
+				<div class="row">
+					
+					<div class="cell-100percent" tabindex="1">
+
+						<%= form_tag admin_contacts_index_path, :method => 'get', :id => "admin_contacts_search" do %>
+						  	
+						  	<span>
+
+						    	 <!-- text_field_tag :search, params[:search]  -->
+						    	
+						    	<%= text_field_tag :search %>
+						    	
+						   	</span>
+						   	<span style="">Search by: </span>
+					
+						   	<span>
+							
+					   		<%= select_tag("search_by", options_for_select(
+					   				[['ID', '1'], 
+					   				['First Name','2'],
+					   				['Last Name','3'],
+					   				['Affil Type','4'],
+					   				['Affiliation','5']])) %>
+							
+						    </span>
+							<span>
+						    	<%= submit_tag "Search", :id => nil %>
+						  	</span>
+
+							<!-- <div style="display: inline; width: 200px;"></div> -->								
+								
+							<!-- <span style="width: 200px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> -->
+															
+							<span>Workshop: </span><span id="city"></span>
+
+						    <!-- 
+						    <option value="1">Columbia, SC</option>
+						    <option value="2">Houston, TX</option>
+						    <option value="3">Albuquerque, NM</option>
+						    <option value="4">Fresno, CA (Central)</option>						    
+						    <option value="5">Chicago, IL</option>
+						    <option value="6">San Bernadino, CA</option>						    
+						    <option value="7">Richmond, VA</option>
+						    <option value="8">Minneapolis, MN</option> 
+						    <option value="9">Detroit, MI</option>
+						    <option value="10">Las Vegas, NV</option>
+						    <option value="11">San Jose, CA</option>						    
+						    <option value="12">Newark, NJ</option>
+						    <option value="13">Tucson/Santa Fe, AZ</option>
+						    <option value="14">Tampa, FL</option>
+						    -->							
+
+						   	<span>
+							
+					   		 <%= select_tag("workshop", options_for_select(
+					   				[['All', '16'], 
+					   				['Columbia, SC','1'],
+					   				['Houston, TX','2'],
+					   				['Albuquerque, NM','3'],
+					   				['Fresno, CA (Central)','4'],
+					   				['Chicago, IL','5'],
+					   				['San Bernadino, CA','6'],
+					   				['Richmond, VA','7'],
+					   				['Minneapolis, MN','8'],
+					   				['Detroit, MI','9'],
+					   				['Las Vegas, NV','10'],
+					   				['San Jose, CA','11'],
+					   				['Newark, NJ','12'],
+					   				['Tucson/Santa Fe, AZ','13'],
+					   				['Tampa, FL','14'],
+					   				['National GATHERING','15']])) %>
+					   				
+					   									   				
+					   				<!-- ['Workshop 13','13']]), :onchange => 'select_workshop()')  -->					   				
+							
+						    </span>
+
+					
+							<div id="admin_reg_events">
+								 <%= render 'admin_reg_communs/list' %> 
+							</div>
+						  
+						<% end %>
+						
+												
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>	
+		
+	</div>					
+
+	<script>
+
+		$(document).on('click','#admin_reg_events th a, #admin_reg_events .pagination a',function(){
+		    $.getScript(this.href);
+		    return false;
+		});
+
+		$("#admin_reg_events_search").submit(function() {	
+		    $.get($("#admin_reg_events_search").attr("action"), $("#admin_reg_events_search").serialize(), null, "script");
+		    return false;
+		});
+
+	
+	</script>
+
+					
+
+

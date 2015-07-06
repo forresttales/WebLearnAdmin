@@ -1,130 +1,122 @@
 source 'https://rubygems.org'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-ruby '2.0.0'
-
-gem 'rails', '4.0.0'
-
-# Use postgresql as the database for Active Record
+ruby '2.2.2'
+gem 'rails', '4.2.1'
 gem 'pg'
-
 gem 'rails_12factor'  
-
 gem 'protected_attributes'
-
 gem 'gon'
-
 gem 'friendly_id'
-
-gem 'roo'
-
-gem "render_csv"
-
-gem 'rubyXL'
-
-gem 'rubyzip', '< 1.0.0'
-
-
 gem 'tabulous'
-
-
-# gem 'green_shoes'
-
-gem "paperclip"
-
-
-#gem 'bootstrap-sass', '2.3.2.0'
-# gem 'bootstrap-sass'
-
-# gem 'bcrypt-ruby'
 gem 'faker'
 gem 'will_paginate'
-#gem 'bootstrap-will_paginate'
-
-gem 'bcrypt-ruby', '3.0.0'
-# gem 'faker', '1.1.2'
-# gem 'will_paginate', '3.0.4'
-# gem 'bootstrap-will_paginate', '0.0.9'
-
-
-
-#gem "yui-rails", "~> 0.5.2"
-
-# Use SCSS for stylesheets
-gem 'sass-rails'
-
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails'
-
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
-
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+gem 'bcrypt-ruby'
+gem 'jquery-rails', "~> 3.1.2"
 gem 'turbolinks'
-
 gem 'jquery-turbolinks'
-
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder'
-#gem 'jbuilder', '~> 1.2'
-
-
-#gem 'sass-rails', '~> 4.0.0'
-#gem 'uglifier', '2.1.1'
-
-#gem 'coffee-rails', '~> 4.0.0'
-#gem 'coffee-rails'
-
-#gem 'jquery-rails', '2.2.1'
-#gem 'turbolinks', '1.1.1'
-
-#gem 'jbuilder', '~> 1.0.2'
-#gem 'jbuilder'
-
-
+gem 'json'
+# gem 'recaptcha'
+gem 'jquery-tmpl-rails'
+# gem 'sprockets-rails', :require => 'sprockets/railtie'
+# gem 'jquery-validation-rails'
+gem 'rack-mini-profiler'
+gem 'responders'
 
 group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
 
 group :development, :test do
-  #gem 'rspec-rails', '2.13.1'
-  #gem 'guard-rspec', '2.5.0'  
-  gem 'annotate', ">=2.5.0"
+  gem 'annotate'
 end
 
+group :assets do
+  gem 'sass-rails'
+  gem 'coffee-rails'  
+  gem 'uglifier'
+end
 
-#group :test do
-  # gem 'selenium-webdriver', '2.0.0'
-  # gem 'capybara', '2.1.0'
-#   
-  # gem 'cucumber-rails', '1.3.0', :require => false
-  # #gem 'database_cleaner', github: 'bmabey/database_cleaner'  
-#   
-  # # Uncomment these lines on Linux.
-  # gem 'libnotify', '0.8.0'  
-#   
-  # gem 'factory_girl_rails', '4.2.1'  
-#end
-
+gem 'roo'
+gem "render_csv"
+gem 'rubyXL'
+gem 'rubyzip', '< 1.0.0'
+gem "paperclip"
+# gem 'bcrypt-ruby', '3.1.2'
 
 
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+# Using rake 10.4.2
+# Using i18n 0.7.0
+# Using json 1.8.2
+# Using minitest 5.6.1
+# Using thread_safe 0.3.5
+# Using tzinfo 1.2.2
+# Using activesupport 4.2.1
+# Using builder 3.2.2
+# Using erubis 2.7.0
+# Using mini_portile 0.6.2
+# Using nokogiri 1.6.6.2
+# Using rails-deprecated_sanitizer 1.0.3
+# Using rails-dom-testing 1.0.6
+# Using loofah 2.0.1
+# Using rails-html-sanitizer 1.0.2
+# Using actionview 4.2.1
+# Using rack 1.6.0
+# Using rack-test 0.6.3
+# Using actionpack 4.2.1
+# Using globalid 0.3.5
+# Using activejob 4.2.1
+# Using mime-types 2.5
+# Using mail 2.6.3
+# Using actionmailer 4.2.1
+# Using activemodel 4.2.1
+# Using arel 6.0.0
+# Using activerecord 4.2.1
+# Using annotate 2.6.8
+# Using bcrypt 3.1.10
+# Using bcrypt-ruby 3.1.5
+# Using climate_control 0.0.3
+# Using cocaine 0.5.7
+# Using coffee-script-source 1.9.1.1
+# Using execjs 2.5.2
+# Using coffee-script 2.4.1
+# Using thor 0.19.1
+# Using railties 4.2.1
+# Using coffee-rails 4.1.0
+# Using colored 1.2
+# Using faker 1.4.3
+# Using friendly_id 5.1.0
+# Using multi_json 1.11.0
+# Using request_store 1.1.0
+# Using gon 5.2.3
+# Using jbuilder 2.2.13
+# Using jquery-rails 3.1.2
+# Using bundler 1.9.5
+# Using sprockets 3.0.3
+# Using sprockets-rails 2.2.4
+# Using rails 4.2.1
+# Using jquery-tmpl-rails 1.1.0
+# Using turbolinks 2.5.3
+# Using jquery-turbolinks 2.1.0
+# Using paperclip 4.2.1
+# Using pg 0.18.1
+# Using protected_attributes 1.0.9
+# Using rack-mini-profiler 0.9.3
+# Using rails_serve_static_assets 0.0.4
+# Using rails_stdout_logging 0.0.3
+# Using rails_12factor 0.0.3
+# Using rdoc 4.2.0
+# Using render_csv 2.0.0
+# Using responders 2.1.0
+# Using rubyzip 0.9.9
+# Using ruby-ole 1.2.11.8
+# Using spreadsheet 1.0.3
+# Using roo 1.13.2
+# Using rubyXL 1.2.10
+# Using sass 3.4.13
+# Using tilt 1.4.1
+# Using sass-rails 5.0.3
+# Using sdoc 0.4.1
+# Using tabulous 2.1.3
+# Using uglifier 2.7.1
+# Using will_paginate 3.0.7

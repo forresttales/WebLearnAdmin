@@ -1,0 +1,185 @@
+
+    .archives-index {
+      width: 100%;
+      margin: 0 auto;
+    } 
+    .archives-index .table-1 {
+      display: table;
+      background-color: #E3DDCF;
+      width: 1200px;
+      border-radius: 0px;
+      padding-top: 40px;
+      padding-bottom: 40px;
+      padding-left: 10px;
+      padding-right: 10px;      
+    }
+    .archives-index .table-2 {
+      display: table;
+      width: 1200px;
+      border-radius: 0px;
+    }
+    .archives-index.table-2 p {
+      font-family: 'Quattrocento', Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      color: #005187;
+    }
+    .archives-index .main-1 {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 20px;
+      color: black;
+      height: 550px;
+    }
+    .archives-index .links {
+      font-family:Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      color: brown;       
+    }
+    .archives-index h1 {
+      font-size: 22px;
+    }
+    .archives-index h2 {
+      font-size: 18px;
+    }
+    .archives-index h4 {
+      font-size: 12px;
+    }     
+    .archives-index h5 {
+      font-size: 12px;
+    }           
+    .archives-index p {
+      font-size: 12px;
+    }
+    .archives-index .bar {
+      font-size: 16px;
+      font-weight: 400;
+    }
+    .archives-index .input-upload {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      width: 600px;
+      height: 24px;
+      border-style:solid;
+      background-color: #fff;
+      border-color: #000;
+      border-width: 1px;
+      padding-left: 6px;
+      color: #888;
+    }
+    .archives-index .submit-upload {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      height: 24px;
+    }
+    .archives-index table.archives {
+      table-layout: fixed;
+      width: 4350px;
+    }
+    .archives-index table.archives th {
+      padding-left: 0px;
+    }           
+    .archives-index table.archives tr {
+      height: 20px;
+    }     
+    .archives-index table.archives td {
+      vertical-align: bottom;       
+      padding-top: 0px;
+      padding-bottom: 4px;                          
+    }
+    .archives-index .gray {
+      background: #CCC;              
+    }
+    .archives-index .white {
+      background: #fff;        
+    }
+    .archives-index .hover-col {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+    .archives-index .hover-row {
+      background-color: #FAC0C1;
+    }
+    .archives-index .row-select {
+      color: #fff;      
+      background-color: brown;
+    }
+    .archives-index .btn-color-select {
+      color: #fff;  
+    }
+    .archives-index .btn-color {
+      color: #A31C1C;     
+    }
+    .archives-index .delete-btn {
+      display: inline-block;
+      text-decoration: none; 
+      width: 50px;
+      height: 20px;
+      background: inherit;
+      border-width: 0px;
+    }
+    .archives-index .delete-btn:focus {
+    }
+    .archives-index .delete-btn:hover { 
+      text-decoration: underline; 
+    }
+    .archives-index .delete-btn:active { 
+      text-decoration: underline; 
+    }
+    .archives-index .header-shift {
+      padding-left: 0px;
+    }           
+    .archives-index .reset-db-btn {
+      width: 200px;
+      height: 20px;
+    }
+    .archives-index .page-loading {
+      background: asset-url('loader_2_w150_h150.gif') no-repeat center center;
+      height: 150px; 
+      width: 150px;
+      position: fixed;
+      left: 50%;
+      margin-left: -75px; 
+      top: 40%; 
+      z-index: 1000;
+    }       
+    .archives-index .ajax-loading {
+      background: asset-url('icon_loading.gif') no-repeat center center;
+      height: 50px; 
+      width: 50px;
+      position: fixed; 
+      left: 50%;
+      margin-left: -25px;
+      top: 40%; 
+      z-index: 1000;
+    }       
+    .archives-index .scrollbox-both {
+      height: 520px;
+      width: 1200px;
+      overflow: scroll;
+      border:1px solid #651375;   
+    }
+    .archives-index .scrollbox-both-2 {
+      height: 20px;
+      width: 1200px;
+      padding-left: 0px;
+      background-color: #fff;
+      overflow: hidden;
+      border:1px solid #651375;   
+    }
+    .archives-index .hidden {
+      display: none !important;
+      visibility: hidden !important;     
+    }
+    .archives-index .visibility-hidden {
+      visibility: hidden;
+    }
+    .archives-index #archives_header th .current {
+      padding-right: 12px;
+      background-repeat: no-repeat;
+      background-position: right center;
+    }
+    .archives-index #archives_header th .asc {
+      background-image: asset-url('up_arrow.gif');
+    }
+    .archives-index #archives_header th .desc {
+      background-image: asset-url('down_arrow.gif');
+    }       
+    

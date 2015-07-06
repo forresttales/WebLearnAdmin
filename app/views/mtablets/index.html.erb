@@ -88,6 +88,18 @@
 			$('#tabs1').on('click', function() {
 				change_selected(1);
 			   	$.get("/mtab1lets", null, null, "script");
+			   	
+				// $.get( "/mtab1lets", null, null, 'script', function() {
+				// })
+				// .done(function() {
+					// $("#tablets th a, #tablets .pagination a").on("click", function() {
+						 // $.get("/mtab1lets/list", null, null, "script");
+						// return false;
+					// });
+				// })
+				// .fail(function() {
+					// alert( "ajax load error" );
+				// });
 			});
 	
 			$('#tabs2').on('click', function() {

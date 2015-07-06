@@ -8,7 +8,7 @@ class MtabletsController < ApplicationController
   
   layout 'mtablet'
   
-  helper_method :sort_column, :sort_direction
+  helper_method :sort_column, :sort_direction, :yesno, :state
   
   
   @@mtablets = nil
@@ -136,6 +136,8 @@ class MtabletsController < ApplicationController
     @@delete = false
     
     @@mtablets = @mtablets
+    
+    @mtablets_count = @mtablets.count
 
     # @mtablet_test = @@mtablet_test
 
@@ -339,7 +341,6 @@ class MtabletsController < ApplicationController
   end
 
 
-
   def export
     
     # @mtablets = Mtablet.where(params[:export])
@@ -457,6 +458,12 @@ class MtabletsController < ApplicationController
 
   def show
     @mtablet = Mtablet.find(params[:id])    
+    
+    respond_to do |format|
+      format.js
+      format.html
+    end
+    
   end
 
   
@@ -632,6 +639,127 @@ class MtabletsController < ApplicationController
         return mtablet
     end
 
+
+    def yesno(x)
+      x == 1 ? "Yes" : "No"
+    end
+
+
+    def state(x)
+      
+      col_val = ""
+      case x.to_s
+        when "0"
+          col_val = 'National'
+        when "1"
+          col_val = 'Alabama'
+        when "2"
+          col_val = 'Alaska'
+        when "3"
+          col_val = 'Arizona'
+        when "4"
+          col_val = 'Arkansas'
+        when "5"
+          col_val = 'California'
+        when "6"
+          col_val = 'Colorado'
+        when "7"
+          col_val = 'Connecticut'
+        when "8"
+          col_val = 'Delaware'
+        when "9"
+          col_val = 'DC'
+        when "10"
+          col_val = 'Florida'
+        when "11"
+          col_val = 'Georgia'
+        when "12"
+          col_val = 'Hawaii'
+        when "13"
+          col_val = 'Idaho'
+        when "14"
+          col_val = 'Illinois'
+        when "15"
+          col_val = 'Indiana'
+        when "16"
+          col_val = 'Iowa'
+        when "17"
+          col_val = 'Kansas'
+        when "18"
+          col_val = 'Kentucky'
+        when "19"
+          col_val = 'Louisiana'
+        when "20"
+          col_val = 'Maine'
+        when "21"
+          col_val = 'Maryland'
+        when "22"
+          col_val = 'Massachusetts'
+        when "23"
+          col_val = 'Michigan'
+        when "24"
+          col_val = 'Minnesota'
+        when "25"
+          col_val = 'Mississippi'
+        when "26"
+          col_val = 'Missouri'
+        when "27"
+          col_val = 'Montana'
+        when "28"
+          col_val = 'Nebraska'
+        when "29"
+          col_val = 'Nevada'
+        when "30"
+          col_val = 'New Hampshire'
+        when "31"
+          col_val = 'New Jersey'
+        when "32"
+          col_val = 'New Mexico'
+        when "33"
+          col_val = 'New York'
+        when "34"
+          col_val = 'North Carolina'
+        when "35"
+          col_val = 'North Dakota'
+        when "36"
+          col_val = 'Ohio'
+        when "37"
+          col_val = 'Oklahoma'
+        when "38"
+          col_val = 'Oregon'
+        when "39"
+          col_val = 'Pennsylvania'
+        when "40"
+          col_val = 'Rhode Island'
+        when "41"
+          col_val = 'South Carolina'
+        when "42"
+          col_val = 'South Dakota'
+        when "43"
+          col_val = 'Tennessee'
+        when "44"
+          col_val = 'Texas'
+        when "45"
+          col_val = 'Utah'
+        when "46"
+          col_val = 'Vermont'
+        when "47"
+          col_val = 'Virginia'
+        when "48"
+          col_val = 'Washington'
+        when "49"
+          col_val = 'West Virginia'
+        when "50"
+          col_val = 'Wisconsin'
+        when "51"
+          col_val = 'Wyoming'
+        else
+          col_val = ''
+      end
+
+      # x = col_val
+      return col_val      
+    end
 
 
 end

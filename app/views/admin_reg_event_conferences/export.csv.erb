@@ -1,0 +1,4 @@
+id;created_at;name_first;name_last;name_title;position_title;type_affiliation;name_affiliation;address;city;state;zip;phone;email 
+<% @admin_reg_event_conferences.each do |admin_reg_event_conference| %>
+<%= admin_reg_event_conference.id %>;<%= admin_reg_event_conference.created_at.to_formatted_s(:db) %>;<%= admin_reg_event_conference.name_first %>;<%= admin_reg_event_conference.name_last %>;<%= admin_reg_event_conference.name_title %>;<%= admin_reg_event_conference.position_title %>;<%= admin_reg_event_conference.type_affiliation %>;<%= admin_reg_event_conference.name_affiliation %>;<%= admin_reg_event_conference.address %>;<%= admin_reg_event_conference.city %>;<%= admin_reg_event_conference.state %>;<%= admin_reg_event_conference.zip %>;<%= admin_reg_event_conference.phone %>;<%= admin_reg_event_conference.email %>
+<% end %>

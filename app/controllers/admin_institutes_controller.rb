@@ -2,6 +2,10 @@ class AdminInstitutesController < ApplicationController
   
   layout 'admin'
   
+  before_action :signed_in_user  
+  before_action :signed_in_user_admin, only: :edit
+  
+  
   def list
     @admin_institutes = Institute.paginate(page: params[:page]).per_page(5)
   end

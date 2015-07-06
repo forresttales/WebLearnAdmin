@@ -50,13 +50,15 @@ class AdminContactsController < ApplicationController
 
 
   def delete
-    # @contact = Contact.find(params[:id])
+    @contact = Contact.find(params[:id])
   end
 
 
   def destroy
-    # contact = Contact.find(params[:id])
-    # contact.delete
+    contact = Contact.find(params[:id])
+    contact.delete
+    
+    redirect_to :action => 'index'
     # flash[:notice] = "Contact destroyed."
   end
   

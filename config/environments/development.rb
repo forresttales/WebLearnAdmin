@@ -1,4 +1,4 @@
-Weblearn::Application.configure do
+Weblearnadmin::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -26,5 +26,19 @@ Weblearn::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  config.assets.compress = true
+  
+  ActionMailer::Base.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.live.com",
+    :port                 => 587,
+    :domain               => 'mail.live.com',
+    :user_name            => 'forresttales@hotmail.com',
+    :password             => 'wolftalk666',
+    :authentication       => 'plain',
+    :enable_starttls_auto => true  
+  }
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }  
 
 end

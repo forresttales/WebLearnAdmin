@@ -2,7 +2,7 @@
 require File.expand_path('../application', __FILE__)
 
 # Initialize the Rails application.
-Weblearn::Application.initialize!
+Weblearnadmin::Application.initialize!
 
 Time::DATE_FORMATS[:day_month_year] = "%b %d %Y"
 

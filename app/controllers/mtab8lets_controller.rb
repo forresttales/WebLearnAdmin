@@ -6,7 +6,7 @@ class Mtab8letsController < ApplicationController
 
   layout 'mtablet'
   
-  helper_method :sort_column, :sort_direction, :yesno
+  helper_method :sort_column, :sort_direction, :yesno, :state
   
   
   @@mtab8lets = nil
@@ -462,5 +462,175 @@ class Mtab8letsController < ApplicationController
       x == 1 ? "Yes" : "No"
     end
 
+    def state(x)
+      
+      col_val = ""
+      case x.to_s
+        when "0"
+          col_val = 'National'
+        when "1"
+          col_val = 'Alabama'
+        when "2"
+          col_val = 'Alaska'
+        when "3"
+          col_val = 'Arizona'
+        when "4"
+          col_val = 'Arkansas'
+        when "5"
+          col_val = 'California'
+        when "6"
+          col_val = 'Colorado'
+        when "7"
+          col_val = 'Connecticut'
+        when "8"
+          col_val = 'Delaware'
+        when "9"
+          col_val = 'DC'
+        when "10"
+          col_val = 'Florida'
+        when "11"
+          col_val = 'Georgia'
+        when "12"
+          col_val = 'Hawaii'
+        when "13"
+          col_val = 'Idaho'
+        when "14"
+          col_val = 'Illinois'
+        when "15"
+          col_val = 'Indiana'
+        when "16"
+          col_val = 'Iowa'
+        when "17"
+          col_val = 'Kansas'
+        when "18"
+          col_val = 'Kentucky'
+        when "19"
+          col_val = 'Louisiana'
+        when "20"
+          col_val = 'Maine'
+        when "21"
+          col_val = 'Maryland'
+        when "22"
+          col_val = 'Massachusetts'
+        when "23"
+          col_val = 'Michigan'
+        when "24"
+          col_val = 'Minnesota'
+        when "25"
+          col_val = 'Mississippi'
+        when "26"
+          col_val = 'Missouri'
+        when "27"
+          col_val = 'Montana'
+        when "28"
+          col_val = 'Nebraska'
+        when "29"
+          col_val = 'Nevada'
+        when "30"
+          col_val = 'New Hampshire'
+        when "31"
+          col_val = 'New Jersey'
+        when "32"
+          col_val = 'New Mexico'
+        when "33"
+          col_val = 'New York'
+        when "34"
+          col_val = 'North Carolina'
+        when "35"
+          col_val = 'North Dakota'
+        when "36"
+          col_val = 'Ohio'
+        when "37"
+          col_val = 'Oklahoma'
+        when "38"
+          col_val = 'Oregon'
+        when "39"
+          col_val = 'Pennsylvania'
+        when "40"
+          col_val = 'Rhode Island'
+        when "41"
+          col_val = 'South Carolina'
+        when "42"
+          col_val = 'South Dakota'
+        when "43"
+          col_val = 'Tennessee'
+        when "44"
+          col_val = 'Texas'
+        when "45"
+          col_val = 'Utah'
+        when "46"
+          col_val = 'Vermont'
+        when "47"
+          col_val = 'Virginia'
+        when "48"
+          col_val = 'Washington'
+        when "49"
+          col_val = 'West Virginia'
+        when "50"
+          col_val = 'Wisconsin'
+        when "51"
+          col_val = 'Wyoming'
+        else
+          col_val = ''
+      end
+
+      # x = col_val
+      return col_val      
+    end
+
   
 end
+
+
+    # 0  National
+    # 1  Alabama
+    # 2  Alaska 
+    # 3  Arizona
+    # 4  Arkansas
+    # 5  California
+    # 6  Colorado 
+    # 7  Connecticut
+    # 8  Delaware   
+    # 9  DC
+    # 10 Florida  
+    # 11 Georgia  
+    # 12 Hawaii 
+    # 13 Idaho  
+    # 14 Illinois
+    # 15 Indiana 
+    # 16 Iowa   
+    # 17 Kansas   
+    # 18 Kentucky
+    # 19 Louisiana 
+    # 20 Maine 
+    # 21 Maryland 
+    # 22 Massachusetts
+    # 23 Michigan 
+    # 24 Minnesota
+    # 25 Mississippi 
+    # 26 Missouri   
+    # 27 Montana  
+    # 28 Nebraska   
+    # 29 Nevada 
+    # 30 New Hampshire 
+    # 31 New Jersey   
+    # 32 New Mexico   
+    # 33 New York   
+    # 34 North Carolina 
+    # 35 North Dakota   
+    # 36 Ohio   
+    # 37 Oklahoma 
+    # 38 Oregon 
+    # 39 Pennsylvania
+    # 40 Rhode Island
+    # 41 South Carolina
+    # 42 South Dakota 
+    # 43 Tennessee  
+    # 44 Texas  
+    # 45 Utah   
+    # 46 Vermont 
+    # 47 Virginia
+    # 48 Washington
+    # 49 West Virginia
+    # 50 Wisconsin 
+    # 51 Wyoming   

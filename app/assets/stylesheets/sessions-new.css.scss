@@ -1,0 +1,280 @@
+
+    .sessions-new .signin-page {
+      min-height: 800px;
+    }
+    .sessions-new .signin-page .signin-page-inner {
+        width: 660px;
+        margin: 0 auto;
+    } 
+    .sessions-new .table-signin {
+      display: table;
+      background-color: #DEDB3C;
+      width: 600px;
+      border-radius: 20px;
+      border:2px solid #254520;
+      box-shadow: 1px 1px 10px #888888;
+      padding-top: 40px;
+      padding-bottom: 40px;
+      padding-left: 60px;
+    }
+    .sessions-new .table-signin form {
+      padding-left: 60px;
+    }
+    .sessions-new .input-signin {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #404040;     
+      font-size: 16px;
+      width: 300px;
+      height: 24px;
+      border-style:solid;
+      border-radius: 4px;
+      background-color: #fff;
+      border-color: #000;
+      border-width: 1px;
+      padding-left: 6px;
+    }
+    .sessions-new .input-signin:focus {
+      border-color: #3949C4;
+      color: #000;
+      -webkit-box-shadow: 0 0 10px #3949C4;
+      -moz-box-shadow: 0 0 10px #3949C4;
+      box-shadow: 0 0 10px #3949C4;
+    }
+    .sessions-new .input-label-signin {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      width: 220px;
+      height: 18px;
+    }
+    .sessions-new .input-signin-spacer {
+      height: 16px;
+    }
+    .sessions-new  .cell-right-signin-admin {
+      display: table-cell;
+      width: 50%;
+      text-align: left;
+      align: top;   
+    }
+    .sessions-new  .cell-left-signin-admin {
+      display: table-cell;
+      width: 20%; 
+      align: top;
+      text-align: right;    
+      padding-right: 20px;
+    }
+    .sessions-new  .cell-submit-signin-admin {
+      display: table-cell;
+      width: 50%;
+      text-align: left;
+      align: top;   
+      padding-left: 0px;
+    }
+    .sessions-new .signin-btn {
+      display: inline-block;
+        text-decoration: none; 
+        width: 308px;
+        height: 30px;
+        background: linear-gradient(#000, #000);
+        text-shadow: 1px 1px 1px #0E86B2; 
+        border-radius: 6px;
+    }
+    .sessions-new .signin-btn:focus {
+        background: #CCC; 
+        color: #5F7A2A;
+        box-shadow: inset 0 1px 0 rgba(200,200,200,0.2);
+    }
+    .sessions-new .signin-btn:hover { 
+        box-shadow: inset 0 1px 1px rgba(255,255,255,0.2), 
+        inset 0 1.5em 1em rgba(255,255,255,0.3);
+    }
+    .sessions-new .signin-btn:active { 
+        box-shadow: inset 0 1px 1px rgba(255,255,255,0.2), 
+        inset 0 1.5em 1em rgba(0,0,0,0.3); 
+    }
+    .sessions-new .pwd-reset-container-outer {
+      width: 600px;
+    }   
+    .sessions-new .pwd-reset-container-inner {
+      width: 600px;
+      margin: 0 auto;
+      position: relative;
+    }   
+    .sessions-new .pwd-reset-container-spacer {
+      height: 2px;
+    }
+    .sessions-new .confirm-pwd-reset {
+      margin: 0 auto;
+      text-align: center;
+    }
+    .sessions-new .confirm-pwd-reset span {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      color: #555;
+      background-color:#FCDEE2;   
+      padding: 2px 4px 2px 4px;
+      margin: 0px;  
+      height: 20px;
+    }
+    .sessions-new .confirm-pwd-reset span a {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      color: orange;
+    }
+    .sessions-new .display-none {
+      display: none !important;
+      visibility: hidden !important     
+    }
+    .sessions-new .pwd-reset span {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      color: #37633A;
+    }
+    .sessions-new .pwd-reset span:hover {
+      cursor: pointer;
+      text-decoration: underline;     
+    }
+    .sessions-new #form_new_pwd_reset, #form_new_pwd_reset_a {
+      display: none;
+    }
+    .sessions-new .form-new-pwd-reset-outer {
+      width: 660px;
+      height: 120px;
+      background-color: #F0E4D3;
+      -webkit-box-shadow: inset 2px 2px 6px #888;
+         -moz-box-shadow: inset 2px 2px 6px #888;
+              box-shadow: inset 2px 2px 6px #888;             
+    }
+    .sessions-new .form-new-pwd-reset-inner {
+        width: 650px;
+        margin: 0 auto;
+      height: 100px;
+      background-color: #F0E4D3;
+    }
+    .sessions-new ::-webkit-input-placeholder {
+       color: #778899;
+    }
+    .sessions-new :-moz-placeholder {
+       color: #778899;
+    }
+    .sessions-new ::-moz-placeholder {
+       color: #778899;
+    }
+    .sessions-new :-ms-input-placeholder {  
+       color: #778899;
+    }   
+    .sessions-new .form-edit-close-pos-rel {
+      width:20px;
+      height:30px;
+    }   
+    .sessions-new .form-edit-close:hover {
+      cursor: pointer;
+    }   
+    .sessions-new .form-edit-background {
+      background-color: #F0E4D3;  
+    }
+    .sessions-new .tooltip-text-1 {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      font-weight: 400;         
+      color: #37633A; 
+      background-color: #FAFF94;
+      border-color: #37633A;
+      box-shadow: 0px 2px 2px #aaa;
+    }
+    .sessions-new .tip-content { display: none; }
+    .sessions-new .input-gen {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #888;
+      font-weight: 600;
+      font-size: 16px;
+      border-style:solid;
+      border-radius: 0px;
+      background-color: #fff;
+      border-color: #BD7A26;
+      border-width: 1px;
+      padding-left: 4px;
+    }
+    .sessions-new .input-gen:focus,
+    .sessions-new .input-gen:active {
+      border-color: #478A3E;
+      color: #11520B;
+      font-weight: 600;
+      -webkit-box-shadow: inset 0 0 1px 1px #FAC582;
+         -moz-box-shadow: inset 0 0 1px 1px #FAC582;
+              box-shadow: inset 0 0 1px 1px #FAC582;
+    }
+    .sessions-new .input-gen:focus:hover {
+      border-color: #478A3E;
+      color: #11520B;
+      font-weight: 600;
+      -webkit-box-shadow: inset 0 0 1px 1px #FAC582;
+         -moz-box-shadow: inset 0 0 1px 1px #FAC582;
+              box-shadow: inset 0 0 1px 1px #FAC582;
+    }   
+    .sessions-new .input-gen:hover {
+      -webkit-box-shadow: inset 0 0 1px 1px #D98D2D;
+         -moz-box-shadow: inset 0 0 1px 1px #D98D2D;
+              box-shadow: inset 0 0 1px 1px #D98D2D;
+    }
+    .sessions-new .btn-submit-gen {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;    
+      text-align: center; 
+      padding-top: 10px;
+        color: #fff;
+        text-decoration: none; 
+        height: 22px;
+        background: linear-gradient(#F0A546, #BD7A26);
+        border-radius: 2px;
+        position: absolute;
+        top: -21px;
+    }
+    .sessions-new .btn-submit-gen:focus {
+      -webkit-box-shadow: 0 0 1px 1px #FAC582;
+         -moz-box-shadow: 0 0 1px 1px #FAC582;
+              box-shadow: 0 0 1px 1px #FAC582;
+        background: linear-gradient(#F0A546, #BD7A26);
+    }
+    .sessions-new .btn-submit-gen:hover { 
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.1),
+      inset 0 1.5em 1em rgba(255,255,255,0.2);
+      cursor: pointer;
+    }
+    .sessions-new .btn-submit-gen:active { 
+        box-shadow: inset 0 1px 1px rgba(255,255,255,0.0), 
+        inset 0 1.5em 1em rgba(0,0,0,0.0);
+      color: #fff;
+        background: linear-gradient(#BD7A26, #F0A546);
+        outline:none;
+    }
+    .sessions-new .btn-submit-gen-padding {
+    }
+    .sessions-new .width-350 {
+      width: 350px;
+    }
+    .sessions-new .width-200 {
+      width: 200px;
+    }
+    .sessions-new .width-60 {
+      width: 60px;
+    }
+    .sessions-new .height-30 {
+      height: 30px;
+    }
+    .sessions-new .label-form-gen {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      color: #37633A; 
+    }
+    .sessions-new .inline-block {
+      display: inline-block;  
+    }
+    .sessions-new .center {
+      text-align: center; 
+    }
+    .sessions-new .gen-background-color {
+      background-color: #F0E4D3;
+    }
+    .sessions-new .margin-left-pwd-reset {
+      margin-left: 8px; 
+    }

@@ -91,12 +91,14 @@
 			    <td><h5><%= link_to('View', {:action => 'show', :id => admin_seminar.id, :class => 'member-table'}) %></h5></td>
 
 			    <td>
+			    	<% if current_user.admin %>
 			    	<div style="position: relative; bottom: -2px">
 				    	<h5>
 						   	<% delete_msg = "Delete ID: " + admin_seminar.id.to_s + " ?" %>
 							<%= button_to "Delete", {:action => 'destroy', :id => admin_seminar.id}, :method => :delete, :confirm => delete_msg, :class => 'delete-btn' %>
 						</h5>
 					</div>
+					<% end %>
 				</td>
 
 			    <td><h5 class="member-table"><%= admin_seminar.id %></h5></td>

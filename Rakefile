@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Weblearn::Application.load_tasks
+Weblearnadmin::Application.load_tasks

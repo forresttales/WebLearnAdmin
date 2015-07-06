@@ -1,0 +1,39 @@
+    #kfooter {
+      height: 100px;
+      width: 100%;
+      background-color: #000;
+      
+    }
+    #kfooter .kfooter-title {
+      color: #FFF;
+      font-size: 11px;
+      top: 13px;
+      position: relative;
+      font-family: 'KlavikaMedium', Arial, Helvetica, sans-serif;
+      display: inline-block;
+      float: left;
+      margin-left: 40%;
+    }
+    #kfooter .kfooter-links {
+      font-size: 11px;
+      top: 17px;
+      position: relative;
+      font-family: 'KlavikaMedium', Arial, Helvetica, sans-serif;
+      display: inline-block;
+      float: right;
+      margin-right: 5%;   
+    }
+    #kfooter .kfooter-links a {
+      color: #fff;
+    }   
+    #kfooter .kfooter-logo {
+      display: inline-block;
+      float: left;
+      margin-left: 5%;          
+    } 
+    #kfooter .kfooter-logo img {
+      margin-top: 8px;
+    } 
+    #kfooter .kfooter-spacer {
+      display: inline-block;
+    }

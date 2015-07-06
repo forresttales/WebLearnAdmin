@@ -2,16 +2,14 @@
 
 	<style>
 	
-		#signin-page {
+		/*#signin-page {
 			height: 100%;
 			min-height: 900px;
 		}
-	
 		#signin-page #signin-page-inner {
 		    width: 80%;
 		    margin: 0 auto;
 		}	
-
 		div .table-signin {
 			display: table;
 			background-color: #DEDB3C;
@@ -22,272 +20,123 @@
 			padding-top: 40px;
 			padding-bottom: 40px;
 			padding-left: 60px;
+		}*/
+
+		
+		.container {
+			width: 1200px;
+			/*margin: 0 auto;*/
+			/*position: relative;*/
+			/*top: -4px;*/
+		}
+		.box-profile-general {
+			background-color: #F8F8F8;
+		    /*border: 1px solid #41B737;*/
+		    border: 1px solid #1F7C82;
+		    border-radius: 0px 0px 0px 0px;
+		    box-shadow: 0 3px 3px #A9C7C9;
+		    display: table-cell;
+		    padding: 14px;
+			width:630px;
+			/*height: 200px;*/
 		}
 	
-		.table-signin p {
-			font-family: msyh; 
+		p {
+			font-family: Arial, Helvetica, sans-serif; 
 			font-size: 16px;
-			color: #005187;"
+			color: #005187;
+		}
+		.span-1 {
+			font-family: Arial, Helvetica, sans-serif; 
+			font-size: 16px;
+			color: #005187;			
+		}
+		.span-2 {
+			font-family: Arial, Helvetica, sans-serif; 
+			font-size: 16px;
+			color: red;			
 		}
 		
 	</style>
 
 
-	<div id="signin-page">
-		
-		<header>
-	
-			<%= render 'share/backtotop' %>
 
-			<div style="height: 40px;"></div>
-			
-		</header>
-		
-		
-		<div id="signin-page-inner">
-			
-			<div class="table-signin">
-				<div class="row">
-					
-					<div class="cell-100percent" tabindex="1">
+	<%= render 'share/backtotop' %>
 
-						<!-- 
-						# Table name: reg_communs
-						#
-						#  id                        :integer          not null, primary key
-						#  name_first                :string(50)
-						#  name_last                 :string(50)
-						#  name_title                :string(50)
-						#  name_affiliation          :string(100)
-						#  address                   :string(100)
-						#  city                      :string(50)
-						#  state                     :string(50)
-						#  zip                       :string(10)
-						#  phone                     :string(50)
-						#  email                     :string(255)      default(""), not null
-						-->
+	<div class="container">
 
-						<h1>Community Registration Record:</h1>
-						<br />
-						<p>ID: <%= @reg_commun.id %></p>
-						<br />
-						<p>name_first: <%= @reg_commun.name_first %></p>
-						<br />
-						<p>name_last: <%= @reg_commun.name_last %></p>
-						<br />
-						<p>name_title: <%= @reg_commun.name_title %></p>
-						<br />
-						<p>name_affiliation: <%= @reg_commun.name_affiliation %></p>
-						<br />
-						<p>address: <%= @reg_commun.address %></p>
-						<br />
-						<p>city: <%= @reg_commun.city %></p>
-						<br />
-						<p>state: <%= @reg_commun.state %></p>
-						<br />
-						<p>zip: <%= @reg_commun.zip %></p>
-						<br />
-						<p>phone: <%= @reg_commun.phone %></p>
-						<br />
-						<p>email: <%= @reg_commun.email %></p>
-						<br />
-						
-						<!--
-						#  institution_size          :string(50)
-						#  characterize_decision     :string(50)
-						#  characterize_area         :text
-						#  survey_preferences        :text
-						#  created_at                :datetime
-						#  updated_at                :datetime
-						#  level_other               :string(100)
-						#  public_private            :string(50)
-						#  employee_number           :string(100)
-						#  characterize_area_other   :string(200)
-						-->
-						
-						<p>institution_size: <%= @reg_commun.institution_size %></p>
-						<br />
-						<p>characterize_decision: <%= @reg_commun.characterize_decision %></p>
-						<br />
-						<p>characterize_area: <%= @reg_commun.characterize_area %></p>
-						<br />
-						<p>survey_preferences: <%= @reg_commun.survey_preferences %></p>
-						<br />
-						<p>created_at: <%= @reg_commun.created_at %></p>
-						<br />
-						<p>updated_at: <%= @reg_commun.updated_at %></p>
-						<br />
-						<p>level_other: <%= @reg_commun.level_other %></p>
-						<br />
-						<p>public_private: <%= @reg_commun.public_private %></p>
-						<br />
-						<p>employee_number: <%= @reg_commun.employee_number %></p>
-						<br />
-						<p>characterize_area_other: <%= @reg_commun.characterize_area_other %></p>
-						<br />
-						
-						<!--
-						#  level_1                   :boolean          default(FALSE)
-						#  level_2                   :boolean          default(FALSE)
-						#  level_3                   :boolean          default(FALSE)
-						#  level_4                   :boolean          default(FALSE)
-						#  level_5                   :boolean          default(FALSE)
-						#  level_6                   :boolean          default(FALSE)
-						#  level_7                   :boolean          default(FALSE)
-						#  level_1_text              :string(200)
-						#  level_2_text              :string(200)
-						#  level_3_text              :string(200)
-						#  level_4_text              :string(200)
-						#  level_5_text              :string(200)
-						#  level_6_text              :string(200)
-						#  level_7_text              :string(200)
-						-->
-						
-						<p>level_1: <%= @reg_commun.level_1 %></p>
-						<br />
-						<p>level_2: <%= @reg_commun.level_2 %></p>
-						<br />
-						<p>level_3: <%= @reg_commun.level_3 %></p>
-						<br />
-						<p>level_4: <%= @reg_commun.level_4 %></p>
-						<br />
-						<p>level_5: <%= @reg_commun.level_5 %></p>
-						<br />
-						<p>level_6: <%= @reg_commun.level_6 %></p>
-						<br />
-						<p>level_7: <%= @reg_commun.level_7 %></p>
-						<br />
-						<p>level_1_text: <%= @reg_commun.level_1_text %></p>
-						<br />
-						<p>level_2_text: <%= @reg_commun.level_2_text %></p>
-						<br />
-						<p>level_3_text: <%= @reg_commun.level_3_text %></p>
-						<br />
-						<p>level_4_text: <%= @reg_commun.level_4_text %></p>
-						<br />
-						<p>level_5_text: <%= @reg_commun.level_5_text %></p>
-						<br />
-						<p>level_6_text: <%= @reg_commun.level_6_text %></p>
-						<br />
-						<p>level_7_text: <%= @reg_commun.level_7_text %></p>
-						<br />
+		<div class="table-profile">
+			<div class="row-profile">
+				<div class="col-left">
+					<div class="table-profile">
+						<div class="row-profile" style="height: 20px;">
+							<div class="col-gen"></div>
+						</div>
+						<div class="row-profile">
+							<div class="col-left">
 
+								<div style="height: 100px;"></div>
 
-
-						<!--
-						#  characterize_area_1       :boolean          default(FALSE)
-						#  characterize_area_2       :boolean          default(FALSE)
-						#  characterize_area_3       :boolean          default(FALSE)
-						#  characterize_area_4       :boolean          default(FALSE)
-						#  characterize_area_5       :boolean          default(FALSE)
-						#  characterize_area_6       :boolean          default(FALSE)
-						#  characterize_area_7       :boolean          default(FALSE)
-						#  characterize_area_8       :boolean          default(FALSE)
-						#  characterize_area_9       :boolean          default(FALSE)
-						#  characterize_area_10      :boolean          default(FALSE)
-						#  characterize_area_1_text  :string(200)
-						#  characterize_area_2_text  :string(200)
-						#  characterize_area_3_text  :string(200)
-						#  characterize_area_4_text  :string(200)
-						#  characterize_area_5_text  :string(200)
-						#  characterize_area_6_text  :string(200)
-						#  characterize_area_7_text  :string(200)
-						#  characterize_area_8_text  :string(200)
-						#  characterize_area_9_text  :string(200)
-						#  characterize_area_10_text :string(200)
-						-->
-
-						<p>characterize_area_1: <%= @reg_commun.characterize_area_1 %></p>
-						<br />
-						<p>characterize_area_2: <%= @reg_commun.characterize_area_2 %></p>
-						<br />
-						<p>characterize_area_3: <%= @reg_commun.characterize_area_3 %></p>
-						<br />
-						<p>characterize_area_4: <%= @reg_commun.characterize_area_4 %></p>
-						<br />
-						<p>characterize_area_5: <%= @reg_commun.characterize_area_5 %></p>
-						<br />
-						<p>characterize_area_6: <%= @reg_commun.characterize_area_6 %></p>
-						<br />
-						<p>characterize_area_7: <%= @reg_commun.characterize_area_7 %></p>
-						<br />
-						<p>characterize_area_8: <%= @reg_commun.characterize_area_8 %></p>
-						<br />
-						<p>characterize_area_9: <%= @reg_commun.characterize_area_9 %></p>
-						<br />
-						<p>characterize_area_10: <%= @reg_commun.characterize_area_10 %></p>
-						<br />
-						<p>characterize_area_1_text: <%= @reg_commun.characterize_area_1_text %></p>
-						<br />
-						<p>characterize_area_2_text: <%= @reg_commun.characterize_area_2_text %></p>
-						<br />
-						<p>characterize_area_3_text: <%= @reg_commun.characterize_area_3_text %></p>
-						<br />
-						<p>characterize_area_4_text: <%= @reg_commun.characterize_area_4_text %></p>
-						<br />
-						<p>characterize_area_5_text: <%= @reg_commun.characterize_area_5_text %></p>
-						<br />
-						<p>characterize_area_6_text: <%= @reg_commun.characterize_area_6_text %></p>
-						<br />
-						<p>characterize_area_7_text: <%= @reg_commun.characterize_area_7_text %></p>
-						<br />
-						<p>characterize_area_8_text: <%= @reg_commun.characterize_area_8_text %></p>
-						<br />
-						<p>characterize_area_9_text: <%= @reg_commun.characterize_area_9_text %></p>
-						<br />
-						<p>characterize_area_10_text: <%= @reg_commun.characterize_area_10_text %></p>
-						<br />
-						
-						<!--
-						#  survey_preferences_1      :boolean          default(FALSE)
-						#  survey_preferences_2      :boolean          default(FALSE)
-						#  survey_preferences_3      :boolean          default(FALSE)
-						#  survey_preferences_4      :boolean          default(FALSE)
-						#  survey_preferences_5      :boolean          default(FALSE)
-						#  survey_preferences_1_text :string(200)
-						#  survey_preferences_2_text :string(200)
-						#  survey_preferences_3_text :string(200)
-						#  survey_preferences_4_text :string(200)
-						#  survey_preferences_5_text :string(200) 
-						-->
-						
-						<p>survey_preferences_1: <%= @reg_commun.survey_preferences_1 %></p>
-						<br />
-						<p>survey_preferences_2: <%= @reg_commun.survey_preferences_2 %></p>
-						<br />
-						<p>survey_preferences_3: <%= @reg_commun.survey_preferences_3 %></p>
-						<br />
-						<p>survey_preferences_4: <%= @reg_commun.survey_preferences_4 %></p>
-						<br />
-						<p>survey_preferences_5: <%= @reg_commun.survey_preferences_5 %></p>
-						<br />
-						<p>survey_preferences_1_text: <%= @reg_commun.survey_preferences_1_text %></p>
-						<br />
-						<p>survey_preferences_2_text: <%= @reg_commun.survey_preferences_2_text %></p>
-						<br />
-						<p>survey_preferences_3_text: <%= @reg_commun.survey_preferences_3_text %></p>
-						<br />
-						<p>survey_preferences_4_text: <%= @reg_commun.survey_preferences_4_text %></p>
-						<br />
-						<p>survey_preferences_5_text: <%= @reg_commun.survey_preferences_5_text %></p>
-												
+								<div><span class="span-1">Community Registration Record</span></div>
+								<br />								
+								<br />								
+								<% if !@admin_reg_commun_previous.nil? %>
+								<div><span class="span-1">Previous Id: <%= @admin_reg_commun_previous.id %></span></div>
+								<% else %>
+								<div><span class="span-1">Previous Id: No Previous Record</span></div>
+								<% end %>
+								<div><span class="span-2">Id: <%= @admin_reg_commun.id %></span></div>
+								<% if !@admin_reg_commun_next.nil? %>
+								<div><span class="span-1">Next Id: <%= @admin_reg_commun_next.id %></span></div>
+								<% else %>
+								<div><span class="span-1">Next Id: No Next Record</span></div>
+								<% end %>
+								<br />
+								<br />
+								<br />								
+								<div><span class="span-1">Created: <%= @admin_reg_commun.created_at %></span></div>
+								<br />
+								<div><span class="span-1">Updated: <%= @admin_reg_commun.updated_at %></span></div>
+								
+							</div>
+						</div>
 					</div>
-					
 				</div>
-				
+				<div class="col-midd-700-borders">
+					<div class="table-profile">
+						<!-- <div class="row-profile" style="height: 20px;">
+							<div class="col-gen"></div>
+						</div> -->							
+						<div class="row-profile">
+							<div class="col-midd-700 pad-left-20">
+								<div class="box-profile-general">
+									<%= render 'admin_reg_communs/show' %>
+								</div>
+							</div>
+						</div>
+					</div>					
+				</div>
+				<div class="col-right-300">
+					<div class="table-profile">
+						<div class="row-profile" style="height: 20px;">
+							<div class="col-gen"></div>
+						</div>							
+						<div class="row-profile">
+							<div class="col-right">
+								<% if current_user.admin %>
+								<%= button_to "Edit", {:action => 'edit', :id => @admin_reg_commun.id } %>
+								<% end %> 
+							</div>
+						</div>
+					</div>										
+				</div>								
 			</div>
-			
-		</div>	
-		
-	</div>					
-				
-	<div style="height: 40px;"></div>
-					
-	<script>
+		</div>
+	</div>
 
-		$(window).load( function() {
-		//$(document).ready(function(){
 
-		});
-	
-	</script>
+
+
+
+
+

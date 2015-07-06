@@ -1,0 +1,108 @@
+    .admin-users-edit #signin-page-inner {
+        width: 60%;
+        margin: 0 auto;
+    } 
+    .admin-users-edit .table-signin {
+      display: table;
+      background-color: #BFBD47;
+      width: 700px;
+      border-radius: 20px;
+      border:2px solid #254520;
+      box-shadow: 1px 1px 10px #888888;
+      padding-top: 40px;
+      padding-bottom: 40px;
+      padding-left: 40px;
+    }
+    .admin-users-edit .input-signin {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #000;      
+      font-size: 16px;
+      width: 300px;
+      height: 24px;
+      border-style:solid;
+      border-radius: 4px;
+      background-color: #fff;
+      border-color: #000;
+      border-width: 1px;
+      padding-left: 6px;
+    }
+    .admin-users-edit .input-signin:focus {
+      border-color: #3949C4;
+      color: #000;
+      -webkit-box-shadow: 0 0 10px #3949C4;
+      -moz-box-shadow: 0 0 10px #3949C4;
+      box-shadow: 0 0 10px #3949C4;
+    }
+    .admin-users-edit .input-signin:disabled {
+      border-color: #523401;
+      color: #523401;
+      background-color:#CCCBC8;
+    }
+    .admin-users-edit .input-label-signin {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #000;
+      font-size: 16px;
+      width: 220px;
+      height: 18px;
+    }
+    .admin-users-edit .input-label-signin:disabled {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #523401;
+    }
+    .admin-users-edit .input-signin-spacer {
+      height: 16px;
+    }
+    .admin-users-edit .cell-right-signin-admin {
+      display: table-cell;
+      width: 50%;
+      text-align: left;
+      align: top;   
+    }
+    .admin-users-edit .cell-left-signin-admin {
+      display: table-cell;
+      width: 36%; 
+      align: top;
+      text-align: right;    
+      padding-right: 20px;
+    }
+    .admin-users-edit .cell-submit-signin-admin {
+      display: table-cell;
+      width: 50%;
+      text-align: left;
+      align: top;   
+      padding-left: 0px;
+    }
+    .admin-users-edit .signin-btn {
+        display: inline-block;
+        text-decoration: none; 
+        width: 308px;
+        height: 30px;
+        background: linear-gradient(#000, #000);
+        text-shadow: 1px 1px 1px #0E86B2; 
+        border-radius: 6px;
+    }
+    .admin-users-edit .signin-btn:focus {
+      background: #CCC; 
+      color: #5F7A2A;
+      box-shadow: inset 0 1px 0 rgba(200,200,200,0.2);
+    }
+    .admin-users-edit .signin-btn:hover { 
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.2), 
+      inset 0 1.5em 1em rgba(255,255,255,0.3);
+    }
+    .admin-users-edit .signin-btn:active { 
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.2), 
+      inset 0 1.5em 1em rgba(0,0,0,0.3); 
+    }
+    .admin-users-edit .cell-left-signin-admin-1 {
+        display: table-cell;
+        padding-right: 20px;
+        text-align: right;
+        width: 100px;       
+    }
+    .admin-users-edit .cell-right-signin-admin-1 {
+        display: table-cell;
+        padding-left: 20px;
+        text-align: left;
+        width: 100px;       
+    }

@@ -1,172 +1,155 @@
 <% provide(:title, 'Archives List') %>
 
-	<style>
-	
-		#signin-page {
-			min-height: 900px;
-		}
-	
-		#signin-page #signin-page-inner {
-		    width: 90%;
-		    margin: 0 auto;
-		}	
 
-		div .table-signin {
-			display: table;
-			background-color: #E3DDCF;
-			width: 1200px;
-			border-radius: 0px;
-			
-			/*border:2px solid #254520;*/
-						
-			/*box-shadow: 1px 1px 3px #888888;*/			
-			
-			padding-top: 40px;
-			padding-bottom: 40px;
-			padding-left: 10px;
-			padding-right: 10px;			
-		}
-
-		.table-signin p {
-			font-family: msyh; 
-			font-size: 16px;
-			color: #005187;"
-		}
+		<%= render 'share/backtotop' %>
 		
-	</style>
-
-	<link rel="stylesheet" type="text/css" href="../styles/dropdown.css"/>
-
-    <style>
-    	
-    	.main {
-    		font-family:Arial, Helvetica, sans-serif;
-    		font-size: 20px;
-    		color: black;
-    		min-height: 700px;
-    	}
-    	
-    	.links {
-    		font-family:Arial, Helvetica, sans-serif;
-    		font-size: 13px;
-    		color: brown;    		
-    	}
-    	
-    	h1 {
-    		font-size: 22px;
-    	}
-    	h2 {
-    		font-size: 18px;
-    	}
-    	h4 {
-    		font-size: 14px;
-    	}    	
-    	h5 {
-    		font-size: 13px;
-    	}    	    	
-    	p {
-    		font-size: 12px;
-    	}
-    	span {
-    		font-family:Arial, Helvetica, sans-serif;
-    		font-size: 12px;
-    		color: brown;    		    		
-    	}
-    	
-    </style>
-
-<!--
-# Table name: archives
-#
-#  id           :integer          not null, primary key
-#  article_id   :integer
-#  name_url     :string(100)
-#  name_file    :string(50)
-#  name_author  :string(50)
-#  name_admin   :string(50)
-#  key_words    :text
-#  date_article :date
-#  created_at   :datetime
-#  updated_at   :datetime
-#  article_type :string(20)
-#  description  :string(100)	 
--->
-
-
-	<div id="signin-page">
-		
-		<header>
-	
-			<%= render 'share/backtotop' %>
-
-			<div style="height: 70px;"></div>
+		<div id="archives_list" class="archives-index">
 			
-		</header>
-		
-		
-		<div id="signin-page-inner">
+			<div id="ajax_loading" class="ajax-loading hidden"></div>
+			<div id="page_loading" class="page-loading"></div>		
+		    <div id="pos" class="hidden"></div>
+			<!-- <#%= hidden_field_tag :pos %#> -->
+			<%= hidden_field_tag :direction, params[:direction] %>
+			<%= hidden_field_tag :sort, params[:sort] %>	
+			<%= hidden_field_tag :pos, params[:pos] %>	
 			
-			<div class="table-signin">
+			<div style="height: 100px;"></div>		
+
+			<div class="table-1">
 				<div class="row">
-					
-					<div class="cell-100percent" tabindex="1">
-						
-						
-						<%= form_tag archives_path, :method => 'get', :id => "archives_search" do %>
-						  	
-						  	<span>
-						    	 <!-- text_field_tag :search, params[:search]  -->
-						    	
-						    	<%= text_field_tag :search %>
-						    	
-						    	
-						   	</span>
-						   	<span style="">Search by: </span>
-					
-						   	<span>
-					
-					   		<%= select_tag("search_by", options_for_select([['ID', '1'],
-					                 ['Article ID', '2'],['File','3']], '3'))  %>	   		
-										
-						    </span>
-							<span>
-						    	<%= submit_tag "Search", :name_file => nil %>
-						  	</span>
-					
-							<div id="archives">
-								<%= render 'archives/list' %>
+					<div class="cell-100percent">
+						<div class="table-2">
+							<div class="row">
+								<div class="cell-600">
+									<%= form_tag archives_path, :method => 'get', :id => "archives_search" do %>
+									  	<span>
+									    	 <!-- text_field_tag :search, params[:search]  -->
+									    	<%= text_field_tag :search %>
+									   	</span>
+									   	<span style="">Search by: </span>
+									   	<span>
+								   		<%= select_tag("search_by", options_for_select(
+								   				[['ID', '1'], 
+								   				['First Name','2'],
+								   				['Last Name','3'],
+								   				['Affil Type','4'],
+								   				['Affiliation','5']])) %>
+									    </span>
+										<span>
+									    	<%= submit_tag "Search", :id => nil %>
+									  	</span>
+										<span>Workshop: </span><span id="city"></span>
+									    <!-- 
+									    <option value="1">Columbia, SC</option>
+									    <option value="2">Houston, TX</option>
+									    <option value="3">Albuquerque, NM</option>
+									    <option value="4">Fresno, CA (Central)</option>						    
+									    <option value="5">Chicago, IL</option>
+									    <option value="6">San Bernadino, CA</option>						    
+									    <option value="7">Richmond, VA</option>
+									    <option value="8">Minneapolis, MN</option> 
+									    <option value="9">Detroit, MI</option>
+									    <option value="10">Las Vegas, NV</option>
+									    <option value="11">San Jose, CA</option>						    
+									    <option value="12">Newark, NJ</option>
+									    <option value="13">Tucson/Santa Fe, AZ</option>
+									    <option value="14">Tampa, FL</option>
+									    -->							
+									   	<span>
+								   		 <%= select_tag("workshop", options_for_select(
+								   				[['All', '16'], 
+								   				['Columbia, SC','1'],
+								   				['Houston, TX','2'],
+								   				['Albuquerque, NM','3'],
+								   				['Fresno, CA (Central)','4'],
+								   				['Chicago, IL','5'],
+								   				['San Bernadino, CA','6'],
+								   				['Richmond, VA','7'],
+								   				['Minneapolis, MN','8'],
+								   				['Detroit, MI','9'],
+								   				['Las Vegas, NV','10'],
+								   				['San Jose, CA','11'],
+								   				['Newark, NJ','12'],
+								   				['Tucson/Santa Fe, AZ','13'],
+								   				['Tampa, FL','14'],
+								   				['National GATHERING','15']])) %>
+								   				<!-- ['Workshop 13','13']]), :onchange => 'select_workshop()')  -->					   				
+									    </span>
+									<% end %>
+								</div>
+								<div class="cell-200">
+									<p>
+									</p>	
+								</div>
+								<div class="cell-200" style="text-align: right;">
+									<span>
+										<% if @archives.any? %>
+										<h5>Record Count: <%= @archives.count %></h5>
+										<% end %>								
+									</span>
+								</div>					
 							</div>
-						  
-						<% end %>
-
-												
+						</div>
+						<div style="height: 4px;"></div>				
+						<div class="table-2">
+							<div class="row">
+								<div class="cell-100percent" tabindex="1">
+									<div id="render_archives"></div>
+								</div>
+							</div>				
+						</div>
 					</div>
-					
 				</div>
-				
 			</div>
-			
 		</div>	
-		
 	</div>					
-					
+	
 	<script>
+
+        function scrollPos() {
+            $("#pos").html($("#scroll1").scrollLeft());
+            $("#scroll2").scrollLeft($("#pos").html());
+        }
+		function moveScroll() {
+			$(document).find("#scroll1").scrollLeft($("#pos").html());
+			$(document).find("#scroll2").scrollLeft($("#pos").html());
+		}
 
 		$(document).on('click','#archives th a, #archives .pagination a',function(){
 		    $.getScript(this.href);
 		    return false;
 		});
 
-		//$("#archives_search input").keyup(function() {
-		$("#archives_search").submit(function() {
+		$("#archives_search").submit(function() {	
 		    $.get($("#archives_search").attr("action"), $("#archives_search").serialize(), null, "script");
 		    return false;
 		});
 
+		// function getURLParameter(url, name) {
+		    // return (RegExp(name + '=' + '(.+?)(&|$)').exec(url)||[,null])[1];
+		// }
 
-		// $(window).load( function() {
-		// //$(document).ready(function(){
-		// });
+		$(window).load( function() {
+		//$(document).ready(function(){
+
+			$("#page_loading").addClass("hidden");
+
+			$(document).on('click', '#archives_header a', function() {
+				$("#ajax_loading").removeClass("hidden");
+				$.getScript($(this).attr("href"));
+				return false;
+			});
+			$(document).on('click', '.pagination a', function() {
+				$("#ajax_loading").removeClass("hidden");
+				$.getScript($(this).attr("href"));
+				return false;
+			});
+
+			$("#render_archives").html("<%= j render('archives/list') %>");
+
+		});		
 	
 	</script>
+					
+
 

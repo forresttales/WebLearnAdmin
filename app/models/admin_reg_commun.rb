@@ -73,5 +73,4 @@
 #
 
 class AdminRegCommun < RegCommun
-  
 end

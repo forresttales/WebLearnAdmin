@@ -1,0 +1,631 @@
+
+
+	<script src="/assets/jquery.validate.js"></script>
+	<script type="text/javascript" src="/assets/entrepeneurs_jquery-1.js"></script>
+
+	<header>
+		<%= render 'share/backtotop' %>
+	</header>
+
+	<div class="container">
+		<div class="table-profile">
+			<div class="row-profile">
+				
+				<div class="col-left">
+				</div>
+				
+				<div class="col-midd">
+
+					<div class="line-space-20"></div>
+
+					<div class="table-form" style="width: 600px;">
+						<div class="row">
+							<div class="cell-100percent" tabindex="1">
+								
+								<!-- = render 'shared/error_messages', object: f.object -->			
+								<%= form_for @mtab7let, :html => { :id => 'mtab1tablet'}, :form => :js, :remote => true do |f| %>
+								
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_1, 'Col 1', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_1, :class => 'input-form', :tabindex => '2', :autofocus => true %>
+									</div>
+									<div class="cell-error" id="state_col_1"><p id="error_col_1"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_2, 'Col 2', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_2, :class => 'input-form', :tabindex => '3', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_2"><p id="error_col_2"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_3, 'Col 3', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_3, :class => 'input-form', :tabindex => '4', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_3"><p id="error_col_3"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_4, 'Col 4', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_4, :class => 'input-form', :tabindex => '5', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_4"><p id="error_col_4"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_5, 'Col 5', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_5, :class => 'input-form', :tabindex => '6', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_5"><p id="error_col_5"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_6, 'Col 6', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_6, :class => 'input-form', :tabindex => '7', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_6"><p id="error_col_6"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_7, 'Col 7', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_7, :class => 'input-form', :tabindex => '8', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_7"><p id="error_col_7"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_8, 'Col 8', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_8, :class => 'input-form', :tabindex => '9', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_8"><p id="error_col_8"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_9, 'Col 9', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_9, :class => 'input-form', :tabindex => '10', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_9"><p id="error_col_9"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_10, 'Col 10', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_10, :class => 'input-form', :tabindex => '11', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_10"><p id="error_col_10"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_11, 'Col 11', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_11, :class => 'input-form', :tabindex => '12', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_11"><p id="error_col_11"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_12, 'Col 12', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_12, :class => 'input-form', :tabindex => '13', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_12"><p id="error_col_12"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_13, 'Col 13', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_13, :class => 'input-form', :tabindex => '14', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_13"><p id="error_col_13"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_14, 'Col 14', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_14, :class => 'input-form', :tabindex => '15', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_14"><p id="error_col_14"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_15, 'Col 15', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_15, :class => 'input-form', :tabindex => '16', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_15"><p id="error_col_15"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_16, 'Col 16', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_16, :class => 'input-form', :tabindex => '17', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_16"><p id="error_col_16"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_17, 'Col 17', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_17, :class => 'input-form', :tabindex => '18', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_17"><p id="error_col_17"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_18, 'Col 18', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_18, :class => 'input-form', :tabindex => '19', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_18"><p id="error_col_18"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_19, 'Col 19', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_19, :class => 'input-form', :tabindex => '20', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_19"><p id="error_col_19"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_20, 'Col 20', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_20, :class => 'input-form', :tabindex => '21', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_20"><p id="error_col_20"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_21, 'Col 21', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_21, :class => 'input-form', :tabindex => '22', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_21"><p id="error_col_21"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_22, 'Col 22', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_22, :class => 'input-form', :tabindex => '23', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_22"><p id="error_col_22"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_23, 'Col 23', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_23, :class => 'input-form', :tabindex => '24', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_23"><p id="error_col_23"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_24, 'Col 24', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_24, :class => 'input-form', :tabindex => '25', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_24"><p id="error_col_24"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_25, 'Col 25', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_25, :class => 'input-form', :tabindex => '26', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_25"><p id="error_col_25"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_26, 'Col 26', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_26, :class => 'input-form', :tabindex => '27', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_26"><p id="error_col_26"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_27, 'Col 27', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_27, :class => 'input-form', :tabindex => '28', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_27"><p id="error_col_27"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_28, 'Col 28', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_28, :class => 'input-form', :tabindex => '30', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_28"><p id="error_col_28"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_29, 'Col 29', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_29, :class => 'input-form', :tabindex => '31', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_29"><p id="error_col_29"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_30, 'Col 30', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_30, :class => 'input-form', :tabindex => '32', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_30"><p id="error_col_30"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_31, 'Col 31', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_31, :class => 'input-form', :tabindex => '33', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_31"><p id="error_col_31"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_32, 'Col 32', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_32, :class => 'input-form', :tabindex => '34', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_32"><p id="error_col_32"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_33, 'Col 33', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_33, :class => 'input-form', :tabindex => '35', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_33"><p id="error_col_33"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_34, 'Col 34', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_34, :class => 'input-form', :tabindex => '36', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_34"><p id="error_col_34"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_35, 'Col 35', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_35, :class => 'input-form', :tabindex => '37', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_35"><p id="error_col_35"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_36, 'Col 36', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_36, :class => 'input-form', :tabindex => '38', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_36"><p id="error_col_36"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_37, 'Col 37', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_37, :class => 'input-form', :tabindex => '39', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_37"><p id="error_col_37"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_38, 'Col 38', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_38, :class => 'input-form', :tabindex => '40', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_38"><p id="error_col_38"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_39, 'Col 39', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_39, :class => 'input-form', :tabindex => '41', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_39"><p id="error_col_39"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_40, 'Col 40', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										<%= f.text_field :col_40, :class => 'input-form', :tabindex => '42', :autofocus => false %>
+									</div>
+									<div class="cell-error" id="state_col_40"><p id="error_col_40"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_41, 'Col 41', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										
+								   		<%= f.select(:col_41,
+								   				[['No', '0'],								   		
+								   				['Yes','1']],
+								   				{}, 
+								   				{ :class => 'form-select', :id => 'col_41', :tabindex => '43' } ) %>
+
+									</div>
+									<div class="cell-error" id="state_col_41"><p id="error_col_41"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_42, 'Col 42', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										
+								   		<%= f.select(:col_42,
+								   				[['No', '0'],								   		
+								   				['Yes','1']],
+								   				{}, 
+								   				{ :class => 'form-select', :id => 'col_42', :tabindex => '44' } ) %>
+
+									</div>
+									<div class="cell-error" id="state_col_42"><p id="error_col_42"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_43, 'Col 43', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										
+								   		<%= f.select(:col_43,
+								   				[['No', '0'],								   		
+								   				['Yes','1']],
+								   				{}, 
+								   				{ :class => 'form-select', :id => 'col_43', :tabindex => '45' } ) %>
+
+									</div>
+									<div class="cell-error" id="state_col_43"><p id="error_col_43"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_44, 'Col 44', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										
+								   		<%= f.select(:col_44,
+								   				[['No', '0'],								   		
+								   				['Yes','1']],
+								   				{}, 
+								   				{ :class => 'form-select', :id => 'col_44', :tabindex => '46' } ) %>
+
+									</div>
+									<div class="cell-error" id="state_col_44"><p id="error_col_44"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_45, 'Col 45', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										
+								   		<%= f.select(:col_45,
+								   				[['No', '0'],								   		
+								   				['Yes','1']],
+								   				{}, 
+								   				{ :class => 'form-select', :id => 'col_45', :tabindex => '47' } ) %>
+
+									</div>
+									<div class="cell-error" id="state_col_45"><p id="error_col_45"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_46, 'Col 46', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										
+								   		<%= f.select(:col_46,
+								   				[['No', '0'],								   		
+								   				['Yes','1']],
+								   				{}, 
+								   				{ :class => 'form-select', :id => 'col_46', :tabindex => '48' } ) %>
+
+									</div>
+									<div class="cell-error" id="state_col_46"><p id="error_col_46"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_47, 'Col 47', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										
+								   		<%= f.select(:col_47,
+								   				[['No', '0'],								   		
+								   				['Yes','1']],
+								   				{}, 
+								   				{ :class => 'form-select', :id => 'col_47', :tabindex => '49' } ) %>
+
+									</div>
+									<div class="cell-error" id="state_col_47"><p id="error_col_47"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_48, 'Col 48', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										
+								   		<%= f.select(:col_48,
+								   				[['No', '0'],								   		
+								   				['Yes','1']],
+								   				{}, 
+								   				{ :class => 'form-select', :id => 'col_48', :tabindex => '50' } ) %>
+
+									</div>
+									<div class="cell-error" id="state_col_48"><p id="error_col_48"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_49, 'Col 49', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										
+								   		<%= f.select(:col_49,
+								   				[['No', '0'],								   		
+								   				['Yes','1']],
+								   				{}, 
+								   				{ :class => 'form-select', :id => 'col_49', :tabindex => '51' } ) %>
+
+									</div>
+									<div class="cell-error" id="state_col_49"><p id="error_col_49"></p></div>      					   							 								      	
+								</div>
+								<div class="input-form-spacer"></div>
+								<div class="row">
+									<div class="cell-left-form">
+										<%= f.label(:col_50, 'Col 50', class: 'input-label-form') %>							
+									</div>
+									<div class="cell-right-form">
+										
+								   		<%= f.select(:col_50,
+								   				[['No', '0'],								   		
+								   				['Yes','1']],
+								   				{}, 
+								   				{ :class => 'form-select', :id => 'col_50', :tabindex => '52' } ) %>
+
+									</div>
+									<div class="cell-error" id="state_col_50"><p id="error_col_50"></p></div>      					   							 								      	
+								</div>
+
+								<div class="input-form-spacer"></div>
+								<div class="input-form-spacer"></div>
+								<div class="input-form-spacer"></div>
+		
+								<div class="row">
+									<div style="width: 600px; text-align: center;">
+									<%= f.submit 'Submit', :id => 'form-submit-edit', :class => 'form-btn', :tabindex => '53' %>
+									</div>      					   							 	
+								</div>      		
+													
+								<% end %>
+
+								
+							</div>
+							
+						</div>
+						
+					</div>
+			
+				</div>
+				
+				<div class="col-right">
+				</div>												
+			</div>
+		</div>
+	</div>
+
+
+	<script>
+		
+		// $(document).ready(function () {				
+		// $(function() {
+		// $(window).load( function() {
+// 		
+			// $("#publisher-product").submit(function() {	
+// 				
+				// var hidden1 = "<" + "% f.hidden_field :type_content, :value => '" + $("#select_type_content").val() + "'%" + ">";
+				// $( "#render-select-type-content" ).html( hidden1 );				
+			    // return false;
+			// });
+		// });		
+		
+	</script>

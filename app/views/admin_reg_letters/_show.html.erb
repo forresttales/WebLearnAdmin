@@ -1,0 +1,20 @@
+
+						<div style="height: 100px;"></div>
+						
+						<span><%= link_to('&laquo;'.html_safe + ' Previous', {:action => 'show', :id => @admin_reg_letter_previous.id }) if !@admin_reg_letter_previous.nil? %></span>
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						<span><%= link_to('Next '.html_safe + '&raquo;'.html_safe, {:action => 'show', :id => @admin_reg_letter_next.id }) if !@admin_reg_letter_next.nil? %></span>
+						<br>
+						<br>						
+
+						<!-- <#%= link_to "Next", post_path(@post.next) if !@post.next.nil? %#> -->
+						<!-- <#%= link_to "Next", "admin_reg_letters/show", :id => @admin_reg_letter_next.id if !@admin_reg_letter_next.nil? %#> -->
+
+						<p>Title: <%= @admin_reg_letter.name_title %></p>
+						<br />
+						<p>Affiliation: <%= @admin_reg_letter.name_affiliation %></p>
+						<br />
+						<p>Email: <%= @admin_reg_letter.email %></p>
+					
+						<div style="height: 100px;"></div>
+						

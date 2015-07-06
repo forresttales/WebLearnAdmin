@@ -1,2 +1,304 @@
-<h1>AdminUsers#admin_edit</h1>
-<p>Find me in app/views/admin_users/admin_edit.html.erb</p>
+<% @title = "Register Events Edit" %>
+
+	<!-- <#%= javascript_include_tag "jquery.validate" %#> -->
+
+	<%= render 'share/backtotop' %>
+
+	<div class="admin-users-edit">
+		<div style="height: 50px;"></div>
+		<div id="signin-page-inner">
+			<div class="table-signin">
+				<div class="row">
+					<div class="cell-100percent">
+						
+  						<%= form_for(:admin_user, :url => {:action => 'update', :id => @admin_user.id}, :html => {:id => 'form_admin_update'}) do |f| %>
+					
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:id, 'ID', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :id, :class => "input-signin", :disabled => true %>	
+							</div>
+							<div class="cell-error-archive"><p></p></div>
+						</div>
+						<div class="input-signin-spacer"></div>
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:created_at, 'created_at', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :created_at, :class => "input-signin", :disabled => true %>	
+							</div>
+							<div class="cell-error-archive"><p></p></div>      	
+						</div>
+						<div class="input-signin-spacer"></div>
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:updated_at, 'updated_at', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :updated_at, :class => "input-signin", :disabled => true %>	
+							</div>      	
+							<div class="cell-error-archive"><p></p></div>
+						</div>
+						<div class="input-signin-spacer"></div>
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:name_first, 'First Name', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :name_first, :class => "input-signin", :tabindex => '1', :disabled => false %>	
+							</div>
+							<div class="cell-error-archive" id="state_admin_user_name_first"><p id="error_admin_user_name_first"></p></div>      	
+						</div>
+						<div class="input-signin-spacer"></div>
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:name_last, 'Last Name', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :name_last, :class => "input-signin", :tabindex => '2', :disabled => false %>	
+							</div>      	
+							<div class="cell-error-archive" id="state_admin_user_name_last"><p id="error_admin_user_name_last"></p></div>      								
+						</div>
+						<div class="input-signin-spacer"></div>
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:username, 'Username (*deprecated)', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :username, :class => "input-signin", :tabindex => '3', :disabled => false %>	
+							</div>
+							<div class="cell-error-archive" id="state_admin_user_username"><p id="error_admin_user_username"></p></div>      								      	
+						</div>
+						<div class="input-signin-spacer"></div>
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:email, 'Email', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :email, :class => "input-signin", :tabindex => '4', :disabled => false %>	
+							</div>      	
+							<div class="cell-error-archive" id="state_admin_user_email"><p id="error_admin_user_email"></p></div>      								
+						</div>
+						
+						<% if false %>
+						<div class="input-signin-spacer"></div>
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:password, 'Password', class: 'input-signin-label') %>					
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.password_field :password, class: 'input-signin', :tabindex => '5' %>
+							</div>
+							<div class="cell-error-archive" id="state_admin_user_password"><p id="error_admin_user_password"></p></div>      								
+						</div>      		
+						<div class="input-signin-spacer"></div>
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:password_confirmation, 'Confirm Password', class: 'input-signin-label') %>					
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.password_field :password_confirmation, class: 'input-signin', :tabindex => '6' %>
+							</div>     
+							<div class="cell-error-archive" id="state_admin_user_password_confirmation"><p id="error_admin_user_password_confirmation"></p></div>      								
+						</div>      
+						<% end %>
+								
+						<div class="input-signin-spacer"></div>
+						<div class="row">
+							<div style="width: 100%; padding-left: 101px;">
+								<div class="cell-left-signin-admin-1">
+									<%= f.label(:admin, 'Admin', class: 'input-signin-label') %>							
+								</div>
+								<div class="cell-right-signin-admin-1">
+									<!-- <#%= f.text_field :admin, :class => "input-signin", :disabled => false %#> -->
+									<select id="admin_user_admin" name="admin_user[admin]" tabindex="7">
+										<option value="0">No</option>
+										<option value="1">Yes</option>
+									</select>		
+								</div>      
+								<div class="cell-error-archive"><p></p></div>
+							</div>	
+						</div>
+						<div class="input-signin-spacer"></div>
+						<div class="row">
+							<div style="width: 100%; padding-left: 101px;">
+								<div class="cell-left-signin-admin-1">
+									<%= f.label(:super_admin, 'Super Admin', class: 'input-signin-label') %>							
+								</div>
+								<div class="cell-right-signin-admin-1">
+									<!-- <#%= f.text_field :super_admin, :class => "input-signin", :disabled => false %#> -->	
+									<select id="admin_user_super_admin" name="admin_user[super_admin]" tabindex="8">
+										<option value="0">No</option>
+										<option value="1">Yes</option>
+									</select>		
+								</div>
+								<div class="cell-error-archive"><p></p></div>
+							</div>      	
+						</div>
+						<div class="input-signin-spacer"></div>
+						<div class="row">
+							<div class="cell-left-signin-admin">
+							</div>
+							<div class="cell-right-signin-admin">
+								<div style="height: 10px;"></div>
+								<%= f.submit "Update", class: 'signin-btn', :tabindex => '9' %>
+							</div>      	
+							<div class="cell-error-archive"><p></p></div>
+						</div>      		
+											
+						<% end %>
+						
+					</div>
+				</div>
+			</div>
+		</div>	
+	</div>
+
+
+	<script>
+
+		// function formValidate() {
+			// $("#form_admin_update").validate({
+				// submitHandler: function(form) {
+					// form.submit();
+				// },
+				// debug: true,
+				// onkeyup: false,
+				// focusCleanup: true,
+				// // invalidClass: "error",
+				// // validClass: "success",
+				// rules: {
+					// 'admin_user[name_first]': {
+						// required: true,
+						// minlength: 1,						
+						// maxlength: 30						
+					// },
+					// 'admin_user[name_first]': {
+						// required: true,
+						// minlength: 1,
+						// maxlength: 30												
+					// },
+					// 'admin_user[email]': {
+						// required: true,
+						// maxlength: 100,
+						// email: true
+					// },															
+					// 'admin_user[username]': {
+						// required: true,
+						// minlength: 1,
+						// maxlength: 30
+					// },
+					// 'admin_user[password]': {
+						// required: true,
+						// minlength: 4,
+						// maxlength: 50
+					// },
+					// 'admin_user[password_confirmation]': {
+						// equalTo: "#admin_user_password"
+					// }
+				// },
+				// invalidHandler: function(event, validator) {
+					// var errors = validator.numberOfInvalids();
+					// if (errors) {
+						// var message = errors == 1
+						// ? 'You missed 1 field'
+						// : 'You missed ' + errors + ' fields';
+						// $("div.errors p").html(message);
+						// $("div.errors").show();
+					// } else {
+						// $("div.errors").hide();
+					// }
+				// },				
+				// messages: {
+					// 'admin_user[name_first]': {
+						// required: "*",
+						// maxlength: "First name exceeds 30 characters"							
+					// },
+					// 'admin_user[name_last]': {
+						// required: "*",
+						// maxlength: "Last name exceeds 30 characters"							
+					// },
+					// 'admin_user[username]': {
+						// required: "*",
+						// minlength: "Username at least 2 characters",
+						// maxlength: "Username exceeds 15 characters"
+					// },
+					// 'admin_user[password]': {
+						// required: "*",
+						// minlength: "Password at least 4 characters long",
+						// maxlength: "Password exceeds 20 characters"
+					// },
+					// 'admin_user[password_confirmation]': {
+						// equalTo: "Passwords must match"
+					// },
+					// 'admin_user[email]': {
+						// required: "*",
+						// maxlength: "Email address exceeds 40 characters",
+						// email: "Please enter a valid email address"
+					// }										
+				// },
+				// errorContainer: $("div .error_label"),				
+				// errorPlacement: function(error, element) {
+					// error.insertAfter('#error_' + element.attr('id'));
+					// $('#' + element.attr('id')).removeClass('required').removeClass('success').addClass('error');
+					// //$('#label_' + element.attr('id')).removeClass('required-label').addClass('error-label');
+				// },
+				// // invalid: function(element) {
+					// // $('#' + element.attr('id')).removeClass('required').removeClass('success').addClass('error');
+					// // $('#label_' + element.attr('id')).removeClass('required-label').addClass('error-label');					
+				// // },
+				// // highlight: function(element) {
+					// // $('#' + element.attr('id')).removeClass('required').removeClass('success').addClass('error');
+					// // //$('#label_' + element.attr('id')).removeClass('required-label').addClass('error-label');
+				// // },
+				// // unhighlight: function(element) {
+					// // //$('#' + element.attr('id')).removeClass('required').removeClass('success').addClass('error');
+					// // //$('#label_' + element.attr('id')).removeClass('required-label').addClass('error-label');
+				// // },
+				// error: function(label) {
+					// $('#' + label.attr('for')).removeClass('required').removeClass('success').addClass('error');
+					// $('#label_' + label.attr('for')).removeClass('required-label').addClass('error-label');
+				// },
+				// success: function(label) {
+					// $('#' + label.attr('for')).removeClass('required').removeClass('error').addClass('success');
+					// $('#label_' + label.attr('for')).removeClass('error-label').addClass('required-label');
+					// $('#state_' + label.attr('for')).css ({			
+						// // background: 'url("/assets/submit_form_tick.png") no-repeat 0px 5px'
+					// });
+					// $('#error_' + label.attr('for')).html("");
+				// },				
+				// focus: function(element) {
+				 	// $('#' + element.attr('id')).removeClass('required').removeClass('error').removeClass('success').addClass('focus');
+				// }
+			// });
+			// $.validator.setDefaults({
+				// submitHandler: function() {
+					// form.submit();
+				// }
+				// //$('#user_username');
+				// // submitHandler: function() { alert("submitted!"); }
+				// // debug: true,
+				// // onkeyup: false,
+				// // focusCleanup: true,
+				// // errorClass: "invalid",
+				// // validClass: "success"
+			// });
+		// }
+
+		$(window).load( function() {
+		//$(document).ready(function(){
+
+			// formValidate();
+
+			var elmnt_1 = document.getElementById("admin_user_admin");
+			elmnt_1.selectedIndex = <%= @admin_user.admin %>;
+
+			var elmnt_2 = document.getElementById("admin_user_super_admin");
+			elmnt_2.selectedIndex = <%= @admin_user.super_admin %>;
+
+		});
+	
+	</script>

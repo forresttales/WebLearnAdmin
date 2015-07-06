@@ -44,24 +44,23 @@
 #  col_38     :string(300)
 #  col_39     :string(300)
 #  col_40     :string(300)
-#  col_41     :boolean          default(FALSE)
-#  col_42     :boolean          default(FALSE)
-#  col_43     :boolean          default(FALSE)
-#  col_44     :boolean          default(FALSE)
-#  col_45     :boolean          default(FALSE)
-#  col_46     :boolean          default(FALSE)
-#  col_47     :boolean          default(FALSE)
-#  col_48     :boolean          default(FALSE)
-#  col_49     :boolean          default(FALSE)
-#  col_50     :boolean          default(FALSE)
 #  created_at :datetime
 #  updated_at :datetime
+#  col_41     :integer          default(0)
+#  col_42     :integer          default(0)
+#  col_43     :integer          default(0)
+#  col_44     :integer          default(0)
+#  col_45     :integer          default(0)
+#  col_46     :integer          default(0)
+#  col_47     :integer          default(0)
+#  col_48     :integer          default(0)
+#  col_49     :integer          default(0)
+#  col_50     :integer          default(0)
 #
 
 class Mtablet < ActiveRecord::Base
   
   attr_accessible :id,
-                  :col_id,
                   :col_id,
                   :col_1,
                   :col_2,

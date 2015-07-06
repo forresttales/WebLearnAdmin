@@ -1,0 +1,726 @@
+<% @title = "Register Events Edit" %>
+
+	<style>
+	
+		#signin-page {
+			/*height: 800px;*/			
+		}
+	
+		#signin-page #signin-page-inner {
+		    width: 60%;
+		    margin: 0 auto;
+		}	
+
+		div .table-signin {
+			display: table;
+			/*background-color: #DEDB3C;*/
+			background-color: #BFBD47;
+			width: 700px;
+			border-radius: 20px;
+			border:2px solid #254520;
+			box-shadow: 1px 1px 10px #888888;
+			padding-top: 40px;
+			padding-bottom: 40px;
+			padding-left: 40px;
+		}
+	
+		.input-signin {
+			font-family: Arial, Helvetica, sans-serif;
+			color: #000;			
+			font-size: 16px;
+			width: 300px;
+			height: 24px;
+			border-style:solid;
+			border-radius: 4px;
+			background-color: #fff;
+			border-color: #000;
+			border-width: 1px;
+			padding-left: 6px;
+		}
+	
+		.input-signin:focus {
+			border-color: #3949C4;
+			color: #000;
+			-webkit-box-shadow: 0 0 10px #3949C4;
+			-moz-box-shadow: 0 0 10px #3949C4;
+			box-shadow: 0 0 10px #3949C4;
+		}
+
+		.input-signin:disabled {
+			border-color: #523401;
+			color: #523401;
+			background-color:#CCCBC8;
+		}
+			
+		.input-label-signin {
+			font-family: Arial, Helvetica, sans-serif;
+			color: #000;
+			font-size: 16px;
+			width: 220px;
+			height: 18px;
+		}
+
+		.input-label-signin:disabled {
+			font-family: Arial, Helvetica, sans-serif;
+			color: #523401;
+		}
+			
+		.input-signin-spacer {
+			height: 16px;
+		}
+			
+		div .cell-right-signin-admin {
+			display: table-cell;
+			width: 50%;
+			text-align: left;
+			align: top;		
+		}
+	
+		div .cell-left-signin-admin {
+			display: table-cell;
+			width: 36%;	
+			align: top;
+			text-align: right;		
+			padding-right: 20px;
+		}
+		
+		div .cell-submit-signin-admin {
+			display: table-cell;
+			width: 50%;
+			text-align: left;
+			align: top;		
+			padding-left: 0px;
+		}
+		
+		.signin-btn {
+		  
+		  	display: inline-block;
+		  	text-decoration: none; 
+		  	width: 308px;
+		  	height: 30px;
+		  	background: linear-gradient(#000, #000);
+		  	text-shadow: 1px 1px 1px #0E86B2; 
+		  	border-radius: 6px;
+		}
+	
+		.signin-btn:focus {
+		  background: #CCC; 
+		  color: #5F7A2A;
+		  box-shadow: inset 0 1px 0 rgba(200,200,200,0.2);
+		}
+		
+		.signin-btn:hover { 
+		  box-shadow: inset 0 1px 1px rgba(255,255,255,0.2), 
+		  inset 0 1.5em 1em rgba(255,255,255,0.3);
+		}
+		
+		.signin-btn:active { 
+		  box-shadow: inset 0 1px 1px rgba(255,255,255,0.2), 
+		  inset 0 1.5em 1em rgba(0,0,0,0.3); 
+		}
+		
+	</style>
+
+	<style>
+		
+		.cell-left-signin-admin-1 {
+    		display: table-cell;
+    		padding-right: 20px;
+    		text-align: right;
+    		width: 236px;				
+		}
+		.cell-right-signin-admin-1 {
+    		display: table-cell;
+    		padding-left: 0px;
+    		text-align: left;
+    		width: 100px;				
+		}
+		.input-signin-spacer-1 {
+			height: 4px;	
+		}
+		.row-container-1 {
+			width: 100%;
+			padding-left: 136px;	
+		}
+		.row-container-2 {
+			width: 100%;
+			padding-left: 88px;	
+		}
+		.row-container-3 {
+			width: 100%;
+			padding-left: 78px;	
+		}
+		
+	</style>
+
+
+	<div id="signin-page">
+		
+		<header>
+			<%= render 'share/backtotop' %>
+		</header>
+
+		<div style="height: 40px;"></div>
+		
+		<div id="signin-page-inner">
+			
+			<div class="table-signin">
+				<div class="row">
+					<div class="cell-100percent">
+
+  						<%= form_for(:admin_reg_commun, :url => {:action => 'update', :id => @admin_reg_commun.id}) do |f| %>
+					
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:id, 'ID', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :id, :class => "input-signin", :disabled => true %>	
+							</div>      	
+						</div>
+						<div class="input-signin-spacer"></div>
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:created_at, 'created_at', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :created_at, :class => "input-signin", :disabled => true %>	
+							</div>      	
+						</div>
+						<div class="input-signin-spacer"></div>
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:updated_at, 'updated_at', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :updated_at, :class => "input-signin", :disabled => true %>	
+							</div>      	
+						</div>
+						
+						
+						<div class="input-signin-spacer"></div>
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:name_first, 'First Name', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :name_first, :class => "input-signin", :disabled => false %>	
+							</div>      	
+						</div>
+						<div class="input-signin-spacer"></div>
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:name_last, 'Last Name', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :name_last, :class => "input-signin", :disabled => false %>	
+							</div>      	
+						</div>
+						<div class="input-signin-spacer"></div>
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:name_title, 'Title', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :name_title, :class => "input-signin", :disabled => false %>	
+							</div>      	
+						</div>
+						<div class="input-signin-spacer"></div>
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:name_affiliation, 'Affiliation Name', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :name_affiliation, :class => "input-signin", :disabled => false %>	
+							</div>      	
+						</div>
+						
+						<div class="input-signin-spacer"></div>
+						<div class="input-signin-spacer"></div>
+						<div class="row">
+							<div class="cell-left-signin-admin-1">
+								<%= f.label(:public_private, "Public or Private", :class => 'input-label required-label', :id => 'label_reg_commun_public_private') %>
+							</div>
+							<div class="cell-right-signin-admin-1">
+								<%= f.radio_button(:public_private, 'public') %><span>Public</span>
+								<%= f.radio_button(:public_private, 'private') %><span>Private</span>
+							</div>      
+						</div>
+						<div class="input-signin-spacer"></div>
+						<div class="input-signin-spacer"></div>
+
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:address, 'Address', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :address, :class => "input-signin", :disabled => false %>	
+							</div>      	
+						</div>
+						<div class="input-signin-spacer"></div>
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:city, 'City', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :city, :class => "input-signin", :disabled => false %>	
+							</div>      	
+						</div>
+						<div class="input-signin-spacer"></div>
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:state, 'State', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :state, :class => "input-signin", :disabled => false %>	
+							</div>      	
+						</div>
+						<div class="input-signin-spacer"></div>
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:phone, 'Phone', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :phone, :class => "input-signin", :disabled => false %>	
+							</div>      	
+						</div>
+						<div class="input-signin-spacer"></div>
+						<div class="row">
+							<div class="cell-left-signin-admin">
+								<%= f.label(:email, 'Email', class: 'input-signin-label') %>							
+							</div>
+							<div class="cell-right-signin-admin">
+								<%= f.text_field :email, :class => "input-signin", :disabled => false %>	
+							</div>      	
+						</div>
+						
+						
+						<div class="input-signin-spacer"></div>
+						<div class="input-signin-spacer"></div>
+						<div class="input-signin-spacer"></div>
+						
+						
+						<div style="margin-left: 20px;">
+							
+							<table id="table1" class="cb-table">
+								<tr class="cb-spacer"></tr>								
+								<tr>
+									<td>
+										<div id="cb_level_1" class="cb-button-test"></div>
+										<%= f.check_box :level_1 %>
+									</td>
+									<td>
+										<!-- <label id="label_level_1" class="input-label required-label label_cb" for="level_1" onclick="cb_level('1');" tabindex="14">Federal level</label> -->
+										<span id="label_level_1" class="input-label required-label label_cb" for="level_1" onclick="cb_level('1');" tabindex="14">Federal level</span>
+									</td>									
+								</tr>
+								<tr class="cb-spacer"></tr>
+								<tr>
+									<td>
+										<div id="cb_level_2" class="cb-button"></div>
+										<%= f.check_box :level_2 %>
+									</td>
+									<td>
+										<!-- <label id="label_level_2" class="input-label required-label label_cb" for="level_2" onclick="cb_level('2');" tabindex="15">State level</label> -->
+										<span id="label_level_2" class="input-label required-label label_cb" for="level_2" onclick="cb_level('2');" tabindex="15">State level</span>
+									</td>									
+								</tr>
+								<tr class="cb-spacer"></tr>
+								<tr>
+									<td>
+										<div id="cb_level_3" class="cb-button"></div>
+										<%= f.check_box(:level_3) %>
+									</td>
+									<td>
+										<!-- <label id="label_level_3" class="input-label required-label label_cb" for="level_3" onclick="cb_level('3');" tabindex="16">Regional Authority level</label> -->
+										<span id="label_level_3" class="input-label required-label label_cb" for="level_3" onclick="cb_level('3');" tabindex="16">Regional Authority level</span>
+									</td>									
+								</tr>
+								<tr class="cb-spacer"></tr>
+								<tr>
+									<td>
+										<div id="cb_level_4" class="cb-button"></div>
+										<%= f.check_box(:level_4) %>
+									</td>
+									<td>
+										<!-- <label id="label_level_4" class="input-label required-label label_cb" for="level_4" onclick="cb_level('4');" tabindex="17">District or Campus level senior management</label> -->
+										<span id="label_level_4" class="input-label required-label label_cb" for="level_4" onclick="cb_level('4');" tabindex="17">District or Campus level senior management</span>
+									</td>									
+								</tr>
+								<tr class="cb-spacer"></tr>
+								<tr>
+									<td>
+										<div id="cb_level_5" class="cb-button"></div>
+										<%= f.check_box(:level_5) %>
+									</td>
+									<td>
+										<!-- <label id="label_level_5" class="input-label required-label label_cb" for="level_5" onclick="cb_level('5');" tabindex="18">Department level within managment offices</label> -->
+										<span id="label_level_5" class="input-label required-label label_cb" for="level_5" onclick="cb_level('5');" tabindex="18">Department level within managment offices</span>
+									</td>									
+								</tr>
+								<tr class="cb-spacer"></tr>
+								<tr>
+									<td>
+										<div id="cb_level_6" class="cb-button"></div>
+										<%= f.check_box(:level_6) %>
+									</td>
+									<td>
+										<!-- <label id="label_level_6" class="input-label required-label label_cb" for="level_6" onclick="cb_level('6');" tabindex="19">School level senior management</label> -->
+										<span id="label_level_6" class="input-label required-label label_cb" for="level_6" onclick="cb_level('6');" tabindex="19">School level senior management</span>
+									</td>									
+								</tr>
+								<tr class="cb-spacer"></tr>
+								<tr>
+									<td>
+										<div id="cb_level_7" class="cb-button"></div>
+										<%= f.check_box(:level_7) %>
+									</td>
+									<td>
+										<!-- <label id="label_level_7" class="input-label required-label label_cb" for="level_7" onclick="cb_level('7');" tabindex="20">Department within School or Classroom level</label> -->
+										<span id="label_level_7" class="input-label required-label label_cb" for="level_7" onclick="cb_level('7');" tabindex="20">Department within School or Classroom level</span>
+									</td>									
+								</tr>
+								<tr class="cb-spacer"></tr>
+							</table>
+							
+						</div>
+							 						
+						<div style="height: 22px;"></div>						
+						<div style="margin-left: 20px;">
+							<label class="input-label required-label">OTHER:</label>
+							<div style="height: 6px;"></div>
+							<%= f.text_field(:level_other, :class => "input-form unrequired", :placeholder => 'OTHER', :tabindex => '21') %>					 
+						</div>
+
+						<div class="input-signin-spacer"></div>
+						<div class="input-signin-spacer"></div>
+
+						<div class="row">
+							<div class="cell-left-signin-admin-1">
+								Size of Institution
+							</div>
+							<div class="cell-right-signin-admin-1">
+
+								<%= f.select(:institution_size, options_for_select(
+									[['-Size of Institution-', 0], 
+									['Less than 2,000 students', 1],
+									['2,000-3,999 students', 2],
+									['4,000-5,999 students', 3],
+									['6,000-7,999 students', 4],
+									['8,000-10,000 students', 5],
+									['Greater than 10,000 students', 6],
+									['Dont know', 7]])) %>
+								
+							</div>      
+						</div>
+						
+						<div class="input-signin-spacer"></div>
+						
+						<div class="row">
+							<div class="cell-left-signin-admin-1">
+								Number of Employees
+							</div>
+							<div class="cell-right-signin-admin-1">
+
+								<%= f.select(:employee_number, options_for_select(
+									[['-Number of Employees-', 0], 
+									['Less than 500 employees', 1],
+									['500-999 employees', 2],
+									['1,000-2,999 employees', 3],
+									['3,000-5,999 employees', 4],
+									['6,000-8,999 employees', 5],
+									['9,000+ employees', 6]])) %>
+
+							</div>      
+						</div>
+						
+						<div class="input-signin-spacer"></div>
+						
+						<div class="row">
+							<div class="cell-left-signin-admin-1">
+								Sphere of Influence
+							</div>
+							<div class="cell-right-signin-admin-1">
+
+								<%= f.select(:characterize_decision, options_for_select(
+									[['-Sphere of Influence-', 0], 
+									['Influencer', 1],
+									['Recommender', 2],
+									['Decision Maker', 3],
+									['Budget Officer', 4],
+									['None of the above', 5]])) %>
+
+							</div>      
+						</div>
+
+						<div class="input-signin-spacer"></div>
+						<div class="input-signin-spacer"></div>
+						
+						<div style="margin-left: 20px;">
+							
+							<!-- 
+							1 Mostly overall administration
+							2 Some overall administration
+							3 Mostly curriculum management
+							4 Some overall curriculum management
+							5 Mostly technical management (devices, networks, programming, storage, back-end system maintenance, telecom services, etc.)
+							6 Some technical management
+							7 Mostly instructional design
+							8 Some instructional design
+							9 Mostly procurement
+							10 Some procurement
+							11 Other
+							-->
+							<table id="table1" class="cb-table">
+								<tr class="cb-spacer"></tr>								
+								<tr>
+									<td>
+										<div id="cb_characterize_area_1" class="cb-button"></div>
+										<%= f.check_box :characterize_area_1 %>
+									</td>
+									<td>
+										<!-- <label id="label_characterize_area_1" class="input-label required-label label_cb" for="characterize_area_1" onclick="cb_characterize_area('1');" tabindex="25">Mostly overall administration</label> -->
+										<span id="label_characterize_area_1" class="input-label required-label label_cb" for="characterize_area_1" onclick="cb_characterize_area('1');" tabindex="25">Mostly overall administration</span>
+									</td>									
+								</tr>
+								<tr class="cb-spacer"></tr>
+								<tr>
+									<td>
+										<div id="cb_characterize_area_2" class="cb-button"></div>
+										<%= f.check_box :characterize_area_2 %>
+									</td>
+									<td>
+										<!-- <label id="label_characterize_area_2" class="input-label required-label label_cb" for="characterize_area_2" onclick="cb_characterize_area('2');" tabindex="26">Some overall administration</label> -->
+										<span id="label_characterize_area_2" class="input-label required-label label_cb" for="characterize_area_2" onclick="cb_characterize_area('2');" tabindex="26">Some overall administration</span>
+									</td>									
+								</tr>
+								<tr class="cb-spacer"></tr>
+								<tr>
+									<td>
+										<div id="cb_characterize_area_3" class="cb-button"></div>
+										<%= f.check_box :characterize_area_3 %>
+									</td>
+									<td>
+										<!-- <label id="label_characterize_area_3" class="input-label required-label label_cb" for="characterize_area_3" onclick="cb_characterize_area('3');" tabindex="27">Mostly curriculum management</label> -->
+										<span id="label_characterize_area_3" class="input-label required-label label_cb" for="characterize_area_3" onclick="cb_characterize_area('3');" tabindex="27">Mostly curriculum management</span>
+									</td>									
+								</tr>
+								<tr class="cb-spacer"></tr>								
+								<tr>
+									<td>
+										<div id="cb_characterize_area_4" class="cb-button"></div>
+										<%= f.check_box :characterize_area_4 %>
+									</td>
+									<td>
+										<!-- <label id="label_characterize_area_4" class="input-label required-label label_cb" for="characterize_area_4" onclick="cb_characterize_area('4');" tabindex="28">Some overall curriculum management</label> -->
+										<span id="label_characterize_area_4" class="input-label required-label label_cb" for="characterize_area_4" onclick="cb_characterize_area('4');" tabindex="28">Some overall curriculum management</span>
+									</td>									
+								</tr>
+								<tr class="cb-spacer"></tr>								
+								<tr>
+									<td class="cb-align">
+										<div id="cb_characterize_area_5" class="cb-button"></div>
+										<%= f.check_box :characterize_area_5 %>
+									</td>
+									<td class="cb-pad">
+										<!-- <label id="label_characterize_area_5" class="input-label required-label label_cb" for="characterize_area_5" onclick="cb_characterize_area('5');" tabindex="29">
+											Mostly technical management (devices, networks, programming, storage, back-end system maintenance, telecom services, etc.)
+										</label> -->
+										<span id="label_characterize_area_5" class="input-label required-label label_cb" for="characterize_area_5" onclick="cb_characterize_area('5');" tabindex="29">
+											Mostly technical management (devices, networks, programming, storage, back-end system maintenance, telecom services, etc.)
+										</span>										
+									</td>									
+								</tr>
+								<tr class="cb-spacer"></tr>								
+								<tr>
+									<td>
+										<div id="cb_characterize_area_6" class="cb-button"></div>
+										<%= f.check_box :characterize_area_6 %>
+									</td>
+									<td>
+										<!-- <label id="label_characterize_area_6" class="input-label required-label label_cb" for="characterize_area_6" onclick="cb_characterize_area('6');" tabindex="30">Some technical management</label> -->
+										<span id="label_characterize_area_6" class="input-label required-label label_cb" for="characterize_area_6" onclick="cb_characterize_area('6');" tabindex="30">Some technical management</span>
+									</td>									
+								</tr>
+								<tr class="cb-spacer"></tr>								
+								<tr>
+									<td>
+										<div id="cb_characterize_area_7" class="cb-button"></div>
+										<%= f.check_box :characterize_area_7 %>
+									</td>
+									<td>
+										<!-- <label id="label_characterize_area_7" class="input-label required-label label_cb" for="characterize_area_7" onclick="cb_characterize_area('7');" tabindex="31">Mostly instructional design</label> -->
+										<span id="label_characterize_area_7" class="input-label required-label label_cb" for="characterize_area_7" onclick="cb_characterize_area('7');" tabindex="31">Mostly instructional design</span>
+									</td>									
+								</tr>
+								<tr class="cb-spacer"></tr>								
+								<tr>
+									<td>
+										<div id="cb_characterize_area_8" class="cb-button"></div>
+										<%= f.check_box :characterize_area_8 %>
+									</td>
+									<td>
+										<!-- <label id="label_characterize_area_8" class="input-label required-label label_cb" for="characterize_area_8" onclick="cb_characterize_area('8');" tabindex="32">Some instructional design</label> -->
+										<span id="label_characterize_area_8" class="input-label required-label label_cb" for="characterize_area_8" onclick="cb_characterize_area('8');" tabindex="32">Some instructional design</span>
+									</td>									
+								</tr>
+								<tr class="cb-spacer"></tr>								
+								<tr>
+									<td>
+										<div id="cb_characterize_area_9" class="cb-button"></div>
+										<%= f.check_box :characterize_area_9 %>
+									</td>
+									<td>
+										<!-- <label id="label_characterize_area_9" class="input-label required-label label_cb" for="characterize_area_9" onclick="cb_characterize_area('9');" tabindex="33">Mostly procurement</label> -->
+										<span id="label_characterize_area_9" class="input-label required-label label_cb" for="characterize_area_9" onclick="cb_characterize_area('9');" tabindex="33">Mostly procurement</span>
+									</td>									
+								</tr>
+								<tr class="cb-spacer"></tr>								
+								<tr>
+									<td>
+										<div id="cb_characterize_area_10" class="cb-button"></div>
+										<%= f.check_box :characterize_area_10 %>
+									</td>
+									<td>
+										<!-- <label id="label_characterize_area_10" class="input-label required-label label_cb" for="characterize_area_10" onclick="cb_characterize_area('10');" tabindex="34">Some procurement</label> -->
+										<span id="label_characterize_area_10" class="input-label required-label label_cb" for="characterize_area_10" onclick="cb_characterize_area('10');" tabindex="34">Some procurement</span>
+									</td>									
+								</tr>
+							</table>
+						</div>
+						
+						<div style="height: 22px;"></div>						
+						<div style="margin-left: 20px;">
+							<label class="input-label required-label">OTHER:</label>
+							<div style="height: 6px;"></div>
+							<%= f.text_field(:characterize_area_other, :class => "input-form unrequired", :placeholder => 'OTHER', :tabindex => '35') %>					 
+						</div>
+
+						<div class="input-signin-spacer"></div>
+						<div class="input-signin-spacer"></div>
+						<div class="input-signin-spacer"></div>
+
+						<div style="margin-left: 20px;">
+							
+							<!-- 
+							1 Individual Amazon or iTunes gift cards
+							2 Institutional Amazon or iTunes gift cards
+							3 Institution named-charity
+							4 Accrue my give-away for the LC’s scholarship fund for poorer schools or districts to be able to travel and attend the Gathering annual event
+							5 Opt-out of any contests or give-aways 
+							-->
+
+							<table class="cb-table">
+								<tr class="cb-spacer"></tr>								
+								<tr>
+									<td>
+										<div id="cb_survey_preferences_1" class="cb-button"></div>
+										<%= f.check_box :survey_preferences_1 %>
+									</td>
+									<td>
+										<!-- <label id="label_survey_preferences_1" class="input-label required-label label_cb" for="survey_preferences_1" onclick="cb_survey_preferences('1');" tabindex="36">Individual Amazon or iTunes gift cards</label> -->
+										<span id="label_survey_preferences_1" class="input-label required-label label_cb" for="survey_preferences_1" onclick="cb_survey_preferences('1');" tabindex="36">Individual Amazon or iTunes gift cards</span>
+									</td>									
+								</tr>
+								<tr class="cb-spacer"></tr>								
+								<tr>
+									<td>
+										<div id="cb_survey_preferences_2" class="cb-button"></div>
+										<%= f.check_box :survey_preferences_2 %>
+									</td>
+									<td>
+										<!-- <label id="label_survey_preferences_2" class="input-label required-label label_cb" for="survey_preferences_2" onclick="cb_survey_preferences('2');" tabindex="37">Institutional Amazon or iTunes gift cards</label> -->
+										<span id="label_survey_preferences_2" class="input-label required-label label_cb" for="survey_preferences_2" onclick="cb_survey_preferences('2');" tabindex="37">Institutional Amazon or iTunes gift cards</span>
+									</td>									
+								</tr>
+								<tr class="cb-spacer"></tr>								
+								<tr>
+									<td>
+										<div id="cb_survey_preferences_3" class="cb-button"></div>
+										<%= f.check_box :survey_preferences_3 %>
+									</td>
+									<td>
+										<!-- <label id="label_survey_preferences_3" class="input-label required-label label_cb" for="survey_preferences_3" onclick="cb_survey_preferences('3');" tabindex="38">Institution named-charity</label> -->
+										<span id="label_survey_preferences_3" class="input-label required-label label_cb" for="survey_preferences_3" onclick="cb_survey_preferences('3');" tabindex="38">Institution named-charity</span>
+									</td>									
+								</tr>
+								<tr class="cb-spacer"></tr>								
+								<tr>
+									<td class="cb-align">
+										<div id="cb_survey_preferences_4" class="cb-button"></div>
+										<%= f.check_box :survey_preferences_4 %>
+									</td>
+									<td class="cb-pad">
+										<!-- <label id="label_survey_preferences_4" class="input-label required-label label_cb" for="survey_preferences_4" onclick="cb_survey_preferences('4');" tabindex="39">
+											Accrue my give-away for the LC's scholarship fund for poorer schools or districts to be able to travel and attend the Gathering annual event
+										</label> -->
+										<span id="label_survey_preferences_4" class="input-label required-label label_cb" for="survey_preferences_4" onclick="cb_survey_preferences('4');" tabindex="39">
+											Accrue my give-away for the LC's scholarship fund for poorer schools or districts to be able to travel and attend the Gathering annual event
+										</span>
+									</td>									
+								</tr>
+								<tr class="cb-spacer"></tr>								
+								<tr>
+									<td>
+										<div id="cb_survey_preferences_5" class="cb-button"></div>
+										<%= f.check_box :survey_preferences_5 %>
+									</td>
+									<td>
+										<!-- <label id="label_survey_preferences_5" class="input-label required-label label_cb" for="survey_preferences_5" onclick="cb_survey_preferences('5');" tabindex="40">Opt-out of any contests or give-aways</label> -->
+										<span id="label_survey_preferences_5" class="input-label required-label label_cb" for="survey_preferences_5" onclick="cb_survey_preferences('5');" tabindex="40">Opt-out of any contests or give-aways</span>
+									</td>									
+								</tr>
+								<tr class="cb-spacer"></tr>								
+							</table>
+
+						</div>
+						
+						
+
+						<div class="input-signin-spacer"></div>
+						<div class="input-signin-spacer"></div>
+						      		
+						<div class="row">
+							<div class="cell-left-signin-admin">
+							</div>
+							<div class="cell-right-signin-admin">
+								<div style="height: 30px;"></div>
+								<%= f.submit "Update", class: 'signin-btn' %>
+							</div>      	
+						</div>      		
+											
+						<% end %>
+						
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>	
+		
+	</div>
+	
+	<div style="height: 100px;"></div>
+
+
+	<script>
+		
+		$(window).load( function() {
+		// $(document).ready(function(){
+
+			var e_1 = document.getElementById("admin_reg_commun_institution_size");
+			e_1.options[<%= @admin_reg_commun.institution_size %>].setAttribute('selected','selected')
+
+			var e_2 = document.getElementById("admin_reg_commun_employee_number");
+			e_2.options[<%= @admin_reg_commun.employee_number %>].setAttribute('selected','selected')
+
+			var e_3 = document.getElementById("admin_reg_commun_characterize_decision");
+			e_3.options[<%= @admin_reg_commun.characterize_decision %>].setAttribute('selected','selected')
+
+
+
+		});
+				
+	</script>
+
